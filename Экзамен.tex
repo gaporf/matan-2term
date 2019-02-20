@@ -16,9 +16,11 @@
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 
-\onehalfspacing
+\doublespacing
 
 \begin{document}
+
+\newcommand{\PG}[0]{\Pi\Gamma}
 
 \tableofcontents
 
@@ -30,118 +32,203 @@
 	
 	\section{Первообразная, неопределенный интеграл}
 	
-	\subsection{Первообразная}
+		\subsection{Первообразная}
 	
-		$f: \langle a, b \rangle \rightarrow \mathbb{R}$
+			$f: \langle a, b \rangle \rightarrow \mathbb{R}$
 	
-		$F: \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- первообразная $f$ на $\langle a, b \rangle$, если для любого $x \in \langle a, b \rangle$, $F$ ~--- дифференцируема в точке $x$, и $F'(x) = f(x)$.
+			$F: \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- первообразная $f$ на $\langle a, b \rangle$, если для любого $x \in \langle a, b \rangle$, $F$ ~--- дифференцируема в точке $x$, и $F'(x) = f(x)$.
 	
-		\underline{Пример}
+			\underline{Пример}
 	
-		$f(x) = \sin{x} \Leftrightarrow F(x) = -\cos{x} + C$
+			$f(x) = \sin{x} \Leftrightarrow F(x) = -\cos{x} + C$
 	
-	\subsection{Неопределенный интеграл}
+		\subsection{Неопределенный интеграл}
 	
-		Неопределенным интегралом функции $f$ на $\langle a, b \rangle$ называют множество всех её первообразных.
-		
-		Обозначение: $\int{f}$, $\int{f(x) dx} = \left\{ F + C, C \in \mathbb{R} \right\}$, где $F$ ~--- любая первообразная.
-		
-		\newpage
-		
-		\section{Теорема о существовании первообразной}
-		
-			Пусть $f$ непрерывна на $\langle a, b \rangle \Rightarrow$ существует такая функция $F$ на $\langle a, b \rangle$, что $F' = f$.
+			Неопределенным интегралом функции $f$ на $\langle a, b \rangle$ называют множество всех её первообразных.
 			
-			\textbf{Доказательство}
-			
-			В кредит
-			
-		\newpage
+			Обозначение: $\int{f}$, $\int{f(x) dx} = \left\{ F + C, C \in \mathbb{R} \right\}$, где $F$ ~--- любая первообразная.
 		
-		\section{Таблица первообразных}
+	\newpage
 		
+	\section{Теорема о существовании первообразной}
+		
+		Пусть $f$ непрерывна на $\langle a, b \rangle \Rightarrow$ существует такая функция $F$ на $\langle a, b \rangle$, что $F' = f$.
+		
+		\textbf{Доказательство}
+			
+		В кредит
+			
+	\newpage
+		
+	\section{Таблица первообразных}
+		
+		\begin{enumerate}
+			
+			\item $f(x) = k$, $F(x) = kx$
+				
+			\item $f(x) = x^n$, $F(x) = \frac{x^{n + 1}}{n + 1}$
+				
+			\item $f(x) = \frac{1}{x}$, $F(x) = \ln |x|$
+				
+			\item $f(x) = e^x$, $F(x) = e^x$
+				
+			\item $f(x) = a^x$, $F(x) = \frac{a^x}{\ln a}$
+				
+			\item $f(x) = \sin{x}$, $F(x) = -\cos{x}$
+				
+			\item $f(x) = \cos{x}$, $F(x) = \sin{x}$
+				
+			\item $f(x) = \frac{1}{\sin^2{x}}$, $F(x) = -\ctg{x}$
+				
+			\item $f(x) = \frac{1}{\cos^2{x}}$, $F(x) = \tg{x}$
+				
+			\item $f(x) = \frac{1}{\sqrt{1 - x^2}}$, $F(x) = \arcsin{x}$
+				
+			\item $f(x) = \frac{1}{1 + x^2}$, $F(x) = \arctg{x}$
+			
+			\item $f(x) = \frac{1}{\sqrt{x^2 + 1}} = \ln (x + \sqrt{x^2 + 1})$
+			
+				
+		\end{enumerate}
+			
+	\newpage
+		
+	\section{Равномерная непрерывность}
+		
+		Функция $f : \langle a, b \rangle \rightarrow \mathbb{R}$ равномерно непрерывна на $\langle a, b \rangle$, если:
+			
+		$\forall \varepsilon > 0$ $\exists \delta > 0$, $\forall x_0, x$ : $|x - x_0| < \delta$, $|f(x) - f(x_0)| < \varepsilon$
+			
+	\newpage
+		
+	\section{Площадь, аддитивность площади, ослабленная аддитивность}
+		
+		\subsection{Первое определение площади}
+			
+			Пусть $E$ ~--- множество всех ограниченных подмножество в $\mathbb{R}^2$ (или множество всех фигур).
+			
+			Тогда площадь ~--- это функция $\sigma$ : $E \rightarrow [0, +\infty)$ со свойствами:
+			
 			\begin{enumerate}
 			
-				\item $f(x) = k$, $F(x) = kx$
+				\item аддитивность
 				
-				\item $f(x) = x^n$, $F(x) = \frac{x^{n + 1}}{n + 1}$
+					Если $A = A_1 \sqcup A_2 \Rightarrow \sigma(A) = \sigma(A_1) + \sigma(A_2)$
 				
-				\item $f(x) = \frac{1}{x}$, $F(x) = \ln |x|$
+				\item нормировка
 				
-				\item $f(x) = e^x$, $F(x) = e^x$
-				
-				\item $f(x) = a^x$, $F(x) = \frac{a^x}{\ln a}$
-				
-				\item $f(x) = \sin{x}$, $F(x) = -\cos{x}$
-				
-				\item $f(x) = \cos{x}$, $F(x) = \sin{x}$
-				
-				\item $f(x) = \frac{1}{\sin^2{x}}$, $F(x) = -\ctg{x}$
-				
-				\item $f(x) = \frac{1}{\cos^2{x}}$, $F(x) = \tg{x}$
-				
-				\item $f(x) = \frac{1}{\sqrt{1 - x^2}}$, $F(x) = \arcsin{x}$
-				
-				\item $f(x) = \frac{1}{1 + x^2}$, $F(x) = \arctg{x}$
-				
+					$\sigma(\langle a, b \rangle \times \langle c, d \rangle) = (d - c)(b - a)$ 
+		
 			\end{enumerate}
 			
-		\newpage
-		
-		\section{Равномерная непрерывность}
-		
-			Функция $f : \langle a, b \rangle \rightarrow \mathbb{R}$ равномерно непрерывна на $\langle a, b \rangle$, если:
+			\underline{Замечание}
 			
-			$\forall \varepsilon > 0$ $\exists \delta > 0$, $\forall x_0, x$ : $|x - x_0| < \delta$, $|f(x) - f(x_0)| < \varepsilon$
+				Площадь монотонна, то есть если:	
 			
-		\newpage
-		
-		\section{Площадь, аддитивность площади, ослабленная аддитивность}
-		
-			\subsection{Первое определение площади}
+				$A \subset B \Rightarrow \sigma(A) \leq \sigma(B)$
 			
-				Пусть $E$ ~--- множество всех ограниченных подмножество в $\mathbb{R}^2$ (или множество всех фигур).
-			
-				Тогда площадь ~--- это функция $\sigma$ : $E \rightarrow [0, +\infty)$ со свойствами:
-			
-				\begin{enumerate}
-			
-					\item аддитивность
+				$\sigma($вертикального отрезка$) = 0$
 				
-						Если $A = A_1 \sqcup A_2 \Rightarrow \sigma(A) = \sigma(A_1) + \sigma(A_2)$
-				
-					\item нормировка
-				
-						$\sigma(\langle a, b \rangle \times \langle c, d \rangle) = (d - c)(b - a)$ 
-		
-				\end{enumerate}
+		\subsection{Второе определение площади}
 			
-				\underline{Замечание}
-			
-					Площадь монотонна, то есть если:	
-			
-					$A \subset B \Rightarrow \sigma(A) \leq \sigma(B)$
-			
-					$\sigma($вертикального отрезка$) = 0$
+			$\sigma : E \rightarrow [0, +\infty)$
 				
-			\subsection{Второе определение площади}
-			
-				$\sigma : E \rightarrow [0, +\infty)$
+			\begin{itemize}
 				
-				\begin{itemize}
-				
-					\item монотонна
+				\item монотонна
 					
-					\item нормировка
+				\item нормировка
 					
-					\item ослабленная аддитивность:
+				\item ослабленная аддитивность:
 					
-						$E = E_1 \cup E_2$, $E_1 \cap E_2$ ~--- вертикальный отрезок, $E_1$ и $E_2$ ~--- по разные стороны этого отрезка.
+					$E = E_1 \cup E_2$, $E_1 \cap E_2$ ~--- вертикальный отрезок, $E_1$ и $E_2$ ~--- по разные стороны этого отрезка.
 					
-						$\sigma(E) = \sigma(E_1) + \sigma(E_2)$
+					$\sigma(E) = \sigma(E_1) + \sigma(E_2)$
 						
-				\end{itemize}
-				
+			\end{itemize}
+	
+	\newpage
+	
+	\section{Положительная и отрицательная срезки}
+	
+	    \subsection{Определение}
+	    
+	        Пусть $f : \langle a, b \rangle \rightarrow \mathbb{R}$
+	    
+	        $f_+ (x) = \max (f(x), 0)$ ~--- положительная срезка
+	    
+	        $f_- (x) = \max (-f(x), 0)$ ~--- отрицательная срезка
+	    
+	    \subsection{Некоторые свойства}
+	    
+	        \begin{itemize}
+	    
+	            \item $f = f_+ - f_-$
+	        
+	            \item $f_+ + f_- = |f|$
+	        
+	        \end{itemize}
+	    
+	    \subsection{Подграфик}
+	    
+            Пусть $E \subset \langle a, b \rangle$
+        
+            $f(E) \geq 0$
+        
+            Тогда $\PG(f, E)$ ~--- подграфик $f$ на $E$, если:
+        
+	        $\PG (f, E) = \left\{ (x, y) \in \mathbb{R}^2, x \in F, 0 \leq y \leq f(x) \right\}$
+	    
+	\newpage
+
+	\section{Определённый интеграл}
+
+        \subsection{Определение}
+        
+            Определённым интегралом функции $f$ по промежутку $[a, b]$ называется: $f: \langle c, d \rangle \rightarrow \mathbb{R}$, $[a, b] \subset \langle c, d \rangle$
+        
+            $\int^b_a f(x)dx = \sigma (\PG (f_+, [a, b])) - \sigma (\PG (f_-, [a, b]))$
+		
+		\subsection{Замечание}
+		
+		    \begin{enumerate}
+		    
+		        \item $f \geq 0 \Rightarrow \int^b_a f \geq 0$
+		        
+		    	\item $f \equiv c \Rightarrow \int^b_a f = c(b - a)$
+		        
+		        	$c = 0$ ~--- очевидно
+		            
+		            $c > 0$ $\int^b_a = \sigma(\PG(c, [a, b])) = c(b - a)$
+		            
+		            $c < 0$ $\int^b_a = -\sigma(\PG(f_-, [a, b])) = -(-c)(b - a) = c(b - a)$
+		            
+		       \item $\int^b_a -f = - \int^b_a f$
+		       
+		       		$(-f)_+ = f_-$
+		       		
+		       		$(-f)_- = f_+$
+		       		
+		       \item Можно считать, что разрешён случай, когда $a = b$
+		       
+		       		$\int^b_a f = 0$
+		       				
+		    \end{enumerate}
+
+	\newpage
+
+	\section{Кусочно-непрерывная функция}
+	
+		Пусть $f$ всюду непрерывна на $[a, b]$ кроме конечного числа точек, все точки разрыва I рода. Тогда $f$ называют кусочно-непрерывной функцией.
+		
+	\newpage
+	
+	\section{Почти первообразная}
+	
+		Пусть $f$ ~--- кусочно-непрерывная функция на $[a, b]$. Тогда $F : [a, b] \rightarrow \mathbb{R}$ ~--- почти первообразная, если
+		
+		$\exists F'(x)$, $F'(x) = f(x)$ для всех $x$ кроме конечного числа точек и $F(x)$ ~--- непрерывна на $[a, b]$
+		
 \newpage
 	
 \part{Теоремы}
@@ -310,4 +397,220 @@
 			\item $(fg)' = f'g + fg'$, т.е. $fg = \int f'g + \int fg'$
 			
 		\end{enumerate}
+		
+	\newpage
+	
+	\section{Интегрирование неравенств. Теорема о среднем}
+	
+		\subsection{Интегрирование неравенств}
+		
+			Пусть $f$, $g \in C[a, b]$, $f \leq g \Rightarrow \int\limits^b_a f \leq \int\limits^b_a g$
+			
+			Если $0 \leq f \leq g$
+			
+			$\int\limits^b_a f = \sigma (\PG (f, [a, b])) \leq \sigma (\PG (g, [a, b])) = \int\limits^b_a g$
+			
+			В общем случае
+			
+			$\PG(f_+, [a, b]) \subset \PG(g_+, [a, b])$
+			
+			$\PG(f_-, [a, b]) \supset \PG(g_-, [a, b])$
+			
+			$\sigma (\PG(f_+, [a, b])) - \sigma (\PG(f_-, [a, b])) \leq \sigma (\PG(g_+, [a, b])) - \sigma (\PG(g_-, [a, b]))$
+			
+			$\int\limits^b_a f \leq \int^b_a g$
+			
+		\subsection{Теорема о среднем значении}
+		
+			Пусть $f$ непрерывна на $[a, b] \Rightarrow \exists c \in [a, b]: \int\limits^b_a f = f(c)(b-a)$
+		
+		\subsection{Доказательство 1}
+		
+			Просто берём прямую и двигаем её сверху вниз, тем самым по теореме о бутерброде мы найдём такое значение $c$, что $\int\limits^b_a f = f(c)(b - a)$
+			
+		\subsection{Нормальное доказательство}
+		
+			Если $a = b$ ~--- очевидно.
+			
+			Пусть $a < b$
+			
+			$\min f \leq \frac{1}{b - a} \int\limits^b_a f \leq \max f$
+			
+			по теореме о промежуточном значении
+			
+			$\exists c : \frac{1}{b - a} \int\limits^b_a f = f(c)$
+			
+	\newpage
+	
+	\section{Теорема Барроу}
+	
+		\subsection{Определение}
+		
+			$f \in C[a, b]$, $\varphi : [a, b] \rightarrow \mathbb{R}$
+		
+			$\varphi (x) = \int\limits^x_a f(t)dt$
+		
+			Интеграл с верхним переменным пределом
+		
+		\subsection{Теорема (Барроу)}
+		
+			В условиях определения оказывается, что $\varphi$ ~--- диффиринцируема на $[a, b]$ и $\varphi'(x) = f(x) \ \forall x \in [a, b]$
+		
+		\subsection{Доказательство}
+		
+			Фиксируем $x$ и при $y > x$
+		
+			$\lim\limits_{y \rightarrow x + 0} \frac{\varphi(y) - \varphi(x)}{y - x} = \lim\limits_{y \rightarrow x + 0} \frac{1}{y - x} ( \int\limits^y_a f - \int\limits^x_a f) = \lim\limits_{y \rightarrow x + 0} \frac{1}{y - x} \int\limits^y_x f = \lim\limits_{y \rightarrow x + 0} f(c) = f(x)$
+		
+			$\exists c \in [x, y]$
+		
+			Аналогично доказываем, что $\lim\limits_{y \rightarrow x - 0} = \ldots = f(c)$
+		
+		\subsection{Замечания}
+		
+			\begin{itemize}
+			
+				\item Интеграл с нижним переменным пределом
+				
+					$\psi(x) = \int\limits^b_x f$. Тогда $\psi'(x) = -f$
+					
+				\item Эта теорема также доказывает теорему о существовании производной
+				
+			\end{itemize}
+			
+	\newpage
+	
+	\section{Формула Ньютона-Лейбница, в том числе, для кусочно-непрерывных функций}
+	
+		\subsection{Формулировка теоремы}
+		
+			Пусть $f$ непрерывна на $[a, b]$, $F$ ~--- первообразная $f$. 
+		
+			Тогда $\int\limits^b_a f = F(b) - F(a)$
+		
+		\subsection{Доказательство}
+		
+			$\varphi$ ~--- из теоремы Барроу ~--- тоже первообразная, значит
+			
+			$\exists c$ $F = \varphi + c$
+			
+			$\int\limits^b_a f = \varphi(b) = \varphi(b) - \varphi(a) = (\varphi + c) \bigg|_{x = b} - (\varphi + c) \bigg|_{x = a} = F(b) - F(a)$
+			
+			$\int\limits^b_a f = F(b) - F(a)$
+			
+			При $a > b$ $\int\limits^b_a f \stackrel{\mathrm{def}}{=} - \int\limits^a_b f$
+			
+	\newpage
+	
+	\section{Свойства определенного интеграла: линейность, интегрирование по частям, замена переменных}
+	
+		\subsection{Линейность определенного интеграла}
+		
+			$f, g \in C[a, b]$, $\alpha$, $\beta \in \mathbb{R}$
+			
+			$\int\limits^b_a \alpha f + \beta g = \alpha \int\limits^b_a f + \beta \int\limits^b_a g$
+			
+			Следует из формулы Ньютона-Лейбница
+			
+			$\int\limits^b_a f = F(b) - F(a) = F(x) \bigg|^b_a$
+			
+			$F$, $G$ $\alpha F + \beta G$ ~--- первообразная $\alpha f + \beta g$
+			
+			$\alpha F(x) + \beta G(x) \bigg|^b_a = \alpha F(b) + \beta G(b) - \alpha F(a) - \beta G(a) = \alpha (F(b) - F(a)) + \beta (G(b) - G(a)) = \alpha \int\limits^b_a f + \beta \int\limits^b_a g$
+			
+		\subsection{Интегрирование по частям}
+		
+			$f, y \in C^{}[a, b]$. Тогда
+			
+			$\int\limits^b_a f g' = fg \bigg|^b_a - \int\limits^b_a f'g$
+			
+			Следует из свойств для неопределенного интеграла
+			
+			$\int\limits^b_a f g' = (\int f g') \bigg|^b_a = (fg - \int f' g) \bigg|^b_a = fg \bigg|^b_a - \int\limits^b_a f'g$
+			
+	\newpage
+	
+	\section{Интегральное неравенство Чебышева. Неравенство для сумм}
+	
+		\subsection{Формулировка}
+		
+			$I_f = \frac{1}{b - a} \int\limits^b_a f$
+		
+			$f, g \in C[a, b]$ ~--- монотонно возрастают
+			
+			Тогда $I_f \cdot I_y \leq I_{fg}$
+		
+			$\int\limits^b_a f \cdot \int\limits^b_a g \leq (b - a) \int\limits^b_a fg$ ~--- неравенство Чебышева
+		
+		\subsection{Доказательство}
+		
+			$\forall x, y \in [a, b]$ $(f(x) - f(y))(g(x)-g(y)) \geq 0$
+			
+			Проинтегрируем по переменной $x$ по отрезку $[a, b]$
+			
+			$f(x)g(x) - f(y)g(x) - f(x)g(y) + f(y)g(y) \geq 0$
+			
+			$I_{fg} - f(y)I_g - I_f g(y) + f(y)g(y) \geq 0$
+			
+			Интегрируем по $y$ на $[a, b] : \frac{1}{b - a} \int\limits^b_a$
+			
+			$I_{fg} - I_f \cdot I_g - I_f \cdot I_g + I_{fg} \geq 0$
+			
+			$I_{fg} \geq I_f \cdot I_g$
+	
+	\newpage
+	
+	\section{Иррациональность числа $\pi$}
+	
+		\subsection{Вспомогательный интеграл}
+		
+			Пусть $H_n = \frac{1}{n!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} (\frac{\pi^2}{4}-t^2)^n \ \cos t \ dt$
+			
+			$H_n = \begin{bmatrix} f = (\frac{\pi^2}{4} - t^2)^n & g = \sin t \\ f' = -2nt (\frac{\pi^2}{4} - t^2)^{n - 1} & g' = -\cos t \end{bmatrix}$
+			
+			$H_n = \frac{1}{n!} (\frac{\pi^2}{4} - t^2)^n \sin t \bigg|^{\frac{\pi}{2}}_{-\frac{\pi}{2}} + \frac{1}{n!} 2n \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} t (\frac{\pi^2}{4}-t^2)^{n - 1} \sin t \ dt$
+			
+			$H_n = \frac{1}{n!} 2n \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} t (\frac{\pi^2}{4}-t^2)^{n - 1} \sin t \ dt$
+			
+			$H_n = \begin{bmatrix} f = t (\frac{\pi^2}{4} - t^2)^{n - 1} & g = -\cos t \\ f' = (\frac{\pi^2}{4} - t^2)^{n - 1} - 2(n - 1)t^2(\frac{\pi^2}{4} - t^2)^{n - 2} & g' = \sin t \end{bmatrix}$
+			
+			$f' = (\frac{\pi^2}{4} - t^2)^{n - 1} + 2(n - 1)(\frac{\pi^2}{4} - t^2)^{n - 1} - \frac{\pi^2}{2} (n - 1) (\frac{\pi^2}{4} - t^2)^{n - 2}$
+			
+			$f' = (2n - 1)(\frac{\pi^2}{4} - t^2)^{n - 1} - \frac{\pi^2}{2}(n - 1)(\frac{\pi^2}{4}-t^2)^{n - 2}$
+			
+			$\frac{2}{(n - 1)!} t (\frac{\pi^2}{4} - t^2)^{n - 1} (-\cos t) \bigg|^{\frac{\pi}{2}}_{-\frac{\pi}{2}} - \frac{2}{(n - 1)!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} ( (2n - 1)(\frac{\pi^2}{4} - t^2)^{n - 1} - \frac{\pi^2}{2} (n - 2) (\frac{\pi^2}{4} - t^2)^{n - 2}) \cos t \ dt$
+			
+			Пусть $n \geq 2$, тогда
+			
+			$H_n = (4n - 2) H_{n - 1} - \pi^2 H_{n - 2} = \ldots + H_2 + \ldots + H_0$
+			
+			$H_0 = 2$
+			
+			$H_1 = 2 \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} \frac{t}{f} \frac{g'}{\sin t} = 2t (- \cos t)\bigg|^{\frac{\pi}{2}}_{-\frac{\pi}{2}} + 2 \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} \cos t \ dt = 4$
+			
+		\subsection{Теорема}
+		
+			Число $\pi^2$ ~--- иррациональное (и тогда $\pi$ тоже)
+			
+		\subsection{Доказательство}
+		
+			Пусть $\frac{1}{n!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} (\frac{\pi^2}{4} - t^2)^n \cos t = P_n (\pi^2)$, где $P_n$ ~--- многочлен с целыми коэффициентами.
+			
+			$\deg P \leq n$
+			
+			Этого не может быть
+			
+			\underline{От противного}
+			
+			Пусть $\pi^2 = \frac{m}{k} \in \mathbb{Q}$. Тогда $k^n P_n(\frac{m}{k})$ ~--- целое число
+			
+			Значит $k^n \cdot P_n (\frac{m}{k}) \geq 1$, т.е.
+			
+			$\frac{k^n}{n!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} (\frac{\pi^2}{4} - t^2)^n \cos t \ dt \geq 1$
+			
+			$\frac{k^n}{n!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} (\frac{\pi^2}{4} - t^2)^n \cos t \ dt \leq \frac{k^n}{n!} (\frac{\pi^2}{4})^n \cdot \pi \xrightarrow[n \rightarrow +\infty]{} 0$
+			
+			
+			 
+			
 \end{document}
