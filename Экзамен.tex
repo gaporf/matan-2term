@@ -25,6 +25,7 @@
 
 \newcommand{\PG}[0]{\Pi\Gamma}
 \newcommand{\Segm}[0]{\mathrm{Segm} $\ $}
+\newcommand{\diam}[0]{\mathrm{diam} $\ $}
 
 \tableofcontents
 
@@ -90,7 +91,7 @@
 				
 			\item $f(x) = \frac{1}{1 + x^2}$, $F(x) = \arctg{x}$
 			
-			\item $f(x) = \frac{1}{\sqrt{x^2 + 1}} = \ln~(x + \sqrt{x^2 + 1})$
+			\item $f(x) = \frac{1}{\sqrt{x^2 \pm 1}} = \ln~(x + \sqrt{x^2 \pm 1})$
 			
 			\item $f(x) = \frac{1}{1 - x^2} = \frac{1}{2} \ln{\left| \frac{1+x}{1-x} \right|}$
 				
@@ -102,7 +103,7 @@
 		
 		Отображение $f : X \rightarrow Y$, где $X$ и $Y$ ~--- метрические пространства, а также $A \subset X$, называется равномерно непрерывным на $A$, если:
 			
-		$\forall \varepsilon > 0~~\exists \delta > 0{,}~~\forall x_0{,}~x \in A$ : $\rho(x - x_0) < \delta \Longrightarrow \rho(f(x) - f(x_0)) < \varepsilon$
+		$\forall \varepsilon > 0~~\exists \delta > 0{,}~~\forall x_0{,}~x \in A$ : $\rho(x, x_0) < \delta \Longrightarrow \rho(f(x), f(x_0)) < \varepsilon$
 			
 	\newpage
 		
@@ -334,7 +335,7 @@
             
             Покоординатно: $\dfrac{\gamma_i(t) - \gamma_i(t_0)}{t - t_0} \rightarrow \gamma'_i(t)$
         
-            $\gamma'(t_0) = \left( \gamma'_1(t_0), \ \gamma'_2(t_0), \ \ldots, \ \gamma'_n(t_0) \right)$
+            $\gamma'(t_0) = \left( \gamma'_1(t_0), \ \gamma'_2(t_0), \ \ldots, \ \gamma'_n(t_0) \right)$ ~--- вектор скорости в точке $t_0$
         
         \subsection{Носитель пути}
         
@@ -433,13 +434,15 @@
     
         Пусть $f: [a, b] \rightarrow \mathbb{R}$ ~--- это <<путь>>
         
+        Рассмотрим все такие $x$, что
+        
         $a = x_0 < x_1 < x_2 < \ldots < x_n = b$
         
         Тогда вариация $f$ на $[a, b]$
         
         $\mathrm{Var}^b_a f = \sup \sum\limits^n_{i = 1} \left( \left| f(x_i) - f(x_{i - 1}) \right| \right)$
         
-        При этом $f \in C^1 \left([a, b]\right)$ и $\mathrm{Var}^b_a f = \int\limits^b_a |f'(t)| dt$
+        При этом если $f \in C^1 \left([a, b]\right)$, то $\mathrm{Var}^b_a f = \int\limits^b_a |f'(t)| dt$
         
     \newpage
     
@@ -487,7 +490,7 @@
         
             Верхний предел $x_n$ ~--- $\varlimsup\limits_{n \rightarrow +\infty} x_n = \lim\limits_{n \rightarrow +\infty} \sup x_n := \lim y_n \in \mathbb{\overline{R}}$
             
-            Нижний предел $x_n$ ~--- $\varliminf\limits_{n \rightarrow +\infty} x_n = \lim\limits_{n \rightarrow +\infty} \inf x_n := \lim x_n \in \mathbb{\overline{R}}$
+            Нижний предел $x_n$ ~--- $\varliminf\limits_{n \rightarrow +\infty} x_n = \lim\limits_{n \rightarrow +\infty} \inf x_n := \lim z_n \in \mathbb{\overline{R}}$
 \newpage
 	
 \part{Теоремы}
@@ -741,7 +744,7 @@
 		
 		\subsection{Теорема (Барроу)}
 		
-			В условиях определения оказывается, что $\varphi$ ~--- диффиринцируема на $[a, b]$ и $\varphi'(x) = f(x)$ для любого $x \in [a, b]$
+			В условиях определения оказывается, что $\varphi$ ~--- дифференцируема на $[a, b]$ и $\varphi'(x) = f(x)$ для любого $x \in [a, b]$
 		
 		\subsection{Доказательство}
 		
@@ -771,7 +774,7 @@
 	
 		\subsection{Формулировка теоремы}
 		
-			Пусть $f$ кусочно-непрерывна на $[a, b]$, $F$ ~--- первообразная $f$. 
+			Пусть $f$ непрерывна (кусочно-непрерывна) на $[a, b]$, $F$ ~--- (почти) первообразная $f$. 
 		
 			Тогда $\int\limits^b_a f = F(b) - F(a)$
 		
@@ -817,7 +820,7 @@
 		
 			\subsubsection{Формулировка}
 			
-                $f, g \in C^{}[a, b]$. Тогда
+                $f, g \in C^{1}[a, b]$. Тогда
 			
                 $\int\limits^b_a f g' = fg \bigg|^b_a - \int\limits^b_a f'g$
 			
@@ -1025,7 +1028,7 @@
 		
 			Пусть $f$, $g : D \rightarrow \mathbb{R}$, $a$ ~--- предельная точка $D \subset \mathbb{R}$, $a \in \overline{\mathbb{R}}$
 		
-			Пусть также существует $U(a) : f(a) \neq 0$ и $g(a) \neq 0$ в $\dot{U}(a)$
+			Пусть также существует $U(a) : f \neq 0$ и $g \neq 0$ в $\dot{U}(a)$
 		
 			Пусть $\lim\limits_{x \rightarrow a} f(x) = 0$ и $\lim\limits_{y \rightarrow a} g(x) = 0$ (Также возможен вариант, что $\lim\limits_{x \rightarrow a} f(x) = + \infty$ и $\lim\limits_{y \rightarrow a} g(x) = +\infty$)
 			
@@ -1123,7 +1126,7 @@
 			
 			$\lim\limits_{n \rightarrow +\infty} \frac{x_n}{y_n} = \left[ \frac{0}{0} \right]$
 			
-			Тогда если существует $\lim\limits_{n \rightarrow +\infty} \frac{x_n - x_{n - 1}}{y_n - y{n - 1}} = a \in [0, +\infty]$
+			Тогда если существует $\lim\limits_{n \rightarrow +\infty} \frac{x_n - x_{n - 1}}{y_n - y_{n - 1}} = a \in [0, +\infty]$
 			
 			Также $y_n$ ~--- строго монотонна (если $a = 0$, то $x_n$ ~--- тоже строго монотонна)
 			
@@ -1296,7 +1299,7 @@
 
 			Тогда 
 
-			$\left| \sum\limits^n_{i = 1} f \left( \frac{x_i + x_{i - 1}}{2} \right) (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| \leq \frac{\delta^2}{8} \cdot \int\limits^b_a (f'')$
+			$\left| \sum\limits^n_{i = 1} f \left( \frac{x_i + x_{i - 1}}{2} \right) (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| \leq \frac{\delta^2}{8} \cdot \int\limits^b_a |f''|$
 
 		\subsection{Доказательство}
 
@@ -1340,7 +1343,7 @@
 
 			$m, n \in \mathbb{Z} \ f \in C^2[m, n]$. Тогда
 
-			$\int\limits^n_m f(x) \ dx = (\sum\limits^n_{i = m})^{\triangledown} f(i) - \frac{1}{2} \int^n_m f''(x) \left\{ x \right\} (1 - \left\{ x \right\}) \ dx$
+			$\int\limits^n_m f(x) \ dx = (\sum\limits^n_{i = m})^{\triangledown} f(i) - \frac{1}{2} \int\limits^n_m f''(x) \left\{ x \right\} (1 - \left\{ x \right\}) \ dx$
 
 			Очевидно$^{TM}$, что это формула трапеции.
 
@@ -1352,7 +1355,9 @@
     
     \section{Асимптотика степенных сумм}
         
-        $1^p + 2^p + \ldots + n^p = \int\limits^n_a x^p dx + \dfrac{n^p + 1}{2} + \dfrac{1}{2} \int\limits^n_1 (x^p)'' \left\{ x \right\} (1 - \left\{ x \right\}) dx$
+        $f(x) = x^p$
+        
+        $1^p + 2^p + \ldots + n^p = \int\limits^n_1 x^p dx + \dfrac{n^p + 1}{2} + \dfrac{1}{2} \int\limits^n_1 (x^p)'' \left\{ x \right\} (1 - \left\{ x \right\}) dx$
             
         $1^p + 2^p + \ldots + n^p = \dfrac{n^{p + 1}}{p + 1} - \dfrac{1^{p + 1}}{p + 1} + \dfrac{n^p}{2} + \dfrac{1}{2} + \dfrac{p(p - 1)}{2} \int\limits^n_1 x^{p - 2} \left\{ x \right\} (1 - \left\{ x \right\})$
             
@@ -1380,7 +1385,7 @@
     
         \subsection{Формулировка}
         
-            $\lim\limits_{n \rightarrow \infty} \left( \dfrac{(2n)!!}{(2n - 1)!!} \right)^2 \cdot \dfrac{1}{2n + 1} = \dfrac{\pi}{2}$
+            $\lim\limits_{n \rightarrow \infty} \left( \dfrac{(2n)!!}{(2n - 1)!!} \right)^2 \cdot \dfrac{1}{2n} = \dfrac{\pi}{2}$
             
         \subsection{Доказательство}
         
@@ -1420,7 +1425,7 @@
     
         \subsection{Формулировка}
         
-            $n! \sim n^n e^{-n} \sqrt{2 \pi n}$
+            $n! \sim n^n e^{-n} \sqrt{2 \pi n}$ при $n \rightarrow +\infty$
             
         \subsection{Доказательство}
         
@@ -1438,7 +1443,7 @@
     
         \subsection{Формулировка}
         
-            Пусть заданы $f$ и $\phi$, $f$ ~--- непрерывна, $\phi$ ~--- аддитивная функция промежутка, $f$ ~--- плотность $\phi$
+            Пусть заданы $f$ и $\phi$ на $\langle a, b \rangle$, $f$ ~--- непрерывна, $\phi$ ~--- аддитивная функция промежутка, $f$ ~--- плотность $\phi$
             
             Тогда $\forall [p, q] \subset \langle a, b \rangle \ \phi([p, q]) = \int\limits^q_p f(x) \ dx$
             
@@ -1600,7 +1605,7 @@
         
             Пусть $G$ ~--- замкнутая выпуклая фигура в $\mathbb{R}^2$
             
-            $diam G < 1$ ($diam G = \sum\limits_{x, y \in G} \rho(x, y)$)
+            $\diam G < 1$ ($\diam G = \sup\limits_{x, y \in G} \rho(x, y)$)
             
             Тогда $\sigma(G) \leq \frac{\pi}{4}$
             
@@ -1917,7 +1922,7 @@
             
             Пусть также $f$, $g \in C[a, b]$ и $f, g \geq 0$ на $[a, b]$. Тогда
             
-            $\int\limits^b_a |fg| \leq (\int\limits^b_a |f|^p)^{\frac{1}{p}} (\int\limits^b_a |g|^q)^{\frac{1}{q}}$
+            $\int\limits^b_a fg \leq \left(\int\limits^b_a f^p\right)^{\frac{1}{p}} \left(\int\limits^b_a g^q\right)^{\frac{1}{q}}$
             
         \subsection{Доказательство}
         
@@ -2019,7 +2024,7 @@
                     
                 \item $t_n \rightarrow l > 0, l \in \mathbb{R}$ 
                 
-                    $\varlimsup(x_n + t_n) = l \cdot \varlimsup x_n$
+                    $\varlimsup(x_n \cdot t_n) = l \cdot \varlimsup x_n$
                 
             \end{enumerate}
             
