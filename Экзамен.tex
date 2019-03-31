@@ -14,17 +14,21 @@
 \usepackage[unicode, pdftex]{hyperref}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{mathtools}
 \graphicspath{ {./images/} }
 
 \doublespacing
 
+\everymath{\displaystyle}
+
 \begin{document}
 
 \newcommand{\PG}[0]{\Pi\Gamma}
+\newcommand{\Segm}[0]{\mathrm{Segm} $\ $}
 
 \tableofcontents
 
-\newpage
+\newpage 
 
 \part{Определения}
 
@@ -36,23 +40,23 @@
 	
 			$f: \langle a, b \rangle \rightarrow \mathbb{R}$
 	
-			$F: \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- первообразная $f$ на $\langle a, b \rangle$, если для любого $x \in \langle a, b \rangle$, $F$ ~--- дифференцируема в точке $x$, и $F'(x) = f(x)$.
+			$F: \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- первообразная $f$ на $\langle a, b \rangle$, если для любого $x \in \langle a, b \rangle$ $F$ дифференцируема в точке $x$ и $F'(x) = f(x)$.
 	
 			\underline{Пример}
 	
-			$f(x) = \sin{x} \Leftrightarrow F(x) = -\cos{x} + C$
+			$f(x) = \sin{x} \Longleftrightarrow F(x) = -\cos{x} + C$
 	
 		\subsection{Неопределенный интеграл}
 	
-			Неопределенным интегралом функции $f$ на $\langle a, b \rangle$ называют множество всех её первообразных.
+			Неопределенным интегралом функции $f$ на промежутке $\langle a, b \rangle$ называют множество всех её первообразных.
 			
-			Обозначение: $\int{f}$, $\int{f(x) dx} = \left\{ F + C, C \in \mathbb{R} \right\}$, где $F$ ~--- любая первообразная.
+			Обозначение: $\int{f}$, $\int{f(x)~dx} = \left\{ F + C, C \in \mathbb{R} \right\}$, где $F$ ~--- любая первообразная.
 		
 	\newpage
 		
 	\section{Теорема о существовании первообразной}
 		
-		Пусть $f$ непрерывна на $\langle a, b \rangle \Rightarrow$ существует такая функция $F$ на $\langle a, b \rangle$, что $F' = f$.
+		Пусть $f$ непрерывна на $\langle a, b \rangle \Longrightarrow$ существует такая функция $F$ на $\langle a, b \rangle$, что $F' = f$.
 		
 		\textbf{Доказательство}
 			
@@ -66,7 +70,7 @@
 			
 			\item $f(x) = k$, $F(x) = kx$
 				
-			\item $f(x) = x^n$, $F(x) = \frac{x^{n + 1}}{n + 1}$
+			\item $f(x) = x^n$, $F(x) = \frac{x^{n + 1}}{n + 1}$, где $n \neq -1$
 				
 			\item $f(x) = \frac{1}{x}$, $F(x) = \ln |x|$
 				
@@ -86,8 +90,9 @@
 				
 			\item $f(x) = \frac{1}{1 + x^2}$, $F(x) = \arctg{x}$
 			
-			\item $f(x) = \frac{1}{\sqrt{x^2 + 1}} = \ln (x + \sqrt{x^2 + 1})$
+			\item $f(x) = \frac{1}{\sqrt{x^2 + 1}} = \ln~(x + \sqrt{x^2 + 1})$
 			
+			\item $f(x) = \frac{1}{1 - x^2} = \frac{1}{2} \ln{\left| \frac{1+x}{1-x} \right|}$
 				
 		\end{enumerate}
 			
@@ -95,9 +100,9 @@
 		
 	\section{Равномерная непрерывность}
 		
-		Функция $f : \langle a, b \rangle \rightarrow \mathbb{R}$ равномерно непрерывна на $\langle a, b \rangle$, если:
+		Отображение $f : X \rightarrow Y$, где $X$ и $Y$ ~--- метрические пространства, а также $A \subset X$, называется равномерно непрерывным на $A$, если:
 			
-		$\forall \varepsilon > 0$ $\exists \delta > 0$, $\forall x_0, x$ : $|x - x_0| < \delta$, $|f(x) - f(x_0)| < \varepsilon$
+		$\forall \varepsilon > 0~~\exists \delta > 0{,}~~\forall x_0{,}~x \in A$ : $\rho(x - x_0) < \delta \Longrightarrow \rho(f(x) - f(x_0)) < \varepsilon$
 			
 	\newpage
 		
@@ -113,7 +118,7 @@
 			
 				\item аддитивность
 				
-					Если $A = A_1 \sqcup A_2 \Rightarrow \sigma(A) = \sigma(A_1) + \sigma(A_2)$
+					Если $A = A_1 \sqcup A_2$, то $\sigma(A) = \sigma(A_1) + \sigma(A_2)$
 				
 				\item нормировка
 				
@@ -123,11 +128,21 @@
 			
 			\underline{Замечание}
 			
-				Площадь монотонна, то есть если:	
+                \begin{enumerate}
+                
+                    \item Площадь монотонна, то есть:	
 			
-				$A \subset B \Rightarrow \sigma(A) \leq \sigma(B)$
+                        $A \subset B \Rightarrow \sigma(A) \leq \sigma(B)$
 			
-				$\sigma($вертикального отрезка$) = 0$
+                        $B = A \cup (B \setminus A)$
+                        
+                        $\sigma(B) = \sigma(A) + \sigma(B \setminus A) \geq \sigma(A)$
+                        
+                    \item $\sigma($вертикального отрезка$) = 0$
+				
+                        Отрезок ~--- прямоугольник, ширина которого стремится к $0$, значит и площадь также стремится к $0$
+                        
+				\end{enumerate}
 				
 		\subsection{Второе определение площади}
 			
@@ -146,6 +161,10 @@
 					$\sigma(E) = \sigma(E_1) + \sigma(E_2)$
 						
 			\end{itemize}
+	
+        \subsection{Площадь как сумма прямоугольников}
+            
+            $\sigma(A) = \inf \left(\sum \sigma(P_i) \right)$, где $A \subset \bigcup P_i$
 	
 	\newpage
 	
@@ -177,7 +196,7 @@
         
             Тогда $\PG(f, E)$ ~--- подграфик $f$ на $E$, если:
         
-	        $\PG (f, E) = \left\{ (x, y) \in \mathbb{R}^2, x \in F, 0 \leq y \leq f(x) \right\}$
+	        $\PG (f, E) = \left\{ (x, y) \in \mathbb{R}^2, x \in E, 0 \leq y \leq f(x) \right\}$
 	    
 	\newpage
 
@@ -187,23 +206,23 @@
         
             Определённым интегралом функции $f$ по промежутку $[a, b]$ называется: $f: \langle c, d \rangle \rightarrow \mathbb{R}$, $[a, b] \subset \langle c, d \rangle$
         
-            $\int^b_a f(x)dx = \sigma (\PG (f_+, [a, b])) - \sigma (\PG (f_-, [a, b]))$
+            $\int\limits^b_a f(x)dx = \sigma (\PG (f_+, [a, b])) - \sigma (\PG (f_-, [a, b]))$
 		
 		\subsection{Замечание}
 		
 		    \begin{enumerate}
 		    
-		        \item $f \geq 0 \Rightarrow \int^b_a f \geq 0$
+		        \item $f \geq 0 \Rightarrow \int\limits^b_a f \geq 0$
 		        
-		    	\item $f \equiv c \Rightarrow \int^b_a f = c(b - a)$
+		    	\item $f \equiv c \Rightarrow \int\limits^b_a f = c(b - a)$
 		        
 		        	$c = 0$ ~--- очевидно
 		            
-		            $c > 0$ $\int^b_a = \sigma(\PG(c, [a, b])) = c(b - a)$
+		            $c > 0$ $\int\limits^b_a = \sigma(\PG(c, [a, b])) = c(b - a)$
 		            
-		            $c < 0$ $\int^b_a = -\sigma(\PG(f_-, [a, b])) = -(-c)(b - a) = c(b - a)$
+		            $c < 0$ $\int\limits^b_a = -\sigma(\PG(f_-, [a, b])) = -(-c)(b - a) = c(b - a)$
 		            
-		       \item $\int^b_a -f = - \int^b_a f$
+		       \item $\int\limits^b_a -f = - \int\limits^b_a f$
 		       
 		       		$(-f)_+ = f_-$
 		       		
@@ -211,24 +230,264 @@
 		       		
 		       \item Можно считать, что разрешён случай, когда $a = b$
 		       
-		       		$\int^b_a f = 0$
+		       		$\int\limits^a_a f = 0$
 		       				
 		    \end{enumerate}
 
 	\newpage
 
+	\section{Среднее значение функции на промежутке}
+	
+        Величина $c = \dfrac{1}{b - a} \int\limits^b_a f(x) dx$ ~--- среднее значение функции $f$ на промежутке $\langle a, b \rangle$
+        
+    \newpage
+    
 	\section{Кусочно-непрерывная функция}
 	
-		Пусть $f$ всюду непрерывна на $[a, b]$ кроме конечного числа точек, все точки разрыва I рода. Тогда $f$ называют кусочно-непрерывной функцией.
+		Если функция $f$ всюду непрерывна на промежутке $[a, b]$ кроме конечного числа точек, при этом все точки разрыва I рода, то такую функцию называют кусочно-непрерывной.
 		
 	\newpage
 	
 	\section{Почти первообразная}
 	
-		Пусть $f$ ~--- кусочно-непрерывная функция на $[a, b]$. Тогда $F : [a, b] \rightarrow \mathbb{R}$ ~--- почти первообразная, если
+		Пусть $f$ ~--- кусочно-непрерывная функция на $[a, b]$. Тогда $F : [a, b] \rightarrow \mathbb{R}$ ~--- почти первообразная, если существует такое $F'(x)$, что $F'(x) = f(x)$ для всех $x$ кроме конечного числа точек и $F(x)$ непрерывна на $[a, b]$
+
+	\newpage
+
+	\section{Дробление отрезка, ранг дробления, оснащение}
+
+		Пусть задан невырожденный отрезок $[a, b]$
+
+		\textit{Дробление отрезка} ~--- набор таких точек $x_0$, $x_1$, $\ldots$, $x_n$, что $a = x_0 < x_1 < x_2 < \ldots < x_n = b$
+
+		\textit{Оснащение} ~--- набор точек $\xi_1$, $\xi_2$, $\ldots$, $\xi_n$, что $\forall k$ $\xi_k \in [x_{k - 1}, x_k]$
+
+		\textit{Ранг дробления} ~--- величина, равная $\max\limits_{k = 1, \ldots, n} (x_k - x_{k - 1})$
+	
+	\newpage
+
+	\section{Риманова сумма}
+
+		Пусть $f : [a, b] \rightarrow \mathbb{R}$, а также задано дробление и оснащение. Тогда $\sum\limits^n_{k = 1} f(\xi_k) (x_k - x_{k - 1})$ ~--- Риманова сумма
+
+		Если ранг дробления стремится к $0$, то $\sum\limits^n_{k = 1} f(\xi_k)(x_k - x_{k - 1}) \rightarrow \int\limits^b_a f(x) \ dx$. Это историческое определение интеграла
+
+	\newpage
+
+	\section{Постоянная Эйлера}
+    
+        Постоянная Эйлера ~--- математическая константа $\gamma$, определяемая следующим образом:
+        
+        $\gamma = \lim\limits_{n \rightarrow \infty} \left( \sum\limits^n_{k = 1} \dfrac{1}{k} - \ln{n} \right) = \lim\limits_{n \rightarrow \infty} \left( 1 + \dfrac{1}{2} + \dfrac{1}{3} + \ldots + \dfrac{1}{n} - \ln{n} \right)$
+        
+	\newpage
+	
+	\section{Функция промежутка. Аддитивная функция промежутка}
+	
+        Пусть у нас задано $\langle a, b \rangle$. Тогда
+        
+        $\Segm \langle a, b \rangle := \left\{ [p, q] \subset \langle a, b \rangle \right\}$
+        
+        Тогда:
+        
+        \begin{enumerate}
+        
+            \item $\phi : \Segm \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- функция промежутка
+            
+            \item $\phi : \Segm \langle a, b \rangle \rightarrow \mathbb{R}$, а также если
+            
+                $\forall [p, q] \subset \langle a, b \rangle \ \forall c \in (p, q) \Rightarrow \phi([p, q]) = \phi([p, c]) + \phi([c, q])$ ~--- аддитивная функция промежутка
+                
+        \end{enumerate}
+        
+    \newpage
+    
+    \section{Плотность аддитивной функции промежутка}
+    
+        Пусть $f : \langle a, b \rangle \rightarrow \mathbb{R} \ \ \ \phi: \Segm \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- аддитивная функция промежутка
+        
+            $f$ ~--- плотность $\phi$, если $\forall \Delta \in \Segm \langle a, b \rangle \Rightarrow \inf\limits_{x \in \Delta} f(x) \cdot l(\Delta) \leq \phi(\Delta) \leq \sup\limits_{x \in \Delta} f(x) \cdot l(\Delta)$, 
+            
+            где $l(\Delta)$ ~--- длина промежутка.
 		
-		$\exists F'(x)$, $F'(x) = f(x)$ для всех $x$ кроме конечного числа точек и $F(x)$ ~--- непрерывна на $[a, b]$
-		
+    \newpage
+    
+    \section{Гладкий путь, вектор скорости, носитель пути}
+    
+        Путь ~--- непрерывное отображение $\gamma : [a, b] \rightarrow \mathbb{R}^m$
+        
+        $\gamma(a)$ ~--- начало пути
+        
+        $\gamma(b)$ ~--- конец пути
+        
+        \subsection{Гладкий путь}
+        
+            $ \gamma^{(t)} = \left( \gamma_1(t), \gamma_2(t), \ldots, \gamma_m(t) \right)$
+        
+            $\gamma_i$ ~--- координатная функция пути $\gamma$
+        
+            Путь $\gamma^{(t)}$ называют гладким, если все $\gamma_i \in C^1 [a, b]$
+        
+        \subsection{Вектор скорости}
+        
+            $\gamma(t_0) := \lim\limits_{t \rightarrow t_0} \dfrac{\gamma(t) - \gamma(t_0)}{t - t_0}$
+            
+            Покоординатно: $\dfrac{\gamma_i(t) - \gamma_i(t_0)}{t - t_0} \rightarrow \gamma'_i(t)$
+        
+            $\gamma'(t_0) = \left( \gamma'_1(t_0), \ \gamma'_2(t_0), \ \ldots, \ \gamma'_n(t_0) \right)$
+        
+        \subsection{Носитель пути}
+        
+            Носитель пути ~--- множество всех значений $\gamma([a, b]) \subset \mathbb{R}^m$
+        
+    \newpage
+    
+    \section{Длина гладкого пути}
+    
+        Длина гладкого путь ~--- функция $l$, заданная на множестве гладких путей и удовлетворяющая свойствам:
+        
+        \begin{enumerate}
+        
+            \item $l \geq 0$
+            
+            \item $l$ ~--- аддитивна:
+           
+                $\forall [a, b]$
+                
+                $\forall \gamma[a, b]$
+                
+                $\forall c \in [a, b]$
+                
+                $l(\gamma) = l\left(\gamma \bigg|_{[a, c]}\right) + l\left(\gamma \bigg|_{[c, b]}\right)$
+            
+            \item $\forall \gamma{,} \overline{\gamma}$ ~--- гладкие пути, $C_{\gamma}, C_{\overline{\gamma}}$ ~--- их носители в $\mathbb{R}^m$
+                
+                Если существует такое $T: C_{\gamma} \rightarrow C_{\overline{\gamma}}$ ~--- сжатие, т.е.:
+
+                    $\forall M_1{,} M_2 \in C_{\gamma}$
+                    
+                    $\rho \left(T\left(M_1\right), T\left(M_2\right)\right) \leq \rho \left(M_1, M_2\right)$
+                
+                то $l(\overline{\gamma}) \leq l(\gamma)$
+                
+            \item $\gamma$ ~--- линейный путь $(\gamma(t) = t \overline{v} + \overline{u})$
+            
+                $l(\gamma) = \rho(\gamma(a), \gamma(b))$
+                
+        \end{enumerate}
+            
+        \textbf{Замечание}
+        
+        \begin{enumerate}
+        
+            \item Длина хорды меньше длины дуги (это отображение ~--- сжатие)
+            
+            \item При растяжении длины путей растут
+            
+                Всякое сжатие является непрерывным, но для растяжений ~--- \textbf{не верно!!!}
+                
+            \item При движении $\mathbb{R}^m$ длина пути не меняется (это сжатие и растяжение одновременно)
+            
+        \end{enumerate}
+        
+    \newpage
+    
+    \section{Формулы для длины пути: в $\mathbb{R}^m$, в полярных координатах, длина графика}
+    
+        \subsection{Длина пути в $\mathbb{R}^m$}
+            Пусть $\gamma: [a, b] \rightarrow \mathbb{R}^m$, $\gamma \in C^1$
+        
+            Утверждение: $l(\gamma) = \int\limits^b_a \| \gamma'(t) \| dt$
+        
+        \subsection{Длина графика}
+        
+            Параметризация:
+            
+            $\gamma: [a, b] \rightarrow \mathbb{R}^2$
+            
+            $t \mapsto (t, f(t))$ $(f \in C^1)$ ~--- гладкий путь
+            
+            $\gamma' = (1, f'(t))$
+            
+            $\| \gamma' \| = \sqrt{1^2 + (f'(t))^2}$
+            
+            $l(f) = \int\limits^b_a \sqrt{1 + (f'(t))} dt$
+            
+        \subsection{Длина кривой в полярных координатах}
+        
+            $r = r(\varphi)$
+            
+            $\gamma: [\varphi_0, \varphi_1] \rightarrow \mathbb{R}^2$
+            
+            $\gamma(\varphi) = (r(\varphi) \cos{\varphi}, r(\varphi) \sin{\varphi})$
+            
+            $\gamma' = (r'\cos{\varphi} - r\sin{\varphi}, r'\sin{\varphi} + r \cos{\varphi})$
+            
+            $\| \gamma' \|^2 = (r')^2 + r^2$
+            
+            $l(\gamma) = \int\limits^{\varphi_1}_{\varphi_0} \sqrt{r^2(\varphi) + (r'(\varphi))^2} d\varphi$
+            
+    \newpage
+    
+    \section{Вариация функции на промежутке}
+    
+        Пусть $f: [a, b] \rightarrow \mathbb{R}$ ~--- это <<путь>>
+        
+        $a = x_0 < x_1 < x_2 < \ldots < x_n = b$
+        
+        Тогда вариация $f$ на $[a, b]$
+        
+        $\mathrm{Var}^b_a f = \sup \sum\limits^n_{i = 1} \left( \left| f(x_i) - f(x_{i - 1}) \right| \right)$
+        
+        При этом $f \in C^1 \left([a, b]\right)$ и $\mathrm{Var}^b_a f = \int\limits^b_a |f'(t)| dt$
+        
+    \newpage
+    
+    \section{Частичный предел}
+    
+        $a$ ~--- частичный предел $x_n$ $(a \in \overline{\mathbb{R}})$, если
+        
+        $\exists n_k : x_{n_k} \rightarrow a$
+        
+        \textit{Пример}
+        
+        \begin{enumerate}
+        
+            \item $x_n = (-1)^n$, $1$ ~--- частничный предел
+            
+            \item $x_n = \sin{n}$, $\forall a \in [-1, 1]$ ~--- частничный предел
+            
+        \end{enumerate}
+        
+    \newpage
+    
+    \section{Верхний и нижний пределы}
+    
+        \subsection{Верхняя и нижняя огибающая}
+        
+            Пусть $x_n$ ~--- вещественная последовательность.
+            
+            $y_n = \sup (x_n, x_{n + 1}, x_{n + 2}, \ldots)$ ~--- верхняя огибающая
+            
+            $z_n = \inf (x_n, x_{n + 1}, x_{n + 2}, \ldots)$ ~--- нижняя огибащая
+            
+            Тогда:
+            
+            \begin{enumerate}
+            
+                \item $y_n$ убывает $(y_n \leq y_{n + 1})$
+                
+                \item $z_n$ возрастают $(z_n \geq z_{n + 1})$
+            
+                \item Если изменить конечное число членов $x_n$, изменится конечное число элементов $y_n$ и $z_n$, тогда существуют $\lim\limits_{n \rightarrow \infty} y_n$ и $\lim\limits_{n \rightarrow \infty} z_n$
+            
+            \end{enumerate}
+            
+        \subsection{Верхний и нижний пределы}
+        
+            Верхний предел $x_n$ ~--- $\varlimsup\limits_{n \rightarrow +\infty} x_n = \lim\limits_{n \rightarrow +\infty} \sup x_n := \lim y_n \in \mathbb{\overline{R}}$
+            
+            Нижний предел $x_n$ ~--- $\varliminf\limits_{n \rightarrow +\infty} x_n = \lim\limits_{n \rightarrow +\infty} \inf x_n := \lim x_n \in \mathbb{\overline{R}}$
 \newpage
 	
 \part{Теоремы}
@@ -237,19 +496,21 @@
 	
 	\section{Теорема Кантора о равномерной непрерывности}
 	
-		Пусть $f: X \rightarrow Y$ ~--- метрические пространства, $f$ непрерывна на $X$, $X$ ~--- компактно. Тогда $f$ ~--- равномерное непрерывно на $X$.
+        \subsection{Формулировка}
+        
+            Пусть $f: X \rightarrow Y$ ~--- метрические пространства, $f$ непрерывна на $X$, $X$ ~--- компактно. Тогда $f$ ~--- равномерное непрерывно на $X$.
 		
-		\textbf{Доказательство (от противного)}
+		\subsection{Доказательство (от противного)}
 		
 			Воспользуемся тем свойством, что если $X$ ~--- компактно, то $X$ и секвенциально компактно.
 			
 			Предположим противное:
 			
-			$\exists \varepsilon > 0$ \textcolor{gray}{$\delta = \frac{1}{n}$} $\exists x_n,  \widetilde{x_n}$: $\rho(x_n, \widetilde{x_n}) < \frac{1}{n}$ $\rho(f(x_n), f(\widetilde{x_n})) \geq \varepsilon$
+			$\exists \varepsilon > 0$ \textcolor{gray}{$\delta = \dfrac{1}{n}$} $\exists x_n, \ \widetilde{x_n} : \rho(x_n, \widetilde{x_n}) < \frac{1}{n} \Rightarrow \rho(f(x_n), f(\widetilde{x_n})) \geq \varepsilon$
 			
-			Тогда выберем сходящуюся подпоследовательность из $x_n$ $x_{n_k} \rightarrow a \in X$, $\widetilde{x_{n_k}} \rightarrow a \in X$.
+			Тогда выберем сходящуюся подпоследовательность: $x_{n_k} \rightarrow a \in X$, $\widetilde{x_{n_k}} \rightarrow a \in X$.
 			
-			Тогда $f(x_{n_k}) \rightarrow f(a)$ и $f(\widetilde{x_{n_k}}) \rightarrow f(a)$, то
+			Тогда $f(x_{n_k}) \rightarrow f(a)$ и $f(\widetilde{x_{n_k}}) \rightarrow f(a)$, значит
 			
 			$\rho(f(x_{n_k}), f(\widetilde{x_{n_k}})) \rightarrow 0$ (по неравенству треугольника)
 			
@@ -259,13 +520,15 @@
 	
 	\section{Теорема Брауэра о неподвижной точке}
 	
-		Пусть $f: B(0, 1) \subset \mathbb{R}^m \rightarrow B(0, 1)$ ~--- непрерывное, тогда
+		\subsection{Формулировка}
+            
+            Пусть $f: B(0, 1) \subset \mathbb{R}^m \rightarrow B(0, 1)$ ~--- непрерывная, тогда
 		
-		$\exists x_0 : f(x_0) = x_0$
+            $\exists x_0 : f(x_0) = x_0$
 		
-		\textbf{Доказательство}
+		\subsection{Доказательство}
 		
-		\subsection{Игра ''Гекс''}
+		\subsubsection{Игра ''Гекс''}
 		
 			Пусть есть поле $n \times m$, состоящее из правильных шестиугольников (гексов). Также два игрока на каждом своём ходу красят гексы в белый или чёрный цвет. Тогда для любой раскраски найдётся либо чёрная тропинка, соединяющая верхнюю и нижнюю часть поля, либо белая тропинка, соединяющая левую и правую часть поля.
 			
@@ -273,7 +536,7 @@
 		
 			\includegraphics[scale=0.5]{HEX.png}
 				
-		\subsection{Сама теорема}
+		\subsubsection{Сама теорема}
 		
 			\includegraphics[scale=0.45]{NEWHEX.png}
 		
@@ -293,65 +556,65 @@
 			
 			$f(x) = (f(x)_1, f(x)_2)$
 			
-			\textbf{Доказательство}
+        \subsubsection{Доказательство}
 			
-				Пусть $\rho$ ~--- функция, заданная на $[0, 1]^2 \times [0, 1]^2$
+			Пусть $\rho$ ~--- функция, заданная на $[0, 1]^2 \times [0, 1]^2$
 				
-				$\rho(x, y) = \max (|x_1 - y_1|, |x_2 - y_2|)$ ~--- непрерывна на $[0, 1]^2$
-				
-				$x_n \rightarrow a$
-				
-				$y_n \rightarrow b$
-				
-				$\rho(x_n, y_n) \rightarrow \rho(a, b)$
-				
-				Очевидно, что для любых $x, y: x \neq y \Rightarrow \rho(x, y) > 0$
-				
-				\underline{Теперь к самой теореме}
-				
-				Пусть для любого $x \in [0, 1]^2$ $f(x) \neq x$. Тогда $\rho(x, f(x)) > 0$, но $\rho$ непрерывно по $x$ и $[0, 1]^2$ ~--- компакт, значит по теореме Вейерштрасса существует такое $\varepsilon > 0$, что
-				
-				$\min\limits_{x \in [0, 1]^2} \rho(x, f(x)) = \varepsilon > 0$
-				
-				По теореме Кантора для этого $\varepsilon$ найдётся такая $\delta$ (будем считать, что $\sqrt{2} \delta < \varepsilon$), что
-				
-				$\forall x, \widehat{x} \in [0, 1]^2 : \| x - \widehat{x} \| < \delta \cdot \sqrt{2} \Rightarrow \| f(x) - f(\widehat{x}) \| < \varepsilon$
-				
-				Берём $\frac{1}{n} < \varepsilon$
-				
-				\includegraphics[scale=0.45]{HEXTHEOREM.png}
-				
-				\underline{Доска}
-				
-				Узел $(l, k) \rightarrow (\frac{l}{n}, \frac{k}{n}) \in [0, 1]^2$
-				
-				$0 \leq l, k \leq n$
-				
-				Красим узлы
-				
-				$v$ ~--- логический узел, $v = (v_1, v_2)$
-				
-				$c(v) = \min \left\{ i : \left\| f(\frac{v}{n})_i - \frac{v_i}{n} \right\| \geq \varepsilon \right\}$
+			$\rho(x, y) = \max \left(|x_1 - y_1|, |x_2 - y_2|\right)$ ~--- непрерывна на $[0, 1]^2$
 			
-				По лемме об игре в гексы есть одноцветная тропинка.
+			$x_n \rightarrow a$
 				
-				Путь $v^0$ ~--- начальная точка тропинки, $v^N$ ~--- конечная.
+			$y_n \rightarrow b$
 				
-				$v^0_1 = 0$
+			$\rho(x_n, y_n) \rightarrow \rho(a, b)$
 				
-				$f(\frac{v^0}{n}) \in [0, 1]^2$, т.е. $f(\frac{v^0}{n})_1 \geq 0$
+			Очевидно, что для любых $x, y: x \neq y \Rightarrow \rho(x, y) > 0$
 				
-				$\varepsilon \leq f(\frac{v^0}{n})_1$
+		\subsubsection{Теперь к самой теореме}
 				
-				Аналогично для $v^N_1 = 1$
+            Пусть для любого $x \in [0, 1]^2$ $f(x) \neq x$. Тогда $\rho(x, f(x)) > 0$, но $\rho$ непрерывно по $x$ и $[0, 1]^2$ ~--- компакт, значит по теореме Вейерштрасса существует такое $\varepsilon > 0$, что
 				
-				$f(\frac{v^N}{n})_1 \leq 1$
+			$\min\limits_{x \in [0, 1]^2} \rho(x, f(x)) = \varepsilon > 0$
 				
-				$f(\frac{v^N}{n})_1 - \frac{v^N_1}{n} \leq -\varepsilon$
+			По теореме Кантора для этого $\varepsilon$ найдётся такая $\delta$ (будем считать, что $\sqrt{2} \delta < \varepsilon$), что
 				
-				$f(\frac{v^0}{n})_1 - \frac{v^0_1}{n} \geq \varepsilon$
+			$\forall x, \widehat{x} \in [0, 1]^2 : \| x - \widehat{x} \| < \delta \cdot \sqrt{2} \Rightarrow \| f(x) - f(\widehat{x}) \| < \varepsilon$
+				
+			Берём $\frac{1}{n} < \varepsilon$
+				
+			\includegraphics[scale=0.45]{HEXTHEOREM.png}
+				
+        \subsubsection{Доска}
+				
+            Узел $(l, k) \rightarrow \left(\frac{l}{n}, \frac{k}{n}\right) \in [0, 1]^2$
+				
+			$0 \leq l, k \leq n$
+				
+			Красим узлы
+				
+			$v$ ~--- логический узел, $v = (v_1, v_2)$
+				
+			$c(v) = \min \left\{ i : \left\| f\left(\frac{v}{n}\right)_i - \frac{v_i}{n} \right\| \geq \varepsilon \right\}$
+			
+			По лемме об игре в гексы есть одноцветная тропинка.
+				
+			Путь $v^0$ ~--- начальная точка тропинки, $v^N$ ~--- конечная.
+				
+			$v^0_1 = 0$
+				
+			$f\left(\frac{v^0}{n}\right) \in [0, 1]^2$, т.е. $f\left(\dfrac{v^0}{n}\right)_1 \geq 0$
+				
+			$\varepsilon \leq f\left(\dfrac{v^0}{n}\right)_1$
+				
+			Аналогично для $v^N_1 = 1$
+				
+			$f\left(\frac{v^N}{n}\right)_1 \leq 1$
+				
+			$f\left(\frac{v^N}{n}\right)_1 - \dfrac{v^N_1}{n} \leq -\varepsilon$
+				
+			$f\left(\frac{v^0}{n}\right)_1 - \dfrac{v^0_1}{n} \geq \varepsilon$
 	
-				Поскольку для любых $x$ верно, что $|f(x)_1 - x_1| \geq \varepsilon$, то из этого следует, что какой-то прыжок был длиной не меньше $2 \varepsilon$, но такое невозможно, поскольку по условию если $\| x - \widehat{x} \| < \frac{1}{n} \Rightarrow \| f(x) - f(\widehat{x}) \| < \varepsilon$
+			Поскольку для любых $x$ верно, что $|f(x)_1 - x_1| \geq \varepsilon$, то из этого следует, что какой-то прыжок был длиной не меньше $2 \varepsilon$, но такое невозможно, поскольку по условию если $\| x - \widehat{x} \| < \frac{1}{n}$, то $\| f(x) - f(\widehat{x}) \| < \varepsilon$
 				
 				
 	\newpage
@@ -392,7 +655,7 @@
 				
 			\item $(F(\varphi(t)))' = f(\varphi(t))\varphi'(t)$
 			
-			\item $(\frac{1}{\alpha} F (\alpha x + \beta))' = f(\alpha x + \beta)$
+			\item $\left(\dfrac{1}{\alpha} F (\alpha x + \beta)\right)' = f(\alpha x + \beta)$
 			
 			\item $(fg)' = f'g + fg'$, т.е. $fg = \int f'g + \int fg'$
 			
@@ -404,41 +667,65 @@
 	
 		\subsection{Интегрирование неравенств}
 		
-			Пусть $f$, $g \in C[a, b]$, $f \leq g \Rightarrow \int\limits^b_a f \leq \int\limits^b_a g$
+			\subsubsection{Формулировка}
+                
+                $f$, $g \in C[a, b]$, $f \leq g \Rightarrow \int\limits^b_a f \leq \int\limits^b_a g$
 			
-			Если $0 \leq f \leq g$
+            \subsubsection{Доказательство}
+            
+                Если $0 \leq f \leq g$
 			
-			$\int\limits^b_a f = \sigma (\PG (f, [a, b])) \leq \sigma (\PG (g, [a, b])) = \int\limits^b_a g$
+                $\int\limits^b_a f = \sigma (\PG (f, [a, b])) \leq \sigma (\PG (g, [a, b])) = \int\limits^b_a g$
 			
-			В общем случае
+                В общем случае
 			
-			$\PG(f_+, [a, b]) \subset \PG(g_+, [a, b])$
+                $\PG(f_+, [a, b]) \subset \PG(g_+, [a, b])$
 			
-			$\PG(f_-, [a, b]) \supset \PG(g_-, [a, b])$
+                $\PG(f_-, [a, b]) \supset \PG(g_-, [a, b])$
 			
-			$\sigma (\PG(f_+, [a, b])) - \sigma (\PG(f_-, [a, b])) \leq \sigma (\PG(g_+, [a, b])) - \sigma (\PG(g_-, [a, b]))$
+                $\sigma (\PG(f_+, [a, b])) - \sigma (\PG(f_-, [a, b])) \leq \sigma (\PG(g_+, [a, b])) - \sigma (\PG(g_-, [a, b]))$
 			
-			$\int\limits^b_a f \leq \int^b_a g$
+                $\int\limits^b_a f \leq \int^b_a g$
 			
+			\subsubsection{Следствия}
+			
+                \begin{enumerate}
+                
+                    \item $f \in C[a, b]$
+                    
+                        $\min\limits_{[a, b]} f \cdot (b - a) \leq \int\limits^b_a f \leq \max\limits_{[a, b]} f \cdot (b - a)$
+                        
+                    \item $f \in C[a, b]$
+                    
+                        $\left| \int\limits^b_a f \right| \leq \int\limits^b_a \left| f \right|$
+                        
+                        т.к. $- \int\limits^b_a \left| f \right| \leq \int\limits^b_a f \leq \int\limits^b_a \left| f \right|$
+                        
+                \end{enumerate}
+                
 		\subsection{Теорема о среднем значении}
 		
-			Пусть $f$ непрерывна на $[a, b] \Rightarrow \exists c \in [a, b]: \int\limits^b_a f = f(c)(b-a)$
+			\subsubsection{Формулировка}
+			
+                Пусть $f$ непрерывна на $[a, b] \Rightarrow \exists c \in [a, b]: \int\limits^b_a f = f(c)(b-a)$
 		
-		\subsection{Доказательство 1}
+            \subsubsection{Доказательство 1 (Кохась порофлил)}
 		
-			Просто берём прямую и двигаем её сверху вниз, тем самым по теореме о бутерброде мы найдём такое значение $c$, что $\int\limits^b_a f = f(c)(b - a)$
+                Просто берём прямую и двигаем её сверху вниз, тем самым по теореме о бутерброде мы найдём такое значение $c$, что $\int\limits^b_a f = f(c)(b - a)$
 			
-		\subsection{Нормальное доказательство}
+            \subsubsection{Нормальное доказательство}
 		
-			Если $a = b$ ~--- очевидно.
+                Если $a = b$ ~--- очевидно.
 			
-			Пусть $a < b$
+                Пусть $a < b$
 			
-			$\min f \leq \frac{1}{b - a} \int\limits^b_a f \leq \max f$
+                $\min f \leq \frac{1}{b - a} \int\limits^b_a f \leq \max f$
 			
-			по теореме о промежуточном значении
+                по теореме Больцано-Коши о промежуточном значении
 			
-			$\exists c : \frac{1}{b - a} \int\limits^b_a f = f(c)$
+                $\exists c : \frac{1}{b - a} \cdot \int\limits^b_a f = f(c)$
+                
+                $\int\limits^b_a f = f(c)(b - a)$
 			
 	\newpage
 	
@@ -454,15 +741,15 @@
 		
 		\subsection{Теорема (Барроу)}
 		
-			В условиях определения оказывается, что $\varphi$ ~--- диффиринцируема на $[a, b]$ и $\varphi'(x) = f(x) \ \forall x \in [a, b]$
+			В условиях определения оказывается, что $\varphi$ ~--- диффиринцируема на $[a, b]$ и $\varphi'(x) = f(x)$ для любого $x \in [a, b]$
 		
 		\subsection{Доказательство}
 		
 			Фиксируем $x$ и при $y > x$
 		
-			$\lim\limits_{y \rightarrow x + 0} \frac{\varphi(y) - \varphi(x)}{y - x} = \lim\limits_{y \rightarrow x + 0} \frac{1}{y - x} ( \int\limits^y_a f - \int\limits^x_a f) = \lim\limits_{y \rightarrow x + 0} \frac{1}{y - x} \int\limits^y_x f = \lim\limits_{y \rightarrow x + 0} f(c) = f(x)$
+			$\lim\limits_{y \rightarrow x + 0} \frac{\varphi(y) - \varphi(x)}{y - x} = \lim\limits_{y \rightarrow x + 0} \frac{1}{y - x} \left( \int\limits^y_a f - \int\limits^x_a f \right) = \lim\limits_{y \rightarrow x + 0} \frac{1}{y - x} \int\limits^y_x f = \lim\limits_{y \rightarrow x + 0} f(c) = f(x)$
 		
-			$\exists c \in [x, y]$
+			$\exists c \in [x, y]$ ~--- следует из теоремы о среднем значении.
 		
 			Аналогично доказываем, что $\lim\limits_{y \rightarrow x - 0} = \ldots = f(c)$
 		
@@ -474,7 +761,7 @@
 				
 					$\psi(x) = \int\limits^b_x f$. Тогда $\psi'(x) = -f$
 					
-				\item Эта теорема также доказывает теорему о существовании производной
+				\item Эта теорема также доказывает теорему о существовании неопределенного интеграла.
 				
 			\end{itemize}
 			
@@ -484,71 +771,85 @@
 	
 		\subsection{Формулировка теоремы}
 		
-			Пусть $f$ непрерывна на $[a, b]$, $F$ ~--- первообразная $f$. 
+			Пусть $f$ кусочно-непрерывна на $[a, b]$, $F$ ~--- первообразная $f$. 
 		
 			Тогда $\int\limits^b_a f = F(b) - F(a)$
 		
 		\subsection{Доказательство}
 		
-			$\varphi$ ~--- из теоремы Барроу ~--- тоже первообразная, значит
+			$\varphi$ (из теоремы Барроу) ~--- тоже первообразная, значит
 			
-			$\exists c$ $F = \varphi + c$
+			$\exists c : F = \varphi + c$
 			
-			$\int\limits^b_a f = \varphi(b) = \varphi(b) - \varphi(a) = (\varphi + c) \bigg|_{x = b} - (\varphi + c) \bigg|_{x = a} = F(b) - F(a)$
+			$F(b) - F(a) = \Phi(b) - \Phi(a) = \int\limits^b_a f - \int\limits^a_a f = \int\limits^b_a f$
 			
 			$\int\limits^b_a f = F(b) - F(a)$
 			
 			При $a > b$ $\int\limits^b_a f \stackrel{\mathrm{def}}{=} - \int\limits^a_b f$
 			
+        \subsection{Для кусочно-непрерывных функций}
+        
+            Для кусков функции распишем формулу Ньютона-Лейбница, получим телескопическую сумму, останется только $F(b) - F(a)$
+            
 	\newpage
 	
 	\section{Свойства определенного интеграла: линейность, интегрирование по частям, замена переменных}
 	
 		\subsection{Линейность определенного интеграла}
 		
-			$f, g \in C[a, b]$, $\alpha$, $\beta \in \mathbb{R}$
+			\subsubsection{Формулировка}
 			
-			$\int\limits^b_a \alpha f + \beta g = \alpha \int\limits^b_a f + \beta \int\limits^b_a g$
+                $f, g \in C[a, b]$, $\alpha$, $\beta \in \mathbb{R}$
 			
-			Следует из формулы Ньютона-Лейбница
+                $\int\limits^b_a \alpha f + \beta g = \alpha \int\limits^b_a f + \beta \int\limits^b_a g$
 			
-			$\int\limits^b_a f = F(b) - F(a) = F(x) \bigg|^b_a$
+			\subsubsection{Доказательство} 
 			
-			$F$, $G$ $\alpha F + \beta G$ ~--- первообразная $\alpha f + \beta g$
+                Из формулы Ньютона-Лейбница
 			
-			$\alpha F(x) + \beta G(x) \bigg|^b_a = \alpha F(b) + \beta G(b) - \alpha F(a) - \beta G(a) = \alpha (F(b) - F(a)) + \beta (G(b) - G(a)) = \alpha \int\limits^b_a f + \beta \int\limits^b_a g$
+                $\int\limits^b_a f = F(b) - F(a) = F(x) \bigg|^b_a$
+			
+                Для $F$, $G : \alpha F + \beta G$ ~--- первообразная $\alpha f + \beta g$
+			
+                $\left(\alpha F(x) + \beta G(x)\right) \bigg|^b_a = \alpha F(b) + \beta G(b) - \alpha F(a) - \beta G(a) = \alpha (F(b) - F(a)) + \beta (G(b) - G(a)) = \alpha \int\limits^b_a f + \beta \int\limits^b_a g$
 			
 		\subsection{Интегрирование по частям}
 		
-			$f, y \in C^{}[a, b]$. Тогда
+			\subsubsection{Формулировка}
 			
-			$\int\limits^b_a f g' = fg \bigg|^b_a - \int\limits^b_a f'g$
+                $f, g \in C^{}[a, b]$. Тогда
 			
-			Следует из свойств для неопределенного интеграла
+                $\int\limits^b_a f g' = fg \bigg|^b_a - \int\limits^b_a f'g$
 			
-			$\int\limits^b_a f g' = (\int f g') \bigg|^b_a = (fg - \int f' g) \bigg|^b_a = fg \bigg|^b_a - \int\limits^b_a f'g$
+			\subsubsection{доказательство}
+			
+                Из свойств для неопределенного интеграла
+			
+                $\int\limits^b_a f g' = \left(\int f g'\right) \bigg|^b_a = \left(fg - \int f' g\right) \bigg|^b_a = fg \bigg|^b_a - \int\limits^b_a f'g$
 		
 		\subsection{Замена переменных}
 
-			Пусть $f \in C(\langle a, b \rangle)$
+			\subsubsection{Формулировка}
+			
+                $f \in C(\langle a, b \rangle)$
 
-			$\varphi : \langle \alpha, \beta \rangle \rightarrow \langle a, b \rangle$
+                $\varphi : \langle \alpha, \beta \rangle \rightarrow \langle a, b \rangle$
 
-			$\varphi \in C^1 (\langle a, b \rangle)$
+                $\varphi \in C^1 (\langle a, b \rangle)$
 
-			$[p, q] \in \langle \alpha, \beta \rangle$
+                $[p, q] \in \langle \alpha, \beta \rangle$
 
-			Тогда $\int\limits^q_p f(\varphi(t))\varphi'(t) \ dt = \int\limits^{\varphi(q)}_{\varphi(q)} f(x) \ dx$
+                Тогда $\int\limits^q_p f(\varphi(t))\varphi'(t) \ dt = \int\limits^{\varphi(q)}_{\varphi(p)} f(x) \ dx$
 
-			\underline{Доказательство}
+			\subsubsection{Доказательство}
 
-			Пусть $F$ ~--- первообразная $f$
+                Пусть $F$ ~--- первообразная $f$
 	
-			$F(\varphi(t))$ ~--- первообразная $f(\varphi(t))\varphi'(t)$ на $[p, q]$
+                $F(\varphi(t))$ ~--- первообразная $f(\varphi(t))\varphi'(t)$ на $[p, q]$
 
-			Тогда обе части: $F(\varphi(q)) - F(\varphi(p))$
+                Тогда обе части: $F(\varphi(q)) - F(\varphi(p))$
 
-			\underline{Замечание}
+			\subsubsection{Замечание}
 
 			\begin{enumerate}
 
@@ -558,60 +859,88 @@
 
 					$\int\limits^v_u f(x) \ dx = \int\limits^q_p f(\varphi(t))\varphi'(t) \ dt$
 
-					Тогда подбираем такие $p$ и $q$, что когда $t$ ходит от $p$ до $q$ $\varphi(t)$ ходит от $v$ до $u$
+					Тогда подбираем такие $p$ и $q$, что когда $t$ ходит от $p$ до $q$ и $\varphi(t)$ ходит от $v$ до $u$
 
 			\end{enumerate}
 	\newpage
 	
 	\section{Интегральное неравенство Чебышева. Неравенство для сумм}
 	
-		\subsection{Формулировка}
+		\subsection{Интегральное неравенство Чебышева}
 		
-			$I_f = \frac{1}{b - a} \int\limits^b_a f$
+            \subsubsection{Формулировка}
 		
-			$f, g \in C[a, b]$ ~--- монотонно возрастают
-			
-			Тогда $I_f \cdot I_y \leq I_{fg}$
+                $I_f = \frac{1}{b - a} \int\limits^b_a f$
 		
-			$\int\limits^b_a f \cdot \int\limits^b_a g \leq (b - a) \int\limits^b_a fg$ ~--- неравенство Чебышева
+                $f, g \in C[a, b]$ ~--- монотонно возрастают
+			
+                Тогда $I_f \cdot I_y \leq I_{fg}$
 		
-		\subsection{Доказательство}
+                $\int\limits^b_a f \cdot \int\limits^b_a g \leq (b - a) \int\limits^b_a fg$ ~--- неравенство Чебышева
 		
-			$\forall x, y \in [a, b]$ $(f(x) - f(y))(g(x)-g(y)) \geq 0$
+            \subsubsection{Доказательство}
+		
+                $\forall x, y \in [a, b]$ $(f(x) - f(y))(g(x)-g(y)) \geq 0$
 			
-			Проинтегрируем по переменной $x$ по отрезку $[a, b]$
+                Проинтегрируем по переменной $x$ по отрезку $[a, b]$
 			
-			$f(x)g(x) - f(y)g(x) - f(x)g(y) + f(y)g(y) \geq 0$
+                $f(x)g(x) - f(y)g(x) - f(x)g(y) + f(y)g(y) \geq 0$
 			
-			$I_{fg} - f(y)I_g - I_f g(y) + f(y)g(y) \geq 0$
+                $I_{fg} - f(y)I_g - I_f g(y) + f(y)g(y) \geq 0$
 			
-			Интегрируем по $y$ на $[a, b] : \frac{1}{b - a} \int\limits^b_a$
+                Интегрируем по $y$ на $[a, b] : \frac{1}{b - a} \int\limits^b_a$
 			
-			$I_{fg} - I_f \cdot I_g - I_f \cdot I_g + I_{fg} \geq 0$
+                $I_{fg} - I_f \cdot I_g - I_f \cdot I_g + I_{fg} \geq 0$
 			
-			$I_{fg} \geq I_f \cdot I_g$
-	
+                $I_{fg} \geq I_f \cdot I_g$
+                
+        \subsection{Неравенство для сумм}
+        
+            \subsubsection{Формулировка для сумм}
+            
+                Пусть задана последовательность $a_n : a_1 \geq a_2 \geq \ldots \geq a_n$ и $b_n : b_1 \geq b_2 \geq \ldots \geq b_n$. Тогда
+                
+                $\dfrac{1}{n} \sum\limits^n_{k = 1} a_k b_k \geq \left( \dfrac{1}{n} \sum\limits^n_{k = 1} a_k \right) \left( \dfrac{1}{n} \sum\limits^n_{k = 1} b_k \right)$
+                
+            \subsubsection{Доказательство}
+            
+                По неравенству Чебышёва
+                
+                $I_{fg} \geq I_f I_g$
+                
+                Пусть $I_f = \dfrac{1}{n} \int\limits^n_0 f = \dfrac{1}{n} \sum a_k$
+                
+                $f(x) = a_{[x + 1]}$, $x \in [0, n]$ (где $[x]$ ~--- округление к ближайшему целому вниз)
+                
+                $I_g = \dfrac{1}{n} \int\limits^n_0 g = \dfrac{1}{n} \sum b_k$
+                
+                $g(x) = b_{[x + 1]}$, $x \in [0, n]$
+                
+                Отсюда следует, что
+                
+                $\dfrac{1}{n} \sum a_k b_k \geq \left( \dfrac{1}{n} \sum a_k \right) \left( \dfrac{1}{n} \sum b_k \right)$
+                
 	\newpage
 	
 	\section{Иррациональность числа $\pi$}
 	
 		\subsection{Вспомогательный интеграл}
 		
-			Пусть $H_n = \frac{1}{n!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} (\frac{\pi^2}{4}-t^2)^n \ \cos t \ dt$
+			Пусть $H_n = \dfrac{1}{n!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left(\dfrac{\pi^2}{4}-t^2\right)^n \ \cos t \ dt$
 			
-			$H_n = \begin{bmatrix} f = (\frac{\pi^2}{4} - t^2)^n & g = \sin t \\ f' = -2nt (\frac{\pi^2}{4} - t^2)^{n - 1} & g' = -\cos t \end{bmatrix}$
+			$H_n = \begin{bmatrix} f = \left(\dfrac{\pi^2}{4} - t^2\right)^n & g = \sin t \\ f' = -2nt \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} & g' = -\cos t \end{bmatrix}$
 			
-			$H_n = \frac{1}{n!} (\frac{\pi^2}{4} - t^2)^n \sin t \bigg|^{\frac{\pi}{2}}_{-\frac{\pi}{2}} + \frac{1}{n!} 2n \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} t (\frac{\pi^2}{4}-t^2)^{n - 1} \sin t \ dt$
+			$H_n = \dfrac{1}{n!} \left(\dfrac{\pi^2}{4} - t^2\right)^n \sin t \bigg|^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} + \dfrac{1}{n!} 2n \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} t (\dfrac{\pi^2}{4}-t^2)^{n - 1} \sin t \ dt$
 			
-			$H_n = \frac{1}{n!} 2n \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} t (\frac{\pi^2}{4}-t^2)^{n - 1} \sin t \ dt$
+			$H_n = \dfrac{1}{n!} 2n \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} t (\dfrac{\pi^2}{4}-t^2)^{n - 1} \sin t \ dt$
 			
-			$H_n = \begin{bmatrix} f = t (\frac{\pi^2}{4} - t^2)^{n - 1} & g = -\cos t \\ f' = (\frac{\pi^2}{4} - t^2)^{n - 1} - 2(n - 1)t^2(\frac{\pi^2}{4} - t^2)^{n - 2} & g' = \sin t \end{bmatrix}$
+			$H_n = \begin{bmatrix} f = t \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} & g = -\cos t \\ f' = \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} - 2(n - 1)t^2\left(\dfrac{\pi^2}{4} - t^2\right)^{n - 2} & g' = \sin t \end{bmatrix}$
 			
-			$f' = (\frac{\pi^2}{4} - t^2)^{n - 1} + 2(n - 1)(\frac{\pi^2}{4} - t^2)^{n - 1} - \frac{\pi^2}{2} (n - 1) (\frac{\pi^2}{4} - t^2)^{n - 2}$
+			$f' = \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} + 2(n - 1)\left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} - \dfrac{\pi^2}{2} (n - 1) \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 2}$
 			
-			$f' = (2n - 1)(\frac{\pi^2}{4} - t^2)^{n - 1} - \frac{\pi^2}{2}(n - 1)(\frac{\pi^2}{4}-t^2)^{n - 2}$
+			$f' = (2n - 1)\left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} - \dfrac{\pi^2}{2}(n - 1)\left(\dfrac{\pi^2}{4}-t^2\right)^{n - 2}$
 			
-			$\frac{2}{(n - 1)!} t (\frac{\pi^2}{4} - t^2)^{n - 1} (-\cos t) \bigg|^{\frac{\pi}{2}}_{-\frac{\pi}{2}} - \frac{2}{(n - 1)!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} ( (2n - 1)(\frac{\pi^2}{4} - t^2)^{n - 1} - \frac{\pi^2}{2} (n - 2) (\frac{\pi^2}{4} - t^2)^{n - 2}) \cos t \ dt$
+			$\dfrac{2}{(n - 1)!} t \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} (-\cos t) \bigg|^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} - \dfrac{2}{(n - 1)!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left( (2n - 1)\left(\frac{\pi^2}{4} - t^2\right)^{n - 1} - \dfrac{\pi^2}{2} (n - 2) \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 2}\right) \cos t \ dt$
 			
 			Пусть $n \geq 2$, тогда
 			
@@ -619,29 +948,27 @@
 			
 			$H_0 = 2$
 			
-			$H_1 = 2 \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} \frac{t}{f} \frac{g'}{\sin t} = 2t (- \cos t)\bigg|^{\frac{\pi}{2}}_{-\frac{\pi}{2}} + 2 \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} \cos t \ dt = 4$
+			$H_1 = 2 \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \dfrac{t}{f} \dfrac{g'}{\sin t} = 2t (- \cos t)\bigg|^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} + 2 \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \cos t \ dt = 4$
 			
 		\subsection{Теорема}
 		
 			Число $\pi^2$ ~--- иррациональное (и тогда $\pi$ тоже)
 			
-		\subsection{Доказательство}
+		\subsection{Доказательство (от противного)}
 		
-			Пусть $\frac{1}{n!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} (\frac{\pi^2}{4} - t^2)^n \cos t = P_n (\pi^2)$, где $P_n$ ~--- многочлен с целыми коэффициентами.
+			Пусть $\dfrac{1}{n!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t = P_n (\pi^2)$, где $P_n$ ~--- многочлен с целыми коэффициентами.
 			
 			$\deg P \leq n$
 			
 			Этого не может быть
 			
-			\underline{От противного}
+			Пусть $\pi^2 = \dfrac{m}{k} \in \mathbb{Q}$. Тогда $k^n P_n\left(\frac{m}{k}\right)$ ~--- целое число
 			
-			Пусть $\pi^2 = \frac{m}{k} \in \mathbb{Q}$. Тогда $k^n P_n(\frac{m}{k})$ ~--- целое число
+			Значит $k^n \cdot P_n \left(\dfrac{m}{k}\right) \geq 1$, т.е.
 			
-			Значит $k^n \cdot P_n (\frac{m}{k}) \geq 1$, т.е.
+			$\dfrac{k^n}{n!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t \ dt \geq 1$
 			
-			$\frac{k^n}{n!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} (\frac{\pi^2}{4} - t^2)^n \cos t \ dt \geq 1$
-			
-			$\frac{k^n}{n!} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} (\frac{\pi^2}{4} - t^2)^n \cos t \ dt \leq \frac{k^n}{n!} (\frac{\pi^2}{4})^n \cdot \pi \xrightarrow[n \rightarrow +\infty]{} 0$
+			$\dfrac{k^n}{n!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t \ dt \leq \dfrac{k^n}{n!} \left(\dfrac{\pi^2}{4}\right)^n \cdot \pi \xrightarrow[n \rightarrow +\infty]{} 0$
 			
 	\newpage
 	
@@ -658,9 +985,7 @@
 
 			$f(x) = \sum\limits^n_{k = 0} \frac{f^{(k)} (x_0)}{k!} (x - x_0)^k + \frac{1}{n!} \int\limits^x_{x_0} (x - t)^n f^{(n + 1)}(t) \ dt$
 
-		\subsection{Доказательство}
-
-			\underline{По индукции}
+		\subsection{Доказательство (по индукции)}
 
 			\begin{itemize}
 
@@ -746,7 +1071,7 @@
 			
 			Пусть $f$, $g$ ~--- дифференцируемы на $(a, b \rangle$, $g' \neq 0$ на $(a, b \rangle$ и существует $\lim\limits_{x \rightarrow a} \frac{f'(x)}{g'(x)} = A \in \overline{\mathbb{R}}$
 			
-			Тогда $\lim\limits{x \rightarrow a} \frac{f(x)}{g(x)} = A$
+			Тогда $\lim\limits_{x \rightarrow a} \frac{f(x)}{g(x)} = A$
 			
 		\subsection{Пример из жизни}
 		
@@ -781,6 +1106,8 @@
 			По теореме Коши $\exists \xi_k \in [x_k, y_k]$ (не факт, что $x_k \leq y_k$)
 			
 			$\frac{f(x_k) - f(y_k)}{g(x_k) - g(y_k)} = \frac{f'(\xi_k)}{g'(\xi_k)}$
+			
+			Домножаем правую и левую часть на $\dfrac{g(x_k) - g(y_k)}{g(x_k)}$
 			
 			$\frac{f(x_k)}{g(x_k)} = \frac{f(y_k)}{g(x_k)} + \frac{f'(\xi_k)}{g'(\xi_k)} \left( 1 - \frac{g(y_k)}{g(x_k)} \right)$
 			
@@ -862,7 +1189,7 @@
 		
 			$f$ ~--- бесконечное дифференцируема на $\mathbb{R}$
 			
-			($\forall x \in \mathbb{R}$ $\forall k \in \mathbb{N}$ $\exists f^{(k)} (x)$)
+			($\forall x \in \mathbb{R} \ \ \ \forall k \in \mathbb{N} \ \ \ \exists f^{(k)} (x)$)
 			
 		\subsection{Доказательство}
 		
@@ -876,27 +1203,950 @@
 			
 			$f$ ~--- дифференцируема и $f'(a) = L$
 			
-			$f'(x) = \frac{2}{x^3} \cdot e^{-\frac{1}{x^2}}$, $x \neq 0$
+			$f'(x) = \dfrac{2}{x^3} \cdot e^{\left(-\dfrac{1}{x^2}\right)}$, $x \neq 0$
 			
-			$\lim\limits_{x \rightarrow 0} \frac{\frac{1}{x^3}}{e^{\frac{1}{x^2}}} = \left[ \frac{\infty}{\infty} \right] = \lim\limits_{x \rightarrow 0} \frac{-\frac{3}{x^4}}{-\frac{2}{x^3} e^{\frac{1}{x^2}}} = \lim\limits_{x \rightarrow 0} \frac{3}{2} \cdot \frac{\frac{1}{x}}{e^{\frac{1}{x^2}}} = \lim\limits_{x \rightarrow 0} \frac{-\frac{1}{x^2}}{-\frac{2}{x^3} e^{\frac{1}{x^2}}} = \lim\limits_{x \rightarrow 0} \cdot x \cdot e^{-\frac{1}{x^2}} \rightarrow 0$
+			$\lim\limits_{x \rightarrow 0} \dfrac{\dfrac{1}{x^3}}{e^{\left(\dfrac{1}{x^2}\right)}} = \left[ \dfrac{\infty}{\infty} \right] = \lim\limits_{x \rightarrow 0} \dfrac{-\dfrac{3}{x^4}}{-\dfrac{2}{x^3} e^{\left(\dfrac{1}{x^2}\right)}} = \lim\limits_{x \rightarrow 0} \dfrac{3}{2} \cdot \dfrac{\dfrac{1}{x}}{e^{\left(\dfrac{1}{x^2}\right)}} = \lim\limits_{x \rightarrow 0} \dfrac{-\dfrac{1}{x^2}}{-\dfrac{2}{x^3} e^{\left(\dfrac{1}{x^2}\right)}} = \lim\limits_{x \rightarrow 0} \cdot x \cdot e^{\left(-\dfrac{1}{x^2}\right)} \rightarrow 0$
 			
-			$\lim\limits_{x \rightarrow 0} \frac{1}{x^k} \cdot e^{-\frac{1}{x^2}} = \left( \lim\limits_{x \rightarrow 0} \frac{\frac{1}{x^2}}{e^{\frac{1}{x^2} \cdot \frac{2}{k}}} \right)^{\frac{k}{2}} = \left( \lim\limits_{x \rightarrow 0} \frac{-\frac{1}{x^3}}{-\frac{4}{k} \cdot \frac{1}{x^3} \cdot e^{\frac{1}{x^3}}} \right)^\frac{k}{2} = 0$
+			$\lim\limits_{x \rightarrow 0} \dfrac{1}{x^k} \cdot e^{\left(-\dfrac{1}{x^2}\right)} = \left(\lim\limits_{x \rightarrow 0} \dfrac{\dfrac{1}{x^2}}{e^{\left(\dfrac{1}{x^2} \cdot \dfrac{2}{k}\right)}} \right)^{\dfrac{k}{2}} = \left( \lim\limits_{x \rightarrow 0} \dfrac{-\dfrac{1}{x^3}}{-\dfrac{4}{k} \cdot \dfrac{1}{x^3} \cdot e^{\left(\dfrac{1}{x^3}\right)}} \right)^{\dfrac{k}{2}} = 0$
 			
 			\underline{Итого}
 			
-			$f'(x) = \frac{2}{x^3} \cdot e^{-\frac{1}{x^2}}$, $x \neq 0$
+			$f'(x) = \dfrac{2}{x^3} \cdot e^{\left(-\dfrac{1}{x^2}\right)}$, $x \neq 0$
 			
 			$f'(0) = 0$
 			
 			Аналогично
 			
-			$f'' = -\frac{6}{x^4} \cdot e^{-\frac{1}{x^2}} - \frac{4}{x^5} \cdot e^{-\frac{1}{x^2}}$, $x \neq 0$
+			$f'' = -\dfrac{6}{x^4} \cdot e^{\left(-\dfrac{1}{x^2}\right)} - \dfrac{4}{x^5} \cdot e^{\left(-\dfrac{1}{x^2}\right)}$, $x \neq 0$
 			
 			$\lim\limits_{x \rightarrow 0} f''(x) = 0 \Rightarrow f''(0) = 0$
 			
-			$x \neq 0$ $f^{(k)} (x) = P_k (\frac{1}{x}) \cdot e^{-\frac{1}{x^2}}$
+			$x \neq 0$ $f^{(k)} (x) = P_k \left(\dfrac{1}{x}\right) \cdot e^{\left(-\dfrac{1}{x^2}\right)}$
 			
 			$\lim\limits_{x \rightarrow 0} f^{(k)}(x) = 0 \Rightarrow f^{(k)}(0) = 0$
 			
+	\newpage
+
+	\section{Интеграл как предел интегральных сумм}
+
+		\subsection{Формулировка}
+
+			Пусть $f \in C[a, b]$
+
+			Тогда $\forall \varepsilon > 0 \ \exists \delta > 0$ что для любого дробления $\mathcal{T} \ a = x_0 < x_1 < \ldots < x_n = b$ ранга меньше $\delta$ и любого оснащения $\xi_1, \xi_2, \ldots, \xi_n$
+
+			$\left| \sum\limits^n_{k = 1} f(\xi_k)(x_k - x_{k - 1}) - \int\limits^b_a f(x) \ dx \right| < \varepsilon$
+
+		\subsection{Доказательство}
+
+		\begin{enumerate}
+			\item Поделим на отрезки в соответствии с дроблением. Очевидно, что $\int\limits^b_a = \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}}$. Тогда рассмотрим разность
+
+				$\int\limits^{x_k}_{x_{k - 1}} f(\xi_k) \ dx - \int\limits^{x_k}_{x_{k - 1}} f(x) \ dx$
+
+				$\int\limits^{x_k}_{x_{k - 1}} (f(\xi_k) - f(x) \ dx) \rightarrow 0$, т.к. $x_{k - 1} \rightarrow x_k$, а $\xi_k \in [x_{k - 1}, x_k]$
+
+			\item По теореме Кантора о равномерной непрерывности
+
+				$\forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x_1, x_2: \left| x_1 - x_2 \right| < \delta \ \left| f(x_1) - f(x_2) \right| < \frac{\varepsilon}{b - a}$ <<Китайский $\varepsilon$>>
+
+				Берём $x_0, x_1, \ldots, x_n, \xi_1, \xi_2, \ldots, \xi_n$
+
+				$\left| \sum\limits^n_{k = 1} - \int\limits^b_a \right| = \left| \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} f(\xi_k) \ dx - \sum\limits^n_{k = 1} f(x) \ dx \right| = \left| \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left( f(\xi_k) - f(x) \right) \ dx \right| \leq \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left| f(\xi_k) - f(x) \right| \ dx$
+
+				$\left| \xi_k - x_k \right| < \delta$ для любых $[x_{k - 1}, x_k]$ (по условию)
+
+				$\leq \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \frac{\varepsilon}{b - a} \ dx = \int\limits^b_a \frac{\varepsilon}{b - a} \ dx = \varepsilon$
+
+		\end{enumerate}
+
+		\subsection{Замечания}
+
+			\begin{enumerate}
+
+				\item $\int\limits^b_a f(x) \ dx = \lim\limits_{\lambda (\mathcal{T}) \rightarrow 0} \sum\limits^n_{k = 1} f(\xi_k)(x_k - x_{k - 1})$
+
+				\item $\omega(\delta) := \sup\limits_{x, t \\ \left| x - t \right| < \delta} \left| f(x) - f(t) \right|$ ~--- модуль непрерывной функции $f$
+
+					По теореме Кантора $f$ ~--- непрерывна $\Longrightarrow \omega(\delta) \xrightarrow[f \rightarrow 0]{} 0$
+					
+					$\omega(\delta)$ монотонно убывает на отрезке
+
+					$\sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left| f(\xi_k) - f(x) \right| \ dx \leq \sum \int \omega(\delta) \ dx = \omega(\delta) (b - a)$
+
+					Пусть $f$ ~--- дифференцируема на $[a, b] \ \left| f' \right| \leq M$
+
+					$\left| f(x) - f(t) \right| \leq M \left| x - t \right|$ ~--- следствие из теоремы Лагранжа
+
+					$\left| f(\xi_k) - f(x) \right| \leq M \delta \left| \xi_k - x \right|$
+
+					$\left| \sum - \int \right| \leq M \delta (b - a)$
+				
+			\end{enumerate}
+
+	\newpage
+
+	\section{Теорема об интегральных суммах для центральных прямоугольников}
+
+		\subsection{Формулировка}
+
+			Пусть $f \in C^2[a, b] \ a = x_0 < x_1 < \ldots < x_n = b$
+
+			$\delta := \max \left| x_k - x_{k - 1} \right|$
+
+			Тогда 
+
+			$\left| \sum\limits^n_{i = 1} f \left( \frac{x_i + x_{i - 1}}{2} \right) (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| \leq \frac{\delta^2}{8} \cdot \int\limits^b_a (f'')$
+
+		\subsection{Доказательство}
+
+			$\int\limits^{x_i}_{x_{i - 1}} f(x) \ dx = \int\limits^{\xi_i}_{x_{i - 1}} + \int\limits^{x_i}_{\xi_i} = \begin{bmatrix} u = f & u' = f' \\ v' = 1 & v = x - x_{i - 1} \end{bmatrix}$ и $\begin{bmatrix} u = f & u' = f' \\ v' = 1 & v = x - x_i \end{bmatrix}$ 
+				
+			$f(x)(x - x_{i - 1}) \bigg|^{x = \xi_i}_{x = x_{i - 1}} - \int\limits^{\xi_i}_{x_{i - 1}} f'(x)(x - x_{i - 1}) \ dx + f(x)(x - x_i) \bigg|^{x = x_i}_{x = \xi_i} - \int\limits^{x_i}_{\xi_i} f'(x)(x - x_i) \ dx = f(\xi_i)(\xi_i - x_{i - 1}) + f(\xi_i)(x_i - \xi_i) - \left( f'(x) \frac{(x - x_{c - 1})^2}{2} \bigg|^{x = \xi_i}_{x = x_{i - 1}} - \int\limits^{\xi_i}_{x_{i -1 }} f''(x) \frac{(x - x_{i - 1})^2}{2} \ dx + f'(x) \frac{(x - x_i)^2}{2} \bigg|^{x_i}_{\xi_i} - \int\limits^{x_i}_{\xi_i} f''(x) \frac{(x - x_i)^2}{2} \right) = f(\xi_i)(x_i - x_{i - 1}) + \int\limits^{x_i}_{x_{i - 1}} f''(x) \ \varphi(x) \ dx$
+
+			$Пусть \varphi(x) = \begin{cases} \frac{(x - x_{i - 1})^2}{2}, \ x \in [x_{i - 1}, \xi_i] \\ \frac{(x - x_i)^2}{2}, x \in [\xi_i, x_i] \end{cases}$
 			
+			Тогда $\varphi(x)$ определена на $[a, b]$
+
+			$\left| \sum\limits^n_{i = 1} f \left( \frac{x_{i - 1} - x_i}{2} \right) (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{i = 1} \left( f(x_i)(x_i - x_{i - 1}) - \int\limits^{x_i}_{x_{i - 1}} f \right) \right| = \left| \sum \left( - \int\limits^{x_i}_{x_{i - 1}} f''(x) \varphi(x) \ dx \right) \right| = \left| \int\limits^b_a f''(x) \varphi(x) \ dx \right| \leq \int\limits^b_a | f''(x) | \varphi(x) \ dx \leq \frac{\delta^2}{8} \int\limits^b_a | f'' |$
+
+			Поскольку $\max \varphi(x) = \frac{(\frac{\delta}{2})^2}{2} = \frac{\delta^2}{8}$
+
+	\newpage
+
+	\section{Теорема о формуле трапеций, формула Эйлера--Маклорена}
+
+		\subsection{Формулировка теоремы о формуле трапеций}
+
+			Пусть $f \in C^2[a, b] \ a = x_0 < x_1 < \ldots < x_n = b \ \ \ \delta = \max (x_i - x_{i - 1})$
+
+			Тогда $\left| \sum\limits^n_{i = 1} \frac{f(x_{i - 1}) + f(x_i)}{2} (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| \leq \frac{\delta^2}{8} \int\limits^b_a |f''|$
+
+		\subsection{Доказательство}
+
+			$\int\limits^{x_i}_{x_{i - 1}} f(x) = \begin{bmatrix} u = f & u' = f' \\ v'1 = 1 & v = x - \xi_i \end{bmatrix}$ 
+			
+			$f(x)(x - \xi_i) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'(x)(x - \xi_i) - f(x_{i - 1})(x_{i - 1} - \xi_i) - \left(f'(x) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'' \frac{(x - \xi_i)^2}{2} \ dx \right) = \left(f(x_i) + f(x_{i - 1}) \right) \frac{x_i - x_{i - 1}}{2} - \left( f'(x) - \frac{1}{2} \psi(x) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'' (-\frac{1}{2} \psi(x)) \ dx \right)$
+
+			$\begin{bmatrix} u = f' & u' = f'' \\ v' = (x - \xi_i) & \psi(x) = (x - x_{i - 1})(x_i - x) \end{bmatrix} \ x \in [x_{i - 1}, x_i]$ на $[a, b]$
+
+			$v = -\frac{1}{2} \psi(x)$
+
+			$(f(x_i) + f(x_{i - 1}) \cdot \frac{(x_i - x_{i - 1})}{2} - \frac{1}{2} \int\limits^{x_i}_{x_{i - 1}} f'' \psi(x) \ dx$
+
+			$\left| \sum\limits^n_{i = 1} \frac{f(x_{i - 1}) + f(x_i)}{2} \cdot (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{i = 1} \left( \frac{f(x_{i - 1}) + f(x_i)}{2}(x_i - x_{i - 1}) - \int\limits^{x_i}_{x_{i - 1}} f(x) \ dx \right) \right| = \left| \sum\limits^n_{i = 1} \frac{1}{2} \int\limits^{x_i}_{x_{i - 1}} f''(x) \psi(x) \ dx \right| = \frac{1}{2} \int\limits^b_a \left| f''(x) \right| \psi(x) \ dx \leq \frac{\delta^2}{8} \int\limits^b_a \left| f'' \right|$
+
+		\subsection{Простейший случай формулы Эйлера-Маклорена}
+
+			$m, n \in \mathbb{Z} \ f \in C^2[m, n]$. Тогда
+
+			$\int\limits^n_m f(x) \ dx = (\sum\limits^n_{i = m})^{\triangledown} f(i) - \frac{1}{2} \int^n_m f''(x) \left\{ x \right\} (1 - \left\{ x \right\}) \ dx$
+
+			Очевидно$^{TM}$, что это формула трапеции.
+
+			$[a, b] \leftrightarrow [m, n] \ x_0 = m, x_1 = m + 1, \ldots, x_{last} = n$
+
+			$\left\{ x \right\} (1 - \left\{ x \right\})$ ~--- парабола между двумя целыми точками
+		
+    \newpage
+    
+    \section{Асимптотика степенных сумм}
+        
+        $1^p + 2^p + \ldots + n^p = \int\limits^n_a x^p dx + \dfrac{n^p + 1}{2} + \dfrac{1}{2} \int\limits^n_1 (x^p)'' \left\{ x \right\} (1 - \left\{ x \right\}) dx$
+            
+        $1^p + 2^p + \ldots + n^p = \dfrac{n^{p + 1}}{p + 1} - \dfrac{1^{p + 1}}{p + 1} + \dfrac{n^p}{2} + \dfrac{1}{2} + \dfrac{p(p - 1)}{2} \int\limits^n_1 x^{p - 2} \left\{ x \right\} (1 - \left\{ x \right\})$
+            
+        $1^p + 2^p + \ldots + n^p = \dfrac{n^{p + 1}}{p + 1} + \dfrac{n^p}{2} + O(\max(1, n^{p - 1}))$
+    
+    \newpage
+    
+    \section{Асимптотика частичных сумм гармонического ряда}
+    
+        $1 + \dfrac{1}{2} + \ldots + \dfrac{1}{n} = \int\limits^n_1 \dfrac{1}{x} dx + \dfrac{1}{2} + \dfrac{1}{2n} + \int\limits^n_1 \dfrac{1}{x^3} \left\{ x \right\}(1 - \left\{ x \right\}) dx$
+        
+        $1 + \dfrac{1}{2} + \ldots + \dfrac{1}{n} = \ln n + \dfrac{1}{2} + \dfrac{1}{2n} + \int\limits^n_1 \dfrac{\left\{ x \right\}(1 - \left\{ x \right\})}{x^3} dx$
+        
+        Интеграл постоянной возрастает и ограничен сверху $\dfrac{1}{4} \int\limits^n_1 \dfrac{1}{x^3} dx = -\dfrac{1}{x^2} \cdot \dfrac{1}{8} \bigg|^{x = n}_{x = 1} < \dfrac{1}{8}$
+        
+        Всё, что правее логарифма ~--- постоянная Эйлера или $\gamma$
+        
+        Итого
+        
+        $1 + \dfrac{1}{2} + \ldots + \dfrac{1}{n} = \ln {n} + \gamma + o(1)$
+        
+    \newpage
+    
+    \section{Формула Валлиса}
+    
+        \subsection{Формулировка}
+        
+            $\lim\limits_{n \rightarrow \infty} \left( \dfrac{(2n)!!}{(2n - 1)!!} \right)^2 \cdot \dfrac{1}{2n + 1} = \dfrac{\pi}{2}$
+            
+        \subsection{Доказательство}
+        
+            $I_n = \int\limits^{\dfrac{\pi}{2}}_0 \sin^n x dx = \begin{bmatrix} u = sin^{n - 1} x & u' = (n - 1) \sin^{n - 2} x cos x \\ v' = \sin {x} dx & v = -\cos{x} \end{bmatrix}$
+            
+            $-\cos{x} \sin^{n - 1} x \bigg|^{\dfrac{\pi}{2}}_0 + (n - 1) \int\limits^{\dfrac{\pi}{2}}_0 \sin^{n - 2} x \cos^2 x dx = (n - 1) \int\limits^{\dfrac{\pi}{2}}_0 (\sin^{n - 2} x - sin^n x) dx = (n - 1) (I_{n - 2} - I_n)$
+            
+            $I_n = \dfrac{n - 1}{n} I_{n - 2}$
+            
+            $I_0 = \int\limits^{\dfrac{\pi}{2}}_0 1 dx = \dfrac{\pi}{2}$
+            
+            $I_1 = \int\limits^{\dfrac{\pi}{2}}_0 \sin x dx = -\cos{x} \bigg|^{\dfrac{\pi}{2}}_0 = 1$
+            
+            $I_n = \dfrac{n - 1}{n} I_{n - 2} = \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 4} I_{n - 4} = \ldots$
+            
+            Посчитаем отдельно для случая чётного и нечётного $n$
+            
+            $I_{2n + 1} = \dfrac{2n}{2n + 1} \cdot {2n - 2}{2n - 1} \cdot \ldots \cdot 1 = \dfrac{(2n)!!}{(2n + 1)!!}$
+            
+            $I_{2n} = \dfrac{2n - 1}{2n} \cdot {2n - 3}{2n - 2} \cdot \dfrac{\pi}{2} = \dfrac{(2n - 1)!!}{(2n)!!} \cdot \dfrac{\pi}{2}$
+            
+            Так как при $x \in \left[ 0, \dfrac{\pi}{2} \right] \ \ \ \sin^{2k + 1} x \leq \sin^{2k}$
+            
+            То и $I_{n + 1} \leq I_n$
+            
+            Также, $I_{2n + 1} \leq I_{2n} \leq I_{2n - 1}$
+            
+            $\dfrac{(2n)!!}{(2n + 1)!!} \leq \dfrac{\pi}{2} \dfrac{(2n - 1)!!}{(2n)!!} \leq \dfrac{(2n - 2)!!}{(2n - 1)!!}$
+            
+            Разность правой и левой части стремится к $0$, значит 
+            
+            $\exists \lim\limits_{k \rightarrow +\infty} \dfrac{1}{2k} \left( \dfrac{(2k)!!}{(2k - 1)!!} \right)^2 = \dfrac{\pi}{2}$
+            
+    \newpage
+    
+    \section{Формула Стирлинга}
+    
+        \subsection{Формулировка}
+        
+            $n! \sim n^n e^{-n} \sqrt{2 \pi n}$
+            
+        \subsection{Доказательство}
+        
+            $\sqrt{\pi} = \dfrac{1}{\sqrt{k}} \dfrac{(2k)!!}{(2k - 1)!!} = \lim\limits_{k \rightarrow +\infty} \dfrac{2 \cdot 4 \cdot 6 \cdot \ldots \cdot (2k)}{1 \cdot 3 \cdot \ldots \cdot (2k - 1)} \cdot \dfrac{1}{\sqrt{k}}$
+            
+            $\sqrt{\pi} = \lim \dfrac{(2 \cdot 4 \cdot \ldots \cdot (2k))^2}{(2k)!} \cdot \dfrac{1}{\sqrt{k}} = \lim \dfrac{2^{2k} (k!)^n}{(2k)!} \cdot \dfrac{1}{\sqrt{k}}$
+            
+            $\sqrt{\pi} = \lim\limits_{k \rightarrow \infty} \dfrac{2^{2k} (k^k \cdot e^{-k} \sqrt{k} \cdot c)^2}{\sqrt{k} (2k)^{2k} e^{-2k} \sqrt{2k} \cdot c} = \lim\limits_{k \rightarrow \infty} \dfrac{2^{2k} \cdot k^{2k} \cdot e^{-2k} \cdot k \cdot c^2}{\sqrt{2} \cdot k \cdot 2^{2k} \cdot k^{2k} \cdot e^{-2k} \cdot c} = \dfrac{c}{\sqrt{2}}$
+            
+            $c = \sqrt{2 \pi}$
+            
+    \newpage
+    
+    \section{Теорема о вычислении аддитивной функции промежутка по плотности}
+    
+        \subsection{Формулировка}
+        
+            Пусть заданы $f$ и $\phi$, $f$ ~--- непрерывна, $\phi$ ~--- аддитивная функция промежутка, $f$ ~--- плотность $\phi$
+            
+            Тогда $\forall [p, q] \subset \langle a, b \rangle \ \phi([p, q]) = \int\limits^q_p f(x) \ dx$
+            
+        \subsection{Доказательство}
+        
+            Можно принять за факт, что у нас дан промежуток $[a, b]$ (если это не так, то уменьшим его чуть-чуть и переобозначим)
+            
+            $F(x) = \begin{cases} 0{,} & x = a \\ \phi([a, x]){,} & x > a \end{cases}$ ~--- первообразная $f$
+            
+            $\inf\limits_{[x, x + h]} f \leq \frac{\phi([x, x + h])}{h} \leq \sup\limits_{[x, x + h]} f$
+            
+            $x : F'_+(x) = \lim\limits_{h \rightarrow 0 + 0} \frac{F(x + h) - F(x)}{h} = \lim \frac{\phi([a, x + h]) - \phi([a, x])}{h} = \lim \frac{\phi([x, x + h])}{h} = \lim\limits_{h \rightarrow 0 + 0} f(x + \Theta h) = f(x)$, где
+            
+            $0 \leq \Theta \leq 1$
+            
+            $\Theta = \Theta(h)$
+            
+            Аналогично посчитаем и $F'_-(x)$
+            
+            $\phi([p, q]) = F(q) - F(p) = \int\limits^q_p f(x) \ dx$
+            
+    \newpage
+    
+    \section{Обобщенная теорема о плотности}
+    
+        \subsection{Формулировка}
+            
+            Пусть $f : \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- непрерывная функция, $\phi : \Segm \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- аддитивная функция.
+        
+            Пусть $\forall \Delta \subset \Segm \langle a, b \rangle$ заданы числа $m_{\Delta}$, $M_{\Delta}$.
+        
+            \begin{enumerate}
+        
+                \item $m_{\Delta} \cdot l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} \cdot l(\Delta)$
+            
+                \item $\forall x \in \Delta$ $m_{\Delta} \leq f(x) \leq M_{\Delta}$
+            
+                \item $\forall x \in \langle a, b \rangle$ $M_{\Delta} - m_{\Delta} \rightarrow 0$, если $l(\Delta) \rightarrow 0$, $x \in \Delta$
+            
+            \end{enumerate}
+        
+            $\forall \varepsilon > 0 \ \ \ \exists \delta > 0 \ \ \ \forall \Delta \in \Segm \ \ \ \langle a, b \rangle : x \in \Delta, \ \ \ l(\Delta) < \delta$
+            
+            $\left| M_{\Delta} - m_{\Delta} \right| < \varepsilon$
+        
+            Тогда $f$ ~--- плотность $\phi$ (и $\forall [p, q]$ $\phi([p, q]) = \int\limits^q_p f(x) \ dx$)
+        
+        \subsection{Доказательство}
+        
+            $F(x) = \begin{cases} 0, & x = 0 \\ \phi([a, x]), & x > a \end{cases}$
+        
+            Дифференцируем $F_+$
+        
+            $m_{\Delta} \leq \frac{F(x+ h) - F(x)}{h} \leq M_{\Delta}$
+        
+            $\left| \frac{F(x + h) - F(x)}{n} - f(x) \right| \leq \left| M_{\Delta} - m_{\Delta} \right| \xrightarrow[h \rightarrow 0]{} 0$, $\Delta = [x, x + h]$
+        
+            $\frac{F(x + h) - F(x)}{h} \xrightarrow[h \rightarrow 0]{} f(x)$
+        
+            Аналогично и с $F_-$
+        
+    \newpage
+    
+    \section{Площадь криволинейного сектора: в полярных координатах и для параметрической кривой}
+    
+        \subsection{Введение}
+        
+            Площадь подграфика $f : \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- непрерывная, $f \geq 0$
+        
+            $\phi([p, q]) = \sigma \PG (f, [p, q])$ ~--- аддитивная функция. Мы знаем, что $\phi([p, q]) = \int\limits^q_p f(x) \ dx$, $f$ ~--- плотность
+
+        \subsection{Пример}
+        
+            $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$
+            
+            $\sigma$(эллипса) $ = 2 \sigma(\PG(b \sqrt{1 - \frac{x^2}{a^2}}{,} [-a, a])) =  2 \cdot \int\limits^a_{-a} b \sqrt{1 - \frac{x^2}{a^2}} dx$
+            
+            Путь $\gamma : [\alpha, \beta] \rightarrow \mathbb{R}^2$, $x = a \cos t$
+            
+            $[0, 2 \pi] \longmapsto (a \cos t, b \sin t)$
+            
+            $2 \int\limits^0_{\pi} b \sqrt{1 - \cos^2 t} / a(-\sin t) \ dt = 2 a b \int\limits^0_{\pi} - \sin^2 t \ dt = 2 a b \int\limits^{\pi}_{0} \sin^2 t \ dt = 2 a b \int\limits^{\pi}_{0} \frac{1 - \cos {2t}}{2} \ dt = \pi a b$
+            
+        \subsection{Теорема}
+            
+            $[\alpha, \beta] \subset [0, 2 \pi)$
+            
+            $\rho : [\alpha, \beta] \rightarrow \mathbb{R}$ ~--- непрерывная, $\rho \geq 0$
+            
+            $A = \left\{ (r, \phi) : \phi \in [\alpha, \beta] \ 0 \leq r \leq \rho(\phi) \right\}$ ~--- <<Аналог ПГ>>
+            
+            Тогда $\sigma(A) = \frac{1}{2} \int\limits^{\beta}_{\alpha} \rho^2(\phi) \ d \phi$
+            
+        \subsection{Доказательство}
+        
+            $[\alpha, \beta] \longmapsto \sigma(A)$ ~--- функция промежутка $Segm [\alpha, \beta]$ ~--- аддитивная функция.
+            
+            Проверим, что $\frac{1}{2} \rho^2 (\phi)$ ~--- плотность
+            
+            $[\gamma, \delta]$ ~--- строим $A_{\gamma{,} \delta}$
+            
+            $\sigma (A_{\gamma{,} \delta}) \leq \sigma$(Круговой сектор $(0, \max\limits_{[\gamma, \delta]} \rho(\phi), [\gamma, \delta])$)
+            
+            $\sigma (A_{\gamma{,} \delta}) \geq \sigma$(Круговой сектор $(0, \min\limits_{[\gamma, \delta]} \rho(\phi), [\gamma, \delta])$)
+            
+            $\min\limits_{[\gamma, \delta]} \frac{1}{2} \rho(\phi) l([\gamma, \delta]) \leq \sigma (A_{\gamma{,} \delta}) \leq \max\limits_{[\gamma, \delta]} \frac{1}{2} \rho(\phi) l([\gamma, \delta])$
+            
+            По определению плотности
+            
+        \subsection{Замечание}
+        
+            $(x(t), y(t))$ $t \in [a, b]$
+            
+            $x = r \cos \phi$
+            
+            $y = r \sin \phi$
+            
+            $r = \sqrt{x^2 + y^2}$
+            
+            $\phi = \arctg \frac{y}{x}$
+            
+            $\begin{cases} r(t) = x(t)^2 + y(t)^2 \\ \phi = \arctg \frac{y}{x} \end{cases}$ ~--- параметрическое задание того же пути в полярных координатах
+            
+            $\sigma A = \frac{1}{2} \int\limits^{\phi_1}_{\phi_0} r^2 (\phi) \ d \phi = \frac{1}{2} \int\limits^{t_1}_{t_0} (x(t)^2 + y(t)^2) (\arctg \frac{y(t)}{x(t)} ) \ dx = \frac{1}{2} \int\limits^{t_1}_{t_0} (x^2 + y^2) \frac{1}{1 + \frac{y^2}{x^2}} - \frac{y'x - x'y}{x^2} \ dt = \frac{1}{2} \int\limits^{t_1}_{t_0}(y'(t)x(t) - x'(t)y(t))$
+            
+            $\phi = \arctg \frac{y(t)}{x(t)}$
+            
+            Площадь круга
+            
+            $x = \cos t$
+            
+            $y = \sin t$
+            
+            $S = \frac{1}{2} \int\limits^{2\pi}_0 \cos^2 t - (-\sin t) \sin t \ dt = \frac{1}{2} \int\limits^{2\pi}_0 1 = \frac{2\pi}{2} = \pi$
+            
+            $x = \cos t$
+            
+            $y = -\sin t$
+            
+            $S = \frac{1}{2} \int\limits^{2\pi}_0 -\cos^2 t - \sin^2 t \ dt = - \pi$
+            
+            Она ловит ориентированную площадь
+            
+            $x = x(t) = a \cos t$
+            
+            $y = y(t) = b \sin t$
+            
+            $\sigma = \int\limits^b_a y(x) \ dx = \int\limits^b_a y \ dx$
+            
+            $\sigma$(эллипса) = $\int\limits^a_{-a} y(x) \ dx = \int\limits^a_{-a} y \ dx = \int\limits^0_{\pi} y(t) x'(t) dy$
+            
+            $x = x(t)$
+            
+    \newpage
+    
+    \section{Изопериметрическое неравенство}
+    
+        \subsection{Формулировка}
+        
+            Пусть $G$ ~--- замкнутая выпуклая фигура в $\mathbb{R}^2$
+            
+            $diam G < 1$ ($diam G = \sum\limits_{x, y \in G} \rho(x, y)$)
+            
+            Тогда $\sigma(G) \leq \frac{\pi}{4}$
+            
+        \subsection{Доказательство}
+        
+            $f(x) = \sum \left\{ t : [(x, 0), (x, t)] \cap G = \varnothing \right\}$
+            
+            $g(x)$ ~--- аналогично
+            
+            $f(x)$ ~--- выпуклая
+            
+            $\phi \in \left[ -\frac{\pi}{2}, \frac{\pi}{2} \right]$
+            
+            $r(-\frac{\pi}{2}) = r(\frac{\pi}{2}) = 0$
+            
+            $r(\phi)$ ~--- непрерывная функция от $\phi$
+            
+            $\sigma(G) = \frac{1}{2} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} r^2 (\phi) \ d \phi = \frac{1}{2} \left( \int\limits^0_{-\frac{\pi}{2}} + \int\limits^{\frac{\pi}{2}}_0 \right)$
+            
+            $\frac{1}{2} \int\limits^{\frac{\pi}{2}}_0 r^2 (\phi - \frac{\pi}{2}) + r^2 (\phi) \ d \phi = \frac{1}{2} \int\limits^{\frac{\pi}{2}}_0 AB^2 \ d \phi \leq \frac{1}{2} \int\limits^{\frac{\pi}{2}}_0 1 \ d \phi = \frac{\pi}{4}$
+            
+    \newpage
+    
+    \section{Вычисление длины гладкого пути}
+    
+        \subsection{Формулировка}
+        
+            Пусть $\gamma : [a, b] \rightarrow \mathbb{R}^m$, $\gamma \in C^1$.
+            
+            Тогда $l(\gamma) = \int\limits^b_a \| \gamma'(t) \| dt$
+            
+        \subsection{Доказательство}
+        
+            Будем дополнительно считать, что $\gamma' \neq 0$
+            
+            $\gamma$ ~--- инъективно. Если это не так, то разобьём на несколько частей, и каждую из них посчитаем отдельно.
+            
+            $\phi : Segm[a, b] \rightarrow \mathbb{R}$
+            
+            $[p, q] \rightarrow l\left(\gamma|_{[p, q]} \right)$
+            
+            Пусть $\phi$ ~--- аддитивная функция промежутка по аксиоме 2. Проверим, что $\| \gamma'(t) \|$ ~--- её плотность
+            
+            Это значит, что $\forall \Delta : \exists m_{\Delta}, M_{\Delta}$ и выполняются следующие свойства:
+            
+            \begin{enumerate}
+            
+                \item $l(\Delta) m_{\Delta} \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                
+                \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$, $x \in \Delta$
+                
+                \item $\Delta \rightarrow x$ $M_{\Delta} - m_{\Delta} \rightarrow 0$
+                
+            \end{enumerate}
+            
+            $\Delta \supset [a, b]$, $\gamma(t) = (\gamma_1(t), \gamma_2(t), \ldots, \gamma_m(t))$
+            
+            $m_i(\Delta) = \min\limits_{t \in \Delta} | \gamma'_i(t) |$
+            
+            $M_i(\Delta) = \max\limits_{\Delta} |\gamma'_i(t) |$
+            
+            $m_{\Delta} = \sqrt{\sum m_i(\Delta)^2}$
+            
+            $M_{\Delta} = \sqrt{\sum M_i{\Delta}^2}$
+            
+            Очевидно, что при любом $t \in \Delta$ $m_{\Delta} \leq \| \gamma'(t) \|  \leq M_{\Delta}$, где $\| \gamma'(t) \| = \sqrt{\sum(\gamma'_i(t))^2}$
+            
+            При $\Delta \rightarrow x$ $M_{\Delta} - m_{\Delta} \rightarrow 0$ по непрерывности $\gamma'_i(t)$ в точке $t = x$.
+            
+            Проверим, что $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+            
+            $\widetilde{\gamma} : \Delta \rightarrow \mathbb{R}^m$ $\widetilde{\gamma}(t) = \left(M_1(\Delta)t, M_2(\Delta)t, \ldots, M_m(\Delta)t\right) = M \cdot t$, где $M = (M_1(\Delta), M_2(\Delta), \ldots, M_m(\Delta) )$
+            
+            Отображение $T : C_{\gamma} \rightarrow C_{\overline{\gamma}}$ $\gamma(t) \mapsto \overline{\gamma}(t)$ ~--- проверим, что расстяжение
+            
+            $\rho(\gamma(t_0), \gamma(t_1)) = \sqrt{\sum\limits_{i = 1}^n (\gamma_i(t_0) - \gamma_i(t_1))^2} = \sqrt{\sum(\gamma'_i(\mathcal{T}_i))^2(t_0 - t_1)^2} \leq \sqrt{\sum M_i{\Delta}^2 |t_0 - t_1|} = \rho(T(\gamma(t_0)), T(\gamma(t_1)))$, значит $T$ ~--- растяжение
+            
+            $l\left( \gamma|_{\Delta} \right) \leq l(\widetilde{\gamma})$, т.е. $\phi(\Delta) \leq M_{\Delta} l(\Delta)$.
+            
+            Аналогично $\phi(\Delta) \geq m_{\Delta}l(\Delta)$ ~--- сжатие.
+            
+            Значит $\| \gamma' \|$ ~--- плотность
+            
+    \newpage
+    
+    \section{Объем фигур вращения}
+    
+        \subsection{Формулировка}
+            Обозначим фигуры, полученную вращением по оси $x$ за $T_x(A) = \left\{ (x, y, z) : (x, \sqrt{y^2 + z^2}) \in A \right\}$
+        
+            По оси $y$ ~--- $T_y(A) = \left\{ (x, y, z) : (\sqrt{x^2 + z^2}, y^2) \in A \right\}$
+        
+            Пусть $f \in C[a, b]$, $f \geq 0$
+            
+            Тогда:
+            
+            \begin{enumerate}
+            
+                \item $V(T_x(\PG(f, [a, b]))) = \pi \int\limits^b_a f^2(x) \ dx$
+                
+                \item $[a, b] \supset [0, +\infty) \ V(T_y(\PG(f, [a, b]))) = 2 \pi \int\limits^b_a x f(x) \ dx$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            $\phi: \Delta \in Segm([a, b]) \mapsto V(T_{x \ or \ y} (\PG(f, \Delta)))$ ~--- аддитивная функция.
+            
+            $\pi \min\limits_{x \in \Delta} f(x) \cdot l(\Delta) = V(F_{\Delta}) \leq \phi(\Delta) \leq V(\varepsilon_{\Delta}) = \pi \max\limits_{x \in \Delta} f(x) \cdot l(\Delta)$
+            
+            $\varepsilon_{\Delta}$ ~--- цилиндр прямой круговой
+            
+            $\varepsilon_{\Delta} = T_x(\PG(\max\limits_{\Delta} f, \Delta)) = \Delta B(0, \max\limits_{\Delta} f) \in \mathbb{R}^3$
+            
+            $\mathbb{R} \times \mathbb{R}^2$
+            
+            $\phi(\Delta)$ ~--- плотность, $\pi \int\limits^b_a f^2(x) dx$
+            
+            $\Delta : m_{\Delta}, M_{\Delta}$
+            
+            \begin{enumerate}
+            
+                \item $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                
+                \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$, $x \in \Delta$
+                
+                \item $\Delta \rightarrow x$ $M_{\Delta} - m_{\Delta} \rightarrow 0$
+                
+            \end{enumerate}
+            
+            $V(T_y(\PG(f, [a, b]))) = 2 \pi \int\limits^b_a x \cdot f(x) dx$
+            
+            $F_{\Delta} = T_y(\PG(\min\limits_{\Delta} f, \Delta))$
+            
+            $\phi(\Delta) \leq V(\varepsilon_{\Delta}) = \sigma(ring) \cdot \max\limits_{\Delta} f = \pi(q^2 - p^2) \cdot \max\limits_{[p, q]} f = \pi (p + q) \max f(p - q) \leq \pi \cdot \max\limits_{x \in [p, q]} (2x) \cdot \min\limits_{x \in [p, q]} f(x) \cdot (q - p)$
+            
+            Аналогично
+            
+            $\pi \min\limits_{x \in [p, q]} \cdot \min\limits_{x \in [p, q]} f(x) (q - p)$
+            
+            \begin{enumerate}
+            
+                \item $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                
+                    $\phi(\Delta) = \pi \cdot 2 x \cdot f(x) \leq \pi \max (2x) \cdot max f(x)$
+                    
+                \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$
+                
+                \item $p \rightarrow x_0$, $q \rightarrow x_0$ $\pi \cdot 2 x_0 \cdot f(x_0)$
+                
+            \end{enumerate}
+        
+    \newpage
+    
+    \section{Неравенство Йенсена для сумм}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f$ ~--- выпукла на $\langle a, b \rangle$. Тогда
+            
+            $\forall x_1, x_2, \ldots, x_n \in \langle a, b \rangle$
+            
+            $\forall \alpha_1, \alpha_2, \ldots, \alpha_n \geq 0$, $\sum\limits_{i = 1}^n \alpha_i = 1$
+            
+            $f(\alpha_1 x_1 + \alpha_2 x_2 + \ldots + \alpha_n x_n) \leq \alpha_1 f(x_1) + \alpha_2 f(x_2) + \ldots + \alpha_n f(x_n)$
+            
+        \subsection{Доказательство}
+        
+            Если все $x$ совпадают, то тривиально.
+            
+            Пусть $x^* = \alpha_1 x_1 + \alpha_2 x_2 + \ldots + \alpha_n x_n$
+            
+            $x_{\min} \sum\limits_{i = 1}^n \alpha_i \leq x^* \leq x_{\max} \sum\limits_{i = 1}^n \alpha_i$
+            
+            $a \leq x_{\min} \leq x^* \leq x_{\max} \leq b$
+            
+            К любой выпуклой функции можно провести опорную прямую $y = l(x) : f(x) \geq l(x)$, при $x = x_0$ $f(x_0) = l(x_0)$
+            
+            Проведём к $x^*$ опорную прямую $l(x) = kx + b$
+            
+            $f(x^*) = l(x^*) = k \sum \alpha_i  x_i + b = \sum\limits_{i = 1}^n k \alpha_i x_i + \sum\limits_{i = 1}^n b \alpha_i = \sum \alpha_i (k x_i + b) = \sum \alpha_i l(x_i) \leq \sum \alpha_i f(x_i)$
+            
+    \newpage
+    
+    \section{Неравенство Йенсена для интегралов}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f$ ~--- выпукла и непрерывна на $\langle A, B \rangle$
+            
+            $\varphi : [a, b] \rightarrow \langle A, B \rangle$ ~--- непрерывна
+            
+            $\lambda : [a, b] \rightarrow [0, +\infty]$, $\int\limits^b_a \lambda = 1$ ~--- непрерывна
+            
+            Тогда $f\left( \int\limits^b_a \lambda(x) \varphi(x) dx \right) \leq \int\limits^b_a \lambda(x) f(\varphi(x)) dx$
+        \subsection{Доказательство}
+        
+            $m := \inf \varphi(x)$
+            
+            $M := \sup \varphi(x)$
+            
+            $c := \int\limits^b_a \lambda(x) \varphi(x) dx \leq \int\limits^b_a \lambda(x) dx \cdot M = M \leq b$
+            
+            $c \geq m = a$ ~--- аналогично, значит $c \in \langle a, b \rangle$
+            
+            Если $m = M$ ~--- тривиально
+            
+            Пусть $y = kx + b$ ~--- опорная прямая к графику $f$ в точке $c$
+            
+            $f(C) = kC + b = k \int\limits^b_a \lambda \varphi + b \int\limits^b_a \lambda = \int\limits^b_a \lambda(k\varphi + b) \leq \int\limits^b_a \lambda (f \circ \varphi)$
+            
+            $f\left( \int\limits^b_a \lambda \varphi \right) \leq \int\limits^b_a \lambda (f \circ \varphi)$
+            
+    \newpage
+    
+    \section{Неравенство Коши (для сумм и для интегралов)}
+    
+        \subsection{Неравенство для сумм}
+        
+            \subsubsection{Формулировка}
+            
+                Пусть $a_1, a_2, \ldots, a_n > 0$
+                
+                Тогда $\dfrac{a_1 + a_2 + \ldots + a_n}{n} \geq \sqrt[n]{a_1 a_2 \ldots a_n}$
+                
+            \subsubsection{Доказательство}
+            
+                $\ln(\frac{1}{n} a_1 + \frac{1}{n} a_2 + \ldots + \frac{1}{n} a_n) \geq? \frac{1}{n} \ln(a_1 a_2 \ldots a_n) = \frac{1}{n} \ln{a_1} + \frac{1}{n} \ln{a_2} + \ldots + \frac{1}{n} \ln{a_n}$
+                
+                $x_1 = a_1$
+                
+                $x_2 = a_2$
+                
+                $\ldots$
+                
+                $x_n = a_n$
+                
+                $\alpha_1 = \alpha_2 = \ldots = \alpha_n = \frac{1}{n}$
+                
+                $f(\sum \alpha_i x_i) \geq \sum \alpha f(x_i)$, поскольку функция $\ln$ ~--- вогнута
+                
+        \subsection{Неравенство для интегралов}
+        
+            \subsubsection{Формулировка}
+                $\frac{1}{b - a} \int\limits^b_a f$ ~--- среднее арифметическое $f$ на $[a, b]$
+            
+                $\exp\left(\frac{1}{b - a} \int\limits^b_a \ln f \right)$ ~--- среднее геометрическое функции $f$ ($f > 0$)
+            
+                Тогда если $f \in C[a, b \rangle$, $f > 0$
+                
+                $\exp\left(\frac{1}{b - a} \int\limits^b_a \ln f \right) \leq \frac{1}{b - a} \int\limits^b_a f$
+                
+                $\frac{1}{b - a} \int\limits^b_a \ln f \leq \ln \left( \frac{1}{b - a} \int\limits^b_a f \right)$
+                
+                $\ln \longleftrightarrow f$ ~--- вогнутая
+                
+                $f \longleftrightarrow \varphi$
+                
+                $\frac{1}{b - a} \longleftrightarrow \lambda$
+                
+    \newpage
+    
+    \section{Неравенство Гёльдера для сумм}
+    
+        \subsection{Формулировка}
+        
+            Пусть $p > 1$, $\frac{1}{p} + \frac{1}{q} = 1$
+            
+            $q = \frac{p}{p - 1}$
+            
+            $a_i, b_i > 0$ для всех $i = 1..n$
+            
+            Тогда $\sum\limits^n_{i = 1} a_i b_i \leq (\sum a_i^p)^{\frac{1}{p}} (\sum b_i^q)^{\frac{1}{q}}$
+            
+            Если $(a_1^p, a_2^p, \ldots, a_n^p) \parallel (b_1^q, b_2^q, \ldots, b_n^q)$ ~--- равенство
+            
+        \subsection{Доказательство}
+            
+            $x^p$ ~--- строго выпукла при $p > 1$ и $x > 0$
+            
+            $(x^p)'' = p(p - 1)x^{p - 2} > 0$
+            
+            По неравенству Йенсена $\sum\limits_{i = 1}^n \alpha_i x_i)^p \leq \sum\limits_{i = 1}^n \alpha_i x_i^p$
+            
+            $\alpha_i := \dfrac{b_i^q}{\sum b_i^q}$
+            
+            $\alpha_i > 0$, $\sum \alpha_i = 1$
+            
+            Выберем такие $x_i$, что
+            
+            $\alpha_i \cdot x_i = a_i \cdot b_i$
+            
+            $x_i = \dfrac{a_i b_i}{\alpha_i} = \dfrac{a_i b_i}{b_i^q} \sum\limits_{j = 1}^n b_j^q = a_i b_i^{1 - q} \sum\limits_{j = 1}^n b_j^q = a_i b_i^{1 - \frac{p}{p - 1}} \sum\limits_{j = 1}^n b_j^q = a_i b_i^{\frac{p - 1 - p}{p - 1}} \sum\limits_{j = 1}^n b_j^q = a_i \cdot b_i^{-\frac{1}{p - 1}} \sum\limits_{j = 1}^n b_j^q$
+            
+            Тогда $\alpha_i x_i = a_i b_i$
+            
+            $(\sum\limits_{i = 1}^n \alpha_i x_i)^p = (\sum\limits_{i = 1}^n a_i b_i)^p$
+            
+            Тогда $\alpha_i x_i^p = a_i^p(\sum\limits_{j = 1}^n b_i^q)^{p - 1}$
+            
+            Тогда $\sum\limits_{i = 1}^n \alpha_i x_i^p = (\sum\limits_{i = 1}^n a_i^p)(\sum\limits_{j = 1}^n b_j^q)^{p - 1} = (\sum\limits_{i = 1}^n a_i^p)(\sum\limits_{j = 1}^n b_j^q)^{\frac{p}{q}}$
+            
+            Тогда $(\sum_{i = 1}^n a_i b_i)^p \leq (\sum\limits_{i = 1}^n a_i^p)(\sum\limits_{j = 1}^n b_j^q)^{\frac{p}{q}}$
+            
+            Возведём в степень $\frac{1}{p}$ и получим исходное неравенство
+            
+    \newpage
+    
+    \section{Неравенство Гёльдера для интегралов}
+    
+        \subsection{Формулировка}
+        
+            Пусть $\frac{1}{p} + \frac{1}{q} = 1$, $p > 1$
+            
+            Пусть также $f$, $g \in C[a, b]$ и $f, g \geq 0$ на $[a, b]$. Тогда
+            
+            $\int\limits^b_a |fg| \leq (\int\limits^b_a |f|^p)^{\frac{1}{p}} (\int\limits^b_a |g|^q)^{\frac{1}{q}}$
+            
+        \subsection{Доказательство}
+        
+            Делим $[a, b]$ на $n$ равных частей
+            
+            $x_k = a + k \cdot \frac{b - a}{n}$  $\Delta x_k = x_k - x_{k - 1} = \frac{b - a}{n}$
+            
+            $\xi_k := x_k$
+            
+            $a_k := |f(x_k)|(\Delta x_k)^{\frac{1}{p}}$
+            
+            $b_k := |g(x_k)|(\Delta x_k)^{\frac{1}{q}}$
+            
+            $a_k \cdot b_k = |f(x_k)g(x_k)| \cdot \Delta x_k$
+            
+            $\sum\limits_{k = 1}^n |f(x_k) g(x_k)| \Delta x_k \leq (\sum |f(x_k)|^p \Delta x_k)^{\frac{1}{p}}(\sum|g(x_k)|^q \Delta x_k)^{\frac{1}{q}}$
+            
+            Из неравенства Гёльдера для сумм
+            
+            $\int\limits^b_a |f(x) g(x)| dx \leq (\int\limits^b_a |f|^p)^{\frac{1}{p}}(\int\limits^b_a |g|^q)^{\frac{1}{q}}$
+            
+    \newpage
+    
+    \section{Неравенство Минковского}
+    
+        \subsection{Формулировка}
+        
+            Пусть $p \geq 1$
+            
+            Тогда $\left( \sum\limits_{i = 1}^n |a_i + b_i|^p\right)^{\frac{1}{p}} \leq \left( \sum |a_i|^p \right)^{\frac{1}{p}} + \left( \sum |b_i|^p \right)^{\frac{1}{p}}$
+            
+            $a_i, b_i \in \mathbb{R}$
+            
+        \subsection{Замечания}
+        
+            \begin{itemize}
+            
+                \item Здесь нет буквы $q$
+                
+                \item Неравенство Минковского означает, что $(a_1, a_2, \ldots, a_n) \mapsto \left( \sum |a_i|^p \right)^{\frac{1}{p}}$ является нормой
+                
+            \end{itemize}
+
+        \subsection{Доказательство}
+        
+            При $p = 1$ ~--- очевидно
+            
+            $p > 1$ ~--- применим Гёльдера
+            
+            Пусть $a_i, b_i > 0$
+            
+            $\sum |a_i| |a_i + b_i|^{p - 1} \leq \left( \sum |a_i|^p \right)^{\frac{1}{p}} \left( \sum |a_i + b_i|^p \right)^{\frac{1}{q}}$
+            
+            $\sum |b_i| |a_i + b_i|^{p - 1} \leq \left( \sum |b_i|^p \right)^{\frac{1}{p}} \left( \sum |a_i + b_i|^p \right)^{\frac{1}{q}}$
+            
+            $\sum |a_i + b_i|^p \leq \sum ( |a_i| + |b_i| ) |a_i + b_i|^p \leq \left( \sum |a_i|^p \right)^{\frac{1}{p}} + \left( \sum |b_i|^p \right)^{\frac{1}{p}} (\sum |a_i + b_i|^p)^{\frac{1}{q}}$
+            
+            $\left( \sum |a_i + b_i|^p \right)^{\frac{1}{p}} \leq \ldots \leq \left( \sum |a_i|^p \right)^{\frac{1}{p}} \left( \sum |b_i|^p \right)^{\frac{1}{p}}$
+            
+    \newpage
+    
+    \section{Свойства верхнего и нижнего пределов}
+    
+        \subsection{Формулировка}
+        
+            Пусть $x_n$, $x_n'$ ~--- произвольные последовательности. Тогда
+            
+            \begin{enumerate}
+            
+                \item $\varliminf x_n \leq \varlimsup x_n$
+                
+                \item $\forall n \ \ \ x_n \leq x_n'$. Тогда
+                
+                    $\varlimsup x_n \leq \varlimsup x_n'$
+                    
+                    $\varliminf x_n \leq \varliminf x_n'$
+                    
+                \item $\forall \lambda > 0$
+                
+                    $\varlimsup(\lambda x_n) = \lambda \cdot \varlimsup x_n$
+                    
+                    $\varliminf(\lambda x_n) = \lambda \cdot \varliminf x_n$
+                    
+                \item $\varlimsup (-x_n) = -\varliminf(x_n)$
+                
+                    $\varliminf (-x_n) = -\varlimsup(x_n)$
+                    
+                \item $\varlimsup (x_n + x_n') \leq \varlimsup x_n + \varlimsup x_n'$
+                    
+                    $\varliminf (x_n + x_n') \geq \varliminf x_n + \varliminf x_n'$
+                    
+                    Если правые части имеют смысл
+                    
+                \item $t_n \rightarrow l \in \overline{\mathbb{R}}$ 
+                
+                    $\varlimsup (x_n + t_n) = \varlimsup x_n + \lim t_n$
+                
+                    Если правая часть имеет смысл
+                    
+                \item $t_n \rightarrow l > 0, l \in \mathbb{R}$ 
+                
+                    $\varlimsup(x_n + t_n) = l \cdot \varlimsup x_n$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item Следует из того факта, что $z_n \leq x_n \leq y_n$
+                
+                \item $y_n \leq y'_n$
+                
+                \item $\sup(\lambda A) = \lambda \sum(a)$
+                
+                \item $\sup(-A) = -\inf(A)$
+                
+                \item $\sum(x_n + x_n', x_{n + 1} + x_{n + 1};, \ldots) \leq y_n + y_n'$, т.к. это верхняя граница для всех сумм над $\sup$
+                
+                \item $l \in \mathbb{R}$, тогда $\forall \varepsilon > 0 \exists N_0: \forall k > N_0$
+                
+                    $x_k + l - \varepsilon < x_k + t_k < x_k + l_k + \varepsilon$
+                    
+                    $y_n + l - \varepsilon \leq \sum(x_n + t_n, x_{n + 1} + t_{n + 1}, ldots) \leq y_n + l + \varepsilon$, при $N \rightarrow +\infty$
+                    
+                    $(\varlimsup x_n) + l - \varepsilon \leq \varlimsup (x_n + y_n) \leq (\varlimsup x_n) + l + \varepsilon$
+                    
+                \item Без доказательства
+                
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Техническое описание верхнего предела}
+    
+        \subsection{Формулировка}
+        
+            \begin{enumerate}
+            
+                \item $\varlimsup x_n = +\infty \Longleftrightarrow x_n$ ~--- не ограничена сверху
+                
+                \item $\varlimsup x_n = -\infty \Longleftrightarrow x_n \rightarrow -\infty$
+                
+                \item $\varlimsup x_n = l \in \mathbb{R} \Longrightarrow$:
+                
+                \begin{itemize}
+                
+                    \item $\forall \varepsilon > 0 : \exists N: \forall n > N \ \ \ x_n < l + \varepsilon$
+                    
+                    \item $\forall \varepsilon > 0$ неравенство $x_n > l - \varepsilon$ выполняется для бесконечного множества номеров $n$
+                
+                \end{itemize}
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item Очевидно, что $x_n < y_n$, $y_n$ убывает Таким образом, если $\lim y_n = +\infty \Longrightarrow y_n = +\infty \Longleftrightarrow x_n$ ~--- не ограничена сверху
+                
+                \item $y_n \rightarrow -\infty$, $\forall E : \exists N : \forall n > N \ x_n \leq y_n < E \Rightarrow \forall E > 0 : \exists N : \forall n > N : x_n < E$, $\forall n > N : y_n \leq E$
+                
+                \item $x_n \leq y_n$, $y_n \rightarrow l$
+                
+                \begin{itemize}
+                
+                    \item $\Rightarrow)$ $\forall \varepsilon > 0 : \exists N : \forall n > N x_n \leq y_n < l + \varepsilon$
+                    
+                        Если $\exists N_0 : \forall N_0 \forall n < l - \varepsilon$, то $\forall n > N_0 y_n = \sup(\ldots) \leq l - \varepsilon$ и тогда $y_n \rightarrow l$
+                        
+                    \item $\Leftarrow)$ $\forall \varepsilon : \exists N : \forall n > N y_n \leq l + \varepsilon$, $y_n$ ~--- супремум
+                    
+                        $x_k \geq l - \varepsilon \Rightarrow y_n \geq l - \varepsilon \Rightarrow y_n \rightarrow l$
+                        
+                \end{itemize}
+                
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Теорема о существовании предела в терминах верхнего и нижнего пределов}
+    
+        \subsection{Формулировка}
+        
+            Пусть существует $\lim x_n = l \in \overline{\mathbb{R}}$, тогда и только тогда $\varlimsup x_n = \varliminf x_n = l$
+            
+        \subsection{Доказательство}
+        
+            \begin{itemize}
+            
+                \item $\Rightarrow)$ $\lim x_n = +\infty \Longleftrightarrow \varliminf x_n = +\infty \Rightarrow \varliminf \leq \varlimsup x_n = +\infty$
+                
+                    $\lim x_n = -\infty \Longleftrightarrow \varliminf x_n \leq \varlimsup = -\infty$
+                    
+                    $\lim x_n \in \mathbb{R}$ ~--- очевидно
+                    
+                \item $\Leftarrow)$ $z_n \leq x_n \leq y_n$, то по теореме о сжатой последовательности $x_n \rightarrow l$, поскольку $z_n \rightarrow l$ и $y_n \rightarrow l$
+                
+            \end{itemize}
+        
+    \newpage
+    
+    \section{Теорема о характеризации верхнего предела как частичного}
+    
+        \subsection{Формулировка}
+            
+            \begin{enumerate}
+            
+                \item Пусть $l$ ~--- частный предел $x_n$, тогда $\varliminf x_n \leq l \leq \varlimsup x_n$
+                
+                \item Существуют такие $n_k$, $m_k$, что $\lim x_{n_k} = \varlimsup x_n$ и $\lim x_{m_k} = \varliminf x_n$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item Пусть $x_{n_j} \rightarrow l$
+                
+                    $z_{n_j} \leq x_{n_j} \leq y_{n_j}$, где $z_{n_j} \rightarrow \varliminf x_n$, $x_{n_j} \rightarrow l$, $y_{n_j} \rightarrow \varlimsup x_n$
+                    
+                \item $\varlimsup x_k = \pm \infty$ ~--- очевидно
+                
+                    $\varlimsup x_k = l \in \mathbb{R}$ ~--- очевидно
+                    
+                    Для $\varepsilon = \frac{1}{k}$ $\exists x_{n_k} : l - \frac{1}{k} \leq x_{n_k} \leq l + \frac{1}{k}$
+                    
+            \end{enumerate}
+            
 \end{document}
