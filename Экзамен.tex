@@ -491,6 +491,319 @@
             Верхний предел $x_n$ ~--- $\varlimsup\limits_{n \rightarrow +\infty} x_n = \lim\limits_{n \rightarrow +\infty} \sup x_n := \lim y_n \in \mathbb{\overline{R}}$
             
             Нижний предел $x_n$ ~--- $\varliminf\limits_{n \rightarrow +\infty} x_n = \lim\limits_{n \rightarrow +\infty} \inf x_n := \lim z_n \in \mathbb{\overline{R}}$
+            
+    \newpage
+    
+    \section{Допустимая функция}
+    
+        Пусть $f : [a, b) \rightarrow \mathbb{R}$, где $-\infty < a < b \leq +\infty$ называют допустимой, если
+        
+        $\forall B : a < B < b \ \ \ f|_{[a, b]}$ ~--- кусочно-непрерывная функция.
+        
+    \newpage
+    
+    \section{Несобственный интеграл, сходимость, расходимость}
+    
+        \subsection{Определение}
+        
+            Пусть $\Phi(B) = \int\limits^B_a f(x)dx$, где $B \in [a, b)$
+            
+            Если существует $\lim\limits_{B \rightarrow b - 0} \Phi(b) \in \overline{\mathbb{R}}$, то этот предел называют несобственным интегралом. Обозначается $\int\limits^{\rightarrow b}_a f(x)dx$.
+            
+        \subsection{Сходимость и расходимость}
+        
+            Если предел $\lim\limits_{B \rightarrow b - 0} \Phi(b)$ конечен, то несобственный интеграл называют сходящимся
+            
+            Если предела нет, то несобственного интеграла не существует
+            
+            Если предел бесконечный, то несобственный интеграл расходится.
+            
+    \newpage
+    
+    \section{Критерий Больцано--Коши сходимости несобственного интеграла}
+    
+        Интеграл $\int\limits^{\rightarrow b}_a f$ ~--- сходится тогда и только тогда если
+        
+        $\forall \varepsilon > 0 : \exists \Delta \in (a, b) : \forall B_1, B_2 : \Delta < B_1 < B_2 < b : \left| \int\limits^{B_2}_{B_1} f(x)dx \right| < \varepsilon$
+        
+    \newpage
+    
+    \section{Гамма функция Эйлера}
+        
+        $\Gamma(t) = \int\limits^{+\infty}_0 x^{t - 1} e^{-x} dx$, $t > 0$
+        
+    \newpage
+    
+    \section{Числовой ряд, сумма ряда, сходимость, расходимость}
+    
+        \subsection{Числовой ряд}
+        
+            Пусть $a_n$ ~--- вещественная последовательность. Тогда
+            
+            $\sum\limits_{n = 1}^{+\infty} a_n$ называется числовым рядом, а $a_n$ ~--- его членами. 
+            
+        \subsection{Сумма ряда}
+        
+            Последовательность $S_N = \sum\limits_{i = 1}^N a_i$ называют последовательностью частичных сумм. Если последовательность $S_n$ имеет конечный или бесконечный предел, то $\lim\limits_{n \rightarrow +\infty} S_n$ ~--- сумма ряда.
+            
+        \subsection{Сходимость и расходимость}
+        
+            Если предел конечный, то ряд сходится. Если предела нет или он бесконечный ~--- то расходится.
+            
+    \newpage
+    
+    \section{n-й остаток ряда}
+    
+        $\sum\limits_{k = n}^{+\infty} a_k$ ~--- n-й остаток ряда.
+        
+    \newpage
+    
+    \section{Абсолютно сходящийся ряд}
+    
+        Ряд $\sum a_n$ ~--- абсолютно сходится, если
+        
+        \begin{enumerate}
+        
+            \item $\sum a_n$ ~--- сходится
+            
+            \item $\sum |a_n|$ ~--- сходится
+            
+        \end{enumerate}
+        
+    \newpage
+    
+    \section{Критерий Больцано--Коши сходимости числового ряда}
+    
+        Сходимость ряда $\sum\limits_{k = 1}^{\infty} a_k$ равно условию
+        
+        $\forall \varepsilon > 0 : \exists N \in \mathbb{N} : \forall n > N : \forall p \in \mathbb{N} : \left| \sum\limits_{k = n+1}^{n + p} a_k \right| < \varepsilon$
+        
+    \newpage
+    
+    \section{Преобразование Абеля}
+    
+        Пусть $a_k$, $b_k$ ~--- числовые последовательности, $A_k = \sum\limits_{j = 1}^k a_j$ при $k \in \mathbb{N}$. Тогда при всех $n \in \mathbb{N}$
+        
+        $\sum\limits_{k = 1}^n a_k b_k = A_n b_n+ \sum\limits^{n - 1}_{k = 1} A_k(b_k - b_{k + 1})$
+        
+    \newpage
+    
+    \section{Бесконечное произведение}
+    
+        $\prod\limits^{+\infty}_{k = 1} p_k := \lim\limits_{n \rightarrow +\infty} \prod\limits^n_{k = 1} p_k$
+        
+        Если предел существует, конечен и не равен нулю, то произведение сходится, иначе расходится.
+    
+    \newpage
+    
+    \section{Произведение рядов}
+    
+        Пусть $\sum\limits^{\infty}_{k = 1} a_k$ и $\sum\limits^{\infty}_{j = 1} b_j$ ~--- числовые ряды, $\gamma = (\varphi, \psi) : \mathbb{N} \rightarrow \mathbb{N}^2$ ~--- биекция. Тогда ряд
+        
+        $$\sum\limits^{\infty}_{l = 1} a_{\varphi(l)} b_{\psi(l)}$$
+        
+        называется произведением рядов $\sum\limits^{\infty}_{k = 1} a_k$ и $\sum\limits^{\infty}_{j = 1} b_j$, соответствующим нумерации $\gamma$.
+        
+    \newpage
+    
+    \section{Произведение степенных рядов}
+    
+        Пусть $\sum a_k \cdot x^k$ и $\sum b_k \cdot x^k$ ~--- степенные ряды. Тогда $c_n = a_0 b_n + a_1 b_{n - 1} + \ldots a_n b_0$ и $\sum c_n \cdot x^n$ ~--- произведение степенных рядов.
+        
+    \newpage
+    
+    \section{Скалярное произведение, евклидова норма и метрика в $\mathbb{R}^m$}
+    
+        Скалярное произведение $\langle x, y \rangle = \sum\limits^n_{i = 1} x_i y_i$
+        
+        $\| x \| = \sqrt{\langle x, x \rangle}$ ~--- евклидова норма
+        
+        $\rho(x y) = \| x - y \|$ ~--- метрика в $\mathbb{R}^m$
+        
+    \newpage
+    
+    \section{Окрестность точки в $\mathbb{R}^m$, открытое множество}
+    
+        $B(a, r) = \left\{ x \in \mathbb{R}^m : | x - a | < r \right\}$ ~--- открытый шар с центром в точке $a$ и радиусом $r$
+        
+        $U(a)$ ~--- окрестность точки $a$ или любой шар $B(a, r)$, где $r > 0$
+        
+        Множество $A$ открыто, если для любой точки $a \in A$ $a$ ~--- внутренняя, то есть $\exists U(a) \subset A$
+        
+    \newpage
+    
+    \section{Сходимость последовательности в $\mathbb{R}^m$, покоординатная сходимость}
+    
+        Последовательность $x^n \in \mathbb{R}^m \xrightarrow[n \rightarrow +\infty]{} a \Leftrightarrow | x^n - a | \xrightarrow[n \rightarrow +\infty]{} 0$ ~--- сходящаяся последовательность в $\mathbb{R}^m$
+        
+        $\forall k : 1 \leq k \leq m$ $x^n_k \xrightarrow[n \rightarrow +\infty]{} a_k$ ~--- покоординатная сходимость.
+        
+    \newpage
+    
+    \section{Предельная точка, замкнутое множество, замыкание}
+    
+        $a$ ~--- предельная точка множества $A$, если любая проколотая окрестность точки $a$ имеет непустое пересечение с множеством $A$
+        
+        Замкнутое множество содержит все свои предельные точки
+        
+        Замыкание множества $A$ ~--- объединение самого множества $A$ и всех его предельных точек.
+        
+    \newpage
+    
+    \section{Компактность, секвенциальная компактность, принцип выбора Больцано-Вейерштрасса}
+    
+        \subsection{Компактность}
+            
+            Семейство множеств $\left\{ G_{\alpha} \right\}_{\alpha \in A}$ называется покрытием множества $K$, если $K \subset \bigcup\limits_{\alpha \in A} G_{\alpha}$
+        
+            Покрытие открыто, если все его множества открыты.
+        
+            Пусть $K \in X$, $(X, \rho)$ ~--- метрическое пространство. $K$ называется компактным, если из любого открытого покрытия множества $K$ можно извлечь конечное покрытие. 
+        
+        \subsection{Секвенциальная компактность}
+            
+            $K$ называется секвенциально компактным, если из любой ограниченной последовательности можно выделить сходящуюся подпоследовательность.
+        
+        \subsection{Принцип выбора Больцано-Вейерштрасса}
+        
+            Из всякой ограниченной последовательности точек $K$ в $\mathbb{R}^m$ можно извлечь сходящуюся подпоследовательность $b$.
+            
+    \newpage
+    
+    \section{Координатная функция}
+    
+        $F : \mathbb{R}^m \rightarrow \mathbb{R}^l$ или $F : \mathbb{C}^m \rightarrow \mathbb{C}^l$ ~--- векторнозначная функция.
+        
+        Координатные функции $f$:
+        
+        $f_i : X \in \mathbb{R}^m$ или $\mathbb{C}^m$ $\rightarrow \mathbb{R}$ или $\mathbb{C}$ ~--- её координатная функция.
+        
+        $F(x) = (f_1(x), f_2(x), \ldots, f_l(x))$
+        
+    \newpage
+    
+    \section{Двойной предел, повторный предел}
+    
+        \subsection{Повторный предел}
+        
+            Пусть $D_1$, $D_2 \subset \mathbb{R}$, $a_1$ ~--- предельная точка $D_1$, $a_2$ ~--- предельная точка $D_2$
+        
+            Пусть $D \supset \left(D_1 \setminus \left\{ a_1 \right\} \right) \times \left( D_2 \setminus \left\{ a_2 \right\} \right)$, $f : D \rightarrow \mathbb{R}$
+        
+            Если $\forall x_1 \in D_1 \setminus \left\{ a_1 \right\} \ \ \ \exists \varphi(x_1) = \lim\limits_{x_2 \rightarrow a_2} f(x_1, x_2)$ ~--- конечен, то $\lim\limits{x_1 \rightarrow a_1} \varphi(x_1)$ называют повторным пределом.
+        
+            Аналогично $\lim\limits_{x_2 \rightarrow a_2} \left(\lim\limits_{x_1 \rightarrow a_1} f(x_1, x_2) \right)$
+            
+        \subsection{Двойной предел}
+        
+            $$\lim_{\substack{x_1 \rightarrow a_1 \\ x_2 \rightarrow a_2 }} f(x_1, x_2) = L$$
+            
+            $\forall U(l) : \exists V_1(a_1), V_2(a_2) : \forall x_1 \in \dot{V_1}(a_1), x_2 \in \dot{V_2}(a_2) \ \ \ f(x_1, x_2) \in U(l)$
+            
+    \newpage
+    
+    \section{Предел по направлению, предел вдоль пути}
+    
+        Пусть $f : D \subset X \rightarrow Y$, $D_1 \subset D$, $a$ ~--- предельная точка $D_1$. Тогда
+        
+        $\lim\limits_{x \rightarrow a} \left( f \bigg|_{D_1} \right)$ ~--- предел по множеству.
+        
+        Пусть $v \in \mathbb{R}^m$, $a + tv$, где $t \in \mathbb{R}$
+        
+        Тогда $\lim\limits{t \rightarrow 0} f(a + tv)$ ~--- предел по направлению
+        
+    \newpage
+    
+    \section{Предел отображения (определение по Коши и по Гейне)}
+    
+        \subsection{По Коши}
+        
+            $\forall \varepsilon > 0 : \exists \delta > 0 : \forall x \in D \setminus \left\{a \right\} : \rho_x (x, a) < \delta : \rho_y (f(x), A) < \varepsilon$
+            
+        \subsection{По Гейне}
+        
+            $\forall \left\{ x_n \right\} : x_n \in D \setminus \left\{ a \right\}, x \rightarrow a : f(x_n) \rightarrow A$
+            
+    \newpage
+    
+    \section{Линейный оператор}
+    
+        Пусть $X$, $Y$ ~--- линейные пространства над $\mathbb{R}$
+        
+        $f: X \rightarrow Y$ ~--- линейное отображение, если:
+        
+        $\forall \alpha, \beta \in \mathbb{R} : \forall x_1, x_2 \in X : f(\alpha x_1 + \beta x_2) = \alpha f(x_1) + \beta f(x_2)$
+        
+        По факту, линейное отображение и линейный оператор одно и то же.
+        
+    \newpage
+    
+    \section{Отображение бесконечно малое в точке}
+    
+        Пусть $\varphi : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $x_0$ ~--- внутрення точка $E$
+        
+        $\varphi$ ~--- бесконечно малое в точке $x_0$, если $\lim\limits_{x \rightarrow x_0} \varphi(x) = \mathbf{0} \in \mathbb{R}^l$
+        
+    \newpage
+    
+    \section{o(h) при $h \rightarrow 0$}
+    
+        Пусть $\varphi : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $0 \in Int(e)$
+        
+        $\varphi(h) = o(h)$ при $h \rightarrow 0$, если $\dfrac{\varphi(h)}{| h |}$ ~--- бесконечно малое
+        
+    \newpage
+    
+    \section{Отображение, дифференцируемое в точке}
+    
+        Пусть $F : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $a \in Int(E)$, $F$ ~--- дифференцируема в точке $a$, если
+        
+        существует линейный оператор $L : \mathbb{R}^m \rightarrow \mathbb{R}^l$, существует бесконечно малое $\alpha : E \rightarrow \mathbb{R}^l$ при $h \rightarrow 0$
+        
+        $F(a + h) = F(a) + Lh + \alpha(h) \cdot |h|$
+        
+        Или существует линейный оператор $L$ и также существует бесконечно малое в точке $a$ отображение $\varphi$, что
+        
+        $F(x) = F(a) + L(x - a) + | x - a| \varphi(x)$
+        
+    \newpage
+    
+    \section{Производный оператор, матрица Якоби, дифференциал}
+    
+        \subsection{Производный оператор}
+        
+            Оператор $L$ ~--- производный оператор [отображение $F$ в точке $a$]
+            
+        \subsection{Дифференциал}
+        
+            По определению производной $F(a + h) = F(a) + F'(a)h + o(h)$
+            
+            Выражение $F'(a)h$ называется дифференциалом отображение $F$ в точке a. Это
+            
+            \begin{enumerate}
+            
+                \item или линейное отображение $h \mapsto F'(a) h$
+                
+                \item или отображение $(a, h) \mapsto F'(a) h$ 
+                
+            \end{enumerate}
+            
+        \subsection{Матрица Якоби}
+        
+            Матрица, соответствующая производному оператору называется матрицей Якоби.
+            
+    \newpage
+    
+    \section{Частные производные}
+    
+        Пусть $f : E \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $a \in$ Int $E$. Фиксируем $k \in \left\{ 1, \ldots, m \right\} \varphi_k(u) := f(a_1, \ldots, a_{k - 1}, u, a_{k + 1}, \ldots, a_m)$
+        
+        Функция от одной переменной задана $V(a_k)$
+        
+        $\lim\limits_{t \rightarrow 0} \dfrac{\varphi_k(a_k + t) - \varphi_k(a_k)}{t} = \varphi_k'(a_k)$ называется частной производной функции $f$ в точке $a$
+        
+        
+        
 \newpage
 	
 \part{Теоремы}
@@ -1073,6 +1386,8 @@
 		\subsection{Формулировка}
 			
 			Пусть $f$, $g$ ~--- дифференцируемы на $(a, b \rangle$, $g' \neq 0$ на $(a, b \rangle$ и существует $\lim\limits_{x \rightarrow a} \frac{f'(x)}{g'(x)} = A \in \overline{\mathbb{R}}$
+			
+			Не стоит забывать, что $\lim\limits_{x \rightarrow a + 0} \dfrac{f(x)}{g(x)}$ ~--- неопределенно.
 			
 			Тогда $\lim\limits_{x \rightarrow a} \frac{f(x)}{g(x)} = A$
 			
@@ -1706,7 +2021,7 @@
             
                 \item $V(T_x(\PG(f, [a, b]))) = \pi \int\limits^b_a f^2(x) \ dx$
                 
-                \item $[a, b] \supset [0, +\infty) \ V(T_y(\PG(f, [a, b]))) = 2 \pi \int\limits^b_a x f(x) \ dx$
+                \item $[a, b] \subset [0, +\infty) \ V(T_y(\PG(f, [a, b]))) = 2 \pi \int\limits^b_a x f(x) \ dx$
                 
             \end{enumerate}
             
@@ -2153,5 +2468,1081 @@
                     Для $\varepsilon = \frac{1}{k}$ $\exists x_{n_k} : l - \frac{1}{k} \leq x_{n_k} \leq l + \frac{1}{k}$
                     
             \end{enumerate}
+            
+    \newpage
+    
+    \section{Простейшие свойства несобственного интеграла}
+    
+        \subsection{Формулировка}
+        
+            \begin{enumerate}
+            
+                \item Критерий Больцано-Коши сходимости несобственного интеграла
+                
+                    Сходимость интеграла $\int\limits^{\rightarrow b}_a f$ равносильна 
+                    
+                    $\forall \varepsilon > 0 : \exists \Delta \in (a, b) : \forall B_1, B_2 : \Delta < B_1 < B_2 < b : \left| \int\limits^{B_2}_{B_1} f \right| < \varepsilon$
+                    
+                \item $f$ ~--- допустима на $[a, b]$ и $C \in (a, b)$. Тогда
+                
+                    $\int\limits^{\rightarrow b}_a f$ и $\int\limits^{\rightarrow b}_c f$ сходятся и расходятся одновременно, и при этом в случае сходимости $\int\limits^{\rightarrow b}_a = \int\limits^c_a + \int\limits^{\rightarrow b}_c$
+                    
+                \item Пусть $f$, $g$ ~--- допустимы на $[a, b)$, а также
+                
+                    $\int\limits^{\rightarrow b}_a f$ и $\int\limits^{\rightarrow b}_a g$ сходятся. Пусть $\lambda \in \mathbb{R}$, тогда
+                    
+                    $\lambda f$ и $f \pm g$ ~--- допустимые функции и
+                    
+                    $\int\limits^{\rightarrow b}_a \lambda f = \lambda \int\limits^{\rightarrow b}_a f$ и $\int\limits^{\rightarrow b}_a f \pm g = \int\limits^{\rightarrow b}_a f \pm \int\limits^{\rightarrow b}_a g$
+                    
+                \item Пусть $\int\limits^{\rightarrow b}_a f$ и $\int\limits^{\rightarrow b}_a g$ существуют в $\overline{\mathbb{R}}$, $f \leq g$ на $[a, b)$ Тогда
+                
+                    $\int\limits^{\rightarrow b}_a f \leq \int\limits^{\rightarrow b}_a g$
+                    
+                \item Пусть $f$, $g$ ~--- дифференцируемы на $[a, b)$, $f'$, $g'$ ~--- допустимы на $[a, b)$. Тогда (при существовании двух из трёх пределов)
+                
+                    $\int\limits^{\rightarrow b}_a f g' = fg \bigg|^{\rightarrow b}_a - \int\limits^{\rightarrow b}_a f'g$
+                    
+                \item Пусть $\varphi : [\alpha, \beta) \rightarrow \langle A, B \rangle$, $\varphi \in C^1$, $f \in C \left( \langle A, B \rangle \right)$. Пусть также существует $\varphi(\beta - 0) \in \overline{\mathbb{R}}$. Тогда
+                
+                    $\int\limits^{\rightarrow b}_a (f \circ \varphi) \cdot \varphi' = \int\limits^{\varphi(\beta - 0)}_{\varphi(\alpha)} f$
+                    
+            \end{enumerate}
+        
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item Положим $\Phi(A) = \int\limits^A_a f$. Сходимость интеграла равносильна сходимости $\Phi(A)$ при $A \rightarrow b - 0$. Воспользуемся критерием Больцано-Коши, а также учтём, что $\Phi(B) - \Phi(A) = \int\limits^B_a$
+                
+                $$\forall \varepsilon > 0 : \exists \Delta \in (a, b) : \forall B_1, B_2 : \Delta < B_1 < B_2 < b : \left| \Phi(B_2) - \Phi(B_1) \right| < \varepsilon$$
+                
+                \item При всех $A \in (c, b)$ согласно аддитивности интеграла
+                
+                    $$\int\limits^A_a f = \int\limits^c_a f + \int\limits^A_c f$$
+                    
+                \item Аналогично предыдущему пункту возьмём такие $A$ и согласно линейности интеграла
+                
+                    $$\int\limits^A_a (\alpha f + \beta g) = \alpha \int\limits^A_a f + \beta \int\limits^A_a g$$
+                    
+                \item Также выберем $A$ и очевидно, что
+                
+                    $$\int\limits^A_a f \leq \int\limits^A_a g$$
+                    
+                \item Устремим $A$ к $\rightarrow b$
+                
+                    $$\int\limits^A_a fg' = fg \bigg|^A_a - \int\limits^A_a f'g$$
+                    
+                \item Кохась сказал, что без доказательства. На экзамене отвечаем ему то же самое
+                
+            \end{enumerate}
+    
+    \newpage
+    
+    \section{Признаки сравнения сходимости несобственного интеграла}
+    
+        \subsection{Формулировка}
+        
+            \begin{enumerate}
+            
+                \item Пусть $f$ ~--- допустима на $[a, b)$, $f \geq 0$ $\Phi(B) = \int\limits^B_a f$. Тогда сходимость $\int\limits^b_a$ равносильна ограниченности функции $\Phi$ 
+                
+                \item Признаки сравнения
+                
+                    \begin{itemize}
+                    
+                        \item Пусть $f$, $g \geq 0$ и допустимы на $[a, b]$
+                        
+                            Тогда $f \leq g$ на $[a, b]$
+                            
+                            \begin{enumerate}
+                            
+                                \item $\int\limits^b_a g$ ~--- сходится, значит и $\int\limits^b_a f$ ~--- сходится
+                                
+                                \item $\int\limits^b_a f$ ~--- расходится, значит и $\int\limits^b_a g$ ~--- расходится
+                                
+                            \end{enumerate}
+                        
+                        \item Пусть существует $\lim\limits_{x \rightarrow b - 0} \dfrac{f(x)}{g(x)} = l$
+                        
+                            Тогда
+                            
+                            \begin{enumerate}
+                            
+                                \item $\int\limits^b_a g$ ~--- сходится, значит и $\int\limits^b_a f$ сходится, если $l \in [0, +\infty)$
+                                
+                                \item $\int\limits^b_a f$ и $\int\limits^b_a g$ сходятся и расходятся одновременно, если $l \in (0, +\infty)$
+                                
+                            \end{enumerate}
+                        
+                    \end{itemize}
+                
+            \end{enumerate}
+        
+        \subsection{доказательство}
+        
+            \begin{enumerate}
+            
+                \item Очевидно, что $\Phi$ ~--- монотонно возрастает, тогда существование $\lim\limits_{B \rightarrow b - 0} \Phi \Longleftrightarrow \Phi$ ~--- ограничена
+                
+                \item 
+                
+                    \begin{itemize}
+                    
+                        \item Пусть $\Phi(B) = \int\limits^B_a f$, $\psi(B) = \int\limits^B_a g$, тогда $\Phi$, $\psi$ ~--- монотонные 
+                        
+                            $\Phi(B) \leq \psi(B)$
+                            
+                            \begin{enumerate}
+                            
+                                \item $\int\limits^b_a g$ ~--- сходится, значит $G(B)$ ограничено сверху, значит $F(B)$ ограничено сверху, значит и $\int\limits^b_a f$ ~--- сходится
+                                
+                                \item $\int\limits^b_a f$ ~--- расходится, значит $F(B)$ неограничено сверху, значит и $G(B)$ неограничено, значит и $\int\limits^b_a g$ ~--- расходится
+                                
+                            \end{enumerate}
+                        
+                        \item 
+                            
+                            \begin{enumerate}
+                            
+                                \item Возьмём $L > l$. Тогда существует $c \in [a, b) : \forall x \in [c, b)$
+                                
+                                    $f(x) \leq L \cdot g(x)$ Заменим $\int\limits^b_a$ на $\int\limits^b_c$. Тогда $\int\limits^b_c g$ ~--- сходится, значит и $\int\limits^b_c L g$ ~--- сходится и $\int\limits^b_c f$ ~--- сходится
+                                
+                                \item Для $l > 0$ аналогично и $\lambda < l$ и по аналогии $\lim \dfrac{g}{f} = \dfrac{1}{l}$ и $\int\limits^b_a f$ ~--- сходится $\Rightarrow \int\limits^b_a g$ ~--- сходится
+                                
+                            \end{enumerate}
+                        
+                    \end{itemize}
+                
+            \end{enumerate}
+    
+    \newpage
+    
+    \section{Интеграл Эйлера-Пуассона}
+    
+        \subsection{Формулировка}
+        
+            $\int\limits^{+\infty}_0 e^{-x^2} dx = \dfrac{\sqrt{\pi}}{2}$
+            
+        \subsection{Доказательство}
+        
+            $\varphi(t) = \int\limits^t_0 e^{-x^2} dx$
+            
+            $1 - x^2 \leq e^{-x^2} \leq \dfrac{1}{1 + x^2}$, следует из неравенства $e^t >= 1 + t$
+            
+            $1 + x^2 \leq e^{x^2}$
+            
+            $\dfrac{1}{1 + x^2} \geq \dfrac{1}{e^{x^2}}$
+            
+            Интегрируем: $\int\limits^1_0 (1 - x^2)^n dx \leq \int\limits^1_0 e^{-nx^2} \leq \int\limits^{+\infty}_0 e^{-nx^2} \leq \int\limits^{+\infty}_{0} \dfrac{1}{(1 + x^2)^n} dx$
+            
+            Левая часть: $x = \cos{t}$ $\int\limits^0_{\dfrac{\pi}{2}} \sin^{2n} {t} (-\sin{t}) dt = W_{2n + 1}$
+            
+            Правая часть: $x = \tg {t}$ $\dfrac{1}{1 + \tg^2{t}} = \cos^2{t}$
+            
+            $\int\limits^{\dfrac{\pi}{2}}_0 \cos^{2n} t \dfrac{1}{cos^2 t} dt = \int\limits^{\dfrac{\pi}{2}}_0 \sin^{2n - 2} dt = W_{2n - 2}$
+            
+            Средняя часть: $x = \dfrac{t}{\sqrt{n}} \sqrt{n} \int\limits^{+\infty}_0 e^{-t^2} dt$
+            
+            $\sqrt{n} W_{2n + 1} \leq \int\limits^{+\infty}_0 e^{-x^2} dx \leq \sqrt{n} W_{2n - 2}$
+            
+            $W_n = \dfrac{(n - 1)!!}{n!!}$
+            
+            $W_{2n - 2} = \dfrac{(2n - 3)!!}{(2n - 2)!!} \cdot \sqrt{n} \dfrac{\pi}{2} = \dfrac{1}{\dfrac{(2n - 2)!!}{(2n - 3)!!} \dfrac{1}{\sqrt{n} - 1}} \cdot \dfrac{\sqrt{n}}{\sqrt{n} - 1} \cdot \dfrac{\pi}{2} = \dfrac{\sqrt{\pi}}{2}$
+            
+            $W_{2n + 1} = \dfrac{(2n)!!}{(2n + 1)!!} \cdot \sqrt{n} = \dfrac{(2n)!!}{(2n - 1)!!} \cdot \dfrac{1}{\sqrt{n}} \dfrac{n}{2n + 1} = \dfrac{\sqrt{\pi}}{2}$
+            
+            
+    \newpage
+    
+    \section{Гамма функция Эйлера. Простейшие свойства}
+    
+        \subsection{Формулировка}
+        
+            $\Gamma(T) = \int\limits^{+\infty}_0 x^{t - 1} e^{-x} dx$, $t > 0$ ~--- Гамма функция Эйлера
+            
+            Свойства:
+            
+            \begin{enumerate}
+            
+                \item Интеграл сходится
+                
+                \item Функция выпукла
+                
+                \item $\Gamma(t + 1) = t \Gamma (t)$
+                
+                \item Парабола, вершина ~--- примерно точка $(1, 1)$, ветви полностью лежат в первой четверти
+                
+                \item $\Gamma \left( \dfrac{1}{2} \right) = \sqrt{\pi}$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item $\int\limits^{+\infty}_0 = \int\limits^1_0 + \int\limits^{+\infty}_0$
+                
+                    $\int\limits^1_0 x^{t - 1} e^{-x} dx$, при $x \rightarrow 0$ эквивалентно $x^{t - 1}$, $t > 1$, значит сходится
+                    
+                    $\int\limits^{+\infty}_1 x^{t - 1} e^{-x} dx$ $\left( x^{t - 1} \cdot e^{-\dfrac{x}{2}} \right) \cdot e^{-\dfrac{x}{2}} \leq e^{-\dfrac{x}{2}}$
+                
+                    $\int\limits^{+\infty}_{x_0} e^{-\dfrac{x}{2}} = \lim\limits_{B \rightarrow +\infty} \left(2 \cdot e^{-\dfrac{x_0}{2}} - 2 \cdot e^{-\dfrac{B}{2}} \right)$ ~--- конечен
+                    
+                \item Подынтыгральная функция $h : t \mapsto x^{t - 1} e^{-x}$ ~--- выпукла. Продифференцируем $h'' = x^{t - 1} e^{-x} \ln^2{x} \geq 0$
+                
+                    $\forall x \in [0, 1] :  h \left(\alpha t_1 + (1 - \alpha) t_2, x \right) \leq \alpha h(t_1, x) + (1 - \alpha) h(t_2, x)$ ~--- неравенство Йенсена
+                    
+                    $\Gamma(\alpha t_1 + (1 - \alpha) t_2) \leq \alpha \Gamma(t_1) + (1 - \alpha) \Gamma (t_2)$
+                    
+                    $\Gamma(t)$ ~--- выпукла, значит она непрерывна
+                    
+                \item $\int\limits^{+\infty}_0 x^t e^{-x} dx = \begin{bmatrix} f = x^t & f' = t x^{t - 1} \\ g' = e^{-x} & g = -e^{-x} \end{bmatrix} = x^t(-e^{-x}) \bigg|^{+\infty}_0 + \int\limits^{+\infty}_0 t x^{t - 1} e^{-x} dx = t \Gamma(t)$
+                
+                    $\Gamma(1) = 1$, значит $\Gamma(n) = n!$
+                    
+                \item $\int\limits^{+\infty}_0 x^{-\frac{1}{2}} e^{-x} dx = 2 \int\limits^{+\infty}_0 e^{-y^2} dy$ ~--- интеграл Эйлера-Пуассона
+                
+            \end{enumerate}
+    
+    \newpage
+    
+    \section{Теорема об абсолютно сходящихся интегралах и рядах}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f$ ~--- допустима на $[a, b)$. Тогда эквивалентны утверждения:
+            
+            \begin{enumerate}
+            
+                \item $\int\limits^b_a f$ абсолютно сходится
+                
+                \item $\int\limits^b_a |f|$ сходится
+                
+                \item $\int\limits^b_a f^+$ и $\int\limits^b_a f^-$ абсолютно сходятся
+                
+            \end{enumerate}
+            
+        \subsection{доказательство}
+        
+            \begin{itemize}
+            
+                \item $1 \Rightarrow 2$ ~--- очевидно
+                
+                \item $2 \Rightarrow 3$ $0 \leq f^+ \leq |f|$ и $0 \leq f^- \leq |f|$
+                
+                \item 
+                
+                    $3 \Rightarrow 1$ $f = f^+ - f^- \Rightarrow \int f$ ~--- сходится
+                
+                    $|f| = f^+ + f^- \Rightarrow \int |f|$ ~--- сходится
+                    
+            \end{itemize}
+            
+        \subsection{Случай рядов}
+            
+            Аналогично интегралам. Доказывается с помощью интегрального признака Коши.
+            
+    \newpage
+    
+    \section{Изучение сходимости интеграла $\int\limits_{2019}^{\infty}\frac{dx}{x^{\alpha}(\ln x)^{\beta}}$}
+    
+        Рассмотрим $\int\limits^{+\infty}_2019 \frac{dx}{x^{\alpha}}$, $\alpha > 1$ ~--- сходится, $\alpha \geq 1$ ~--- расходится
+        
+        Случай $\alpha > 1$: $\alpha = 1 + 2a$, $a > 0$, значит сходится
+        
+        $\dfrac{1}{x^{\alpha} (\ln {x})^b} = \dfrac{1}{x^{1 + a}} \cdot \dfrac{1}{x^a(\ln{x})^{\beta}} = \dfrac{1}{x^{1 + a}}$
+        
+        $\lim\limits_{x \rightarrow +\infty} \dfrac{1}{x^a (\ln{x})^{\beta}}$
+        
+        Если $\beta \geq 0$, то всё ок. Если $\beta < 0$, то $\lim \dfrac{(\ln{x})^{-\beta}}{x^a} = \left( \lim \dfrac{\ln{x}}{x^{a / -\beta}} \right)^{-\beta} = 0$
+        
+        Если $\alpha < 1$, то $\alpha = 1 - 2 \gamma$, $\gamma > 0$ ~--- расходится
+        
+        $\dfrac{1}{x^{1 - \gamma}} \cdot \dfrac{1}{x^{-\gamma}(\ln{x})^{\beta}} \geq \dfrac{1}{x^{1 - \gamma}}$ ~--- расходится
+        
+        $\alpha = 1$, $\int\limits^{+\infty}_2019 \dfrac{dx}{x(\ln{x})^{\beta}} = \int\limits^{+\infty}_2019 \dfrac{dy}{y^{\beta}}$
+        
+        $\beta > 1$ сходится, $\beta \geq 1$ расходится.
+        
+    \newpage
+    
+    \section{Изучение интеграла $\int\limits_1^{\infty} \frac{\sin x\,dx}{x^p}$ на сходимость и абсолютную сходимость}
+    
+        При $p > 1$ $\left| \dfrac{\sin{x}}{x^p} \right| \leq \dfrac{1}{x^p}$ ~--- абсолютная сходимость
+        
+        При $p \geq 0$ $\int\limits^{2 \pi k + \pi}_{2 \pi k} \dfrac{\sin{x}}{x^p} \geq \int\limits^{2 \pi k + \pi}_{2 \pi k} \sin{x} = 2$, значит интеграл расходится (и абсолютно то же)
+        
+        При $0 < p \leq 1$ нет абсолютной сходимости, но есть сходимость $\int\limits^{2 \pi k}_{\pi k} \dfrac{| \sin{x}|}{x^p} dx \geq \int\limits^{2 \pi k}_{\pi k} |\sin {x}| \cdot \dfrac{1}{(2 \pi k)^p} dx = \dfrac{2k}{(2 \pi k)^p} \geq \dfrac{2}{(2 \pi)^p}$ ~--- это мой эпсилон
+        
+        
+    \newpage
+    
+    \section{Признак Абеля--Дирихле сходимости несобственного интеграла}
+    
+        \subsection{Формулировка}
+        
+            \begin{enumerate}
+            
+                \item (Дирихле) $f$ ~--- допустима на $[a, b)$, $g \in C^1 \left( [a, b] \right)$, $g(x) \xrightarrow[x \rightarrow b - 0]{} 0$ монотонная
+                
+                    $F(B) = \int\limits^B_a f$ ~--- ограничена, тогда $\int\limits^{\rightarrow b}_a fg$ ~--- сходится
+                    
+                \item (Абеля) $f$ ~--- допустима на $[a, b)$, $\int\limits^{\rightarrow b}_a f$ ~--- сходится
+                
+                    $g \in C^1 \left([a, b] \right)$, монотонная, ограниченная
+                    
+                    Тогда $\int\limits^{\rightarrow b}_a fg$ ~--- сходится
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            Интегрируем по частям $\int\limits^B_a fg = F(x) g(x) \bigg|^B_a - \int\limits^B_a F(x) g'(x) dx$ ~--- конечен
+            
+            $\int\limits^{\rightarrow b}_a \left| F(x) \right| | g'(x) | dx \leq k \int\limits^{\rightarrow b}_a | g'(x) | dx = \pm \int\limits^{\rightarrow b}_a g'(x) = \pm k g(x) \bigg|^b_a$
+            
+            $\alpha = \lim\limits_{x \rightarrow b- 0} g(x)$
+            
+            $fg = f \alpha + f(g - \alpha)$
+            
+            $\int fg$ ~--- сходится, $\int\limits^b_a f(g - \alpha)$ ~--- сходится по уже доказанному.
+            
+    \newpage
+    
+    \section{Интеграл Дирихле}
+    
+        \subsection{Формулировка}
+        
+            $\int\limits^{+\infty}_0 \dfrac{\sin{x}}{x} dx = \dfrac{\pi}{2}$
+            
+        \subsection{Доказательство}
+        
+            Будет сделано позже
+            
+    \newpage
+    
+    \section{Свойства рядов: линейность, свойства остатка, необх. условие сходимости, критерий Больцано-Коши}
+    
+        \subsection{Линейность, свойства остатка}
+        
+            \subsubsection{Формулировка}
+            
+                \begin{enumerate}
+            
+                    \item Пусть $\sum a_n$, $\sum b_n$ ~--- сходятся, тогда и ряд $\sum c_n$, где $c_n := a_n + b_n$ тоже сходится
+                
+                    \item Пусть $\sum a_n$ ~--- сходится, тогда и ряд $\sum \lambda a_n$ тоже сходится
+                
+                    \item 
+                
+                        \begin{itemize}
+                    
+                            \item $\sum a_n$ ~--- сходится, тогда и любой остаток ряда сходится
+                        
+                            \item Какой-нибудь остаток ряда сходится, значит и сам ряд сходится
+                        
+                            \item $R_m = \sum\limits_{k = m}^{+\infty} a_k$, $\sum a_n$ ~--- сходится, значит и $R_m \xrightarrow[m \rightarrow +\infty]{} 0$
+                        
+                        \end{itemize}
+                    
+                \end{enumerate}
+            
+            \subsubsection{Доказательство}
+            
+                \begin{enumerate}
+                
+                    \item $\lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} (a_n + b_n) = \lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} a_n + \lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} b_n$
+                    
+                    \item $\sum\limits^{\infty}_{n = 1} \lambda a_n = \lambda \sum\limits^{\infty}_{n = 1}$
+                    
+                    \item
+                    
+                        \begin{itemize}
+                        
+                            \item $S_n = \sum\limits^n_{k = 1} a_k = \sum\limits^{m - 1}_{k = 1} a_k + \sum\limits_{k = m}^N a_k$, сумма и первое слагаемое конечное, значит и второе слагаемое конечное.
+                            
+                            \item Аналогично предыдущему
+                            
+                            \item $\sum\limits^{+\infty}_{k = 1} a_k = \sum\limits^{m - 1}_{k = 1} a_k + \sum\limits^{+\infty}_{k = m} a_k$
+                            
+                        \end{itemize}
+                        
+                \end{enumerate}
+        
+        \subsection{Необходимое условие сходимости рядов}
+        
+            \subsubsection{Формулировка}
+            
+                $\sum a_n$ ~--- сходится, тогда $a \xrightarrow[n \rightarrow +\infty]{} 0$
+                
+            \subsubsection{Доказательство}
+            
+                $\sum\limits^{+\infty}_{n = 1} a_n = S$, $S_n \rightarrow S$
+                
+                $a_N = S_N - S_{N - 1} \xrightarrow[N \rightarrow +\infty]{} 0$
+                
+        \subsection{Критерий Больцано-Коши}
+        
+            \subsubsection{Формулировка}
+            
+                Сходимость ряда $\sum\limits^{\infty}_{k = 1} a_k$ равносильна условию
+            
+                $$\forall \varepsilon > 0 : \exists N \in \mathbb{N} : \forall n > N : \forall p \in \mathbb{N} : \left| \sum\limits^{n + p}_{k = n + 1} a_k \right| < \varepsilon$$
+            
+            \subsection{Доказательство}
+            
+                По определению сходимость ряда $\sum\limits^{\infty}_{k = 1} a_k$ равносильна сходимости последовательности $S_n = \sum\limits^n_{k = 1} a_k$. Воспользуемся критерием Больцано-Коши для последовательностей 
+                
+                $$\forall \varepsilon > 0 : \exists N \in \mathbb{N} : \forall n, m > N |S_m - S_n| < \varepsilon$$
+                
+                Не умаляя общности можно считать, что $m > n$. Остаётся переобозначить $m = n + p$, где $p \in \mathbb{N}$ и заметить, что $S_m - S_n = \sum\limits^{n+p}_{k = n + 1} a_k$
+                
+    \newpage
+    
+    \section{Признак сравнения сходимости положительных рядов}
+    
+        \subsection{Лемма}
+        
+            \subsubsection{Формулировка}
+            
+                Пусть $a_k \geq 0$, при всех $k \in \mathbb{N}$. Тогда сходимости $\sum a_k$ равносильно тому, что последовательность $S_n^{(a)}$ ~--- ограничена
+                
+            \subsubsection{Доказательство}
+            
+                Последовательность ${S_n}$ возрастает, а по теореме о монотонной последовательности сходимость равносильна ограниченности сверху.
+                
+        \subsection{Признак сравнения сходимости положительных рядов}
+        
+            \subsubsection{Формулировка}
+            
+                Пусть $a_k$, $b_k \geq 0$. Тогда
+                
+                \begin{enumerate}
+                
+                    \item $\forall k : a_k \geq b_k$ (или даже $\exists c > 0 : \exists N : \forall k > N : a_k \geq c b_k$)
+                    
+                        Тогда
+                        
+                            $\sum a_k$ расходится. значит и $\sum b_k$ расходится
+                            
+                            $\sum b_k$ сходится, значит и $\sum a_k$ сходится
+                            
+                    \item Пусть $\exists \lim\limits_{k \rightarrow +\infty} \dfrac{a_k}{b_k} = l \in [0, +\infty]$
+                    
+                        Тогда
+                        
+                            При $0 < l < +\infty$ $\sum a_k$ сходится тогда и только тогда, когда $\sum b_k$ сходится
+                            
+                            При $l = 0$ $\sum b_k$ сходится, значит и $\sum a_k$ сходится, или $\sum a_k$ расходится, значит и $\sum b_k$ расходится
+                            
+                            При $l = +\infty$ $\sum a_k$ сходится, значит и $\sum b_k$ сходится, или $\sum b_k$ расходится, значит и $\sum a_k$ расходится
+                            
+                \end{enumerate}
+                
+            \subsubsection{Доказательство}
+            
+                \begin{enumerate}
+                
+                    \item Следует из леммы
+                    
+                        $\sum a_k$ сходится $\Leftrightarrow \sum\limits^{+\infty}_{k = N} a_k$ сходится
+                        
+                        $a_k \leq c b_k \Rightarrow S_n^{(a)} \leq c \cdot S^{(b)}_n$
+                        
+                        $\sum a_k$ расходится $\Rightarrow A^{(a)}_n$ не ограничено сверху, значит и $S^{(b)}_n$ тоже не ограничено сверху
+                        
+                        Аналогично со сходимостью
+                        
+                    \item Следует из первой случаи $l = 0$ и $l = +\infty$
+                    
+                        $0 < l < +\infty$. По определению предела
+                        
+                            $\exists N : \forall k > N : \dfrac{l}{2} < \dfrac{a_k}{b_k} < \dfrac{3l}{2}$
+                            
+                            $a_k > \dfrac{1}{2} b_k$, значит $\sum a_n$ сходится, значит и $\sum \dfrac{l}{2} b_n$ тоже сходится, значит и $\sum b_n$ сходится. Аналогично разбираются и остальные $3$ случая.
+                    
+                \end{enumerate}
+                
+    \newpage
+    
+    \section{Признак Коши сходимости положительных рядов}
+    
+        \subsection{Формулировка}
+        
+            Пусть $a_n \geq 0$, $k_n = \sqrt[n]{a^n}$
+            
+            \begin{enumerate}
+            
+                \item $\exists q < 1 : k_n \geq q$, начиная с некоторого места, значит ряд сходится 
+                
+                \item $k_n \geq 1$ для бесконечного числа номеров, значит ряд расходится
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item $k_n \geq q \Leftrightarrow a_n \geq q^n$ при $n \rightarrow +\infty$, а $q^n$ ~--- сходится, значит и $\sum a_n$ ~--- сходится
+                
+                \item $a_n \geq 1$ ~--- верно для бесконечного числа $n$, значит $\exists n_k$, что $\lim a_{n_k} \neq 0$, значит $\sum a_n$ расходится.
+                
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Признак Коши сходимости положительных рядов (pro)}
+    
+        \subsection{Формулировка}
+        
+            Пусть $a_n \geq 0$, $k = \overline{\lim\limits_{n \rightarrow \infty}} \sqrt[n]{a_n}$
+            
+            \begin{enumerate}
+            
+                \item $k > 1$, значит $\sum a_n$ ~--- расходится
+                
+                \item $k < 1$, значит $\sum a_n$ ~--- сходится
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item Пусть $k > 1$, тогда для бесконечного числа номеров $\sqrt[n]{a_n} > 1$, а значит $a_n > 1$, значит $a_n$ не стремится к $0$, и поэтому ряд расходится.
+                
+                \item Пусть $k < 1$. Обозначим за $\varepsilon = \dfrac{1 - k}{2} > 0$, $q = \dfrac{1 + k}{2}$. По свойствам верхнего предела существует такое $N$, что для всех $n > N$ выполняется неравенство 
+                
+                    $$\sqrt[n]{a_n} < k + \varepsilon = \dfrac{1 + k}{2} = q \in (0, 1)$$
+                    
+                    Тогда $a_n < q^n$ при всех $n > N$, и ряд $\sum\limits^{\infty}_{k = 1} a_k$ сходится по признаку сравнения со сходящимся рядом $\sum\limits^{\infty}_{k = 1} q^k$
+                
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Признак Даламбера сходимости положительных рядов}
+    
+        \subsection{Формулировка}
+        
+            Пусть $a_n \geq 0$, $D_n = \dfrac{a_{n + 1}}{a_n}$
+            
+            $\underline{light}$
+            
+            \begin{enumerate}
+            
+                \item $\exists q < 1$ начиная с некоторого места $D_n \leq q$, значит $\sum a_n$ сходится
+                
+                \item $D_n \geq 1$ начиная с некоторого места $\sum a_n$ расходится
+                
+            \end{enumerate}
+            
+            $\underline{pro}$
+            
+            Пусть $\exists \lim \dfrac{a_{n + 1}}{a_n} = D$
+            
+            \begin{enumerate}
+            
+                \item $D < 1$, значит $\sum a_n$ сходится
+                
+                \item $D > 1$, значит $\sum a_n$ расходится
+                
+            \end{enumerate}
+    
+        \subsection{Доказательство}
+        
+            \underline{light}
+            
+            \begin{enumerate}
+            
+                \item 
+                
+                    $\dfrac{a_{N + 1}}{a_N} < q$
+                    
+                    $\dfrac{a_{N + 2}}{a_{N + 1}} < q$
+                    
+                    $\ldots$
+                    
+                    $\dfrac{a_{N + k}}{a_{N + k - 1}} < q$
+                    
+                    $a_{N + k} < q^k \cdot a-{N_0}$ ~--- сходится
+                    
+                    Значит $a_n$ сходится
+                    
+                \item
+                
+                    $a_{N_0 + k} \geq a_{N_0} > 0$, значит $a_k$ не стремится $0$ ~--- расходится
+                
+            \end{enumerate}
+            
+            \underline{pro}
+            
+            \begin{enumerate}
+            
+                \item $\lim \dfrac{a_{n + 1}}{a_n} = D$, значит НСНМ $\dfrac{a_{n + 1}}{a_n} < q$, значит $\sum a_n$ сходится
+                
+                \item $\lim \dfrac{a_{n + 1}}{a_n} = D > 1$, значит НСНМ $\dfrac{a_{n + 1}}{a_n} > 1$, значит $\sum a_n$ расходится
+                
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Признак Раабе сходимости положительных рядов}
+    
+        \subsection{Лемма}
+        
+            \subsubsection{Формулировка}
+            
+                Пусть $a_n$, $b_n > 0$ и $\dfrac{a_{n + 1}}{a_n} < \dfrac{b_{n + 1}}{b_n}$ НСНМ. Тогда
+                
+                $b_n$ ~--- сходится, значит и $a_n$ сходится
+                
+                или
+                
+                $a_n$ ~--- расходится, значит и $b_n$ расходится.
+                
+            \subsubsection{Доказательство}
+            
+                Будем считать "НСНМ" как "1"
+                
+                $a_2 < a_1 \dfrac{b_2}{b_1}$
+                
+                $a_3 < a_2 \dfrac{b_3}{b_2}$
+                
+                $\ldots$
+                
+                $a_n < a_{n - 1} \dfrac{b_n}{b_{n - 1}}$, значит $a_n < \dfrac{a_1}{b_1} b_n$, т.е. $a_n < c \cdot b_n$
+        
+        \subsection{Теорема}
+        
+            \subsubsection{Формулировка}
+            
+                $a_n > 0$, тогда если 
+                
+                $n \cdot \left( \dfrac{a_n}{a_{n + 1}} - 1 \right) \geq r > 1$ (НСНМ), тогда $\sum a_n$ ~--- сходится
+                
+                $n \cdot \left( \dfrac{a_n}{a_{n + 1}} - 1 \right) \leq 1$ (НСНМ), тогда $\sum a_n$ ~--- расходится
+                
+            \subsubsection{Доказательство}
+            
+                \begin{enumerate}
+                
+                    \item $n \cdot \left( \dfrac{a_n}{a_{n + 1}} - 1 \right) \geq r \Rightarrow \dfrac{a_n}{a_{n + 1}} \geq 1 + \dfrac{r}{n}$
+                    
+                    Пусть $1 < s < r$, $b_n := \dfrac{1}{n^s}$
+                    
+                    Итак, НСНМ $\dfrac{a_{n + 1}}{a_n} < \dfrac{b_{n + 1}}{b_n}$
+                    
+                    $\sum b_n = \sum \dfrac{1}{n^s}$ ~--- сходится, значит $\sum a_n$ ~--- сходится
+                    
+                    \item $n \left( \dfrac{a_n}{a_{n + 1}} - 1 \right) \leq 1$, $\dfrac{a_n}{a_{n + 1}} \leq \dfrac{n + 1}{n} = \dfrac{\frac{1}{n}}{\frac{1}{n + 1}}$
+                    
+                    $\dfrac{\frac{1}{n + 1}}{\frac{1}{n}} \leq \dfrac{a_{n + 1}}{a_n}$, $\sum \frac{1}{n}$ ~--- расходится, значит и $\sum a_n$ ~--- расходится
+                    
+                \end{enumerate}
+                
+    
+    \newpage
+    
+    \section{Интегральный признак Коши сходимости числовых рядов}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f : [1, +\infty) \rightarrow \mathbb{R}$, непрерывна, $\geq 0$, монотонна
+            
+            Тогда $\sum\limits^{+\infty}_{k = 1} f(k)$ и $\int\limits^{+\infty}_1 f(x) dx$ ~--- сходится или расходится одновременно. Содержательный случай $f$ ~--- убывает и $f(1) > 0$
+            
+        \subsection{Доказательство}
+        
+            Ряд сходится, значит $S^{(f)}_n$ ~--- ограничена сверху
+            
+            Тогда $\Phi(A) = \int\limits^A_1 f(x) dx$ ~--- ограничена сверху
+            
+            $S^{(f)}_n \leq S$
+            
+            $\Phi(A) < \Phi([A] + 1) = \int\limits^{[A] + 1}_1 f(x) dx = \sum\limits^{[A]}_{k = 1} \int\limits^{k + 1}_k f(x)dx \leq \sum \int\limits^{k + 1}_k f(x) dx = \sum\limits^{[A]}_{k = 1} f(x) \leq S$
+            
+            Интеграл сходится, значит и ряд сходится
+            
+            $\Phi(A) \leq S$
+            
+            Проверим, что $S_n \leq S + f(1)$
+            
+            $S_n = \sum\limits^n_{k = 1} f(k) = f(1) + \sum\limits^n_{k = 2} \int\limits^k_{k - 1} f(k) dx \leq f(1) \sum\limits^n_{k = 2} \int\limits^k_{k - 1} f(x) dx = f(1) + \int\limits^n_1 f(x) dx \leq f(1) + S$
+            
+            $\sum\limits^{+\infty}_{n = 2} \dfrac{1}{n^a (\ln n)^b}$ ~--- сходство одновременно с $\int\limits^{+\infty}_2 \dfrac{dx}{x^a(\ln{x})^b}$ (уже изучали)
+            
+    \newpage
+    
+    \section{Признак Лейбница}
+    
+        \subsection{Формулировка}
+        
+            Пусть $a_1 \geq a_2 \geq a_3 \geq \ldots \geq 0$, $a_n \rightarrow 0$. Тогда $\sum\limits^{+\infty}_{k = 1} (-1)^{k - 1} a_k$ ~--- сходится
+            
+        \subsection{Доказательство}
+        
+            $S_{2n} = (a_1 - a_2) + (a_3 - a_4) + \ldots + (a_{2n - 1} - a_{2n})$, $S_{2n + 2} = S_{2n} + a_{2n + 1} - a_{2n + 2} \geq S_{2n}$
+            
+            $S_{2n} \leq a_1$, $S_{2n} = a_1 - (a_2 - a_3) - \ldots (a_{2n - 2} - a_{2n - 1}) - a_{2n}$
+            
+            $S_{2n + 1} = S_{2n} + a_{2n + 1}$, итого $S$ ~--- ограничено, значит ряд сходится
+            
+    \newpage
+    
+    \section{Признаки Дирихле и Абеля сходимости числового ряда}
+    
+        \subsection{Формулировка}
+        
+            \subsubsection{Дирихле}
+            
+                Пусть $S^{(a)}_n$ ~--- ограничена
+                
+                $b_n$ ~--- монотонна. $b_n \rightarrow 0$
+                
+                Тогда $\sum\limits^{+\infty}_{k = 1} a_k b_k$ ~--- сходится
+                
+            \subsubsection{Абеля}
+            
+                Пусть $\sum a_k$ ~--- сходится, $b_n$ ~--- ограниченная
+                
+                Тогда $\sum\limits^{+\infty}_{k = 1} a_k b_k$ ~--- сходится 
+                
+        \subsection{Доказательство}
+        
+            \subsubsection{Дирихле}
+            
+                Применим преобразование Абеля $\sum\limits^n_{k = 1} a_k b_k = A_n b_n + \sum\limits^{n - 1}_{k = 1} A_k (b_k - b_{k + 1})$
+                
+                Из того, что $A_n$ ограничена, а $b_n$ бесконечна мала, следует, что $A_n b_n \rightarrow 0$, поэтому сходимость эквивалентна сходимости ряда $\sum\limits^{\infty}_{k = 1} A_k (b_k - b_{k + 1})$
+                
+                $\sum\limits^{n - 1}_{k = 1} \left| A_k (b_k - b_{k + 1}) \right| \leq c_a \sum\limits^{n - 1}_{k = 1} \left| b_k - b_{k + 1} \right| = c_a |b_1 \cdot b_n|$ ~--- ограничена
+                
+            \subsubsection{Абеля}
+            
+                Существует конечный $\lim\limits_{n \rightarrow +\infty} b_n = \beta$
+                
+                $\sum a_k b_k = \sum a_k \beta + \sum a_k (b_k - \beta)$
+                
+    \newpage
+    
+    \section{Теорема об условиях сходимости бесконечного произведения}
+    
+        \subsection{Формулировка}
+        
+            \begin{enumerate}
+            
+                \item Пусть $a_n > 0$ НСНМ. Тогда равносильность $\prod\limits (1 + a_n)$ ~--- сходится $\Leftrightarrow \sum a_n$ ~--- сходится
+                
+                \item Пусть $\sum a_n$ ~--- сходится, а также $\sum a^2_n$ ~--- тоже сходится. Тогда $\prod (1 + a_n)$ ~--- сходится
+                
+            \end{enumerate}
+        
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item $\prod$ ~--- сходится $\Leftrightarrow \sum \ln |1 + a_n| $~--- сходится $\Leftrightarrow \sum a_n$ ~--- сходится. НСНМ $\ln |1 + a_n| ~ a_n$ при $n \rightarrow +\infty$
+                
+                \item $\prod$ сходится $\Leftrightarrow \sum \ln (1 + a_n)$ сходится
+                
+                    $\ln(1 + a_n) = a_n - \dfrac{a^2_n}{2} + o(a^2_n)$
+                    
+                    Докажем, что $\sum |o(a^2_n)|$ абсолютно сходится
+                    
+                    $\lim\limits_{n \rightarrow} \dfrac{o(a^2_n)}{a^2_n} = 0$ из сходимости $\sum a^2_n$ следует сходимость $\sum |o(a^2_n)|$, значит и $\sum o(a^2_n)$ сходится
+                
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Лемма об оценке приближения экспоненты ее замечательным пределом}
+    
+        \subsection{Лемма 1}
+        
+            \subsubsection{Формулировка}
+            
+                $\Pi(n, x) = \int\limits^n_0 \left(1 - \dfrac{t}{n} \right)^n t^{x - 1} dt$
+                
+                Тогда $\Pi(n, x) = \dfrac{1 \cdot 2 \cdot \ldots \cdot n}{x(x + 1)\ldots(x+n)} \cdot n^x$
+                
+            \subsubsection{Доказательство}
+            
+                $\Pi(n, x) = n^x \int\limits^1_0 (1 - s)^n \cdot s^{x - 1} ds = n^x \left(  (1 - s)^n \cdot \dfrac{s}{x} \bigg|^{s = 1}_{s = 0} + \dfrac{n}{x} \int\limits^1_0 (1 - s)^{n - 1} \cdot s^x ds \right) = n^x \cdot \dfrac{n}{x} \int\limits^1_0 (1 - s)^{n - 1} s^x ds = n^x \cdot \dfrac{n}{x} \cdot (n - 1) \int\limits^1_0 (1 - s)^{n - 2} s^{x - 1} ds = \ldots$ получаем то, что хотели
+                
+        \subsection{Лемма 2}
+        
+            \subsubsection{Формулировка}
+            
+                При $0 \leq t \leq n$ 
+                
+                $0 \leq e^{-t} - \left(1 - \dfrac{t}{n} \right)^n \leq \dfrac{1}{n}t^2e^t$
+                
+            \subsubsection{Доказательство}
+            
+                $(1 + y) \leq e^yleq (1 - y)^{-1}$, $y \in [0, 1]$ в силу выпуклости $e^x$
+                
+                $e^y \geq 1 + y$
+                
+                $e^{-y} \geq 1 - y$
+                
+                возведём в $(-n)$, $y := \dfrac{t}{n}$
+                
+                $\left( 1 + \dfrac{t}{n} \right)^{-n} \geq e^{-t} \geq \left(1 - \dfrac{t}{n} \right)^n$
+                
+                $0 \leq e^{-t} - \left( 1 - \dfrac{t}{n} \right)^n = e^{-t} \left(1 - e^t \left(1 - \dfrac{t}{n} \right)^n \right) \leq e^{-t} \left(1 - \left(1 + \dfrac{t}{n} \right)^n \left( 1 - \dfrac{t}{n}\right)^n\right) = e^{-t} \left(1 - \left(1 - \dfrac{t^2}{n^2} \right)^n \right) \leq \dfrac{1}{n} t^2 e^{-t}$ (это неравенство Бернулли)
+                
+                
+    \newpage
+    
+    \section{Формула Эйлера для гамма-функции}
+    
+        \subsection{Формулировка}
+        
+            При $x > 0$ $\lim\limits_{n \rightarrow +\infty} \dfrac{1 \cdot 2 \cdot \ldots \cdot n}{x(x+1)\ldots(x+n)} \cdot n^x = \Gamma(x)$
+            
+        \subsection{Доказательство}
+        
+            $\Gamma(x) - \lim\limits_{n \rightarrow +\infty} \Pi(n, x) = \lim\limits_{n \rightarrow +\infty} \left( \int\limits^n_0 \left(e^{-t} - \left(1 - \dfrac{t}{n} \right)^n \right) t^{x - 1} dt + \int\limits^{+\infty}_n t^{x - 1} e^{-t} dt \right)$
+            
+            $\int\limits^{+\infty}_n e^{-t} t^{x - 1} dt \rightarrow 0$, $n \rightarrow +\infty$
+            
+            $\int\limits^n_0 \dfrac{1}{n} e^{-t} t^2 t^{x - 1} dt \leq \dfrac{1}{n} \int\limits^{+\infty}_0 t^{x + 1}e^{-t}dt \rightarrow 0$
+            
+    \newpage
+    
+    \section{Формула Вейерштрасса для Г-функции}
+    
+        \subsection{Формулировка}
+        
+            Пусть $x > 0$, $\gamma$ ~--- постоянная Эйлера. Тогда
+            
+            $$\dfrac{1}{\Gamma(x)} = x e^{\gamma x} \prod\limits^{+\infty}_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\dfrac{x}{k}}$$
+            
+        \subsection{Доказательство}
+        
+            $\dfrac{1}{\Gamma(x)} = \lim\limits_{n \rightarrow +\infty} n^{-x} \dfrac{x(x+1)\ldots(x+n)}{1 \cdot 2 \ldots \cdot n} = \lim\limits_{n \rightarrow +\infty} \left( n^{-x} \cdot x \dfrac{x + 1}{1} \dfrac{x + 2}{2} \ldots \dfrac{x + n}{n} \right) = \lim\limits_{n \rightarrow +\infty} x \cdot n^{-x} \cdot \prod^n_{k = 1} \left( 1 + \frac{x}{k} \right) = \lim\limits_{n \rightarrow +\infty} x e^{x \left(1 + \frac{1}{2} + \ldots + \frac{1}{n} \right)} \cdot e^{-x \ln n} \prod^n_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\frac{x}{k}} = x \cdot e^{\gamma} \prod^{+\infty}_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\frac{x}{k}}$
+            
+            $\left(1 + \frac{x}{k} \right) e^{-\frac{x}{k}} = \left(1 + \dfrac{x}{k} \right) \left( 1 - \dfrac{x}{k} + o \left(\dfrac{1}{k^2} \right) \right) = 1 - \dfrac{x^2}{k^2} + o\left(\dfrac{1}{x^3} \right)$
+            
+    \newpage
+    
+    \section{Вычисление произведений с рациональными сомножителями}
+    
+    \newpage
+    
+    \section{Теорема о группировке слагаемых}
+    
+        \subsection{Формулировка}
+        
+            Выберем $n_0 = 1 < n_1 < n_2 < \ldots$
+            
+            Пусть $\sum a_k = (a_1 + a_2 + \ldots + a_{n_1}) + (a_{n_1 + 1} + \ldots + a_{n_2}) + \ldots$
+            
+            $b_k = \sum\limits^{n_k}_{i = n_{k - 1} + 1} a_i$
+            
+            Тогда
+            
+            \begin{enumerate}
+            
+                \item $\sum a_n$ ~--- сходится $\Rightarrow \sum b_k$ сходится и имеет ту же сумму
+                
+                \item $a_k \geq 0 \Rightarrow \sum a_k = \sum b_k$ 
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство} 
+            
+            $S^{(b)}_k = S^{(a)}_{n_k}$
+            
+            \begin{enumerate}
+            
+                \item $\lim\limits_{k \rightarrow \infty} S^{(b)}_k = \lim\limits_{k \rightarrow \infty} S^{(a)}_{n_k} = S^{(a)}$
+                
+                \item Если $\sum a_n$ ~--- сходится, то смотри пункт $1$
+                
+                    Если $\sum a_n$ ~--- расходится, значит $S^{(a)}_n$ не ограничено сверху, значит и $S^{(b)}_n$ не ограничено сверху
+            
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Теорема о перестановке слагаемых}
+    
+        \subsection{Формулировка}
+        
+            Пусть ряд $\sum a_n$ абсолютно сходится, тогда ряд $\sum b_n$, полученный из ряда $\sum a_n$ перестановкой, будет также абсолютно сходиться и иметь ту же сумму.
+            
+        \subsection{Доказательство}
+        
+            По определению $S_n^{(b)} = a_{\varphi(1)} + \ldots + a_{\varphi(n)} \leq S^{(a)}_{\max \varphi(i)}$. Устремим $n \rightarrow +\infty$, $S^{(b)} \leq S^{(a)}$. Аналогично $S^{(a)} \leq S^{(b)}$. Берём срезки $a_n^+$, $a_n^-$, $\sum a_n^+$, $\sum a_n^-$ ~--- сходятся.
+            
+            $a^+_n = \max(a^+_n, 0)$, $\sum b^+_n$ ~--- перестановка ряда $a^+_n$
+            
+            $a^-_n = \max(-a^-_n, 0$. Аналогично $\sum b^-_n$
+            
+    \newpage
+    
+    \section{Теорема о произведении рядов}
+    
+        \subsection{Формулировка}
+        
+            Пусть ряды $(A)$ и $(B)$ абсолютно сходятся к суммам $S^{(a)}$ и $S^{(b)}$. Тогда $\forall \gamma : \mathbb{N} \rightarrow \mathbb{N}$ ~--- биекция, произведение рядов абсолютно сходится и имеют сумму $S^{(a)} S^{(b)}$
+            
+        \subsection{Доказательство}
+        
+            Пусть $\sum |a_k| = A$, $\sum |b_k| = B$, $(A, B \in \mathbb{R})$. $\sum\limits^N_{k = 1} |a_{\varphi(k)} b_{\psi(k)}| \leq \sum\limits^n_{k = 1} |a_n| \sum\limits^m_{k = 1} |b_k| \leq A \cdot B$, где $n := \max(\varphi(1), \ldots, \varphi(N))$, $m = \max(\psi(1), \ldots, \psi(N))$
+            
+            Значит ряд $\sum\limits^N_{k = 1} |a_{\varphi(k)} b_{\psi(k)}|$ ~--- сходится, значит произведение рядов абсолютно сходится
+            
+    \newpage
+    
+    \section{Единственность производной}
+    
+        \subsection{Формулировка}
+        
+            Производный оператор единственный
+            
+        \subsection{Доказательство}
+        
+            Проверим, что $\forall n \in \mathbb{R}^m$ $L(n)$ задан однозначно
+            
+            $h := tu$, $t \in \mathbb{R}$, $u \in \mathbb{R}^m$, $t$ ~--- "маленькое"
+            
+            $F(a + tu) = F(a) + L(tu) + o(tu)$
+            
+            $F(a + tu) = F(a) + t \cdot L(u) + o(t)$
+            
+    \newpage
+    
+    \section{Лемма о дифференцируемости отображения и его координатных функций}
+    
+        \subsection{Формулировка}
+        
+            Пусть $F : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $F = (F_1, \ldots, F_l)$, $a \in$ Int $E$
+        
+            Тогда 
+            
+                \begin{enumerate}
+                
+                    \item $F$ ~--- дифференцируема в точке $a$ $\Leftrightarrow$ все $F_i$ дифференцируемы в точке $a$
+                    
+                    \item Строки матрицы Якоби $F$ равны матрицы Якоби функции $F$
+                
+                \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            Будет написано позже когда-нибудь перед экзаменами возможно наверняка да навряд ли
+
+    \newpage
+    
+    \section{Необходимое условие дифференцируемости}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f : E \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $a \in$ Int $E$
+            
+            $f$ ~--- дифференцируема в точке $a$
+            
+            Тогда $\exists f'_{x_1}(a), \ldots, f'_{x_m}(a)$ и тогда $(f'_{x_1}(a), \ldots, f'_{x_m}(a))$ ~--- матрица Якоби $f$ в точке $a$
+            
+        \subsection{Доказательство}
+        
+            $f(a + h) = f(a) + L \cdot h + \alpha(h) \cdot |h|$
+            
+            $f(a + t \cdot e_k) = f(a) + e_k \cdot t + \alpha(t \cdot e_k) |t|$
+            
+            $l_{k_m} = \varphi'_k (a_k) = \dfrac{\partial f}{\partial_{x_k}} (a_k)$
+            
+    \newpage
+    
+    \section{Достаточное условие дифференцируемости}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f : E \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $a \in E$, $B(a, r) \subset E$
+            
+            Пусть в этом шаре $\exists f'_{x_1} (x), \ldots, f'_{x_m} (x)$, $x \in B(a, r)$
+            
+            и все эти производные непрерывны в точке $a$. Тогда $f$ ~--- дифференцируемы в точке $a$
+            
+        \subsection{Доказательство}
+        
+            Пусть $m = 2$, на большую размерность обобщается легко
+            
+            $a = (a_1, a_2)$, $x = (x_1, x_2)$
+            
+            $f(x_1, x_2) - f(a_1, a_2) = \left( f(x_1, x_2) - f(a_1, x_2) \right) + \left(f(a_1, x_2) - f(a_1, a_2) \right) = f'_{x_1} (\overline{x_1}, x_2)(x_1 - a_1) + f'_{x_2}(x_1, \overline{x_2})(x_2 - a_2) = f'_{x_1}(a_1, a_2)(x_1 - a_1) + f'_{x_2} (a_1, a_2)(x_2 - a_2) + (f'_{x_1}(\overline{x_1}, x_2) - f'_{x_1}(a_1, a_2))(x_1 - a_1) + (f'_{x_2}(a, \overline{x_2}) - f'_{x_2}(a_1, a_2)(x_2 - a_2)$
+            
+    \newpage
+    
+    \section{Лемма об оценке нормы линейного оператора}
+    
+        \subsection{Формулировка}
+        
+            Пусть $A : \mathbb{R}^m \rightarrow \mathbb{R}^l$, лин. $A = (a_{ij})$. Тогда $\forall x \in \mathbb{R}^m$
+            
+            $\left| A_x \right| \leq C_a |x|$, где $C_a = \sqrt{\sum\limits_{ij} a^2_{ij}}$
+            
+        \subsection{Доказательство}
+        
+            $\left| A_x \right|^2 = \sum\limits^l_{i = 1} \left( \sum\limits^m_{j = 1} a_{ij} x_j \right)^2 \leq \sum\limits^l_{i = 1} \left( \left( \sum\limits^m_{j = 1} a_{ij}^2 \right) \left( \sum\limits^m_{j = 1} x_j^2 \right) \right) = |x|^2 \sum\limits^l_{i = 1} \sum\limits^m_{j = 1} a_{ij}^2$
+            
+            Это КБШ
+            
+    \newpage
+    
+    \section{Дифференцирование композиции}
+    
+        \subsection{Формулировка}
+        
+            Пусть $F : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $G : I \subset \mathbb{R}^l \rightarrow \mathbb{R}^n$, $F(E) \subset I$
+            
+            $a \in $ Int $E$, $F(a) \in$ Int $I$, $F$ ~--- дифференцируема в точке $a$, $G$ ~--- дифференцируема в $b = F(a)$. Тогда
+            
+            $G \circ F$ ~--- дифференцируема в точке $a$ и $\left( G \circ F \right)'(a) = G'\left( F(a) \right) \cdot F'(a)$
+            
+        \subsection{Доказательство}
+        
+            $F(a + h) = F(a) + F'(a)h + \alpha(h) |h|$
+            
+            $G(b + k) = G(b) + G'(b)k + \beta(k) |k|$
+            
+            $G(F(a + h)) = G(b) + G'(b) (F'(a)h + \alpha(h)|h|) + \beta(k) |k|$
+            
+            $G(F(a)) + G'(F(a)) \cdot F'(a)h + G'(b)\alpha(h)|h| + \beta(k) |k|$, где $G'(b)\alpha(h)|h| + \beta(k)|k| = o(h)$
+            
+    \newpage
+    
+    \section{Дифференцирование произведений}
+    
+        \subsection{Формулировка}
+        
+            Пусть $F$, $G : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $\lambda : E \rightarrow \mathbb{R}$, $a \in$ Int $E$; $F$, $G$, $\lambda$ ~--- дифференцируемые в $a$, тогда:
+            
+            \begin{enumerate}
+            
+                \item $\left( \lambda F \right)'(a)h = (\lambda'(a)h)F(a) + \lambda(a)\left(F'(a)h\right)$
+                
+                \item $\langle F, G \rangle'(a)h = \langle F'(a)h, G(a)\rangle + \langle F(a), G'(a)h \rangle$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            Будет написано позже
+            
+    \newpage
+    
+    \section{Теорема Лагранжа для векторнозначных функций}
+    
+        \subsection{Формулировка}
+        
+            Пусть $F: [a, b] \rightarrow \mathbb{R}^l$ ~--- непрерывна на $[a, b]$, дифференцируема на $[a, b]$. Тогда
+            
+            $\exists c \in (a, b) : \left| F(b) - F(a) \right| \leq \left| F'(G) \right| \cdot |b - a|$
             
 \end{document}
