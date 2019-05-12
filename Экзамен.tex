@@ -2501,7 +2501,7 @@
                     
                     $\forall \varepsilon > 0 : \exists \Delta \in (a, b) : \forall B_1, B_2 : \Delta < B_1 < B_2 < b : \left| \int\limits^{B_2}_{B_1} f \right| < \varepsilon$
                     
-                \item $f$ ~--- допустима на $[a, b]$ и $C \in (a, b)$. Тогда
+                \item $f$ ~--- допустима на $[a, b)$ и $C \in (a, b)$. Тогда
                 
                     $\int\limits^{\rightarrow b}_a f$ и $\int\limits^{\rightarrow b}_c f$ сходятся и расходятся одновременно, и при этом в случае сходимости $\int\limits^{\rightarrow b}_a = \int\limits^c_a + \int\limits^{\rightarrow b}_c$
                     
@@ -2509,7 +2509,7 @@
                 
                     $\int\limits^{\rightarrow b}_a f$ и $\int\limits^{\rightarrow b}_a g$ сходятся. Пусть $\lambda \in \mathbb{R}$, тогда
                     
-                    $\lambda f$ и $f \pm g$ ~--- допустимые функции и
+                    $\lambda f$ и $f \pm g$ ~--- допустимые функции на $[a, b)$ и
                     
                     $\int\limits^{\rightarrow b}_a \lambda f = \lambda \int\limits^{\rightarrow b}_a f$ и $\int\limits^{\rightarrow b}_a f \pm g = \int\limits^{\rightarrow b}_a f \pm \int\limits^{\rightarrow b}_a g$
                     
@@ -2521,7 +2521,7 @@
                 
                     $\int\limits^{\rightarrow b}_a f g' = fg \bigg|^{\rightarrow b}_a - \int\limits^{\rightarrow b}_a f'g$
                     
-                \item Пусть $\varphi : [\alpha, \beta) \rightarrow \langle A, B \rangle$, $\varphi \in C^1$, $f \in C \left( \langle A, B \rangle \right)$. Пусть также существует $\varphi(\beta - 0) \in \overline{\mathbb{R}}$. Тогда
+                \item Пусть $\varphi : [\alpha, \beta) \rightarrow \langle A, B \rangle$, $\varphi \in C^1 \left( [\alpha, \beta) \right)$, $f \in C \left( \langle A, B \rangle \right)$. Пусть также существует $\varphi(\beta - 0) \in \overline{\mathbb{R}}$. Тогда
                 
                     $\int\limits^{\rightarrow b}_a (f \circ \varphi) \cdot \varphi' = \int\limits^{\varphi(\beta - 0)}_{\varphi(\alpha)} f$
                     
@@ -2563,15 +2563,17 @@
         
             \begin{enumerate}
             
-                \item Пусть $f$ ~--- допустима на $[a, b)$, $f \geq 0$ $\Phi(B) = \int\limits^B_a f$. Тогда сходимость $\int\limits^b_a$ равносильна ограниченности функции $\Phi$ 
+                \item Пусть $f$ ~--- допустима на $[a, b)$, $f \geq 0$, $\Phi(B) = \int\limits^B_a f$. Тогда сходимость $\int\limits^b_a f$ равносильна ограниченности функции $\Phi$ (это не признак сравнения)
                 
                 \item Признаки сравнения
                 
+                    Пусть $f$, $g > 0$ и допустимы на $[a, b)$
+                    
                     \begin{itemize}
                     
-                        \item Пусть $f$, $g \geq 0$ и допустимы на $[a, b]$
+                        \item
                         
-                            Тогда $f \leq g$ на $[a, b]$
+                            Если $f \leq g$ на $[a, b)$
                             
                             \begin{enumerate}
                             
@@ -2597,7 +2599,7 @@
                 
             \end{enumerate}
         
-        \subsection{доказательство}
+        \subsection{Доказательство}
         
             \begin{enumerate}
             
@@ -2684,13 +2686,13 @@
             
             \begin{enumerate}
             
-                \item Интеграл сходится
+                \item Интеграл сходится при $t > 0$
                 
-                \item Функция выпукла
+                \item Функция выпукла, значит она непрерывна
                 
                 \item $\Gamma(t + 1) = t \Gamma (t)$
                 
-                \item Парабола, вершина ~--- примерно точка $(1, 1)$, ветви полностью лежат в первой четверти
+                \item Парабола, вершина ~--- примерно точка $(1, 1)$, ветви полностью лежат в первой четверти (когда-нибудь здесь будет рисунок, а так рисуйте примерно)
                 
                 \item $\Gamma \left( \dfrac{1}{2} \right) = \sqrt{\pi}$
                 
@@ -2766,13 +2768,13 @@
     
     \section{Изучение сходимости интеграла $\int\limits_{2019}^{\infty}\frac{dx}{x^{\alpha}(\ln x)^{\beta}}$}
     
-        Рассмотрим $\int\limits^{+\infty}_2019 \frac{dx}{x^{\alpha}}$, $\alpha > 1$ ~--- сходится, $\alpha \geq 1$ ~--- расходится
+        Рассмотрим $\int\limits^{+\infty}_{2019} \frac{dx}{x^{\alpha}}$, $\alpha > 1$ ~--- сходится, $\alpha \leq 1$ ~--- расходится
         
         Случай $\alpha > 1$: $\alpha = 1 + 2a$, $a > 0$, значит сходится
         
         $\dfrac{1}{x^{\alpha} (\ln {x})^b} = \dfrac{1}{x^{1 + a}} \cdot \dfrac{1}{x^a(\ln{x})^{\beta}} = \dfrac{1}{x^{1 + a}}$
         
-        $\lim\limits_{x \rightarrow +\infty} \dfrac{1}{x^a (\ln{x})^{\beta}}$
+        $\lim\limits_{x \rightarrow +\infty} \dfrac{1}{x^a (\ln{x})^{\beta}} = 0$
         
         Если $\beta \geq 0$, то всё ок. Если $\beta < 0$, то $\lim \dfrac{(\ln{x})^{-\beta}}{x^a} = \left( \lim \dfrac{\ln{x}}{x^{a / -\beta}} \right)^{-\beta} = 0$
         
@@ -2780,9 +2782,9 @@
         
         $\dfrac{1}{x^{1 - \gamma}} \cdot \dfrac{1}{x^{-\gamma}(\ln{x})^{\beta}} \geq \dfrac{1}{x^{1 - \gamma}}$ ~--- расходится
         
-        $\alpha = 1$, $\int\limits^{+\infty}_2019 \dfrac{dx}{x(\ln{x})^{\beta}} = \int\limits^{+\infty}_2019 \dfrac{dy}{y^{\beta}}$
+        $\alpha = 1$, $\int\limits^{+\infty}_{2019} \dfrac{dx}{x(\ln{x})^{\beta}} = \int\limits^{+\infty}_{2019} \dfrac{dy}{y^{\beta}}$
         
-        $\beta > 1$ сходится, $\beta \geq 1$ расходится.
+        $\beta > 1$ сходится, $\beta \leq 1$ расходится.
         
     \newpage
     
@@ -2790,9 +2792,9 @@
     
         При $p > 1$ $\left| \dfrac{\sin{x}}{x^p} \right| \leq \dfrac{1}{x^p}$ ~--- абсолютная сходимость
         
-        При $p \geq 0$ $\int\limits^{2 \pi k + \pi}_{2 \pi k} \dfrac{\sin{x}}{x^p} \geq \int\limits^{2 \pi k + \pi}_{2 \pi k} \sin{x} = 2$, значит интеграл расходится (и абсолютно то же)
+        При $p \leq 0$ $\int\limits^{2 \pi k + \pi}_{2 \pi k} \dfrac{\sin{x}}{x^p} \geq \int\limits^{2 \pi k + \pi}_{2 \pi k} \sin{x} = 2$, значит интеграл расходится (и абсолютно тоже)
         
-        При $0 < p \leq 1$ нет абсолютной сходимости, но есть сходимость $\int\limits^{2 \pi k}_{\pi k} \dfrac{| \sin{x}|}{x^p} dx \geq \int\limits^{2 \pi k}_{\pi k} |\sin {x}| \cdot \dfrac{1}{(2 \pi k)^p} dx = \dfrac{2k}{(2 \pi k)^p} \geq \dfrac{2}{(2 \pi)^p}$ ~--- это мой эпсилон
+        При $0 < p \leq 1$ нет абсолютной сходимости, но есть обычная сходимость $\int\limits^{2 \pi k}_{\pi k} \dfrac{| \sin{x}|}{x^p} dx \geq \int\limits^{2 \pi k}_{\pi k} |\sin {x}| \cdot \dfrac{1}{(2 \pi k)^p} dx = \dfrac{2k}{(2 \pi k)^p} \geq \dfrac{2}{(2 \pi)^p}$ ~--- это мой эпсилон
         
         
     \newpage
@@ -2803,13 +2805,13 @@
         
             \begin{enumerate}
             
-                \item (Дирихле) $f$ ~--- допустима на $[a, b)$, $g \in C^1 \left( [a, b] \right)$, $g(x) \xrightarrow[x \rightarrow b - 0]{} 0$ монотонная
+                \item (Дирихле) $f$ ~--- допустима на $[a, b)$, $g \in C^1 \left( [a, b) \right)$, $g(x) \xrightarrow[x \rightarrow b - 0]{} 0$ монотонная
                 
                     $F(B) = \int\limits^B_a f$ ~--- ограничена, тогда $\int\limits^{\rightarrow b}_a fg$ ~--- сходится
                     
                 \item (Абеля) $f$ ~--- допустима на $[a, b)$, $\int\limits^{\rightarrow b}_a f$ ~--- сходится
                 
-                    $g \in C^1 \left([a, b] \right)$, монотонная, ограниченная
+                    $g \in C^1 \left([a, b) \right)$, монотонная, ограниченная
                     
                     Тогда $\int\limits^{\rightarrow b}_a fg$ ~--- сходится
                 
@@ -2851,7 +2853,7 @@
             
                     \item Пусть $\sum a_n$, $\sum b_n$ ~--- сходятся, тогда и ряд $\sum c_n$, где $c_n := a_n + b_n$ тоже сходится
                 
-                    \item Пусть $\sum a_n$ ~--- сходится, тогда и ряд $\sum \lambda a_n$ тоже сходится
+                    \item Пусть $\sum a_n$ ~--- сходится, тогда и ряд $\sum \lambda a_n$ тоже сходится, где $\lambda \in \mathbb{R}$
                 
                     \item 
                 
@@ -2861,7 +2863,7 @@
                         
                             \item Какой-нибудь остаток ряда сходится, значит и сам ряд сходится
                         
-                            \item $R_m = \sum\limits_{k = m}^{+\infty} a_k$, $\sum a_n$ ~--- сходится, значит и $R_m \xrightarrow[m \rightarrow +\infty]{} 0$
+                            \item Пусть $R_m = \sum\limits_{k = m}^{+\infty} a_k$, $\sum a_n$ ~--- сходится, значит и $R_m \xrightarrow[m \rightarrow +\infty]{} 0$
                         
                         \end{itemize}
                     
@@ -2893,7 +2895,7 @@
         
             \subsubsection{Формулировка}
             
-                $\sum a_n$ ~--- сходится, тогда $a \xrightarrow[n \rightarrow +\infty]{} 0$
+                $\sum a_n$ ~--- сходится, тогда $a_n \xrightarrow[n \rightarrow +\infty]{} 0$
                 
             \subsubsection{Доказательство}
             
@@ -2939,7 +2941,7 @@
                 
                 \begin{enumerate}
                 
-                    \item $\forall k : a_k \geq b_k$ (или даже $\exists c > 0 : \exists N : \forall k > N : a_k \geq c b_k$)
+                    \item $\forall k : a_k \leq b_k$ (или даже $\exists c > 0 : \exists N : \forall k > N : a_k \leq c b_k$)
                     
                         Тогда
                         
@@ -2989,11 +2991,11 @@
     
         \subsection{Формулировка}
         
-            Пусть $a_n \geq 0$, $k_n = \sqrt[n]{a^n}$
+            Пусть $a_n \geq 0$ для всех $n$ и $k_n = \sqrt[n]{a_n}$
             
             \begin{enumerate}
             
-                \item $\exists q < 1 : k_n \geq q$, начиная с некоторого места, значит ряд сходится 
+                \item $\exists q < 1 : k_n \leq q$, начиная с некоторого места, значит ряд сходится 
                 
                 \item $k_n \geq 1$ для бесконечного числа номеров, значит ряд расходится
                 
@@ -3224,7 +3226,7 @@
                 
             \subsubsection{Абеля}
             
-                Пусть $\sum a_k$ ~--- сходится, $b_n$ ~--- ограниченная
+                Пусть $\sum a_k$ ~--- сходится, $b_n$ ~--- ограниченная, монотонная
                 
                 Тогда $\sum\limits^{+\infty}_{k = 1} a_k b_k$ ~--- сходится 
                 
@@ -3337,7 +3339,7 @@
         
             Пусть $x > 0$, $\gamma$ ~--- постоянная Эйлера. Тогда
             
-            $$\dfrac{1}{\Gamma(x)} = x e^{\gamma x} \prod\limits^{+\infty}_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\dfrac{x}{k}}$$
+            $$\dfrac{1}{\Gamma(x)} = x e^{\gamma x} \prod\limits^{+\infty}_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\frac{x}{k}}$$
             
         \subsection{Доказательство}
         
@@ -3349,6 +3351,14 @@
     
     \section{Вычисление произведений с рациональными сомножителями}
     
+        \subsection{Формулировка}
+        
+            Пусть $\sum\limits^k_{i = 1} a_i = \sum\limits^k_{i = 1} b_i$
+            
+            $\prod\limits^{+\infty}_{n = 1} \dfrac{\left( 1 + \dfrac{a_1}{n} \right) \left(1 + \dfrac{a_2}{n} \right) \ldots \left( 1 + \dfrac{a_k}{n} \right)}{\left (1 + \dfrac{b_1}{n} \right) \left(1 + \dfrac{b_2}{n} \right) \ldots \left(1 + \dfrac{b_k}{n} \right)} = \dfrac{\Gamma(1 + b_1) \ldots \Gamma(1 + b_k)}{\Gamma(1 + a_1) \ldots \Gamma(1 + a_k)}$
+            
+            Фиг его знает, что тут хочет Кохась
+            
     \newpage
     
     \section{Теорема о группировке слагаемых}
@@ -3393,6 +3403,8 @@
         
             Пусть ряд $\sum a_n$ абсолютно сходится, тогда ряд $\sum b_n$, полученный из ряда $\sum a_n$ перестановкой, будет также абсолютно сходиться и иметь ту же сумму.
             
+            Также если $a_k \geq 0$ при всех $k$, то $\sum a_k = \sum b_k$
+            
         \subsection{Доказательство}
         
             По определению $S_n^{(b)} = a_{\varphi(1)} + \ldots + a_{\varphi(n)} \leq S^{(a)}_{\max \varphi(i)}$. Устремим $n \rightarrow +\infty$, $S^{(b)} \leq S^{(a)}$. Аналогично $S^{(a)} \leq S^{(b)}$. Берём срезки $a_n^+$, $a_n^-$, $\sum a_n^+$, $\sum a_n^-$ ~--- сходятся.
@@ -3407,7 +3419,7 @@
     
         \subsection{Формулировка}
         
-            Пусть ряды $(A)$ и $(B)$ абсолютно сходятся к суммам $S^{(a)}$ и $S^{(b)}$. Тогда $\forall \gamma : \mathbb{N} \rightarrow \mathbb{N}$ ~--- биекция, произведение рядов абсолютно сходится и имеют сумму $S^{(a)} S^{(b)}$
+            Пусть ряды $(A)$ и $(B)$ абсолютно сходятся к суммам $S^{(a)}$ и $S^{(b)}$. Тогда $\forall \gamma : \mathbb{N} \rightarrow \mathbb{N} \times \mathbb{N}$ ~--- биекция, произведение рядов абсолютно сходится и имеют сумму $S^{(a)} S^{(b)}$
             
         \subsection{Доказательство}
         
@@ -3439,7 +3451,7 @@
     
         \subsection{Формулировка}
         
-            Пусть $F : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $F = (F_1, \ldots, F_l)$, $a \in$ Int $E$
+            Пусть $F : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $F = (F_1, \ldots, F_l)$, $a \in \Int (E)$
         
             Тогда 
             
@@ -3447,7 +3459,7 @@
                 
                     \item $F$ ~--- дифференцируема в точке $a$ $\Leftrightarrow$ все $F_i$ дифференцируемы в точке $a$
                     
-                    \item Строки матрицы Якоби $F$ равны матрицы Якоби функции $F$
+                    \item Строки матрицы Якоби $F$ равны матрицы Якоби функций $F_i$
                 
                 \end{enumerate}
             
@@ -3503,7 +3515,7 @@
         
             Пусть $A : \mathbb{R}^m \rightarrow \mathbb{R}^l$, лин. $A = (a_{ij})$. Тогда $\forall x \in \mathbb{R}^m$
             
-            $\left| A_x \right| \leq C_a |x|$, где $C_a = \sqrt{\sum\limits_{ij} a^2_{ij}}$
+            $\left| Ax \right| \leq C_a |x|$, где $C_a = \sqrt{\sum\limits_{ij} a^2_{ij}}$
             
         \subsection{Доказательство}
         
@@ -3519,7 +3531,7 @@
         
             Пусть $F : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $G : I \subset \mathbb{R}^l \rightarrow \mathbb{R}^n$, $F(E) \subset I$
             
-            $a \in $ Int $E$, $F(a) \in$ Int $I$, $F$ ~--- дифференцируема в точке $a$, $G$ ~--- дифференцируема в $b = F(a)$. Тогда
+            $a \in \Int (E)$, $F(a) \in \Int (I)$, $F$ ~--- дифференцируема в точке $a$, $G$ ~--- дифференцируема в $b = F(a)$. Тогда
             
             $G \circ F$ ~--- дифференцируема в точке $a$ и $\left( G \circ F \right)'(a) = G'\left( F(a) \right) \cdot F'(a)$
             
@@ -3561,6 +3573,6 @@
         
             Пусть $F: [a, b] \rightarrow \mathbb{R}^l$ ~--- непрерывна на $[a, b]$, дифференцируема на $[a, b]$. Тогда
             
-            $\exists c \in (a, b) : \left| F(b) - F(a) \right| \leq \left| F'(G) \right| \cdot |b - a|$
+            $\exists c \in (a, b) : \left| F(b) - F(a) \right| \leq \left| F'(c) \right| \cdot |b - a|$
             
 \end{document}
