@@ -27,6 +27,7 @@
 \newcommand{\Segm}[0]{\mathrm{Segm} $\ $}
 \newcommand{\diam}[0]{\mathrm{diam} $\ $}
 \newcommand{\Int}[0]{\mathrm{Int} $\ $}
+\newcommand{\grad}[0]{\mathrm{grad} $\ $}
 
 \tableofcontents
 
@@ -58,11 +59,7 @@
 		
 	\section{Теорема о существовании первообразной}
 		
-		Пусть $f$ непрерывна на $\langle a, b \rangle \Longrightarrow$ существует такая функция $F$ на $\langle a, b \rangle$, что $F' = f$.
-		
-		\textbf{Доказательство}
-			
-		В кредит
+		Пусть $f$ непрерывна на $\langle a, b \rangle$, тогда существует такая функция $F$ на $\langle a, b \rangle$, что $F' = f$.
 			
 	\newpage
 		
@@ -78,7 +75,7 @@
 				
 			\item $f(x) = e^x$, $F(x) = e^x$
 				
-			\item $f(x) = a^x$, $F(x) = \frac{a^x}{\ln a}$
+			\item $f(x) = a^x$, $F(x) = \frac{a^x}{\ln a}$, $a > 0$, $a \neq 1$
 				
 			\item $f(x) = \sin{x}$, $F(x) = -\cos{x}$
 				
@@ -88,13 +85,13 @@
 				
 			\item $f(x) = \frac{1}{\cos^2{x}}$, $F(x) = \tg{x}$
 				
-			\item $f(x) = \frac{1}{\sqrt{1 - x^2}}$, $F(x) = \arcsin{x}$
+			\item $f(x) = \frac{1}{\sqrt{1 - x^2}}$, $F(x) = \arcsin{x} = -\arccos{x}$
 				
-			\item $f(x) = \frac{1}{1 + x^2}$, $F(x) = \arctg{x}$
+			\item $f(x) = \frac{1}{1 + x^2}$, $F(x) = \arctg{x} = -\arcctg{x}$
 			
-			\item $f(x) = \frac{1}{\sqrt{x^2 \pm 1}} = \ln~(x + \sqrt{x^2 \pm 1})$
+			\item $f(x) = \frac{1}{\sqrt{x^2 \pm 1}}$, $F(x) = \ln \left| x + \sqrt{x^2 \pm 1} \right|$
 			
-			\item $f(x) = \frac{1}{1 - x^2} = \frac{1}{2} \ln{\left| \frac{1+x}{1-x} \right|}$
+			\item $f(x) = \frac{1}{1 - x^2}$, $F(x) = \frac{1}{2} \ln{\left| \frac{1+x}{1-x} \right|}$
 				
 		\end{enumerate}
 			
@@ -104,7 +101,7 @@
 		
 		Отображение $f : X \rightarrow Y$, где $X$ и $Y$ ~--- метрические пространства, а также $A \subset X$, называется равномерно непрерывным на $A$, если:
 			
-		$\forall \varepsilon > 0~~\exists \delta > 0{,}~~\forall x_0{,}~x \in A$ : $\rho(x, x_0) < \delta \Longrightarrow \rho(f(x), f(x_0)) < \varepsilon$
+		$$\forall \varepsilon > 0 : \exists \delta > 0 : \forall x_0, x \in A : \rho(x, x_0) < \delta \Longrightarrow \rho(f(x), f(x_0)) < \varepsilon$$
 			
 	\newpage
 		
@@ -136,12 +133,16 @@
 			
                         $A \subset B \Rightarrow \sigma(A) \leq \sigma(B)$
 			
+                        \textit{Доказательство}
+                        
                         $B = A \cup (B \setminus A)$
                         
                         $\sigma(B) = \sigma(A) + \sigma(B \setminus A) \geq \sigma(A)$
                         
                     \item $\sigma($вертикального отрезка$) = 0$
-				
+                        
+                        \textit{Доказательство}
+                        
                         Отрезок ~--- прямоугольник, ширина которого стремится к $0$, значит и площадь также стремится к $0$
                         
 				\end{enumerate}
@@ -198,7 +199,7 @@
         
             Тогда $\PG(f, E)$ ~--- подграфик $f$ на $E$, если:
         
-	        $\PG (f, E) = \left\{ (x, y) \in \mathbb{R}^2, x \in E, 0 \leq y \leq f(x) \right\}$
+	        $$\PG (f, E) = \left\{ (x, y) \in \mathbb{R}^2, x \in E, 0 \leq y \leq f(x) \right\}$$
 	    
 	\newpage
 
@@ -206,11 +207,11 @@
 
         \subsection{Определение}
         
-            Определённым интегралом функции $f$ по промежутку $[a, b]$ называется: $f: \langle c, d \rangle \rightarrow \mathbb{R}$, $[a, b] \subset \langle c, d \rangle$
+            Определённым интегралом функции $f$ по промежутку $[a, b]$ называется $f: \langle c, d \rangle \rightarrow \mathbb{R}$, $[a, b] \subset \langle c, d \rangle$
         
-            $\int\limits^b_a f(x)dx = \sigma (\PG (f_+, [a, b])) - \sigma (\PG (f_-, [a, b]))$
+            $$\int\limits^b_a f(x)dx = \sigma (\PG (f_+, [a, b])) - \sigma (\PG (f_-, [a, b]))$$
 		
-		\subsection{Замечание}
+		\subsection{Свойства}
 		
 		    \begin{enumerate}
 		    
@@ -218,6 +219,8 @@
 		        
 		    	\item $f \equiv c \Rightarrow \int\limits^b_a f = c(b - a)$
 		        
+                    \textit{Доказательство}
+                    
 		        	$c = 0$ ~--- очевидно
 		            
 		            $c > 0$ $\int\limits^b_a = \sigma(\PG(c, [a, b])) = c(b - a)$
@@ -226,6 +229,8 @@
 		            
 		       \item $\int\limits^b_a -f = - \int\limits^b_a f$
 		       
+                    \textit{Доказательство}
+                    
 		       		$(-f)_+ = f_-$
 		       		
 		       		$(-f)_- = f_+$
@@ -260,11 +265,11 @@
 
 		Пусть задан невырожденный отрезок $[a, b]$
 
-		\textit{Дробление отрезка} ~--- набор таких точек $x_0$, $x_1$, $\ldots$, $x_n$, что $a = x_0 < x_1 < x_2 < \ldots < x_n = b$
+		Дробление отрезка ~--- набор таких точек $x_0$, $x_1$, $\ldots$, $x_n$, что $a = x_0 < x_1 < x_2 < \ldots < x_n = b$
 
-		\textit{Оснащение} ~--- набор точек $\xi_1$, $\xi_2$, $\ldots$, $\xi_n$, что $\forall k$ $\xi_k \in [x_{k - 1}, x_k]$
+		Оснащение ~--- набор точек $\xi_1$, $\xi_2$, $\ldots$, $\xi_n$, что $\forall k : \xi_k \in [x_{k - 1}, x_k]$
 
-		\textit{Ранг дробления} ~--- величина, равная $\max\limits_{k = 1, \ldots, n} (x_k - x_{k - 1})$
+		Ранг дробления ~--- величина, равная $\max\limits_{k = 1, \ldots, n} (x_k - x_{k - 1})$
 	
 	\newpage
 
@@ -296,9 +301,9 @@
         
             \item $\phi : \Segm \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- функция промежутка
             
-            \item $\phi : \Segm \langle a, b \rangle \rightarrow \mathbb{R}$, а также если
+            \item $\phi : \Segm \langle a, b \rangle \rightarrow \mathbb{R}$, ~--- аддитивная функция промежутка, если
             
-                $\forall [p, q] \subset \langle a, b \rangle \ \forall c \in (p, q) \Rightarrow \phi([p, q]) = \phi([p, c]) + \phi([c, q])$ ~--- аддитивная функция промежутка
+                $$\forall [p, q] \subset \langle a, b \rangle : \forall c \in (p, q) \Longrightarrow \phi([p, q]) = \phi([p, c]) + \phi([c, q])$$
                 
         \end{enumerate}
         
@@ -306,9 +311,9 @@
     
     \section{Плотность аддитивной функции промежутка}
     
-        Пусть $f : \langle a, b \rangle \rightarrow \mathbb{R} \ \ \ \phi: \Segm \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- аддитивная функция промежутка
+        Пусть $f : \langle a, b \rangle \rightarrow \mathbb{R}, \phi: \Segm \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- аддитивная функция промежутка
         
-            $f$ ~--- плотность $\phi$, если $\forall \Delta \in \Segm \langle a, b \rangle \Rightarrow \inf\limits_{x \in \Delta} f(x) \cdot l(\Delta) \leq \phi(\Delta) \leq \sup\limits_{x \in \Delta} f(x) \cdot l(\Delta)$, 
+            $f$ ~--- плотность $\phi$, если $\forall \Delta \in \Segm \langle a, b \rangle \Longrightarrow \inf\limits_{x \in \Delta} f(x) \cdot l(\Delta) \leq \phi(\Delta) \leq \sup\limits_{x \in \Delta} f(x) \cdot l(\Delta)$, 
             
             где $l(\Delta)$ ~--- длина промежутка.
 		
@@ -354,13 +359,9 @@
             
             \item $l$ ~--- аддитивна:
            
-                $\forall [a, b]$
+                $$\forall [a, b] : \forall \gamma[a, b] : \forall c \in [a, b]$$
                 
-                $\forall \gamma[a, b]$
-                
-                $\forall c \in [a, b]$
-                
-                $l(\gamma) = l\left(\gamma \bigg|_{[a, c]}\right) + l\left(\gamma \bigg|_{[c, b]}\right)$
+                $$l(\gamma) = l\left(\gamma \bigg|_{[a, c]}\right) + l\left(\gamma \bigg|_{[c, b]}\right)$$
             
             \item $\forall \gamma{,} \overline{\gamma}$ ~--- гладкие пути, $C_{\gamma}, C_{\overline{\gamma}}$ ~--- их носители в $\mathbb{R}^m$
                 
@@ -386,7 +387,7 @@
             
             \item При растяжении длины путей растут
             
-                Всякое сжатие является непрерывным, но для растяжений ~--- \textbf{не верно!!!}
+                Всякое сжатие является непрерывным, но для растяжений ~--- \textbf{неверно!!!}
                 
             \item При движении $\mathbb{R}^m$ длина пути не меняется (это сжатие и растяжение одновременно)
             
@@ -402,8 +403,6 @@
             Утверждение: $l(\gamma) = \int\limits^b_a \| \gamma'(t) \| dt$
         
         \subsection{Длина графика}
-        
-            Параметризация:
             
             $\gamma: [a, b] \rightarrow \mathbb{R}^2$
             
@@ -413,7 +412,7 @@
             
             $\| \gamma' \| = \sqrt{1^2 + (f'(t))^2}$
             
-            $l(f) = \int\limits^b_a \sqrt{1 + (f'(t))} dt$
+            $l(f) = \int\limits^b_a \sqrt{1 + (f'(t))^2} dt$
             
         \subsection{Длина кривой в полярных координатах}
         
@@ -608,7 +607,7 @@
     
     \section{Произведение рядов}
     
-        Пусть $\sum\limits^{\infty}_{k = 1} a_k$ и $\sum\limits^{\infty}_{j = 1} b_j$ ~--- числовые ряды, $\gamma : \mathbb{N} \rightarrow \mathbb{N}^2$ ~--- биекция, $k \mapsto \gamma(k) = (\varphi(k), \psi(k))$ Тогда ряд
+        Пусть $\sum\limits^{\infty}_{k = 1} a_k$ и $\sum\limits^{\infty}_{j = 1} b_j$ ~--- числовые ряды, $\gamma : \mathbb{N} \rightarrow \mathbb{N}^2$ ~--- биекция, $k \longmapsto \gamma(k) = (\varphi(k), \psi(k))$ Тогда ряд
         
         $$\sum\limits^{\infty}_{k = 1} a_{\varphi(k)} b_{\psi(k)}$$
         
@@ -618,11 +617,11 @@
     
     \section{Произведение степенных рядов}
     
-        Пусть $\sum a_k \cdot x^k$ и $\sum b_k \cdot x^k$ ~--- степенные ряды. Тогда 
+        Пусть $\sum a_k \cdot x^k$ и $\sum b_k \cdot x^k$ ~--- степенные ряды. Тогда последовательность $\sum c_k$ задаётся следующим образом:
         
-        $c_n = a_0 b_n + a_1 b_{n - 1} + \ldots a_n b_0$ и 
+        $$c_n = a_0 b_n + a_1 b_{n - 1} + \ldots a_n b_0$$ 
         
-        $\sum c_n \cdot x^n$ ~--- произведение степенных рядов.
+        и $\sum c_k \cdot x^k$ ~--- произведение степенных рядов.
         
     \newpage
     
@@ -642,7 +641,7 @@
         
         $U(a)$ ~--- окрестность точки $a$ или любой шар $B(a, r)$, где $r > 0$
         
-        Множество $A$ открыто, если для любой точки $a \in A$ $a$ ~--- внутренняя, то есть $\exists U(a) \subset A$
+        Множество $A$ открыто, если для любой точки $a \in A : a$ ~--- внутренняя, то есть $\exists U(a) \subset A$
         
     \newpage
     
@@ -717,15 +716,13 @@
     \newpage
     
     \section{Предел по направлению, предел вдоль пути}
+           
+        $\lim\limits_{t \rightarrow 0} f(a + tv)$, где $v \in \mathbb{R}^m$, $t \in \mathbb{R}$ ~--- предел по направлению к точке $a$.
+        
+        Пусть $x_1$, $x_2$, $\ldots$, $x_m$ ~--- координатные функцию, для всех $x_i : x_i(0) = a_i$. 
+        
+        Тогда $\lim\limits_{t \rightarrow 0} f(x_1(t), x_2(t), \ldots, x_m(t))$ ~--- предел вдоль пути к точке $a$.
     
-        $\lim\limits_{r \rightarrow 0} f(a_1 + r \cos{\varphi}, a_2 + r \sin{\varphi})$ ~--- предел по направлению к точке $(a_1, a_2)$
-        
-        В общем случае 
-        
-        $\lim\limits_{t \rightarrow 0} f(a + tv)$, где $v \in \mathbb{R}^m$, $t \in \mathbb{R}$
-        
-        $\lim\limits_{t \rightarrow 0} f(x_1(t), x_2(t))$ ~--- предел вдоль кривой, где $x_1, x_2$ ~--- координатные функции пути $\gamma$, $x_1(0) = a_1$, $x_2(0) = a_2$
-        
     \newpage
     
     \section{Предел отображения (определение по Коши и по Гейне)}
@@ -734,11 +731,11 @@
         
         \subsection{По Коши}
         
-            $\forall \varepsilon > 0 : \exists \delta > 0 : \forall x \in D \setminus \left\{a \right\} : 0 < \rho_x (x, a) < \delta : \rho_y (f(x), A) < \varepsilon$
+            $$\forall \varepsilon > 0 : \exists \delta > 0 : \forall x \in D \setminus \left\{a \right\} : 0 < \rho_x (x, a) < \delta : \rho_y (f(x), A) < \varepsilon$$
             
         \subsection{По Гейне}
         
-            $\forall \left\{ x_n \right\} : x_n \in D \setminus \left\{ a \right\}, x \rightarrow a : f(x_n) \rightarrow A$
+            $$\forall \left\{ x_n \right\} : x_n \in D \setminus \left\{ a \right\}, x_n \rightarrow a : f(x_n) \rightarrow A$$
             
     \newpage
     
@@ -748,7 +745,7 @@
         
         $f: X \rightarrow Y$ ~--- линейное отображение, если:
         
-        $\forall \alpha, \beta \in \mathbb{R} : \forall x_1, x_2 \in X : f(\alpha x_1 + \beta x_2) = \alpha f(x_1) + \beta f(x_2)$
+        $$\forall \alpha, \beta \in \mathbb{R} : \forall x_1, x_2 \in X : f(\alpha x_1 + \beta x_2) = \alpha f(x_1) + \beta f(x_2)$$
         
         По факту, линейное отображение и линейный оператор одно и то же.
         
@@ -764,7 +761,7 @@
     
     \section{o(h) при $h \rightarrow 0$}
     
-        Пусть $\varphi : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $0 \in \Int(E)$
+        Пусть $\varphi : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $\mathbf{0} \in \Int(E)$
         
         $\varphi(h) = o(h)$ при $h \rightarrow 0$, если $\dfrac{\varphi(h)}{| h |}$ ~--- бесконечно малое
         
@@ -776,11 +773,11 @@
         
         существует линейный оператор $L : \mathbb{R}^m \rightarrow \mathbb{R}^l$, существует бесконечно малое $\alpha : E \rightarrow \mathbb{R}^l$ при $h \rightarrow 0$, что
         
-        $F(a + h) = F(a) + Lh + \alpha(h) \cdot |h|$
+        $$F(a + h) = F(a) + Lh + \alpha(h) \cdot |h|$$
         
         Или существует линейный оператор $L$ и также существует бесконечно малое в точке $a$ отображение $\varphi$, что
         
-        $F(x) = F(a) + L(x - a) + | x - a| \varphi(x)$
+        $$F(x) = F(a) + L(x - a) + | x - a| \varphi(x)$$
         
     \newpage
     
@@ -802,9 +799,9 @@
             
             \begin{enumerate}
             
-                \item или линейное отображение $h \mapsto F'(a) h$
+                \item или линейное отображение $h \longmapsto F'(a) h$
                 
-                \item или отображение $(a, h) \mapsto F'(a) h$ 
+                \item или отображение $(a, h) \longmapsto F'(a) h$ 
                 
             \end{enumerate}
             
@@ -814,13 +811,97 @@
     
     \section{Частные производные}
     
-        Пусть $f : E \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $a \in \Int (E)$. Фиксируем $k \in \left\{ 1, \ldots, m \right\} : \varphi_k(u) := f(a_1, \ldots, a_{k - 1}, u, a_{k + 1}, \ldots, a_m)$
+        Пусть $f : E \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $a \in \Int (E)$. Фиксируем $k \in \left\{ 1, \ldots, m \right\}$ : 
+        
+        $$\varphi_k(u) := f(a_1, \ldots, a_{k - 1}, u, a_{k + 1}, \ldots, a_m)$$
         
         Функция от одной переменной задана $V(a_k)$
         
         $\lim\limits_{t \rightarrow 0} \dfrac{\varphi_k(a_k + t) - \varphi_k(a_k)}{t} = \varphi_k'(a_k)$ называется частной производной функции $f$ в точке $a$
         
+    \newpage
+    
+    \section{Классы $C^r(E)$}
+    
+        Пусть $E$ открыто и $E \subset \mathbb{R}^m$, $r \in \mathbb{N} \cup \left\{ \infty \right\}$. Тогда
         
+        $C^r(E)$ ~--- множество функций $f : E \rightarrow \mathbb{R}$, у которых существуют все частные производные порядка $\leq r$ и эти производные непрерывны.
+    
+    \newpage
+    
+    \section{Мультииндекс и обозначения с ним}
+    
+        Мультииндекс для $\mathbb{R}^m$ ~--- вектор $(k_1, k_2, \ldots, k_m)$, все $k_i \in \mathbb{Z}^+$.
+        
+        $\left| k \right| = k_1 + k_2 + \ldots + k_m$ ~--- высота мультииндекса.
+        
+        $k! = k_1! k_2! \ldots k_m!$
+        
+        $x^k = x_1^{k_1} x_2^{k_2} \ldots x_m^{k_m}$
+        
+        $f^{(k)} = f^{(\left| k \right|)}_{x_1^{k_1} x_2^{k_2} \ldots x_m^{k_m}} = \dfrac{\partial^{\left| k \right|} f}{\partial x_1^{k_1} \partial x_2^{k_2} \ldots \partial_{x_m}^{k_m}}$
+        
+    \newpage
+    
+    \section{Формула Тейлора (различные виды записи)}
+    
+        Пусть $f : C^{r + 1} (E)$, $B(a, r) \subset E$, $x \in B(a, r)$
+        
+        Тогда $\exists \Theta \in [0, 1]$, что $f(x) = \sum\limits_{\left| k \right| \leq r} \dfrac{f^{(k)}(a)}{k!} (x - a)^k + \sum\limits_{\left| k \right| = r + 1} \dfrac{f^{(k)} (a + \Theta (x - a)}{k!} (x - a)^k$
+        
+        И для любителей матана:
+        
+        $$f(x) = \sum\limits_{l = 0}^r \left( \sum_{\substack{k_1 \geq 0, k_2 \geq 0, \ldots, k_m \geq 0 \\ k_1 + k_2 + \ldots + k_m = l}} \dfrac{\partial^l f(a)}{\partial x_1^{k_1} \partial x_2^{k_2} \ldots \partial x_m^{k_m}} \cdot \dfrac{1}{k_1! k_2! \ldots k_m!} \cdot h_1^{k_1} h_2^{k_2} \ldots h_m^{k_m} \right) +$$ 
+        
+        $$ + \sum_{\substack{k_1 \geq 0, k_2 \geq 0, \ldots, k_m \geq 0 \\ k_1 + k_2 + \ldots + k_m = r + 1}} \dfrac{\partial f(a + \Theta (x - a))}{\partial x_1^{k_1} x_2^{k_2} \ldots x_m^{k_m}} \cdot \dfrac{1}{k_1! k_2! \ldots k_m!}$$
+        
+    \newpage
+    
+    \section{$n$-й дифференциал}
+    
+        $$\sum\limits_{n = 0}^r \left( \dfrac{1}{n!} \sum \dfrac{n!}{k_1! k_2! \ldots k_m!} \cdot \dfrac{\partial^n f(a)}{\partial x_1^{k_1} \partial x_2^{k_2} \ldots \partial x_m^{k_m}} \cdot h_1^{k_1} h_2^{k_2} \ldots h_m^{k_m} \right)$$
+        
+        $n$-й дифференциал в точке $a$ или однородный многочлен степени $n$ из формулы Тейлора
+        
+    \newpage
+    
+    \section{Норма линейного оператора}
+    
+        $|| A || = || A ||_{m, l} = \sup \left( \left| A x \right| \right)$, где $x \in \mathbb{R}^m$ и $\left| x \right| = 1$
+        
+    \newpage
+    
+    \section{Положительно-, отрицательно-, незнако- определенная квадратичная форма}
+        
+        Квадратичная форма ~--- однородный многочлен второй степени/
+        
+        $Q(h) = \sum a_{ij} h_i h_j$, $h \in \mathbb{R}^n$
+
+        $Q(h)$ ~--- положительно определенная форма, если для любого $h \neq 0 : Q(h) > 0$
+        
+        $Q(h)$ ~--- отрицательно определенная форма, если для любого $h \neq 0 : Q(h) < 0$
+        
+        $Q(h)$ ~--- незнако определенная форма, если существует такие $h_1$ и $h_2$, что $Q(h_1) > 0$ и $Q(h_2) < 0$
+        
+    \newpage
+    
+    \section{Локальный максимум, минимум, экстремум}
+    
+        Пусть $f : D \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $x_0 \in \Int (D)$
+        
+        $f \in C^2(\Int (D))$ и $\grad(f(x_0)) = 0$
+        
+        $Q(h) := \partial^2 f(x_0)$. Тогда:
+        
+        \begin{enumerate}
+        
+            \item $Q(h)$ ~--- положительно определенная, значит $x_0$ ~--- точка локального минимума
+            
+            \item $Q(h)$ ~--- отрицательно определенная, значит $x_0$ ~--- точка локального максимума
+            
+            \item $Q(h)$ ~--- неопределенная, значит $x_0$ ~--- не точка экстремума.
+            
+        \end{enumerate}
         
 \newpage
 	
