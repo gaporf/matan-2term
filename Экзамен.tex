@@ -6,6 +6,7 @@
 \parindent 0pt
 \parskip 8pt
 \usepackage{setspace}
+\usepackage{etaremune}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -917,11 +918,11 @@
 		
 		\subsection{Доказательство (от противного)}
 		
-			Воспользуемся тем свойством, что если $X$ ~--- компактно, то $X$ и секвенциально компактно.
+			Воспользуемся тем свойством, что если $X$ ~--- компактно, то $X$ и секвенциально компактно, поскольку $X$ ~--- метрическое пространство.
 			
-			Предположим противное:
+			От противного:
 			
-			$\exists \varepsilon > 0$ \textcolor{gray}{$\delta = \dfrac{1}{n}$} $\exists x_n, \ \widetilde{x_n} : \rho(x_n, \widetilde{x_n}) < \frac{1}{n} \Rightarrow \rho(f(x_n), f(\widetilde{x_n})) \geq \varepsilon$
+			$\exists \varepsilon > 0 : $ \textcolor{gray}{$\delta = \dfrac{1}{n}$} $ : \exists x_n, \ \widetilde{x_n} : \rho(x_n, \widetilde{x_n}) < \frac{1}{n} \Longrightarrow \rho(f(x_n), f(\widetilde{x_n})) \geq \varepsilon$
 			
 			Тогда выберем сходящуюся подпоследовательность: $x_{n_k} \rightarrow a \in X$, $\widetilde{x_{n_k}} \rightarrow a \in X$.
 			
@@ -947,7 +948,7 @@
 		
 			Пусть есть поле $n \times m$, состоящее из правильных шестиугольников (гексов). Также два игрока на каждом своём ходу красят гексы в белый или чёрный цвет. Тогда для любой раскраски найдётся либо чёрная тропинка, соединяющая верхнюю и нижнюю часть поля, либо белая тропинка, соединяющая левую и правую часть поля.
 			
-			Доказывается от противного
+			Доказывается от противного (Кохась сказал, что можно не доказывать, поэтому мы и не будет этого делать)
 		
 			\includegraphics[scale=0.5]{HEX.png}
 				
@@ -959,17 +960,13 @@
 			
 			Шар с лёгкостью заменяется на обычный квадрат $[0, 1] \times [0, 1]$
 			
-			Пусть $f : [0, 1]^2 \rightarrow [0, 1]^2$ ~--- непрерывна. Тогда
+			Пусть $f : [0, 1]^2 \rightarrow [0, 1]^2$ ~--- непрерывна. Тогда теорему можно переформулировать следующим образом:
 			
-			$\exists a \in [0, 1]^2$, $f(a) = a$
+			$\exists a \in [0, 1]^2$, что $f(a) = a$
 			
-			$a \in [0, 1]^2$
+			$a \in [0, 1]^2$, $a = (a_1, a_2)$
 			
-			$a = (a_1, a_2)$
-			
-			$f(x) \in \mathbb{R}^2$
-			
-			$f(x) = (f(x)_1, f(x)_2)$
+			$f(x) \in \mathbb{R}^2$, $f(x) = (f(x)_1, f(x)_2)$
 			
         \subsubsection{Доказательство}
 			
@@ -977,25 +974,21 @@
 				
 			$\rho(x, y) = \max \left(|x_1 - y_1|, |x_2 - y_2|\right)$ ~--- непрерывна на $[0, 1]^2$
 			
-			$x_n \rightarrow a$
+			$x_n \rightarrow a, y_n \rightarrow b \Longrightarrow \rho(x_n, y_n) \rightarrow \rho(a, b)$
 				
-			$y_n \rightarrow b$
-				
-			$\rho(x_n, y_n) \rightarrow \rho(a, b)$
-				
-			Очевидно, что для любых $x, y: x \neq y \Rightarrow \rho(x, y) > 0$
+			Очевидно, что для любых $x, y: x \neq y \Longrightarrow \rho(x, y) > 0$
 				
 		\subsubsection{Теперь к самой теореме}
 				
-            Пусть для любого $x \in [0, 1]^2$ $f(x) \neq x$. Тогда $\rho(x, f(x)) > 0$, но $\rho$ непрерывно по $x$ и $[0, 1]^2$ ~--- компакт, значит по теореме Вейерштрасса существует такое $\varepsilon > 0$, что
+            Пусть для любого $x \in [0, 1]^2 : f(x) \neq x$. Тогда $\rho(x, f(x)) > 0$, но $\rho$ непрерывно по $x$ и $[0, 1]^2$ ~--- компакт, значит по теореме Вейерштрасса существует такое $\varepsilon > 0$, что
 				
 			$\min\limits_{x \in [0, 1]^2} \rho(x, f(x)) = \varepsilon > 0$
 				
-			По теореме Кантора для этого $\varepsilon$ найдётся такая $\delta$ (будем считать, что $\sqrt{2} \delta < \varepsilon$), что
+			По теореме Кантора для этого $\varepsilon$ найдётся такая $\delta$ (будем считать, что $\delta \cdot \sqrt{2} < \varepsilon$), что
 				
-			$\forall x, \widehat{x} \in [0, 1]^2 : \| x - \widehat{x} \| < \delta \cdot \sqrt{2} \Rightarrow \| f(x) - f(\widehat{x}) \| < \varepsilon$
+			$\forall x, \widehat{x} \in [0, 1]^2 : \| x - \widehat{x} \| < \delta \cdot \sqrt{2} \Longrightarrow \| f(x) - f(\widehat{x}) \| < \varepsilon$
 				
-			Берём $\frac{1}{n} < \varepsilon$
+			Берём $\varepsilon > \frac{1}{n}$
 				
 			\includegraphics[scale=0.45]{HEXTHEOREM.png}
 				
@@ -1013,14 +1006,14 @@
 			
 			По лемме об игре в гексы есть одноцветная тропинка.
 				
-			Путь $v^0$ ~--- начальная точка тропинки, $v^N$ ~--- конечная.
+			Путь $v^0$ ~--- начальная точка тропинки, $v^N$ ~--- конечная, а тропинка первого цвета (если это не так, то просто переобозначим)
 				
 			$v^0_1 = 0$
 				
 			$f\left(\frac{v^0}{n}\right) \in [0, 1]^2$, т.е. $f\left(\dfrac{v^0}{n}\right)_1 \geq 0$
 				
-			$\varepsilon \leq f\left(\dfrac{v^0}{n}\right)_1$
-				
+            $\varepsilon \leq \left| f \left( \dfrac{v^0}{n} \right)_1 - \dfrac{v^0_1}{n} \right| = f \left( \dfrac{v^0}{n} \right)_1$
+            
 			Аналогично для $v^N_1 = 1$
 				
 			$f\left(\frac{v^N}{n}\right)_1 \leq 1$
@@ -1150,9 +1143,7 @@
 		
 			$f \in C[a, b]$, $\varphi : [a, b] \rightarrow \mathbb{R}$
 		
-			$\varphi (x) = \int\limits^x_a f(t)dt$
-		
-			Интеграл с верхним переменным пределом
+			$\varphi (x) = \int\limits^x_a f(t)dt$ ~--- интеграл с верхним переменным пределом
 		
 		\subsection{Теорема (Барроу)}
 		
@@ -1176,21 +1167,21 @@
 				
 					$\psi(x) = \int\limits^b_x f$. Тогда $\psi'(x) = -f$
 					
-				\item Эта теорема также доказывает теорему о существовании неопределенного интеграла.
+				\item Эта теорема также доказывает теорему о существовании неопределенного интеграла при условии, что функция непрерывна.
 				
 			\end{itemize}
 			
 	\newpage
 	
-	\section{Формула Ньютона-Лейбница, в том числе, для кусочно-непрерывных функций}
+	\section{Формула Ньютона-Лейбница, в том числе для кусочно-непрерывных функций}
 	
 		\subsection{Формулировка теоремы}
 		
-			Пусть $f$ непрерывна (кусочно-непрерывна) на $[a, b]$, $F$ ~--- (почти) первообразная $f$. 
+			Пусть $f$ непрерывна (кусочно-непрерывна) на $[a, b]$, $F$ ~--- первообразная (почти) $f$. 
 		
 			Тогда $\int\limits^b_a f = F(b) - F(a)$
 		
-		\subsection{Доказательство}
+		\subsection{Доказательство для непрерывных функций}
 		
 			$\varphi$ (из теоремы Барроу) ~--- тоже первообразная, значит
 			
@@ -1248,11 +1239,7 @@
 			
                 $f \in C(\langle a, b \rangle)$
 
-                $\varphi : \langle \alpha, \beta \rangle \rightarrow \langle a, b \rangle$
-
-                $\varphi \in C^1 (\langle a, b \rangle)$
-
-                $[p, q] \in \langle \alpha, \beta \rangle$
+                $\varphi : \langle \alpha, \beta \rangle \rightarrow \langle a, b \rangle$, $\varphi \in C^1 (\langle a, b \rangle)$, $[p, q] \in \langle \alpha, \beta \rangle$
 
                 Тогда $\int\limits^q_p f(\varphi(t))\varphi'(t) \ dt = \int\limits^{\varphi(q)}_{\varphi(p)} f(x) \ dx$
 
@@ -1301,10 +1288,16 @@
 			
                 $f(x)g(x) - f(y)g(x) - f(x)g(y) + f(y)g(y) \geq 0$
 			
+                $\int\limits^b_a fg - f(y) \int\limits^b_a g - \int\limits^b_a g(y) + (b - a) f(y) g(y) \geq 0$ (мы домножили все слагаемые на $(a - b)$)
+                
                 $I_{fg} - f(y)I_g - I_f g(y) + f(y)g(y) \geq 0$
 			
-                Интегрируем по $y$ на $[a, b] : \frac{1}{b - a} \int\limits^b_a$
+                Интегрируем по $y$ на $[a, b]$
 			
+                $I_{fg} (b - a) - I_g \int\limits^b_a f(y) - I_f \int\limits^b_a g(y) + \int\limits^b_a fg \geq 0$
+                
+                Снова поделим на $(b - a)$
+                
                 $I_{fg} - I_f \cdot I_g - I_f \cdot I_g + I_{fg} \geq 0$
 			
                 $I_{fg} \geq I_f \cdot I_g$
@@ -1341,21 +1334,25 @@
 	
 		\subsection{Вспомогательный интеграл}
 		
-			Пусть $H_n = \dfrac{1}{n!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left(\dfrac{\pi^2}{4}-t^2\right)^n \ \cos t \ dt$
+			Пусть $H_n = \dfrac{1}{n!} \int\limits^{\pi / 2}_{-\pi / 2} \left(\dfrac{\pi^2}{4}-t^2\right)^n \cos{t} \ dt$
 			
-			$H_n = \begin{bmatrix} f = \left(\dfrac{\pi^2}{4} - t^2\right)^n & g = \sin t \\ f' = -2nt \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} & g' = -\cos t \end{bmatrix}$
+			$H_n = \begin{bmatrix} f = \left(\dfrac{\pi^2}{4} - t^2\right)^n & g = \sin t \\ f' = -2nt \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} & g' = \cos t \end{bmatrix}$
 			
-			$H_n = \dfrac{1}{n!} \left(\dfrac{\pi^2}{4} - t^2\right)^n \sin t \bigg|^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} + \dfrac{1}{n!} 2n \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} t (\dfrac{\pi^2}{4}-t^2)^{n - 1} \sin t \ dt$
+			$H_n = \dfrac{1}{n!} \left(\dfrac{\pi^2}{4} - t^2\right)^n \sin t \bigg|^{\pi / 2}_{-\pi / 2} + \dfrac{2n}{n!} \int\limits^{\pi / 2}_{-\pi / 2} t \left( \dfrac{\pi^2}{4}-t^2 \right)^{n - 1} \sin t \ dt$
 			
-			$H_n = \dfrac{1}{n!} 2n \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} t (\dfrac{\pi^2}{4}-t^2)^{n - 1} \sin t \ dt$
+			$H_n = \dfrac{2n}{n!} \int\limits^{\pi / 2}_{-\pi / 2} t \left(\dfrac{\pi^2}{4}-t^2 \right)^{n - 1} \sin t \ dt$
 			
 			$H_n = \begin{bmatrix} f = t \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} & g = -\cos t \\ f' = \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} - 2(n - 1)t^2\left(\dfrac{\pi^2}{4} - t^2\right)^{n - 2} & g' = \sin t \end{bmatrix}$
 			
-			$f' = \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} + 2(n - 1)\left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} - \dfrac{\pi^2}{2} (n - 1) \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 2}$
-			
+			$f' = \left(\dfrac{\pi^2}{4} - t^2 \right)^{n - 1} + 2 (n - 1) \left( \dfrac{\pi^2}{4} - t^2 \right)^{n - 1} - 2 (n - 1) \left( \dfrac{\pi^2}{4} - t^2 \right)^{n - 1} - 2(n - 1) t^2 \left(\dfrac{\pi^2}{4} - t^2 \right)^{n - 2}$
+            
+            Вынесем общие части за скобки
+            
 			$f' = (2n - 1)\left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} - \dfrac{\pi^2}{2}(n - 1)\left(\dfrac{\pi^2}{4}-t^2\right)^{n - 2}$
 			
-			$\dfrac{2}{(n - 1)!} t \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} (-\cos t) \bigg|^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} - \dfrac{2}{(n - 1)!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left( (2n - 1)\left(\frac{\pi^2}{4} - t^2\right)^{n - 1} - \dfrac{\pi^2}{2} (n - 2) \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 2}\right) \cos t \ dt$
+			$\dfrac{2t}{(n - 1)!} \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 1} (-\cos t) \bigg|^{\pi / 2}_{-\pi / 2} + \dfrac{2}{(n - 1)!} \int\limits^{\pi / 2}_{-\pi / 2} \left( (2n - 1)\left(\frac{\pi^2}{4} - t^2\right)^{n - 1} - \dfrac{\pi^2}{2} (n - 1) \left(\dfrac{\pi^2}{4} - t^2\right)^{n - 2}\right) \cos t \ dt$
+			
+			$H_n = (4n - 2) \dfrac{1}{(n - 1)!} \int\limits^{\pi / 2}_{-\pi / 2} \left( \dfrac{\pi^2}{4} - t^2 \right)^{n - 1} \cos{t} \ dt - \pi^2 \dfrac{1}{(n - 2)!} \int\limits^{\pi / 2}_{- \pi / 2} \left( \dfrac{\pi^2}{4} - t^2 \right)^{n - 2} \cos{t} \ dt$
 			
 			Пусть $n \geq 2$, тогда
 			
@@ -1363,7 +1360,7 @@
 			
 			$H_0 = 2$
 			
-			$H_1 = 2 \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \dfrac{t}{f} \dfrac{g'}{\sin t} = 2t (- \cos t)\bigg|^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} + 2 \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \cos t \ dt = 4$
+			$H_1 = 2 \int\limits^{\pi / 2}_{-\pi / 2} \dfrac{t}{f} \cdot \dfrac{g'}{\sin t} = 2t (- \cos t)\bigg|^{\pi / 2}_{-\pi / 2} + 2 \int\limits^{\pi / 2}_{-\pi / 2} \cos t \ dt = 4$
 			
 		\subsection{Теорема}
 		
@@ -1371,7 +1368,7 @@
 			
 		\subsection{Доказательство (от противного)}
 		
-			Пусть $\dfrac{1}{n!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t = P_n (\pi^2)$, где $P_n$ ~--- многочлен с целыми коэффициентами.
+			Пусть $\dfrac{1}{n!} \int\limits^{\pi / 2}_{-\pi / 2} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t = P_n (\pi^2)$, где $P_n$ ~--- многочлен с целыми коэффициентами.
 			
 			$\deg P \leq n$
 			
@@ -1381,9 +1378,11 @@
 			
 			Значит $k^n \cdot P_n \left(\dfrac{m}{k}\right) \geq 1$, т.е.
 			
-			$\dfrac{k^n}{n!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t \ dt \geq 1$
+			$\dfrac{k^n}{n!} \int\limits^{\pi / 2}_{-\pi / 2} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t \ dt \geq 1$
 			
-			$\dfrac{k^n}{n!} \int\limits^{\dfrac{\pi}{2}}_{-\dfrac{\pi}{2}} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t \ dt \leq \dfrac{k^n}{n!} \left(\dfrac{\pi^2}{4}\right)^n \cdot \pi \xrightarrow[n \rightarrow +\infty]{} 0$
+			$\dfrac{k^n}{n!} \int\limits^{\pi / 2}_{-\pi / 2} \left(\dfrac{\pi^2}{4} - t^2\right)^n \cos t \ dt \leq \dfrac{k^n}{n!} \left(\dfrac{\pi^2}{4}\right)^n \cdot \pi \xrightarrow[n \rightarrow +\infty]{} 0$
+			
+			Получили противоречие
 			
 	\newpage
 	
@@ -1404,33 +1403,21 @@
 
 			\begin{itemize}
 
-				\item $n = 0 : f(x) = f(x_0) = \int\limits^x_{x_0} f'(t) \ dt$
+				\item $n = 0 : f(x) = f(x_0) + \int\limits^x_{x_0} f'(t) \ dt$
 
 					По формуле Ньютона-Лейбница
 
 				\item Переход от $n$ к $n + 1$
 
-					$f(x) + T_n + \frac{1}{n!} \int\limits^x_{x_0} (x - t)^n f^{(n + 1)} (t) \ dt = \begin{bmatrix} u' (x - t)^n & u = -\frac{(x - t)^{n + 1}}{n + 1} \\ v = f^{n - 1} & v' = f^{(n + 2)} \end{bmatrix}$
+					$f(x) = T_n + \frac{1}{n!} \int\limits^x_{x_0} (x - t)^n f^{(n + 1)} (t) \ dt = \begin{bmatrix} u' = (x - t)^n & u = -\frac{(x - t)^{n + 1}}{n + 1} \\ v = f^{(n + 1)} & v' = f^{(n + 2)} \end{bmatrix}$
 						
 					$T_n + \frac{1}{n!} \left( -\frac{(x - t)^{n + 1}}{(n + 1)} \cdot f^{(n + 1)} (t) \bigg|^{t = x}_{t = x_0} + \int\limits^x_{x_0} \frac{(x - t)^{n + 1}}{n + 1} \cdot f^{(n + 2)} (t) \ dt \right)$ 
 					
 					$T_n + \frac{f^{(n + 1)} (x_0)}{(n + 1)!} (x - x_0)^{n + 1} + \frac{1}{(n + 1)!} \int\limits^x_{x_0} (x - t)^{n + 1} f^{(n + 2)} (t) \ dt$
-
+    
+                    $f(x) = T_{n + 1} + \dfrac{1}{(n + 1)!} \int\limits^x_{x_0} (x - t)^{n + 1} f^{(n + 2)} (t) \ dt$
+                    
 			\end{itemize}
-
-		\subsection{Послесловие}
-
-			$f(x) = \sum\limits^n_{k = 0} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k + R_n$
-
-			$f(t) = \sum\limits^n_{k = 0} \frac{f^{(k)}(x_0)}{k!} (t - x_0)^k + R_n$
-
-			$F$ ~--- первообразная $f$  $\int\limits^x_{x_0} f(t) \ dt = F(x) - F(x_0)$
-
-			$F(x) - F(x_0) = \sum\limits^n_{k = 0} \int\limits^x_{x_0} \frac{f^{(k)} (x_0)}{k!} (t - x_0)^k \ dt + \int\limits^x_{x_0} R_n = \frac{(t - x_0)^{k + 1}}{k + 1} \bigg|^{t = x}_{t = x_0}$
-
-			$\sum\limits^n_{k = 0} \frac{F^{(k + 1)} (x_0)}{(k + 1)!} (x - x_0)^{k + 1} + \int\limits^x_{x = 0} R_n$
-
-			Мы имеем право формально интегрировать формулу Тейлора
 
 	\newpage
 
@@ -1454,7 +1441,7 @@
 			
 				\item Пусть $f$, $g \rightarrow 0$, тогда можно добиться того, что $\left| \frac{f(y_k)}{f(x_k)} \right| < \frac{1}{k}$ и $\left| \frac{f(y_k)}{g(x_k)} \right| < \frac{1}{k}$
 			
-					Тогда найдётся такое $K$, что $\left| \frac{f(x_k)}{f(x_{2019})} \right| < \frac{1}{2019}$ для любых $k > K \Rightarrow y_{2019} = x_k$
+					Тогда найдётся такое $K$, что $\left| \frac{f(x_k)}{f(x_{2019})} \right| < \frac{1}{2019}$ для любых $k > K \Longrightarrow y_{2019} = x_k$
 			
 					Продолжаем так до бесконечности
 			
@@ -1562,7 +1549,7 @@
 			
 					Вернёмся к самой теореме
 			
-					$\forall \varepsilon > 0$ $(\varepsilon < a)$ $\exists N_1$ $\forall n > N \geq N_1$
+					$\forall \varepsilon > 0 : (\varepsilon < a) : \exists N_1 : \forall n > N \geq N_1$
 			
 					$a - \varepsilon < \frac{x_{N + 1} - x_N}{y_{N + 1} - y_N} < a + \varepsilon$
 			
@@ -1582,9 +1569,9 @@
 			
 				\item Если $a = +\infty$ ~--- аналогично
 				
-					$\forall E > 0$ $\exists N_1$, $\forall n > N \geq N_1$ $\frac{x_{N + 1} - x_{N}}{y_{N + 1} - y_N} > E$
+					$\forall E > 0 : \exists N_1 : \forall n > N \geq N_1 : \frac{x_{N + 1} - x_{N}}{y_{N + 1} - y_N} > E$
 					
-					$E < \frac{x_n - X_N}{y_n - y_N}$
+					$E < \frac{x_n - x_N}{y_n - y_N}$
 					
 					$E \leq \frac{x_N}{y_N}$
 					
@@ -1600,19 +1587,19 @@
 	
 		\subsection{Неалитическая функция}
 		
-			$f(x) = \begin{cases} e^{-\frac{1}{x^2}}, & x \neq 0 \\ 0, & x = 0 \end{cases}$
+			$f(x) = \begin{cases} e^{-1 / x^2}, & x \neq 0 \\ 0, & x = 0 \end{cases}$
 			
 		\subsection{Утверждение}
 		
 			$f$ ~--- бесконечное дифференцируема на $\mathbb{R}$
 			
-			($\forall x \in \mathbb{R} \ \ \ \forall k \in \mathbb{N} \ \ \ \exists f^{(k)} (x)$)
+			$\forall x \in \mathbb{R} : \forall k \in \mathbb{N} : \exists f^{(k)} (x)$)
 			
 		\subsection{Доказательство}
 		
 			Если $x \neq 0$ ~--- то очевидно
 			
-			Пусть $x = 0$, тогда для любого $k$ $\exists f^{(k)} (0) = 0$
+			Пусть $x = 0$, тогда для любого $k$ существует $f^{(k)} (0) = 0$
 			
 			Из теоремы Лагранжа:
 			
@@ -1620,27 +1607,15 @@
 			
 			$f$ ~--- дифференцируема и $f'(a) = L$
 			
-			$f'(x) = \dfrac{2}{x^3} \cdot e^{\left(-\dfrac{1}{x^2}\right)}$, $x \neq 0$
+			$f'(x) = \dfrac{2}{x^3} \cdot e^{\left(-1 / x^2\right)}$, $x \neq 0$
 			
-			$\lim\limits_{x \rightarrow 0} \dfrac{\dfrac{1}{x^3}}{e^{\left(\dfrac{1}{x^2}\right)}} = \left[ \dfrac{\infty}{\infty} \right] = \lim\limits_{x \rightarrow 0} \dfrac{-\dfrac{3}{x^4}}{-\dfrac{2}{x^3} e^{\left(\dfrac{1}{x^2}\right)}} = \lim\limits_{x \rightarrow 0} \dfrac{3}{2} \cdot \dfrac{\dfrac{1}{x}}{e^{\left(\dfrac{1}{x^2}\right)}} = \lim\limits_{x \rightarrow 0} \dfrac{-\dfrac{1}{x^2}}{-\dfrac{2}{x^3} e^{\left(\dfrac{1}{x^2}\right)}} = \lim\limits_{x \rightarrow 0} \cdot x \cdot e^{\left(-\dfrac{1}{x^2}\right)} \rightarrow 0$
-			
-			$\lim\limits_{x \rightarrow 0} \dfrac{1}{x^k} \cdot e^{\left(-\dfrac{1}{x^2}\right)} = \left(\lim\limits_{x \rightarrow 0} \dfrac{\dfrac{1}{x^2}}{e^{\left(\dfrac{1}{x^2} \cdot \dfrac{2}{k}\right)}} \right)^{\dfrac{k}{2}} = \left( \lim\limits_{x \rightarrow 0} \dfrac{-\dfrac{1}{x^3}}{-\dfrac{4}{k} \cdot \dfrac{1}{x^3} \cdot e^{\left(\dfrac{1}{x^3}\right)}} \right)^{\dfrac{k}{2}} = 0$
+			$\lim\limits_{x \rightarrow 0} \dfrac{1/x^3}{e^{\left(1 / x^2\right)}} = \left[ \dfrac{\infty}{\infty} \right] = \lim\limits_{x \rightarrow 0} \dfrac{-3/x^4}{(-2/ x^3) e^{\left( 1 /x^2\right)}} = \lim\limits_{x \rightarrow 0} \dfrac{3}{2} \cdot \dfrac{1 / x}{e^{\left( 1 / x^2 \right)}} = \lim\limits_{x \rightarrow 0} \dfrac{-1 / x^2}{-(2 / x^3) e^{\left(1 / x^2\right)}} = \lim\limits_{x \rightarrow 0} \dfrac{3}{4} \cdot x \cdot e^{\left(-1 / x^2\right)} \rightarrow 0$
 			
 			\underline{Итого}
 			
-			$f'(x) = \dfrac{2}{x^3} \cdot e^{\left(-\dfrac{1}{x^2}\right)}$, $x \neq 0$
+			$f'(x) = \dfrac{2}{x^3} \cdot e^{\left(-1 / x^2\right)}$, $x \neq 0$
 			
 			$f'(0) = 0$
-			
-			Аналогично
-			
-			$f'' = -\dfrac{6}{x^4} \cdot e^{\left(-\dfrac{1}{x^2}\right)} - \dfrac{4}{x^5} \cdot e^{\left(-\dfrac{1}{x^2}\right)}$, $x \neq 0$
-			
-			$\lim\limits_{x \rightarrow 0} f''(x) = 0 \Rightarrow f''(0) = 0$
-			
-			$x \neq 0$ $f^{(k)} (x) = P_k \left(\dfrac{1}{x}\right) \cdot e^{\left(-\dfrac{1}{x^2}\right)}$
-			
-			$\lim\limits_{x \rightarrow 0} f^{(k)}(x) = 0 \Rightarrow f^{(k)}(0) = 0$
 			
 	\newpage
 
@@ -1650,14 +1625,14 @@
 
 			Пусть $f \in C[a, b]$
 
-			Тогда $\forall \varepsilon > 0 \ \exists \delta > 0$ что для любого дробления $\mathcal{T} \ a = x_0 < x_1 < \ldots < x_n = b$ ранга меньше $\delta$ и любого оснащения $\xi_1, \xi_2, \ldots, \xi_n$
+			Тогда $\forall \varepsilon > 0 : \exists \delta > 0 : \forall \mathcal{T} : a = x_0 < x_1 < \ldots < x_n = b$ ранга меньше $\delta$ и $\forall \xi_1, \xi_2, \ldots, \xi_n$
 
 			$\left| \sum\limits^n_{k = 1} f(\xi_k)(x_k - x_{k - 1}) - \int\limits^b_a f(x) \ dx \right| < \varepsilon$
 
 		\subsection{Доказательство}
 
 		\begin{enumerate}
-			\item Поделим на отрезки в соответствии с дроблением. Очевидно, что $\int\limits^b_a = \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}}$. Тогда рассмотрим разность
+			\item Поделим на отрезки в соответствии с дроблением. Очевидно, что $\int\limits^b_a f(x) dx = \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} f(x) dx$. Тогда рассмотрим разность
 
 				$\int\limits^{x_k}_{x_{k - 1}} f(\xi_k) \ dx - \int\limits^{x_k}_{x_{k - 1}} f(x) \ dx$
 
@@ -1665,11 +1640,11 @@
 
 			\item По теореме Кантора о равномерной непрерывности
 
-				$\forall \varepsilon > 0 \ \exists \delta > 0 \ \forall x_1, x_2: \left| x_1 - x_2 \right| < \delta \ \left| f(x_1) - f(x_2) \right| < \frac{\varepsilon}{b - a}$ <<Китайский $\varepsilon$>>
+				$\forall \varepsilon > 0 : \exists \delta > 0 : \forall x_1, x_2 : \left| x_1 - x_2 \right| < \delta \Longrightarrow \left| f(x_1) - f(x_2) \right| < \frac{\varepsilon}{b - a}$ <<Китайский $\varepsilon$>>
 
 				Берём $x_0, x_1, \ldots, x_n, \xi_1, \xi_2, \ldots, \xi_n$
 
-				$\left| \sum\limits^n_{k = 1} - \int\limits^b_a \right| = \left| \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} f(\xi_k) \ dx - \sum\limits^n_{k = 1} f(x) \ dx \right| = \left| \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left( f(\xi_k) - f(x) \right) \ dx \right| \leq \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left| f(\xi_k) - f(x) \right| \ dx$
+				$\left| \sum\limits^n_{k = 1} f(\xi_k)(x_k - x_{k - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} f(\xi_k) \ dx - \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}}f(x) \ dx \right| = \left| \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left( f(\xi_k) - f(x) \right) \ dx \right| \leq \sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left| f(\xi_k) - f(x) \right| \ dx$
 
 				$\left| \xi_k - x_k \right| < \delta$ для любых $[x_{k - 1}, x_k]$ (по условию)
 
@@ -1677,55 +1652,31 @@
 
 		\end{enumerate}
 
-		\subsection{Замечания}
-
-			\begin{enumerate}
-
-				\item $\int\limits^b_a f(x) \ dx = \lim\limits_{\lambda (\mathcal{T}) \rightarrow 0} \sum\limits^n_{k = 1} f(\xi_k)(x_k - x_{k - 1})$
-
-				\item $\omega(\delta) := \sup\limits_{x, t \\ \left| x - t \right| < \delta} \left| f(x) - f(t) \right|$ ~--- модуль непрерывной функции $f$
-
-					По теореме Кантора $f$ ~--- непрерывна $\Longrightarrow \omega(\delta) \xrightarrow[f \rightarrow 0]{} 0$
-					
-					$\omega(\delta)$ монотонно убывает на отрезке
-
-					$\sum\limits^n_{k = 1} \int\limits^{x_k}_{x_{k - 1}} \left| f(\xi_k) - f(x) \right| \ dx \leq \sum \int \omega(\delta) \ dx = \omega(\delta) (b - a)$
-
-					Пусть $f$ ~--- дифференцируема на $[a, b] \ \left| f' \right| \leq M$
-
-					$\left| f(x) - f(t) \right| \leq M \left| x - t \right|$ ~--- следствие из теоремы Лагранжа
-
-					$\left| f(\xi_k) - f(x) \right| \leq M \delta \left| \xi_k - x \right|$
-
-					$\left| \sum - \int \right| \leq M \delta (b - a)$
-				
-			\end{enumerate}
-
 	\newpage
 
 	\section{Теорема об интегральных суммах для центральных прямоугольников}
 
 		\subsection{Формулировка}
 
-			Пусть $f \in C^2[a, b] \ a = x_0 < x_1 < \ldots < x_n = b$
+			Пусть $f \in C^2[a, b]$ и $a = x_0 < x_1 < \ldots < x_n = b$ и $\delta := \max \left| x_k - x_{k - 1} \right|$
 
-			$\delta := \max \left| x_k - x_{k - 1} \right|$
-
+			Также $\xi_i = \dfrac{x_i + x_{i - 1}}{2}$
+			
 			Тогда 
 
 			$\left| \sum\limits^n_{i = 1} f \left( \frac{x_i + x_{i - 1}}{2} \right) (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| \leq \frac{\delta^2}{8} \cdot \int\limits^b_a |f''|$
 
 		\subsection{Доказательство}
 
-			$\int\limits^{x_i}_{x_{i - 1}} f(x) \ dx = \int\limits^{\xi_i}_{x_{i - 1}} + \int\limits^{x_i}_{\xi_i} = \begin{bmatrix} u = f & u' = f' \\ v' = 1 & v = x - x_{i - 1} \end{bmatrix}$ и $\begin{bmatrix} u = f & u' = f' \\ v' = 1 & v = x - x_i \end{bmatrix}$ 
+			$\int\limits^{x_i}_{x_{i - 1}} f(x) dx = \int\limits^{\xi_i}_{x_{i - 1}} f(x) dx + \int\limits^{x_i}_{\xi_i} f(x) dx = \begin{bmatrix} u = f & u' = f' \\ v' = 1 & v = x - x_{i - 1} \end{bmatrix}$ и $\begin{bmatrix} u = f & u' = f' \\ v' = 1 & v = x - x_i \end{bmatrix}$ 
 				
-			$f(x)(x - x_{i - 1}) \bigg|^{x = \xi_i}_{x = x_{i - 1}} - \int\limits^{\xi_i}_{x_{i - 1}} f'(x)(x - x_{i - 1}) \ dx + f(x)(x - x_i) \bigg|^{x = x_i}_{x = \xi_i} - \int\limits^{x_i}_{\xi_i} f'(x)(x - x_i) \ dx = f(\xi_i)(\xi_i - x_{i - 1}) + f(\xi_i)(x_i - \xi_i) - \left( f'(x) \frac{(x - x_{c - 1})^2}{2} \bigg|^{x = \xi_i}_{x = x_{i - 1}} - \int\limits^{\xi_i}_{x_{i -1 }} f''(x) \frac{(x - x_{i - 1})^2}{2} \ dx + f'(x) \frac{(x - x_i)^2}{2} \bigg|^{x_i}_{\xi_i} - \int\limits^{x_i}_{\xi_i} f''(x) \frac{(x - x_i)^2}{2} \right) = f(\xi_i)(x_i - x_{i - 1}) + \int\limits^{x_i}_{x_{i - 1}} f''(x) \ \varphi(x) \ dx$
+			$f(x)(x - x_{i - 1}) \bigg|^{x = \xi_i}_{x = x_{i - 1}} - \int\limits^{\xi_i}_{x_{i - 1}} f'(x)(x - x_{i - 1}) \ dx + f(x)(x - x_i) \bigg|^{x = x_i}_{x = \xi_i} - \int\limits^{x_i}_{\xi_i} f'(x)(x - x_i) \ dx = f(\xi_i)(\xi_i - x_{i - 1}) + f(\xi_i)(x_i - \xi_i) - \left( f'(x) \frac{(x - x_{i - 1})^2}{2} \bigg|^{x = \xi_i}_{x = x_{i - 1}} - \int\limits^{\xi_i}_{x_{i -1 }} f''(x) \frac{(x - x_{i - 1})^2}{2} \ dx + f'(x) \frac{(x - x_i)^2}{2} \bigg|^{x_i}_{\xi_i} - \int\limits^{x_i}_{\xi_i} f''(x) \frac{(x - x_i)^2}{2} \right) = f(\xi_i)(x_i - x_{i - 1}) + \int\limits^{x_i}_{x_{i - 1}} f''(x) \ \varphi(x) \ dx$
 
 			$Пусть \varphi(x) = \begin{cases} \frac{(x - x_{i - 1})^2}{2}, \ x \in [x_{i - 1}, \xi_i] \\ \frac{(x - x_i)^2}{2}, x \in [\xi_i, x_i] \end{cases}$
 			
 			Тогда $\varphi(x)$ определена на $[a, b]$
 
-			$\left| \sum\limits^n_{i = 1} f \left( \frac{x_{i - 1} - x_i}{2} \right) (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{i = 1} \left( f(x_i)(x_i - x_{i - 1}) - \int\limits^{x_i}_{x_{i - 1}} f \right) \right| = \left| \sum \left( - \int\limits^{x_i}_{x_{i - 1}} f''(x) \varphi(x) \ dx \right) \right| = \left| \int\limits^b_a f''(x) \varphi(x) \ dx \right| \leq \int\limits^b_a | f''(x) | \varphi(x) \ dx \leq \frac{\delta^2}{8} \int\limits^b_a | f'' |$
+			$\left| \sum\limits^n_{i = 1} f \left(   \frac{x_{i - 1} + x_i}{2} \right) (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{i = 1} \left( f(\xi_i)(x_i - x_{i - 1}) - \int\limits^{x_i}_{x_{i - 1}} f(x) dx \right) \right| = \left| \sum \left( - \int\limits^{x_i}_{x_{i - 1}} f''(x) \varphi(x) \ dx \right) \right| = \left| \int\limits^b_a f''(x) \varphi(x) \ dx \right| \leq \int\limits^b_a | f''(x) | \varphi(x) \ dx \leq \frac{\delta^2}{8} \int\limits^b_a | f'' |$
 
 			Поскольку $\max \varphi(x) = \frac{(\frac{\delta}{2})^2}{2} = \frac{\delta^2}{8}$
 
@@ -1735,30 +1686,34 @@
 
 		\subsection{Формулировка теоремы о формуле трапеций}
 
-			Пусть $f \in C^2[a, b] \ a = x_0 < x_1 < \ldots < x_n = b \ \ \ \delta = \max (x_i - x_{i - 1})$
+			Пусть $f \in C^2[a, b] \ a = x_0 < x_1 < \ldots < x_n = b$ и $\delta = \max (x_i - x_{i - 1})$
 
-			Тогда $\left| \sum\limits^n_{i = 1} \frac{f(x_{i - 1}) + f(x_i)}{2} (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| \leq \frac{\delta^2}{8} \int\limits^b_a |f''|$
+			Тогда $\left| \sum\limits^n_{i = 1} \dfrac{f(x_{i - 1}) + f(x_i)}{2} (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| \leq \frac{\delta^2}{8} \int\limits^b_a |f''|$
 
 		\subsection{Доказательство}
 
-			$\int\limits^{x_i}_{x_{i - 1}} f(x) = \begin{bmatrix} u = f & u' = f' \\ v'1 = 1 & v = x - \xi_i \end{bmatrix}$ 
+			$\int\limits^{x_i}_{x_{i - 1}} f(x) dx = \begin{bmatrix} u = f & u' = f' \\ v' = 1 & v = x - \xi_i \end{bmatrix}$, причём $\xi_i$ ~--- середина промежутка $[x_{i - 1}, x_i]$. 
 			
-			$f(x)(x - \xi_i) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'(x)(x - \xi_i) - f(x_{i - 1})(x_{i - 1} - \xi_i) - \left(f'(x) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'' \frac{(x - \xi_i)^2}{2} \ dx \right) = \left(f(x_i) + f(x_{i - 1}) \right) \frac{x_i - x_{i - 1}}{2} - \left( f'(x) - \frac{1}{2} \psi(x) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'' (-\frac{1}{2} \psi(x)) \ dx \right)$
+			$f(x)(x - \xi_i) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'(x)(x - \xi_i) dx = f(x_i) (x_i - \xi_i) - f(x_{i - 1})(x_{i - 1} - \xi_i) - \left(f'(x) \dfrac{(x - \xi_i)^2}{2} \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'' \dfrac{(x - \xi_i)^2}{2}  dx \right) = \left(f(x_i) + f(x_{i - 1}) \right) \dfrac{x_i - x_{i - 1}}{2} - \left( f'(x) \left( - \dfrac{1}{2} \psi(x) \right) \bigg|^{x_i}_{x_{i - 1}} - \int\limits^{x_i}_{x_{i - 1}} f'' \left(-\frac{1}{2} \psi(x) \right) \ dx \right)$
 
 			$\begin{bmatrix} u = f' & u' = f'' \\ v' = (x - \xi_i) & \psi(x) = (x - x_{i - 1})(x_i - x) \end{bmatrix} \ x \in [x_{i - 1}, x_i]$ на $[a, b]$
 
 			$v = -\frac{1}{2} \psi(x)$
 
-			$(f(x_i) + f(x_{i - 1}) \cdot \frac{(x_i - x_{i - 1})}{2} - \frac{1}{2} \int\limits^{x_i}_{x_{i - 1}} f'' \psi(x) \ dx$
+			$(f(x_i) + f(x_{i - 1})) \cdot \frac{(x_i - x_{i - 1})}{2} - \frac{1}{2} \int\limits^{x_i}_{x_{i - 1}} f'' \psi(x) \ dx$
 
-			$\left| \sum\limits^n_{i = 1} \frac{f(x_{i - 1}) + f(x_i)}{2} \cdot (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{i = 1} \left( \frac{f(x_{i - 1}) + f(x_i)}{2}(x_i - x_{i - 1}) - \int\limits^{x_i}_{x_{i - 1}} f(x) \ dx \right) \right| = \left| \sum\limits^n_{i = 1} \frac{1}{2} \int\limits^{x_i}_{x_{i - 1}} f''(x) \psi(x) \ dx \right| = \frac{1}{2} \int\limits^b_a \left| f''(x) \right| \psi(x) \ dx \leq \frac{\delta^2}{8} \int\limits^b_a \left| f'' \right|$
+			$\left| \sum\limits^n_{i = 1} \frac{f(x_{i - 1}) + f(x_i)}{2} \cdot (x_i - x_{i - 1}) - \int\limits^b_a f(x) \ dx \right| = \left| \sum\limits^n_{i = 1} \left( \frac{f(x_{i - 1}) + f(x_i)}{2}(x_i - x_{i - 1}) - \int\limits^{x_i}_{x_{i - 1}} f(x) \ dx \right) \right|$ 
+			
+			$\left| \sum\limits^n_{i = 1} \frac{1}{2} \int\limits^{x_i}_{x_{i - 1}} f''(x) \psi(x) dx \right| = \frac{1}{2} \int\limits^b_a \left| f''(x) \right| \psi(x) \ dx \leq \frac{\delta^2}{8} \int\limits^b_a \left| f'' \right|$
 
 		\subsection{Простейший случай формулы Эйлера-Маклорена}
 
-			$m, n \in \mathbb{Z} \ f \in C^2[m, n]$. Тогда
+			$m, n \in \mathbb{Z}, f \in C^2[m, n]$. Тогда
 
 			$\int\limits^n_m f(x) \ dx = (\sum\limits^n_{i = m})^{\triangledown} f(i) - \frac{1}{2} \int\limits^n_m f''(x) \left\{ x \right\} (1 - \left\{ x \right\}) \ dx$
 
+			${x}$ ~--- дробная часть числа $x$, $\triangledown$ ~--- крайние суммы, т.е. крайние члены берутся с множителем $0.5$.
+			
 			Очевидно$^{TM}$, что это формула трапеции.
 
 			$[a, b] \leftrightarrow [m, n] \ x_0 = m, x_1 = m + 1, \ldots, x_{last} = n$
@@ -1769,13 +1724,13 @@
     
     \section{Асимптотика степенных сумм}
         
-        $f(x) = x^p$
+        $f(x) = x^p$, $p \neq -1$
         
         $1^p + 2^p + \ldots + n^p = \int\limits^n_1 x^p dx + \dfrac{n^p + 1}{2} + \dfrac{1}{2} \int\limits^n_1 (x^p)'' \left\{ x \right\} (1 - \left\{ x \right\}) dx$
             
         $1^p + 2^p + \ldots + n^p = \dfrac{n^{p + 1}}{p + 1} - \dfrac{1^{p + 1}}{p + 1} + \dfrac{n^p}{2} + \dfrac{1}{2} + \dfrac{p(p - 1)}{2} \int\limits^n_1 x^{p - 2} \left\{ x \right\} (1 - \left\{ x \right\})$
             
-        $1^p + 2^p + \ldots + n^p = \dfrac{n^{p + 1}}{p + 1} + \dfrac{n^p}{2} + O(\max(1, n^{p - 1}))$
+        $1^p + 2^p + \ldots + n^p = \dfrac{n^{p + 1}}{p + 1} + \dfrac{n^p}{2} + \mathcal{O}(\max(1, n^{p - 1}))$
     
     \newpage
     
@@ -1803,31 +1758,33 @@
             
         \subsection{Доказательство}
         
-            $I_n = \int\limits^{\dfrac{\pi}{2}}_0 \sin^n x dx = \begin{bmatrix} u = sin^{n - 1} x & u' = (n - 1) \sin^{n - 2} x cos x \\ v' = \sin {x} dx & v = -\cos{x} \end{bmatrix}$
+            $I_n = \int\limits^{\pi / 2}_0 \sin^n x dx = \begin{bmatrix} u = sin^{n - 1} x & u' = (n - 1) \sin^{n - 2} x \cos x \\ v' = \sin {x} dx & v = -\cos{x} \end{bmatrix}$
             
-            $-\cos{x} \sin^{n - 1} x \bigg|^{\dfrac{\pi}{2}}_0 + (n - 1) \int\limits^{\dfrac{\pi}{2}}_0 \sin^{n - 2} x \cos^2 x dx = (n - 1) \int\limits^{\dfrac{\pi}{2}}_0 (\sin^{n - 2} x - sin^n x) dx = (n - 1) (I_{n - 2} - I_n)$
+            $-\cos{x} \sin^{n - 1} x \bigg|^{\pi / 2}_0 + (n - 1) \int\limits^{\pi / 2}_0 \sin^{n - 2} x \cos^2 x dx = (n - 1) \int\limits^{\pi/2}_0 (\sin^{n - 2} x - \sin^n x) dx = (n - 1) (I_{n - 2} - I_n)$
             
             $I_n = \dfrac{n - 1}{n} I_{n - 2}$
             
-            $I_0 = \int\limits^{\dfrac{\pi}{2}}_0 1 dx = \dfrac{\pi}{2}$
+            $I_0 = \int\limits^{\pi / 2}_0 1 \ dx = \dfrac{\pi}{2}$
             
-            $I_1 = \int\limits^{\dfrac{\pi}{2}}_0 \sin x dx = -\cos{x} \bigg|^{\dfrac{\pi}{2}}_0 = 1$
+            $I_1 = \int\limits^{\pi / 2}_0 \sin x \ dx = -\cos{x} \bigg|^{\pi / 2}_0 = 1$
             
             $I_n = \dfrac{n - 1}{n} I_{n - 2} = \dfrac{n - 1}{n} \cdot \dfrac{n - 3}{n - 4} I_{n - 4} = \ldots$
             
             Посчитаем отдельно для случая чётного и нечётного $n$
             
-            $I_{2n + 1} = \dfrac{2n}{2n + 1} \cdot {2n - 2}{2n - 1} \cdot \ldots \cdot 1 = \dfrac{(2n)!!}{(2n + 1)!!}$
+            $I_{2n + 1} = \dfrac{2n}{2n + 1} \cdot \dfrac{2n - 2}{2n - 1} \cdot \ldots \cdot 1 = \dfrac{(2n)!!}{(2n + 1)!!}$
             
-            $I_{2n} = \dfrac{2n - 1}{2n} \cdot {2n - 3}{2n - 2} \cdot \dfrac{\pi}{2} = \dfrac{(2n - 1)!!}{(2n)!!} \cdot \dfrac{\pi}{2}$
+            $I_{2n} = \dfrac{2n - 1}{2n} \cdot \dfrac{2n - 3}{2n - 2} \cdot \dfrac{\pi}{2} = \dfrac{(2n - 1)!!}{(2n)!!} \cdot \dfrac{\pi}{2}$
             
-            Так как при $x \in \left[ 0, \dfrac{\pi}{2} \right] \ \ \ \sin^{2k + 1} x \leq \sin^{2k}$
+            Так как при $x \in \left[ 0, \dfrac{\pi}{2} \right] \ \ \ \sin^{2k + 1} x \leq \sin^{2k} x$
             
             То и $I_{n + 1} \leq I_n$
             
             Также, $I_{2n + 1} \leq I_{2n} \leq I_{2n - 1}$
             
             $\dfrac{(2n)!!}{(2n + 1)!!} \leq \dfrac{\pi}{2} \dfrac{(2n - 1)!!}{(2n)!!} \leq \dfrac{(2n - 2)!!}{(2n - 1)!!}$
+            
+            $\dfrac{1}{2n + 1} \left( \dfrac{(2n)!!}{(2n - 1)!!} \right)^2 \leq \dfrac{\pi}{2} \leq \dfrac{1}{2n} \left( \dfrac{(2n)!!}{(2n - 1)!!} \right)^2$
             
             Разность правой и левой части стремится к $0$, значит 
             
@@ -1845,9 +1802,9 @@
         
             $\sqrt{\pi} = \dfrac{1}{\sqrt{k}} \dfrac{(2k)!!}{(2k - 1)!!} = \lim\limits_{k \rightarrow +\infty} \dfrac{2 \cdot 4 \cdot 6 \cdot \ldots \cdot (2k)}{1 \cdot 3 \cdot \ldots \cdot (2k - 1)} \cdot \dfrac{1}{\sqrt{k}}$
             
-            $\sqrt{\pi} = \lim \dfrac{(2 \cdot 4 \cdot \ldots \cdot (2k))^2}{(2k)!} \cdot \dfrac{1}{\sqrt{k}} = \lim \dfrac{2^{2k} (k!)^n}{(2k)!} \cdot \dfrac{1}{\sqrt{k}}$
+            $\sqrt{\pi} = \lim\limits_{k \rightarrow +\infty} \dfrac{(2 \cdot 4 \cdot \ldots \cdot (2k))^2}{(2k)!} \cdot \dfrac{1}{\sqrt{k}} = \lim\limits_{k \rightarrow +\infty} \dfrac{2^{2k} (k!)^2}{(2k)!} \cdot \dfrac{1}{\sqrt{k}}$
             
-            $\sqrt{\pi} = \lim\limits_{k \rightarrow \infty} \dfrac{2^{2k} (k^k \cdot e^{-k} \sqrt{k} \cdot c)^2}{\sqrt{k} (2k)^{2k} e^{-2k} \sqrt{2k} \cdot c} = \lim\limits_{k \rightarrow \infty} \dfrac{2^{2k} \cdot k^{2k} \cdot e^{-2k} \cdot k \cdot c^2}{\sqrt{2} \cdot k \cdot 2^{2k} \cdot k^{2k} \cdot e^{-2k} \cdot c} = \dfrac{c}{\sqrt{2}}$
+            $\sqrt{\pi} = \lim\limits_{k \rightarrow +\infty} \dfrac{2^{2k} (k^k \cdot e^{-k} \sqrt{k} \cdot c)^2}{\sqrt{k} (2k)^{2k} e^{-2k} \sqrt{2k} \cdot c} = \lim\limits_{k \rightarrow +\infty} \dfrac{2^{2k} \cdot k^{2k} \cdot e^{-2k} \cdot k \cdot c^2}{\sqrt{2} \cdot k \cdot 2^{2k} \cdot k^{2k} \cdot e^{-2k} \cdot c} = \dfrac{c}{\sqrt{2}}$
             
             $c = \sqrt{2 \pi}$
             
@@ -1898,10 +1855,10 @@
                 \item $\forall x \in \langle a, b \rangle$ $M_{\Delta} - m_{\Delta} \rightarrow 0$, если $l(\Delta) \rightarrow 0$, $x \in \Delta$
             
             \end{enumerate}
-        
-            $\forall \varepsilon > 0 \ \ \ \exists \delta > 0 \ \ \ \forall \Delta \in \Segm \ \ \ \langle a, b \rangle : x \in \Delta, \ \ \ l(\Delta) < \delta$
             
-            $\left| M_{\Delta} - m_{\Delta} \right| < \varepsilon$
+            3-й пункт можно переформулировать по-другому:
+            
+            $\forall \varepsilon > 0 : \exists \delta > 0 : \forall \Delta \in \Segm \langle a, b \rangle : x \in \Delta : l(\Delta) < \delta \Longrightarrow \left| M_{\Delta} - m_{\Delta} \right| < \varepsilon$
         
             Тогда $f$ ~--- плотность $\phi$ (и $\forall [p, q]$ $\phi([p, q]) = \int\limits^q_p f(x) \ dx$)
         
@@ -1923,27 +1880,9 @@
     
     \section{Площадь криволинейного сектора: в полярных координатах и для параметрической кривой}
     
-        \subsection{Введение}
-        
-            Площадь подграфика $f : \langle a, b \rangle \rightarrow \mathbb{R}$ ~--- непрерывная, $f \geq 0$
-        
-            $\phi([p, q]) = \sigma \PG (f, [p, q])$ ~--- аддитивная функция. Мы знаем, что $\phi([p, q]) = \int\limits^q_p f(x) \ dx$, $f$ ~--- плотность
-
-        \subsection{Пример}
-        
-            $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$
+        \subsection{Формулировка для полярных координат}
             
-            $\sigma$(эллипса) $ = 2 \sigma(\PG(b \sqrt{1 - \frac{x^2}{a^2}}{,} [-a, a])) =  2 \cdot \int\limits^a_{-a} b \sqrt{1 - \frac{x^2}{a^2}} dx$
-            
-            Путь $\gamma : [\alpha, \beta] \rightarrow \mathbb{R}^2$, $x = a \cos t$
-            
-            $[0, 2 \pi] \longmapsto (a \cos t, b \sin t)$
-            
-            $2 \int\limits^0_{\pi} b \sqrt{1 - \cos^2 t} / a(-\sin t) \ dt = 2 a b \int\limits^0_{\pi} - \sin^2 t \ dt = 2 a b \int\limits^{\pi}_{0} \sin^2 t \ dt = 2 a b \int\limits^{\pi}_{0} \frac{1 - \cos {2t}}{2} \ dt = \pi a b$
-            
-        \subsection{Теорема}
-            
-            $[\alpha, \beta] \subset [0, 2 \pi)$
+            Пусть $[\alpha, \beta] \subset [0, 2 \pi)$
             
             $\rho : [\alpha, \beta] \rightarrow \mathbb{R}$ ~--- непрерывная, $\rho \geq 0$
             
@@ -1953,7 +1892,7 @@
             
         \subsection{Доказательство}
         
-            $[\alpha, \beta] \longmapsto \sigma(A)$ ~--- функция промежутка $Segm [\alpha, \beta]$ ~--- аддитивная функция.
+            $[\alpha, \beta] \longmapsto \sigma(A)$ ~--- функция промежутка $\Segm [\alpha, \beta]$ ~--- аддитивная функция.
             
             Проверим, что $\frac{1}{2} \rho^2 (\phi)$ ~--- плотность
             
@@ -1963,53 +1902,35 @@
             
             $\sigma (A_{\gamma{,} \delta}) \geq \sigma$(Круговой сектор $(0, \min\limits_{[\gamma, \delta]} \rho(\phi), [\gamma, \delta])$)
             
-            $\min\limits_{[\gamma, \delta]} \frac{1}{2} \rho(\phi) l([\gamma, \delta]) \leq \sigma (A_{\gamma{,} \delta}) \leq \max\limits_{[\gamma, \delta]} \frac{1}{2} \rho(\phi) l([\gamma, \delta])$
+            $\min\limits_{[\gamma, \delta]} \frac{1}{2} \rho^2(\phi) l([\gamma, \delta]) \leq \sigma (A_{\gamma{,} \delta}) \leq \max\limits_{[\gamma, \delta]} \frac{1}{2} \rho^2(\phi) l([\gamma, \delta])$
             
-            По определению плотности
+            По определению плотности получили то, что хотели
             
-        \subsection{Замечание}
+            (если непонятно, откуда берётся $\dfrac{1}{2} \rho^2(\phi)$, то гуглим форму площади круга)
+            
+        \subsection{Формулировка для параметрической кривой}
         
-            $(x(t), y(t))$ $t \in [a, b]$
+            $\sigma(A) = \dfrac{1}{2} \int\limits^{t_1}_{t_0} (y'(t) x(t) - x'(t) y(t)) dt$
             
-            $x = r \cos \phi$
+        \subsection{Доказательство}
+        
+            Пусть дано $(x(t), y(t)), t \in [a, b]$
             
-            $y = r \sin \phi$
+            $x = r \cos {\varphi}$
+            
+            $y = r \sin {\varphi}$
             
             $r = \sqrt{x^2 + y^2}$
             
-            $\phi = \arctg \frac{y}{x}$
+            $\varphi = \arctg \dfrac{y}{x}$
             
-            $\begin{cases} r(t) = x(t)^2 + y(t)^2 \\ \phi = \arctg \frac{y}{x} \end{cases}$ ~--- параметрическое задание того же пути в полярных координатах
+            Итого:
             
-            $\sigma A = \frac{1}{2} \int\limits^{\phi_1}_{\phi_0} r^2 (\phi) \ d \phi = \frac{1}{2} \int\limits^{t_1}_{t_0} (x(t)^2 + y(t)^2) (\arctg \frac{y(t)}{x(t)} ) \ dx = \frac{1}{2} \int\limits^{t_1}_{t_0} (x^2 + y^2) \frac{1}{1 + \frac{y^2}{x^2}} - \frac{y'x - x'y}{x^2} \ dt = \frac{1}{2} \int\limits^{t_1}_{t_0}(y'(t)x(t) - x'(t)y(t))$
+            $r(t) = x(t)^2 + y(t)^2$ и $\varphi(t) = \arctg \dfrac{y(t)}{x(t)}$ ~--- параметрическое задание того же пути в полярных координатах
             
-            $\phi = \arctg \frac{y(t)}{x(t)}$
+            $\sigma (A) = \dfrac{1}{2} \int\limits^{\varphi_1}_{\varphi_0} r^2(\varphi) d \varphi = \dfrac{1}{2} \int\limits^{\varphi_1}_{\varphi_0} \left(x(t)^2 + y(t)^2 \right) \left( \arctg \dfrac{y(t)}{x(t)} \right) dt$
             
-            Площадь круга
-            
-            $x = \cos t$
-            
-            $y = \sin t$
-            
-            $S = \frac{1}{2} \int\limits^{2\pi}_0 \cos^2 t - (-\sin t) \sin t \ dt = \frac{1}{2} \int\limits^{2\pi}_0 1 = \frac{2\pi}{2} = \pi$
-            
-            $x = \cos t$
-            
-            $y = -\sin t$
-            
-            $S = \frac{1}{2} \int\limits^{2\pi}_0 -\cos^2 t - \sin^2 t \ dt = - \pi$
-            
-            Она ловит ориентированную площадь
-            
-            $x = x(t) = a \cos t$
-            
-            $y = y(t) = b \sin t$
-            
-            $\sigma = \int\limits^b_a y(x) \ dx = \int\limits^b_a y \ dx$
-            
-            $\sigma$(эллипса) = $\int\limits^a_{-a} y(x) \ dx = \int\limits^a_{-a} y \ dx = \int\limits^0_{\pi} y(t) x'(t) dy$
-            
-            $x = x(t)$
+            $\dfrac{1}{2} \int\limits^{t_1}_{t_0} (x^2 + y^2) \dfrac{1}{1 + \frac{y^2}{x^2}} \cdot \dfrac{y'x - x'y}{x^2} dt = \dfrac{1}{2} \int\limits^{t_1}_{t_0} \left( y'(t) x(t) - x'(t) y(t) \right) dt$
             
     \newpage
     
@@ -2019,27 +1940,31 @@
         
             Пусть $G$ ~--- замкнутая выпуклая фигура в $\mathbb{R}^2$
             
-            $\diam G < 1$ ($\diam G = \sup\limits_{x, y \in G} \rho(x, y)$)
+            $\diam G \leq 1$ ($\diam G = \sup\limits_{x, y \in G} \rho(x, y)$)
             
             Тогда $\sigma(G) \leq \frac{\pi}{4}$
             
         \subsection{Доказательство}
         
-            $f(x) = \sum \left\{ t : [(x, 0), (x, t)] \cap G = \varnothing \right\}$
+            Поскольку $G$ выпукла, значит к ней можно провести касательные $f(x)$ и $g(x)$
             
-            $g(x)$ ~--- аналогично
+            $f(x) = \sup \left\{ t : [(x, 0), (x, t)] \cap G = \varnothing \right\}$
             
-            $f(x)$ ~--- выпуклая
+            $g(x)$ ~--- аналогично, только $\inf$
             
-            $\phi \in \left[ -\frac{\pi}{2}, \frac{\pi}{2} \right]$
+            $\varphi \in \left[ -\frac{\pi}{2}, \frac{\pi}{2} \right]$
             
             $r(-\frac{\pi}{2}) = r(\frac{\pi}{2}) = 0$
             
-            $r(\phi)$ ~--- непрерывная функция от $\phi$
+            $r(\varphi)$ ~--- непрерывная функция от $\varphi$
             
-            $\sigma(G) = \frac{1}{2} \int\limits^{\frac{\pi}{2}}_{-\frac{\pi}{2}} r^2 (\phi) \ d \phi = \frac{1}{2} \left( \int\limits^0_{-\frac{\pi}{2}} + \int\limits^{\frac{\pi}{2}}_0 \right)$
+            $\sigma(G) = \frac{1}{2} \int\limits^{\pi / 2}_{-\pi / 2} r^2 (\varphi) \ d \varphi = \frac{1}{2} \left( \int\limits^0_{-\pi / 2} + \int\limits^{\pi / 2}_0 \right)$
             
-            $\frac{1}{2} \int\limits^{\frac{\pi}{2}}_0 r^2 (\phi - \frac{\pi}{2}) + r^2 (\phi) \ d \phi = \frac{1}{2} \int\limits^{\frac{\pi}{2}}_0 AB^2 \ d \phi \leq \frac{1}{2} \int\limits^{\frac{\pi}{2}}_0 1 \ d \phi = \frac{\pi}{4}$
+            Проведём какую-нибудь прямую $AB$, полностью лежащую в фигуре $G$, а также отметим какую-нибудь точку $O$, что $OA \perp OB$. Тогда
+            
+            $\sigma(G) = \frac{1}{2} \int\limits^{\pi / 2}_0 OA^2 + OB^2$
+            
+            $\sigma(G) = \frac{1}{2} \int\limits^{\pi / 2}_0 r^2 (\varphi - \dfrac{\pi}{2}) + r^2 (\varphi) \ d \varphi = \frac{1}{2} \int\limits^{\pi / 2}_0 AB^2 \ d \varphi \leq \frac{1}{2} \int\limits^{\pi / 2}_0 1 \ d \varphi = \dfrac{\pi}{4}$
             
     \newpage
     
@@ -2047,21 +1972,21 @@
     
         \subsection{Формулировка}
         
-            Пусть $\gamma : [a, b] \rightarrow \mathbb{R}^m$, $\gamma \in C^1$.
+            Пусть $\gamma : [a, b] \rightarrow \mathbb{R}^m$, $\gamma \in C^1$ ~--- путь.
             
             Тогда $l(\gamma) = \int\limits^b_a \| \gamma'(t) \| dt$
             
         \subsection{Доказательство}
         
-            Будем дополнительно считать, что $\gamma' \neq 0$
+            Будем дополнительно считать, что $\gamma' \neq 0$ и что $\gamma$ ~--- инъективно. Если это не так, то разобьём на несколько частей, и каждую из них посчитаем отдельно.
             
-            $\gamma$ ~--- инъективно. Если это не так, то разобьём на несколько частей, и каждую из них посчитаем отдельно.
+            Пусть $\phi : \Segm[a, b] \rightarrow \mathbb{R}$ и $[p, q] \mapsto l\left(\gamma|_{[p, q]} \right)$
             
-            $\phi : Segm[a, b] \rightarrow \mathbb{R}$
+            Пусть $\phi$ ~--- аддитивная функция промежутка по следующей аксиоме:
             
-            $[p, q] \rightarrow l\left(\gamma|_{[p, q]} \right)$
+            $\forall [a, b]$ и $\forall \gamma : [a, b] \rightarrow \mathbb{R}^m$ и $\forall c \in (a, b) \Longrightarrow l(\gamma) = l \left( \gamma|_{[a, c]} \right) + l \left( \gamma|_{[c, b]} \right)$
             
-            Пусть $\phi$ ~--- аддитивная функция промежутка по аксиоме 2. Проверим, что $\| \gamma'(t) \|$ ~--- её плотность
+            Проверим, что $\| \gamma'(t) \|$ ~--- её плотность
             
             Это значит, что $\forall \Delta : \exists m_{\Delta}, M_{\Delta}$ и выполняются следующие свойства:
             
@@ -2071,11 +1996,11 @@
                 
                 \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$, $x \in \Delta$
                 
-                \item $\Delta \rightarrow x$ $M_{\Delta} - m_{\Delta} \rightarrow 0$
+                \item $\Delta \rightarrow x \Longrightarrow M_{\Delta} - m_{\Delta} \rightarrow 0$
                 
             \end{enumerate}
             
-            $\Delta \supset [a, b]$, $\gamma(t) = (\gamma_1(t), \gamma_2(t), \ldots, \gamma_m(t))$
+            $\Delta \subset [a, b]$, $\gamma(t) = (\gamma_1(t), \gamma_2(t), \ldots, \gamma_m(t))$
             
             $m_i(\Delta) = \min\limits_{t \in \Delta} | \gamma'_i(t) |$
             
@@ -2083,17 +2008,17 @@
             
             $m_{\Delta} = \sqrt{\sum m_i(\Delta)^2}$
             
-            $M_{\Delta} = \sqrt{\sum M_i{\Delta}^2}$
+            $M_{\Delta} = \sqrt{\sum M_i(\Delta)^2}$
             
-            Очевидно, что при любом $t \in \Delta$ $m_{\Delta} \leq \| \gamma'(t) \|  \leq M_{\Delta}$, где $\| \gamma'(t) \| = \sqrt{\sum(\gamma'_i(t))^2}$
+            Очевидно, что при любом $t \in \Delta \Longrightarrow m_{\Delta} \leq \| \gamma'(t) \|  \leq M_{\Delta}$, где $\| \gamma'(t) \| = \sqrt{\sum(\gamma'_i(t))^2}$
             
-            При $\Delta \rightarrow x$ $M_{\Delta} - m_{\Delta} \rightarrow 0$ по непрерывности $\gamma'_i(t)$ в точке $t = x$.
+            При $\Delta \rightarrow x$ выражение $M_{\Delta} - m_{\Delta} \rightarrow 0$ по непрерывности $\gamma'_i(t)$ в точке $t = x$.
             
             Проверим, что $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
             
-            $\widetilde{\gamma} : \Delta \rightarrow \mathbb{R}^m$ $\widetilde{\gamma}(t) = \left(M_1(\Delta)t, M_2(\Delta)t, \ldots, M_m(\Delta)t\right) = M \cdot t$, где $M = (M_1(\Delta), M_2(\Delta), \ldots, M_m(\Delta) )$
+            $\widetilde{\gamma} : \Delta \rightarrow \mathbb{R}^m, \widetilde{\gamma}(t) = \left(M_1(\Delta)t, M_2(\Delta)t, \ldots, M_m(\Delta)t\right) = M \cdot t$, где $M = (M_1(\Delta), M_2(\Delta), \ldots, M_m(\Delta) )$
             
-            Отображение $T : C_{\gamma} \rightarrow C_{\overline{\gamma}}$ $\gamma(t) \mapsto \overline{\gamma}(t)$ ~--- проверим, что расстяжение
+            Отображение $T : C_{\gamma} \rightarrow C_{\overline{\gamma}} \Longrightarrow \gamma(t) \mapsto \overline{\gamma}(t)$ ~--- проверим, что расстяжение
             
             $\rho(\gamma(t_0), \gamma(t_1)) = \sqrt{\sum\limits_{i = 1}^n (\gamma_i(t_0) - \gamma_i(t_1))^2} = \sqrt{\sum(\gamma'_i(\mathcal{T}_i))^2(t_0 - t_1)^2} \leq \sqrt{\sum M_i{\Delta}^2 |t_0 - t_1|} = \rho(T(\gamma(t_0)), T(\gamma(t_1)))$, значит $T$ ~--- растяжение
             
@@ -2126,50 +2051,54 @@
             
         \subsection{Доказательство}
         
-            $\phi: \Delta \in Segm([a, b]) \mapsto V(T_{x \ or \ y} (\PG(f, \Delta)))$ ~--- аддитивная функция.
-            
-            $\pi \min\limits_{x \in \Delta} f(x) \cdot l(\Delta) = V(F_{\Delta}) \leq \phi(\Delta) \leq V(\varepsilon_{\Delta}) = \pi \max\limits_{x \in \Delta} f(x) \cdot l(\Delta)$
-            
-            $\varepsilon_{\Delta}$ ~--- цилиндр прямой круговой
-            
-            $\varepsilon_{\Delta} = T_x(\PG(\max\limits_{\Delta} f, \Delta)) = \Delta B(0, \max\limits_{\Delta} f) \in \mathbb{R}^3$
-            
-            $\mathbb{R} \times \mathbb{R}^2$
-            
-            $\phi(\Delta)$ ~--- плотность, $\pi \int\limits^b_a f^2(x) dx$
-            
-            $\Delta : m_{\Delta}, M_{\Delta}$
-            
             \begin{enumerate}
             
-                \item $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                \item
                 
-                \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$, $x \in \Delta$
+                $\phi: \Delta \in Segm([a, b]) \mapsto V(T_{x \ or \ y} (\PG(f, \Delta)))$ ~--- аддитивная функция.
+            
+                $\pi \min\limits_{x \in \Delta} f^2(x) \cdot l(\Delta) = V(F_{\Delta}) \leq \phi(\Delta) \leq V(\varepsilon_{\Delta}) = \pi \max\limits_{x \in \Delta} f^2(x) \cdot l(\Delta)$
+            
+                $\varepsilon_{\Delta}$ ~--- цилиндр прямой круговой
+            
+                $\phi(\Delta)$ ~--- плотность, значит $V(T_x(\PG(f, [a, b]))) = \pi \int\limits^b_a f^2(x) dx$
+            
+                $\Delta : m_{\Delta}, M_{\Delta}$
+            
+                \begin{enumerate}
+            
+                    \item $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
                 
-                \item $\Delta \rightarrow x$ $M_{\Delta} - m_{\Delta} \rightarrow 0$
+                    \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$, $x \in \Delta$
                 
-            \end{enumerate}
-            
-            $V(T_y(\PG(f, [a, b]))) = 2 \pi \int\limits^b_a x \cdot f(x) dx$
-            
-            $F_{\Delta} = T_y(\PG(\min\limits_{\Delta} f, \Delta))$
-            
-            $\phi(\Delta) \leq V(\varepsilon_{\Delta}) = \sigma(ring) \cdot \max\limits_{\Delta} f = \pi(q^2 - p^2) \cdot \max\limits_{[p, q]} f = \pi (p + q) \max f(p - q) \leq \pi \cdot \max\limits_{x \in [p, q]} (2x) \cdot \min\limits_{x \in [p, q]} f(x) \cdot (q - p)$
-            
-            Аналогично
-            
-            $\pi \min\limits_{x \in [p, q]} \cdot \min\limits_{x \in [p, q]} f(x) (q - p)$
-            
-            \begin{enumerate}
-            
-                \item $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                    \item $\Delta \rightarrow x$ $M_{\Delta} - m_{\Delta} \rightarrow 0$
                 
-                    $\phi(\Delta) = \pi \cdot 2 x \cdot f(x) \leq \pi \max (2x) \cdot max f(x)$
+                \end{enumerate}
+            
+                \item
+                
+                $V(T_y(\PG(f, [a, b]))) = 2 \pi \int\limits^b_a x \cdot f(x) dx$
+            
+                $F_{\Delta} = T_y(\PG(\min\limits_{\Delta} f, \Delta))$
+            
+                $\phi(\Delta) \leq V(\varepsilon_{\Delta}) = \sigma(ring) \cdot \max\limits_{\Delta} f = \pi(q^2 - p^2) \cdot \max\limits_{[p, q]} f = \pi (q + p) \max\limits_{x \in [p, q]} f(x) \cdot (q - p) \leq \pi \cdot \max\limits_{x \in [p, q]} (2x) \cdot \max\limits_{x \in [p, q]} f(x) \cdot (q - p)$
+            
+                Аналогично
+            
+                $\pi \min\limits_{x \in [p, q]} (2x) \cdot \min\limits_{x \in [p, q]} f(x) (q - p)$
+            
+                \begin{enumerate}
+            
+                    \item $m_{\Delta} l(\Delta) \leq \phi(\Delta) \leq M_{\Delta} l(\Delta)$
+                
+                        $\phi(\Delta) = \pi \cdot 2 x \cdot f(x) \leq \pi \max (2x) \cdot max f(x)$
                     
-                \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$
+                    \item $m_{\Delta} \leq f(x) \leq M_{\Delta}$
                 
-                \item $p \rightarrow x_0$, $q \rightarrow x_0$ $\pi \cdot 2 x_0 \cdot f(x_0)$
+                    \item $p \rightarrow x_0$, $q \rightarrow x_0$, Итого $V(T_y(\PG(f, [a, b]))) = \pi \cdot 2 x_0 \cdot f(x_0)$
                 
+                \end{enumerate}
+            
             \end{enumerate}
         
     \newpage
@@ -2221,15 +2150,15 @@
             
             $M := \sup \varphi(x)$
             
-            $c := \int\limits^b_a \lambda(x) \varphi(x) dx \leq \int\limits^b_a \lambda(x) dx \cdot M = M \leq b$
+            $c := \int\limits^b_a \lambda(x) \varphi(x) dx \leq \int\limits^b_a \lambda(x) dx \cdot M = M \leq И$
             
-            $c \geq m = a$ ~--- аналогично, значит $c \in \langle a, b \rangle$
+            $c \geq m = A$ ~--- аналогично, значит $c \in \langle A, B \rangle$
             
             Если $m = M$ ~--- тривиально
             
             Пусть $y = kx + b$ ~--- опорная прямая к графику $f$ в точке $c$
             
-            $f(C) = kC + b = k \int\limits^b_a \lambda \varphi + b \int\limits^b_a \lambda = \int\limits^b_a \lambda(k\varphi + b) \leq \int\limits^b_a \lambda (f \circ \varphi)$
+            $f(c) = kc + b = k \int\limits^b_a \lambda \varphi + b \int\limits^b_a \lambda = \int\limits^b_a \lambda(k\varphi + b) \leq \int\limits^b_a \lambda (f \circ \varphi)$
             
             $f\left( \int\limits^b_a \lambda \varphi \right) \leq \int\limits^b_a \lambda (f \circ \varphi)$
             
@@ -2247,7 +2176,7 @@
                 
             \subsubsection{Доказательство}
             
-                $\ln(\frac{1}{n} a_1 + \frac{1}{n} a_2 + \ldots + \frac{1}{n} a_n) \geq? \frac{1}{n} \ln(a_1 a_2 \ldots a_n) = \frac{1}{n} \ln{a_1} + \frac{1}{n} \ln{a_2} + \ldots + \frac{1}{n} \ln{a_n}$
+                $\ln \left( \frac{1}{n} a_1 + \frac{1}{n} a_2 + \ldots + \frac{1}{n} a_n \right) \geq? \frac{1}{n} \ln(a_1 a_2 \ldots a_n) = \frac{1}{n} \ln{a_1} + \frac{1}{n} \ln{a_2} + \ldots + \frac{1}{n} \ln{a_n}$
                 
                 $x_1 = a_1$
                 
@@ -2302,7 +2231,7 @@
             
             $(x^p)'' = p(p - 1)x^{p - 2} > 0$
             
-            По неравенству Йенсена $\sum\limits_{i = 1}^n \alpha_i x_i)^p \leq \sum\limits_{i = 1}^n \alpha_i x_i^p$
+            По неравенству Йенсена $\left(\sum\limits_{i = 1}^n \alpha_i x_i \right)^p \leq \sum\limits_{i = 1}^n \alpha_i x_i^p$
             
             $\alpha_i := \dfrac{b_i^q}{\sum b_i^q}$
             
@@ -2318,7 +2247,7 @@
             
             $(\sum\limits_{i = 1}^n \alpha_i x_i)^p = (\sum\limits_{i = 1}^n a_i b_i)^p$
             
-            Тогда $\alpha_i x_i^p = a_i^p(\sum\limits_{j = 1}^n b_i^q)^{p - 1}$
+            Тогда $\alpha_i x_i^p = a_i^p(\sum\limits_{j = 1}^n b_j^q)^{p - 1}$
             
             Тогда $\sum\limits_{i = 1}^n \alpha_i x_i^p = (\sum\limits_{i = 1}^n a_i^p)(\sum\limits_{j = 1}^n b_j^q)^{p - 1} = (\sum\limits_{i = 1}^n a_i^p)(\sum\limits_{j = 1}^n b_j^q)^{\frac{p}{q}}$
             
@@ -2342,7 +2271,9 @@
         
             Делим $[a, b]$ на $n$ равных частей
             
-            $x_k = a + k \cdot \frac{b - a}{n}$  $\Delta x_k = x_k - x_{k - 1} = \frac{b - a}{n}$
+            $x_k = a + k \cdot \frac{b - a}{n}$  
+            
+            $\Delta x_k = x_k - x_{k - 1} = \frac{b - a}{n}$
             
             $\xi_k := x_k$
             
@@ -2392,9 +2323,9 @@
             
             $\sum |b_i| |a_i + b_i|^{p - 1} \leq \left( \sum |b_i|^p \right)^{\frac{1}{p}} \left( \sum |a_i + b_i|^p \right)^{\frac{1}{q}}$
             
-            $\sum |a_i + b_i|^p \leq \sum ( |a_i| + |b_i| ) |a_i + b_i|^p \leq \left( \sum |a_i|^p \right)^{\frac{1}{p}} + \left( \sum |b_i|^p \right)^{\frac{1}{p}} (\sum |a_i + b_i|^p)^{\frac{1}{q}}$
+            $\sum |a_i + b_i|^p \leq \sum ( |a_i| + |b_i| ) |a_i + b_i|^{p - 1} \leq \left( \left( \sum |a_i|^p \right)^{\frac{1}{p}} + \left( \sum |b_i|^p \right)^{\frac{1}{p}} \right) \left(\sum |a_i + b_i|^p \right)^{\frac{1}{q}}$
             
-            $\left( \sum |a_i + b_i|^p \right)^{\frac{1}{p}} \leq \ldots \leq \left( \sum |a_i|^p \right)^{\frac{1}{p}} \left( \sum |b_i|^p \right)^{\frac{1}{p}}$
+            $\left( \sum |a_i + b_i|^p \right)^{\frac{1}{p}} \leq \ldots \leq \left( \sum |a_i|^p \right)^{\frac{1}{p}} + \left( \sum |b_i|^p \right)^{\frac{1}{p}}$
             
     \newpage
     
@@ -2450,17 +2381,17 @@
                 
                 \item $y_n \leq y'_n$
                 
-                \item $\sup(\lambda A) = \lambda \sum(a)$
+                \item $\sup(\lambda A) = \lambda \sup(A)$
                 
                 \item $\sup(-A) = -\inf(A)$
                 
-                \item $\sum(x_n + x_n', x_{n + 1} + x_{n + 1};, \ldots) \leq y_n + y_n'$, т.к. это верхняя граница для всех сумм над $\sup$
+                \item $\sup(x_n + x_n', x_{n + 1} + x_{n + 1};, \ldots) \leq y_n + y_n'$, т.к. это верхняя граница для всех сумм над $\sup$
                 
-                \item $l \in \mathbb{R}$, тогда $\forall \varepsilon > 0 \exists N_0: \forall k > N_0$
+                \item $l \in \mathbb{R}$, тогда $\forall \varepsilon > 0 : \exists N_0: \forall k > N_0$
                 
                     $x_k + l - \varepsilon < x_k + t_k < x_k + l_k + \varepsilon$
                     
-                    $y_n + l - \varepsilon \leq \sum(x_n + t_n, x_{n + 1} + t_{n + 1}, ldots) \leq y_n + l + \varepsilon$, при $N \rightarrow +\infty$
+                    $y_n + l - \varepsilon \leq \sup(x_n + t_n, x_{n + 1} + t_{n + 1}, \ldots) \leq y_n + l + \varepsilon$, при $N \rightarrow +\infty$
                     
                     $(\varlimsup x_n) + l - \varepsilon \leq \varlimsup (x_n + y_n) \leq (\varlimsup x_n) + l + \varepsilon$
                     
@@ -2498,17 +2429,17 @@
             
                 \item Очевидно, что $x_n < y_n$, $y_n$ убывает Таким образом, если $\lim y_n = +\infty \Longrightarrow y_n = +\infty \Longleftrightarrow x_n$ ~--- не ограничена сверху
                 
-                \item $y_n \rightarrow -\infty$, $\forall E : \exists N : \forall n > N \ x_n \leq y_n < E \Rightarrow \forall E > 0 : \exists N : \forall n > N : x_n < E$, $\forall n > N : y_n \leq E$
+                \item $y_n \rightarrow -\infty$, $\forall E : \exists N : \forall n > N \ x_n \leq y_n < E \Rightarrow \forall E > 0 : \exists N : \forall n > N : x_n < E, y_n < E$
                 
                 \item $x_n \leq y_n$, $y_n \rightarrow l$
                 
                 \begin{itemize}
                 
-                    \item $\Rightarrow)$ $\forall \varepsilon > 0 : \exists N : \forall n > N x_n \leq y_n < l + \varepsilon$
+                    \item $\Rightarrow)$ $\forall \varepsilon > 0 : \exists N : \forall n > N : x_n \leq y_n < l + \varepsilon$
                     
-                        Если $\exists N_0 : \forall N_0 \forall n < l - \varepsilon$, то $\forall n > N_0 y_n = \sup(\ldots) \leq l - \varepsilon$ и тогда $y_n \rightarrow l$
+                        Если $\exists N_0 : \forall n > N_0 : x_n < l - \varepsilon$, то $\forall n > N_0 : y_n = \sup(\ldots) \leq l - \varepsilon$ и тогда $y_n \nrightarrow l$
                         
-                    \item $\Leftarrow)$ $\forall \varepsilon : \exists N : \forall n > N y_n \leq l + \varepsilon$, $y_n$ ~--- супремум
+                    \item $\Leftarrow)$ $\forall \varepsilon : \exists N : \forall n > N : y_n \leq l + \varepsilon$, $y_n$ ~--- супремум
                     
                         $x_k \geq l - \varepsilon \Rightarrow y_n \geq l - \varepsilon \Rightarrow y_n \rightarrow l$
                         
@@ -2730,7 +2661,7 @@
         
             $\varphi(t) = \int\limits^t_0 e^{-x^2} dx$
             
-            $1 - x^2 \leq e^{-x^2} \leq \dfrac{1}{1 + x^2}$, следует из неравенства $e^t >= 1 + t$
+            $1 - x^2 \leq e^{-x^2} \leq \dfrac{1}{1 + x^2}$, следует из неравенства $e^t \geq 1 + t$
             
             $1 + x^2 \leq e^{x^2}$
             
@@ -2738,19 +2669,19 @@
             
             Интегрируем: $\int\limits^1_0 (1 - x^2)^n dx \leq \int\limits^1_0 e^{-nx^2} \leq \int\limits^{+\infty}_0 e^{-nx^2} \leq \int\limits^{+\infty}_{0} \dfrac{1}{(1 + x^2)^n} dx$
             
-            Левая часть: $x = \cos{t}$ $\int\limits^0_{\dfrac{\pi}{2}} \sin^{2n} {t} (-\sin{t}) dt = W_{2n + 1}$
+            Левая часть: $x = \cos{t}$, тогда делаем замену и $\int\limits^0_{\pi / 2} \sin^{2n} {t} (-\sin{t}) dt = W_{2n + 1}$ ~--- формула Валлиса
             
-            Правая часть: $x = \tg {t}$ $\dfrac{1}{1 + \tg^2{t}} = \cos^2{t}$
+            Правая часть: $x = \tg {t}$ и $\dfrac{1}{1 + \tg^2{t}} = \cos^2{t}$
             
-            $\int\limits^{\dfrac{\pi}{2}}_0 \cos^{2n} t \dfrac{1}{cos^2 t} dt = \int\limits^{\dfrac{\pi}{2}}_0 \sin^{2n - 2} dt = W_{2n - 2}$
+            $\int\limits^{\pi / 2}_0 \cos^{2n} t \cdot \dfrac{1}{cos^2 t} dt = \int\limits^{\pi / 2}_0 \cos^{2n - 2} dt = W_{2n - 2}$
             
-            Средняя часть: $x = \dfrac{t}{\sqrt{n}} \sqrt{n} \int\limits^{+\infty}_0 e^{-t^2} dt$
+            Средняя часть: $x = \dfrac{t}{\sqrt{n}}$ и $\sqrt{n} \int\limits^{+\infty}_0 e^{-t^2} dt$
             
             $\sqrt{n} W_{2n + 1} \leq \int\limits^{+\infty}_0 e^{-x^2} dx \leq \sqrt{n} W_{2n - 2}$
             
             $W_n = \dfrac{(n - 1)!!}{n!!}$
             
-            $W_{2n - 2} = \dfrac{(2n - 3)!!}{(2n - 2)!!} \cdot \sqrt{n} \dfrac{\pi}{2} = \dfrac{1}{\dfrac{(2n - 2)!!}{(2n - 3)!!} \dfrac{1}{\sqrt{n} - 1}} \cdot \dfrac{\sqrt{n}}{\sqrt{n} - 1} \cdot \dfrac{\pi}{2} = \dfrac{\sqrt{\pi}}{2}$
+            $W_{2n - 2} = \dfrac{(2n - 3)!!}{(2n - 2)!!} \cdot \sqrt{n} \cdot \dfrac{\pi}{2} = \dfrac{1}{\dfrac{(2n - 2)!!}{(2n - 3)!!} \dfrac{1}{\sqrt{n} - 1}} \cdot \dfrac{\sqrt{n}}{\sqrt{n} - 1} \cdot \dfrac{\pi}{2} = \dfrac{1}{\sqrt{\pi}} \cdot 1 \cdot \dfrac{\pi}{2} = \dfrac{\sqrt{\pi}}{2}$
             
             $W_{2n + 1} = \dfrac{(2n)!!}{(2n + 1)!!} \cdot \sqrt{n} = \dfrac{(2n)!!}{(2n - 1)!!} \cdot \dfrac{1}{\sqrt{n}} \dfrac{n}{2n + 1} = \dfrac{\sqrt{\pi}}{2}$
             
@@ -2783,15 +2714,17 @@
         
             \begin{enumerate}
             
-                \item $\int\limits^{+\infty}_0 = \int\limits^1_0 + \int\limits^{+\infty}_0$
+                \item $\int\limits^{+\infty}_0 = \int\limits^1_0 + \int\limits^{+\infty}_1$
                 
                     $\int\limits^1_0 x^{t - 1} e^{-x} dx$, при $x \rightarrow 0$ эквивалентно $x^{t - 1}$, $t > 1$, значит сходится
                     
-                    $\int\limits^{+\infty}_1 x^{t - 1} e^{-x} dx$ $\left( x^{t - 1} \cdot e^{-\dfrac{x}{2}} \right) \cdot e^{-\dfrac{x}{2}} \leq e^{-\dfrac{x}{2}}$
+                    $\int\limits^{+\infty}_1 x^{t - 1} e^{-x} dx = \left( x^{t - 1} \cdot e^{-x / 2} \right) \cdot e^{-x / 2} \leq e^{-x / 2}$ при $x \geq x_0$, где $x_0 < 1$.
                 
-                    $\int\limits^{+\infty}_{x_0} e^{-\dfrac{x}{2}} = \lim\limits_{B \rightarrow +\infty} \left(2 \cdot e^{-\dfrac{x_0}{2}} - 2 \cdot e^{-\dfrac{B}{2}} \right)$ ~--- конечен
+                    $\int\limits^{+\infty}_{x_0} e^{-x / 2} = \lim\limits_{B \rightarrow +\infty} \left(2 \cdot e^{-x_0 / 2} - 2 \cdot e^{-B / 2} \right)$ ~--- конечен
                     
-                \item Подынтыгральная функция $h : t \mapsto x^{t - 1} e^{-x}$ ~--- выпукла. Продифференцируем $h'' = x^{t - 1} e^{-x} \ln^2{x} \geq 0$
+                \item Подынтыгральная функция $h : t \mapsto x^{t - 1} e^{-x}$ ~--- выпукла. 
+                
+                    Продифференцируем $h'' = x^{t - 1} e^{-x} \ln^2{x} \geq 0$
                 
                     $\forall x \in [0, 1] :  h \left(\alpha t_1 + (1 - \alpha) t_2, x \right) \leq \alpha h(t_1, x) + (1 - \alpha) h(t_2, x)$ ~--- неравенство Йенсена
                     
@@ -2803,7 +2736,9 @@
                 
                     $\Gamma(1) = 1$, значит $\Gamma(n) = n!$
                     
-                \item $\int\limits^{+\infty}_0 x^{-\frac{1}{2}} e^{-x} dx = 2 \int\limits^{+\infty}_0 e^{-y^2} dy$ ~--- интеграл Эйлера-Пуассона
+                \item Просто рисуем график.
+                    
+                \item $\int\limits^{+\infty}_0 x^{-0.5} e^{-x} dx = 2 \int\limits^{+\infty}_0 e^{-y^2} dy$ ~--- интеграл Эйлера-Пуассона
                 
             \end{enumerate}
     
@@ -2849,33 +2784,43 @@
     
     \section{Изучение сходимости интеграла $\int\limits_{2019}^{\infty}\frac{dx}{x^{\alpha}(\ln x)^{\beta}}$}
     
-        Рассмотрим $\int\limits^{+\infty}_{2019} \frac{dx}{x^{\alpha}}$, $\alpha > 1$ ~--- сходится, $\alpha \leq 1$ ~--- расходится
+        \subsection{Формулировка}
         
-        Случай $\alpha > 1$: $\alpha = 1 + 2a$, $a > 0$, значит сходится
+            Рассмотрим $\int\limits^{+\infty}_{2019} \frac{dx}{x^{\alpha}}$, тогда
+            
+            при $\alpha > 1$ ~--- сходится, $\alpha \leq 1$ ~--- расходится
+            
+        \subsection{Доказательство}
         
-        $\dfrac{1}{x^{\alpha} (\ln {x})^b} = \dfrac{1}{x^{1 + a}} \cdot \dfrac{1}{x^a(\ln{x})^{\beta}} = \dfrac{1}{x^{1 + a}}$
+            Случай $\alpha > 1$: $\alpha = 1 + 2a$, $a > 0$, значит сходится
         
-        $\lim\limits_{x \rightarrow +\infty} \dfrac{1}{x^a (\ln{x})^{\beta}} = 0$
+            $\dfrac{1}{x^{\alpha} (\ln {x})^b} = \dfrac{1}{x^{1 + a}} \cdot \dfrac{1}{x^a(\ln{x})^{\beta}} = \dfrac{1}{x^{1 + a}}$
         
-        Если $\beta \geq 0$, то всё ок. Если $\beta < 0$, то $\lim \dfrac{(\ln{x})^{-\beta}}{x^a} = \left( \lim \dfrac{\ln{x}}{x^{a / -\beta}} \right)^{-\beta} = 0$
+            $\lim\limits_{x \rightarrow +\infty} \dfrac{1}{x^a (\ln{x})^{\beta}} = 0$
         
-        Если $\alpha < 1$, то $\alpha = 1 - 2 \gamma$, $\gamma > 0$ ~--- расходится
+            Если $\beta \geq 0$, то всё ок. Если $\beta < 0$, то $\lim \dfrac{(\ln{x})^{-\beta}}{x^a} = \left( \lim \dfrac{\ln{x}}{x^{a / -\beta}} \right)^{-\beta} = 0$
         
-        $\dfrac{1}{x^{1 - \gamma}} \cdot \dfrac{1}{x^{-\gamma}(\ln{x})^{\beta}} \geq \dfrac{1}{x^{1 - \gamma}}$ ~--- расходится
+            Если $\alpha < 1$, то $\alpha = 1 - 2 \gamma$, $\gamma > 0$ ~--- расходится
         
-        $\alpha = 1$, $\int\limits^{+\infty}_{2019} \dfrac{dx}{x(\ln{x})^{\beta}} = \int\limits^{+\infty}_{2019} \dfrac{dy}{y^{\beta}}$
+            $\dfrac{1}{x^{1 - \gamma}} \cdot \dfrac{1}{x^{-\gamma}(\ln{x})^{\beta}} \geq \dfrac{1}{x^{1 - \gamma}}$ ~--- расходится
         
-        $\beta > 1$ сходится, $\beta \leq 1$ расходится.
+            $\alpha = 1$, $\int\limits^{+\infty}_{2019} \dfrac{dx}{x(\ln{x})^{\beta}} = \int\limits^{+\infty}_{2019} \dfrac{dy}{y^{\beta}}$
+        
+            $\beta > 1$ сходится, $\beta \leq 1$ расходится.
         
     \newpage
     
     \section{Изучение интеграла $\int\limits_1^{\infty} \frac{\sin x\,dx}{x^p}$ на сходимость и абсолютную сходимость}
     
-        При $p > 1$ $\left| \dfrac{\sin{x}}{x^p} \right| \leq \dfrac{1}{x^p}$ ~--- абсолютная сходимость
+        При $p > 1 : \left| \dfrac{\sin{x}}{x^p} \right| \leq \dfrac{1}{x^p}$ ~--- абсолютная сходимость
         
-        При $p \leq 0$ $\int\limits^{2 \pi k + \pi}_{2 \pi k} \dfrac{\sin{x}}{x^p} \geq \int\limits^{2 \pi k + \pi}_{2 \pi k} \sin{x} = 2$, значит интеграл расходится (и абсолютно тоже)
+        При $p \leq 0 : \int\limits^{2 \pi k + \pi}_{2 \pi k} \dfrac{\sin{x}}{x^p} \geq \int\limits^{2 \pi k + \pi}_{2 \pi k} \sin{x} = 2$, значит интеграл расходится (и абсолютно тоже)
         
-        При $0 < p \leq 1$ нет абсолютной сходимости, но есть обычная сходимость $\int\limits^{2 \pi k}_{\pi k} \dfrac{| \sin{x}|}{x^p} dx \geq \int\limits^{2 \pi k}_{\pi k} |\sin {x}| \cdot \dfrac{1}{(2 \pi k)^p} dx = \dfrac{2k}{(2 \pi k)^p} \geq \dfrac{2}{(2 \pi)^p}$ ~--- это мой эпсилон
+        При $0 < p \leq 1$ нет абсолютной сходимости, но есть обычная сходимость:
+        
+        $\int\limits^{+\infty}_1 \dfrac{\sin{x}}{x^p} = \begin{bmatrix} f' = \sin x & f = -\cos x \\ g = \dfrac{1}{x^p} & g' = -p \dfrac{1}{x^{p + 1}} \end{bmatrix} = - \cos{x} \cdot \dfrac{1}{x^p} \bigg|^{+\infty}_1 - p \int\limits^{+\infty}_1 \dfrac{\cos{x}}{x^{p + 1}} dx$ ~--- сходится
+        
+        $\int\limits^{+\infty}_1 \dfrac{|\sin{x}|}{x^p} \geq \int\limits^{+\infty}_1 \dfrac{\sin^2 x}{x^p} = \dfrac{1}{2} \int\limits^{+\infty}_1 \left( \dfrac{1}{x^p} - \dfrac{\cos{2x}}{x^p} \right)$ ~--- расходится,т.к. $\int\limits^{+\infty}_1 \dfrac{1}{x^p}$ расходится, а $\int\limits^{+\infty}_1 \dfrac{\cos{2x}}{x^p}$ сходится.
         
         
     \newpage
@@ -2900,15 +2845,19 @@
             
         \subsection{Доказательство}
         
-            Интегрируем по частям $\int\limits^B_a fg = F(x) g(x) \bigg|^B_a - \int\limits^B_a F(x) g'(x) dx$ ~--- конечен
+            \begin{enumerate}
             
-            $\int\limits^{\rightarrow b}_a \left| F(x) \right| | g'(x) | dx \leq k \int\limits^{\rightarrow b}_a | g'(x) | dx = \pm \int\limits^{\rightarrow b}_a g'(x) = \pm k g(x) \bigg|^b_a$
+                \item Интегрируем по частям $\int\limits^B_a fg = F(x) g(x) \bigg|^B_a - \int\limits^B_a F(x) g'(x) dx$ ~--- конечен
             
-            $\alpha = \lim\limits_{x \rightarrow b- 0} g(x)$
+                $\int\limits^{\rightarrow b}_a \left| F(x) \right| | g'(x) | dx \leq k \int\limits^{\rightarrow b}_a | g'(x) | dx = \pm k \int\limits^{\rightarrow b}_a g'(x) = \pm k g(x) \bigg|^b_a$
             
-            $fg = f \alpha + f(g - \alpha)$
+                \item $\alpha = \lim\limits_{x \rightarrow b- 0} g(x)$, поскольку $g$ ~--- ограниченная и монотонная, значит имеет предел
             
-            $\int fg$ ~--- сходится, $\int\limits^b_a f(g - \alpha)$ ~--- сходится по уже доказанному.
+                $fg = f \alpha + f(g - \alpha)$
+            
+                $\int f \alpha$ ~--- сходится, $\int\limits^b_a f(g - \alpha)$ ~--- сходится по уже доказанному.
+            
+            \end{enumerate}
             
     \newpage
     
@@ -2920,7 +2869,33 @@
             
         \subsection{Доказательство}
         
-            Будет сделано позже
+            $\cos{x} + \cos{2x} + \ldots + \cos{nx} = \dfrac{\sin{(n + 0.5)} x}{2 \sin{0.5 x}} - \dfrac{1}{2}$ (просто запомните это)
+            
+            $2 \sin {\dfrac{x}{2}} \cos{x} + 2 \sin{\dfrac{x}{2}} \cos^2{x} + \ldots = \sin{\left(n + \dfrac{1}{2} \right)}x - \sin{\dfrac{x}{2}}$
+            
+            $\sin {\dfrac{3}{2}x} - \sin {\dfrac{x}{2}} + \left( \sin {\dfrac{5}{2}} x - \sin {\dfrac{3}{2}} x \right) + \ldots = \sin {\left(n + \dfrac{1}{2} \right)x} - \sin {\dfrac{x}{2}}$
+            
+            $0 = \int\limits^{\pi}_0 \cos{x} + \ldots + \cos{nx} \ dx = \int\limits^{\pi}_0 \dfrac{\sin {(n + 0.5)} x}{2 \sin {0.5 x}} - \dfrac{\pi}{2}$
+            
+            Рассмотрим следующие интегралы:
+            
+            $\int\limits^{\pi}_0 \dfrac{\sin{(n + 0.5)}x}{2 \sin {0.5 x}} - \int\limits^{\pi}_0 \dfrac{\sin {(n + 0.5)}x}{x} \rightarrow 0$
+            
+            $\int\limits^{\pi}_0 \sin \left(n + \dfrac{1}{2} \right) x \cdot \left( \dfrac{1}{2 \sin {0.5 x}} - \dfrac{1}{x} \right) dx$
+            
+            Пусть $h(x) = \dfrac{1}{2 \sin {0.5 x}} - \dfrac{1}{x}$, доопределим $h(0)$
+            
+            $h(0) = \lim\limits_{x \rightarrow 0} \dfrac{1}{2 \sin {0.5x}} - \dfrac{1}{x} = \lim\limits_{x \rightarrow 0} \dfrac{x - 2 \sin {0.5 x}}{2 x \sin {0.5 x}}$ и по Тейлору найдём предел
+            
+            $\dfrac{x - 2 \left(0.5 x - 1/6 \cdot x^3/8 + o(x^3) \right)}{x^2 + o(x^2)}$ и $h'(0) = \dfrac{1}{24}$
+            
+            $\int\limits^{\pi}_0 \dfrac{\sin{(n + 0.5)x}}{2 \sin{0.5 x}} - \int\limits^{\pi}_0 \dfrac{\sin {(n + 0.5)x}}{x} = - \dfrac{\cos {(n + 0.5)x}}{n + 0.5} h(x) \bigg|^{\pi}_0 + \int\limits^{\pi}_0 \dfrac{\cos{(n + 0.5)}x}{n + 0.5} \cdot h'(x) \xrightarrow[n \rightarrow +\infty]{} 0$
+            
+            $\int\limits^{\pi}_0 \dfrac{\sin{(n + 0.5)}x}{x} = \int\limits^{(n + 0.5) \pi}_0 \dfrac{\sin{y}}{y} dy$ и при $n \rightarrow +\infty$ заменяем на заданный в условии интеграл. 
+            
+            Итого:
+            
+            $\int\limits^{\pi}_0 \dfrac{\sin {(n + 0.5)x}}{2 \sin 0.5 x} - \dfrac{\pi}{2} = 0$, значит $\int\limits^{+\infty}_0 \dfrac{\sin{y}}{y} dy = \dfrac{\pi}{2}$
             
     \newpage
     
@@ -2956,13 +2931,13 @@
                 
                     \item $\lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} (a_n + b_n) = \lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} a_n + \lim\limits_{N \rightarrow +\infty} \sum\limits^N_{n = 1} b_n$
                     
-                    \item $\sum\limits^{\infty}_{n = 1} \lambda a_n = \lambda \sum\limits^{\infty}_{n = 1}$
+                    \item $\sum\limits^{\infty}_{n = 1} \lambda a_n = \lambda \sum\limits^{\infty}_{n = 1} a_n$
                     
                     \item
                     
                         \begin{itemize}
                         
-                            \item $S_n = \sum\limits^n_{k = 1} a_k = \sum\limits^{m - 1}_{k = 1} a_k + \sum\limits_{k = m}^N a_k$, сумма и первое слагаемое конечное, значит и второе слагаемое конечное.
+                            \item $S_n = \sum\limits^n_{k = 1} a_k = \sum\limits^{m - 1}_{k = 1} a_k + \sum\limits_{k = m}^N a_k$, сумма и первое слагаемое конечна, значит и второе слагаемое конечное.
                             
                             \item Аналогично предыдущему
                             
@@ -2996,7 +2971,7 @@
             
                 По определению сходимость ряда $\sum\limits^{\infty}_{k = 1} a_k$ равносильна сходимости последовательности $S_n = \sum\limits^n_{k = 1} a_k$. Воспользуемся критерием Больцано-Коши для последовательностей 
                 
-                $$\forall \varepsilon > 0 : \exists N \in \mathbb{N} : \forall n, m > N |S_m - S_n| < \varepsilon$$
+                $$\forall \varepsilon > 0 : \exists N \in \mathbb{N} : \forall n, m > N : |S_m - S_n| < \varepsilon$$
                 
                 Не умаляя общности можно считать, что $m > n$. Остаётся переобозначить $m = n + p$, где $p \in \mathbb{N}$ и заметить, что $S_m - S_n = \sum\limits^{n+p}_{k = n + 1} a_k$
                 
@@ -3052,11 +3027,9 @@
                         
                         $a_k \leq c b_k \Rightarrow S_n^{(a)} \leq c \cdot S^{(b)}_n$
                         
-                        $\sum a_k$ расходится $\Rightarrow A^{(a)}_n$ не ограничено сверху, значит и $S^{(b)}_n$ тоже не ограничено сверху
+                        $\sum a_k$ расходится $\Rightarrow S^{(a)}_n$ не ограничено сверху, значит и $S^{(b)}_n$ тоже не ограничено сверху
                         
-                        Аналогично со сходимостью
-                        
-                    \item Следует из первой случаи $l = 0$ и $l = +\infty$
+                    \item Следует из первого случаи $l = 0$ и $l = +\infty$
                     
                         $0 < l < +\infty$. По определению предела
                         
@@ -3086,7 +3059,7 @@
         
             \begin{enumerate}
             
-                \item $k_n \geq q \Leftrightarrow a_n \geq q^n$ при $n \rightarrow +\infty$, а $q^n$ ~--- сходится, значит и $\sum a_n$ ~--- сходится
+                \item $k_n \leq q \Longleftrightarrow a_n \leq q^n$ при $n \rightarrow +\infty$, а $q^n$ ~--- сходится, значит и $\sum a_n$ ~--- сходится
                 
                 \item $a_n \geq 1$ ~--- верно для бесконечного числа $n$, значит $\exists n_k$, что $\lim a_{n_k} \neq 0$, значит $\sum a_n$ расходится.
                 
@@ -3136,7 +3109,7 @@
             
                 \item $\exists q < 1$ начиная с некоторого места $D_n \leq q$, значит $\sum a_n$ сходится
                 
-                \item $D_n \geq 1$ начиная с некоторого места $\sum a_n$ расходится
+                \item $D_n \geq 1$ начиная с некоторого места, значит $\sum a_n$ расходится
                 
             \end{enumerate}
             
@@ -3168,7 +3141,7 @@
                     
                     $\dfrac{a_{N + k}}{a_{N + k - 1}} < q$
                     
-                    $a_{N + k} < q^k \cdot a-{N_0}$ ~--- сходится
+                    $a_{N + k} < q^k \cdot a_{N_0}$ ~--- сходится
                     
                     Значит $a_n$ сходится
                     
@@ -3257,23 +3230,25 @@
             
         \subsection{Доказательство}
         
-            Ряд сходится, значит $S^{(f)}_n$ ~--- ограничена сверху
+            \begin{itemize}
             
-            Тогда $\Phi(A) = \int\limits^A_1 f(x) dx$ ~--- ограничена сверху
+            \item Ряд сходится, значит $S^{(f)}_n$ ~--- ограничена сверху
             
-            $S^{(f)}_n \leq S$
+                Тогда $\Phi(A) = \int\limits^A_1 f(x) dx$ ~--- ограничена сверху
             
-            $\Phi(A) < \Phi([A] + 1) = \int\limits^{[A] + 1}_1 f(x) dx = \sum\limits^{[A]}_{k = 1} \int\limits^{k + 1}_k f(x)dx \leq \sum \int\limits^{k + 1}_k f(x) dx = \sum\limits^{[A]}_{k = 1} f(x) \leq S$
+                $S^{(f)}_n \leq S$
             
-            Интеграл сходится, значит и ряд сходится
+                $\Phi(A) < \Phi([A] + 1) = \int\limits^{[A] + 1}_1 f(x) dx = \sum\limits^{[A]}_{k = 1} \int\limits^{k + 1}_k f(x)dx \leq \sum \int\limits^{k + 1}_k f(k) dx = \sum\limits^{[A]}_{k = 1} f(k) \leq S$
             
-            $\Phi(A) \leq S$
+            \item Интеграл сходится, значит и ряд сходится
             
-            Проверим, что $S_n \leq S + f(1)$
+                $\Phi(A) \leq S$
             
-            $S_n = \sum\limits^n_{k = 1} f(k) = f(1) + \sum\limits^n_{k = 2} \int\limits^k_{k - 1} f(k) dx \leq f(1) \sum\limits^n_{k = 2} \int\limits^k_{k - 1} f(x) dx = f(1) + \int\limits^n_1 f(x) dx \leq f(1) + S$
+                Проверим, что $S_n \leq S + f(1)$
             
-            $\sum\limits^{+\infty}_{n = 2} \dfrac{1}{n^a (\ln n)^b}$ ~--- сходство одновременно с $\int\limits^{+\infty}_2 \dfrac{dx}{x^a(\ln{x})^b}$ (уже изучали)
+                $S_n = \sum\limits^n_{k = 1} f(k) = f(1) + \sum\limits^n_{k = 2} \int\limits^k_{k - 1} f(k) dx \leq f(1) + \sum\limits^n_{k = 2} \int\limits^k_{k - 1} f(x) dx = f(1) + \int\limits^n_1 f(x) dx \leq f(1) + S$
+                
+            \end{itemize}
             
     \newpage
     
@@ -3285,7 +3260,9 @@
             
         \subsection{Доказательство}
         
-            $S_{2n} = (a_1 - a_2) + (a_3 - a_4) + \ldots + (a_{2n - 1} - a_{2n})$, $S_{2n + 2} = S_{2n} + a_{2n + 1} - a_{2n + 2} \geq S_{2n}$
+            $S_{2n} = (a_1 - a_2) + (a_3 - a_4) + \ldots + (a_{2n - 1} - a_{2n})$
+            
+            $S_{2n + 2} = S_{2n} + a_{2n + 1} - a_{2n + 2} \geq S_{2n}$
             
             $S_{2n} \leq a_1$, $S_{2n} = a_1 - (a_2 - a_3) - \ldots (a_{2n - 2} - a_{2n - 1}) - a_{2n}$
             
@@ -3319,13 +3296,13 @@
                 
                 Из того, что $A_n$ ограничена, а $b_n$ бесконечна мала, следует, что $A_n b_n \rightarrow 0$, поэтому сходимость эквивалентна сходимости ряда $\sum\limits^{\infty}_{k = 1} A_k (b_k - b_{k + 1})$
                 
-                $\sum\limits^{n - 1}_{k = 1} \left| A_k (b_k - b_{k + 1}) \right| \leq c_a \sum\limits^{n - 1}_{k = 1} \left| b_k - b_{k + 1} \right| = c_a |b_1 \cdot b_n|$ ~--- ограничена
+                $\sum\limits^{n - 1}_{k = 1} \left| A_k (b_k - b_{k + 1}) \right| \leq c_a \sum\limits^{n - 1}_{k = 1} \left| b_k - b_{k + 1} \right| = c_a |b_1 - b_n|$ ~--- ограничена
                 
             \subsubsection{Абеля}
             
                 Существует конечный $\lim\limits_{n \rightarrow +\infty} b_n = \beta$
                 
-                $\sum a_k b_k = \sum a_k \beta + \sum a_k (b_k - \beta)$
+                $\sum a_k b_k = \sum a_k \beta + \sum a_k (b_k - \beta)$, первое сходится в силу сходимость $\sum a_k$, а второе сходится в силу признака Дирихле
                 
     \newpage
     
@@ -3335,7 +3312,7 @@
         
             \begin{enumerate}
             
-                \item Пусть $a_n > 0$ НСНМ. Тогда равносильность $\prod\limits (1 + a_n)$ ~--- сходится $\Leftrightarrow \sum a_n$ ~--- сходится
+                \item Пусть $a_n > 0$ НСНМ. Тогда равносильность $\prod\limits (1 + a_n)$ ~--- сходится $\Longleftrightarrow \sum a_n$ ~--- сходится
                 
                 \item Пусть $\sum a_n$ ~--- сходится, а также $\sum a^2_n$ ~--- тоже сходится. Тогда $\prod (1 + a_n)$ ~--- сходится
                 
@@ -3345,7 +3322,7 @@
         
             \begin{enumerate}
             
-                \item $\prod$ ~--- сходится $\Leftrightarrow \sum \ln |1 + a_n| $~--- сходится $\Leftrightarrow \sum a_n$ ~--- сходится. НСНМ $\ln |1 + a_n| ~ a_n$ при $n \rightarrow +\infty$
+                \item $\prod$ ~--- сходится $\Leftrightarrow \sum \ln |1 + a_n| $~--- сходится $\Leftrightarrow \sum a_n$ ~--- сходится. НСНМ $\ln |1 + a_n| \sim a_n$ при $n \rightarrow +\infty$
                 
                 \item $\prod$ сходится $\Leftrightarrow \sum \ln (1 + a_n)$ сходится
                 
@@ -3365,13 +3342,13 @@
         
             \subsubsection{Формулировка}
             
-                $\Pi(n, x) = \int\limits^n_0 \left(1 - \dfrac{t}{n} \right)^n t^{x - 1} dt$
+                $\Pi(n, x) = \int\limits^n_0 \left(1 - \dfrac{t}{n} \right)^n t^{x - 1} dt$, где $x > 0$
                 
                 Тогда $\Pi(n, x) = \dfrac{1 \cdot 2 \cdot \ldots \cdot n}{x(x + 1)\ldots(x+n)} \cdot n^x$
                 
             \subsubsection{Доказательство}
             
-                $\Pi(n, x) = n^x \int\limits^1_0 (1 - s)^n \cdot s^{x - 1} ds = n^x \left(  (1 - s)^n \cdot \dfrac{s}{x} \bigg|^{s = 1}_{s = 0} + \dfrac{n}{x} \int\limits^1_0 (1 - s)^{n - 1} \cdot s^x ds \right) = n^x \cdot \dfrac{n}{x} \int\limits^1_0 (1 - s)^{n - 1} s^x ds = n^x \cdot \dfrac{n}{x} \cdot (n - 1) \int\limits^1_0 (1 - s)^{n - 2} s^{x - 1} ds = \ldots$ получаем то, что хотели
+                $\Pi(n, x) = n^x \int\limits^1_0 (1 - s)^n \cdot s^{x - 1} ds = n^x \left(  (1 - s)^n \cdot \dfrac{s^x}{x} \bigg|^{s = 1}_{s = 0} + \dfrac{n}{x} \int\limits^1_0 (1 - s)^{n - 1} \cdot s^x ds \right) = n^x \cdot \dfrac{n}{x} \int\limits^1_0 (1 - s)^{n - 1} s^x ds = n^x \cdot \dfrac{n}{x} \cdot \dfrac{n - 1}{x + 1} \cdot \int\limits^1_0 (1 - s)^{n - 2} s^{x - 1} ds = \ldots$ получаем то, что хотели
                 
         \subsection{Лемма 2}
         
@@ -3379,11 +3356,11 @@
             
                 При $0 \leq t \leq n$ 
                 
-                $0 \leq e^{-t} - \left(1 - \dfrac{t}{n} \right)^n \leq \dfrac{1}{n}t^2e^t$
+                $0 \leq e^{-t} - \left(1 - \dfrac{t}{n} \right)^n \leq \dfrac{1}{n} t^2 e^{-t}$
                 
             \subsubsection{Доказательство}
             
-                $(1 + y) \leq e^yleq (1 - y)^{-1}$, $y \in [0, 1]$ в силу выпуклости $e^x$
+                $(1 + y) \leq e^y \leq (1 - y)^{-1}$, $y \in [0, 1]$ в силу выпуклости $e^x$
                 
                 $e^y \geq 1 + y$
                 
@@ -3393,7 +3370,9 @@
                 
                 $\left( 1 + \dfrac{t}{n} \right)^{-n} \geq e^{-t} \geq \left(1 - \dfrac{t}{n} \right)^n$
                 
-                $0 \leq e^{-t} - \left( 1 - \dfrac{t}{n} \right)^n = e^{-t} \left(1 - e^t \left(1 - \dfrac{t}{n} \right)^n \right) \leq e^{-t} \left(1 - \left(1 + \dfrac{t}{n} \right)^n \left( 1 - \dfrac{t}{n}\right)^n\right) = e^{-t} \left(1 - \left(1 - \dfrac{t^2}{n^2} \right)^n \right) \leq \dfrac{1}{n} t^2 e^{-t}$ (это неравенство Бернулли)
+                $0 \leq e^{-t} - \left( 1 - \dfrac{t}{n} \right)^n = e^{-t} \left(1 - e^t \left(1 - \dfrac{t}{n} \right)^n \right) \leq e^{-t} \left(1 - \left(1 + \dfrac{t}{n} \right)^n \left( 1 - \dfrac{t}{n}\right)^n\right)$
+                
+                $e^{-t} \left(1 - \left(1 - \dfrac{t^2}{n^2} \right)^n \right) \leq \dfrac{t^2}{n} e^{-t}$ (это неравенство Бернулли)
                 
                 
     \newpage
@@ -3402,13 +3381,15 @@
     
         \subsection{Формулировка}
         
-            При $x > 0$ $\lim\limits_{n \rightarrow +\infty} \dfrac{1 \cdot 2 \cdot \ldots \cdot n}{x(x+1)\ldots(x+n)} \cdot n^x = \Gamma(x)$
+            При $x > 0$ верно, что
+            
+            $$\lim\limits_{n \rightarrow +\infty} \dfrac{1 \cdot 2 \cdot \ldots \cdot n}{x(x+1)\ldots(x+n)} \cdot n^x = \Gamma(x)$$
             
         \subsection{Доказательство}
         
             $\Gamma(x) - \lim\limits_{n \rightarrow +\infty} \Pi(n, x) = \lim\limits_{n \rightarrow +\infty} \left( \int\limits^n_0 \left(e^{-t} - \left(1 - \dfrac{t}{n} \right)^n \right) t^{x - 1} dt + \int\limits^{+\infty}_n t^{x - 1} e^{-t} dt \right)$
             
-            $\int\limits^{+\infty}_n e^{-t} t^{x - 1} dt \rightarrow 0$, $n \rightarrow +\infty$
+            $\int\limits^{+\infty}_n e^{-t} t^{x - 1} dt \xrightarrow[n \rightarrow +\infty]{} 0$
             
             $\int\limits^n_0 \dfrac{1}{n} e^{-t} t^2 t^{x - 1} dt \leq \dfrac{1}{n} \int\limits^{+\infty}_0 t^{x + 1}e^{-t}dt \rightarrow 0$
             
@@ -3424,29 +3405,26 @@
             
         \subsection{Доказательство}
         
-            $\dfrac{1}{\Gamma(x)} = \lim\limits_{n \rightarrow +\infty} n^{-x} \dfrac{x(x+1)\ldots(x+n)}{1 \cdot 2 \ldots \cdot n} = \lim\limits_{n \rightarrow +\infty} \left( n^{-x} \cdot x \dfrac{x + 1}{1} \dfrac{x + 2}{2} \ldots \dfrac{x + n}{n} \right) = \lim\limits_{n \rightarrow +\infty} x \cdot n^{-x} \cdot \prod^n_{k = 1} \left( 1 + \frac{x}{k} \right) = \lim\limits_{n \rightarrow +\infty} x e^{x \left(1 + \frac{1}{2} + \ldots + \frac{1}{n} \right)} \cdot e^{-x \ln n} \prod^n_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\frac{x}{k}} = x \cdot e^{\gamma} \prod^{+\infty}_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\frac{x}{k}}$
-            
-            $\left(1 + \frac{x}{k} \right) e^{-\frac{x}{k}} = \left(1 + \dfrac{x}{k} \right) \left( 1 - \dfrac{x}{k} + o \left(\dfrac{1}{k^2} \right) \right) = 1 - \dfrac{x^2}{k^2} + o\left(\dfrac{1}{x^3} \right)$
+            $\dfrac{1}{\Gamma(x)} = \lim\limits_{n \rightarrow +\infty} n^{-x} \dfrac{x(x+1)\ldots(x+n)}{1 \cdot 2 \ldots \cdot n} = \lim\limits_{n \rightarrow +\infty} \left( n^{-x} \cdot x \cdot \dfrac{x + 1}{1} \cdot \dfrac{x + 2}{2} \cdot \ldots \cdot \dfrac{x + n}{n} \right) = \lim\limits_{n \rightarrow +\infty} x \cdot n^{-x} \cdot \prod^n_{k = 1} \left( 1 + \frac{x}{k} \right) = \lim\limits_{n \rightarrow +\infty} x e^{x \left(1 + \frac{1}{2} + \ldots + \frac{1}{n} \right)} \cdot e^{-x \ln n} \prod^n_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\frac{x}{k}} = x \cdot e^{\gamma x} \prod^{+\infty}_{k = 1} \left( 1 + \dfrac{x}{k} \right) e^{-\frac{x}{k}}$
             
     \newpage
     
     \section{Вычисление произведений с рациональными сомножителями}
-    
-        \subsection{Формулировка}
+
+        Пусть $u_n = A \cdot \dfrac{(n + a_1) (n + a_2) \cdot (n + a_k)}{(n + b_1) (n + b_2) \ldots (n + b_l)}$, где $a_i$ и $b_i \in \mathbb{Q}$. Хотим найти $\prod\limits^{+\infty}_{i = 1} u_i$. Самый интересный случай, это то, что произведение сходится, тогда $u_n \rightarrow 1$, а значит $k = l$ и $A = 1$
+
+        $u_n = \dfrac{ \left(1 + \frac{a_1}{n} \right) \left(1 + \frac{a_2}{n} \right) \ldots \left(1 + \frac{a_k}{n} \right)}{\left(1 + \frac{b_1}{n} \right) \left(1 + \frac{b_2}{n} \right) \ldots \left( 1 + \frac{b_k}{n} \right)}$ и при $n \rightarrow +\infty$
         
-            Пусть $\sum\limits^k_{i = 1} a_i = \sum\limits^k_{i = 1} b_i$
-            
-            $\prod\limits^{+\infty}_{n = 1} \dfrac{\left( 1 + \dfrac{a_1}{n} \right) \left(1 + \dfrac{a_2}{n} \right) \ldots \left( 1 + \dfrac{a_k}{n} \right)}{\left (1 + \dfrac{b_1}{n} \right) \left(1 + \dfrac{b_2}{n} \right) \ldots \left(1 + \dfrac{b_k}{n} \right)} = \dfrac{\Gamma(1 + b_1) \ldots \Gamma(1 + b_k)}{\Gamma(1 + a_1) \ldots \Gamma(1 + a_k)}$
-            
-            Фиг его знает, что тут хочет Кохась
-            
+        $\prod\limits^{+\infty}_{n = 1} \dfrac{ \left(1 + \frac{a_1}{n} \right) \left(1 + \frac{a_2}{n} \right) \ldots \left(1 + \frac{a_k}{n} \right)}{\left(1 + \frac{b_1}{n} \right) \left(1 + \frac{b_2}{n} \right) \ldots \left( 1 + \frac{b_k}{n} \right)} = \prod\limits^{+\infty}_{n = 1} \dfrac{ \left(1 + \frac{a_1}{n} \right) e^{-\frac{a_1}{n}} \left(1 + \frac{a_2}{n} \right) e^{-\frac{a_2}{n}} \ldots \left(1 + \frac{a_k}{n} \right) e^{-\frac{a_k}{n}}}{\left(1 + \frac{b_1}{n} \right) e^{-\frac{b_1}{n}} \left(1 + \frac{b_2}{n} \right) e^{-\frac{b_2}{n}} \ldots \left( 1 + \frac{b_k}{n} \right) e^{-\frac{b_k}{n}}} = \prod\limits^{+\infty}_{i = 1} \dfrac{\frac{1}{\Gamma (a_1) a_1 e^{\gamma a_1}} \cdot \ldots \cdot \frac{1}{\Gamma (a_k) a_k e^{\gamma a_k}}}{\frac{1}{\Gamma (b_1) b_1 e^{\gamma b_1}} \cdot \ldots \cdot \frac{1}{\Gamma (b_k) b_k e^{\gamma b_k}}} = \prod\limits^{+\infty}_{i = 1} \dfrac{\Gamma (1 + b_1) \ldots \Gamma (1 + b_k)}{\Gamma (1 + a_1) \ldots \Gamma(1 + a_k)}$
+        
+        
     \newpage
     
     \section{Теорема о группировке слагаемых}
     
         \subsection{Формулировка}
         
-            Выберем $n_0 = 1 < n_1 < n_2 < \ldots$
+            Выберем $n_0 = 0 < n_1 < n_2 < \ldots$
             
             Пусть $\sum a_k = (a_1 + a_2 + \ldots + a_{n_1}) + (a_{n_1 + 1} + \ldots + a_{n_2}) + \ldots$
             
@@ -3482,17 +3460,31 @@
     
         \subsection{Формулировка}
         
-            Пусть ряд $\sum a_n$ абсолютно сходится, тогда ряд $\sum b_n$, полученный из ряда $\sum a_n$ перестановкой, будет также абсолютно сходиться и иметь ту же сумму.
+            \begin{enumerate}
             
-            Также если $a_k \geq 0$ при всех $k$, то $\sum a_k = \sum b_k$
+                \item Пусть ряд $\sum a_n$ абсолютно сходится, тогда ряд $\sum b_n$, полученный из ряда $\sum a_n$ перестановкой, будет также абсолютно сходиться и иметь ту же сумму.
+            
+                \item Также если $a_k \geq 0$ при всех $k$, то $\sum a_k = \sum b_k$
+                
+            \end{enumerate}
             
         \subsection{Доказательство}
         
-            По определению $S_n^{(b)} = a_{\varphi(1)} + \ldots + a_{\varphi(n)} \leq S^{(a)}_{\max \varphi(i)}$. Устремим $n \rightarrow +\infty$, $S^{(b)} \leq S^{(a)}$. Аналогично $S^{(a)} \leq S^{(b)}$. Берём срезки $a_n^+$, $a_n^-$, $\sum a_n^+$, $\sum a_n^-$ ~--- сходятся.
+            \begin{etaremune}
             
-            $a^+_n = \max(a^+_n, 0)$, $\sum b^+_n$ ~--- перестановка ряда $a^+_n$
+                \item По определению $S_n^{(b)} = a_{\varphi(1)} + \ldots + a_{\varphi(n)} \leq S^{(a)}_{\max \varphi(i)}$. Устремим $n \rightarrow +\infty$, $S^{(b)} \leq S^{(a)}$. Аналогично $S^{(a)} \leq S^{(b)}$. 
             
-            $a^-_n = \max(-a^-_n, 0$. Аналогично $\sum b^-_n$
+                \item Берём срезки $a_n^+$ и $a_n^-$, тогда $\sum a_n^+$, $\sum a_n^-$ ~--- сходятся.
+            
+                    $a^+_n = \max(a^+_n, 0)$, $\sum b^+_n$ ~--- перестановка ряда $a^+_n$
+            
+                    $a^-_n = \max(-a^-_n, 0)$. Аналогично $\sum b^-_n$
+                
+                    И по второму пункту всё доказали
+                    
+            \end{etaremune}
+            
+            P.S. доказательство идёт в обратном порядке
             
     \newpage
     
@@ -3504,9 +3496,11 @@
             
         \subsection{Доказательство}
         
-            Пусть $\sum |a_k| = A$, $\sum |b_k| = B$, $(A, B \in \mathbb{R})$. $\sum\limits^N_{k = 1} |a_{\varphi(k)} b_{\psi(k)}| \leq \sum\limits^n_{k = 1} |a_n| \sum\limits^m_{k = 1} |b_k| \leq A \cdot B$, где $n := \max(\varphi(1), \ldots, \varphi(N))$, $m = \max(\psi(1), \ldots, \psi(N))$
+            Пусть $\sum |a_k| = A$ и $\sum |b_k| = B$, тогда
             
-            Значит ряд $\sum\limits^N_{k = 1} |a_{\varphi(k)} b_{\psi(k)}|$ ~--- сходится, значит произведение рядов абсолютно сходится
+            $\sum\limits^N_{k = 1} |a_{\varphi(k)} b_{\psi(k)}| \leq \sum\limits^n_{k = 1} |a_n| \sum\limits^m_{k = 1} |b_k| \leq A \cdot B$, где $n := \max(\varphi(1), \ldots, \varphi(N))$, $m = \max(\psi(1), \ldots, \psi(N))$
+            
+            Значит ряд $\sum\limits^N_{k = 1} |a_{\varphi(k)} b_{\psi(k)}|$ ~--- сходится, значит произведение рядов абсолютно сходится, значит его сумма не зависит от порядка слагаемых, следовательно не зависит и от выбора $\gamma$
             
     \newpage
     
@@ -3525,6 +3519,10 @@
             $F(a + tu) = F(a) + L(tu) + o(tu)$
             
             $F(a + tu) = F(a) + t \cdot L(u) + o(t)$
+            
+            $L(u) = \dfrac{F(a + tu) - F(a)}{t} - \dfrac{o(t)}{t}$
+            
+            $L(u) = \lim\limits_{t \rightarrow 0} \dfrac{F(a + tu) - F(a)}{t}$
             
     \newpage
     
@@ -3546,7 +3544,37 @@
             
         \subsection{Доказательство}
         
-            Будет написано позже когда-нибудь перед экзаменами возможно наверняка да навряд ли
+            \begin{enumerate}
+            
+                \item 
+                    
+                    \begin{itemize}
+                    
+                        \item $\Rightarrow)$
+                        
+                            Пусть $F$ дифференцируема в точке $a$. Тогда для каждой координатной функции должно выполняться следующее равенство:
+                            
+                            $f_i(x + h) = f_i(x) + A_ih + \alpha_i(h) |h|$ для всех $i$
+                            
+                            т.к. координатные функции линейного оператора $A$ являются линейными, а также непрерывность и равенство нулю в нуле отображения $\alpha$ равносильно такому же свойству его координатных функций, итого получили, что $f_i$ дифференцируема в точке $a_i$
+                            
+                        \item $\Leftarrow)$
+                        
+                            Пусть все $f_i$ дифференцируемы в точке $a$. Тогда для каждого $i$ существует линейная функция $A_i$ и функция $\alpha_i$, непрерывная и равная нулю в нуле, для которых справедливо равенство. Значит для $f$ также выполняется равенство
+                            
+                            $f(x + h) = f(x) + Ah + \alpha(h) |h|$
+                            
+                    \end{itemize}
+                    
+                \item
+                
+                    Распишем $F(x) = F(a) + F'(a)(x - a) + \alpha(x) |x - a|$
+                    
+                    $\begin{pmatrix} F_1(x) \\ F_2(x) \\ \vdots \\ F_l(x) \end{pmatrix} = \begin{pmatrix} F_1(a) \\ F_2(a) \\ \vdots \\ F_l(a) \end{pmatrix} + \begin{pmatrix} \lambda_{11} & \lambda_{12} & \ldots & \lambda_{1m} \\ \lambda_{21} & \lambda_{22} & \ldots & \lambda_{2m} \\ \ldots & \ldots & \ldots & \ldots \\ \lambda_{l1} & \lambda_{l2} & \ldots & \lambda_{lm} \end{pmatrix} \begin{pmatrix} x_1 - a_1 \\ x_2 - a_2 \\ \vdots \\ x_m - a_m \end{pmatrix} + \begin{pmatrix} \varphi_1(x) \\ \varphi_2(x) \\ \vdots \\ \varphi_m(x) \end{pmatrix} |x - a|$
+                    
+                    Откуда и получаем требуемое условие
+                    
+            \end{enumerate}
 
     \newpage
     
@@ -3564,9 +3592,15 @@
         
             $f(a + h) = f(a) + L \cdot h + \alpha(h) \cdot |h|$
             
-            $f(a + t \cdot e_k) = f(a) + e_k \cdot t + \alpha(t \cdot e_k) |t|$
+            Пусть $t \in \mathbb{R}$, 
             
-            $l_{k_m} = \varphi'_k (a_k) = \dfrac{\partial f}{\partial_{x_k}} (a_k)$
+            $e_k = (0, 0, \ldots, 1, \ldots, 0)$, где $1$ находится на $k$-ом месте.
+            
+            Тогда $h_k := t \cdot e_k$
+            
+            $f(a + t \cdot e_k) = f(a) + l_k \cdot t + \alpha(t \cdot e_k) |t|$, где $l_k$ ~--- строка матрицы Якоби функции $F$.
+            
+            $l_k = \varphi'_k (a_k) = \dfrac{\partial f}{\partial_{x_k}} (a_k)$
             
     \newpage
     
@@ -3586,7 +3620,15 @@
             
             $a = (a_1, a_2)$, $x = (x_1, x_2)$
             
-            $f(x_1, x_2) - f(a_1, a_2) = \left( f(x_1, x_2) - f(a_1, x_2) \right) + \left(f(a_1, x_2) - f(a_1, a_2) \right) = f'_{x_1} (\overline{x_1}, x_2)(x_1 - a_1) + f'_{x_2}(x_1, \overline{x_2})(x_2 - a_2) = f'_{x_1}(a_1, a_2)(x_1 - a_1) + f'_{x_2} (a_1, a_2)(x_2 - a_2) + (f'_{x_1}(\overline{x_1}, x_2) - f'_{x_1}(a_1, a_2))(x_1 - a_1) + (f'_{x_2}(a, \overline{x_2}) - f'_{x_2}(a_1, a_2)(x_2 - a_2)$
+            $f(x_1, x_2) - f(a_1, a_2) = \left( f(x_1, x_2) - f(a_1, x_2) \right) + \left(f(a_1, x_2) - f(a_1, a_2) \right) =$ 
+            
+            По теореме Лагранжа $f(b) - f(a) = f'(c) (b - a)$, значит
+            
+            $= f'_{x_1} (\overline{x_1}, x_2)(x_1 - a_1) + f'_{x_2}(x_1, \overline{x_2})(x_2 - a_2) = f'_{x_1}(a_1, a_2)(x_1 - a_1) + f'_{x_2} (a_1, a_2)(x_2 - a_2) + (f'_{x_1}(\overline{x_1}, x_2) - f'_{x_1}(a_1, a_2))(x_1 - a_1) + (f'_{x_2}(a, \overline{x_2}) - f'_{x_2}(a_1, a_2))(x_2 - a_2) \rightarrow 0$ при $(x_1, x_2) \rightarrow (a_1, a_2)$, поскольку
+            
+            Пусть $\alpha(h) |h| = (f'_{x_1}(\overline{x_1}, x_2) - f'_{x_1}(a_1, a_2))(x_1 - a_1) + (f'_{x_2}(a, \overline{x_2}) - f'_{x_2}(a_1, a_2))(x_2 - a_2)$, где $|h| = \sqrt{(x_1 - a_1)^2 + (x_2 - a_2)^2}$
+            
+            Тогда в качестве примера рассмотрим первое слагаемое $(f'_{x_1}(\overline{x_1}, x_2) - f'_{x_1}(a_1, a_2)) \cdot \dfrac{x_1 - a_1}{|h|}$, которое стремится к нулю, поскольку первый множитель стремится к нулю при $(x_1, x_2) \rightarrow (a_1, a_2)$, а второй множитель не превосходит по модулю $1$.
             
     \newpage
     
@@ -3600,7 +3642,7 @@
             
         \subsection{Доказательство}
         
-            $\left| A_x \right|^2 = \sum\limits^l_{i = 1} \left( \sum\limits^m_{j = 1} a_{ij} x_j \right)^2 \leq \sum\limits^l_{i = 1} \left( \left( \sum\limits^m_{j = 1} a_{ij}^2 \right) \left( \sum\limits^m_{j = 1} x_j^2 \right) \right) = |x|^2 \sum\limits^l_{i = 1} \sum\limits^m_{j = 1} a_{ij}^2$
+            $\left| Ax \right|^2 = \sum\limits^l_{i = 1} \left( \sum\limits^m_{j = 1} a_{ij} x_j \right)^2 \leq \sum\limits^l_{i = 1} \left( \left( \sum\limits^m_{j = 1} a_{ij}^2 \right) \left( \sum\limits^m_{j = 1} x_j^2 \right) \right) = |x|^2 \sum\limits^l_{i = 1} \sum\limits^m_{j = 1} a_{ij}^2$
             
             Это КБШ
             
@@ -3618,13 +3660,17 @@
             
         \subsection{Доказательство}
         
-            $F(a + h) = F(a) + F'(a)h + \alpha(h) |h|$
+            $F(a + h) = F(a) + F'(a)h + \alpha(h) |h|$, пусть $k = F'(a)h + \alpha(h) |h|$.
             
-            $G(b + k) = G(b) + G'(b)k + \beta(k) |k|$
+            $G(b + k) = G(b) + G'(b)k + \beta(k) |k|$, где $b = F(a)$.
             
-            $G(F(a + h)) = G(b) + G'(b) (F'(a)h + \alpha(h)|h|) + \beta(k) |k|$
+            $G(F(a + h)) = G(b) + G'(b) (F'(a)h + \alpha(h)|h|) + \beta(k) |k| =$
             
-            $G(F(a)) + G'(F(a)) \cdot F'(a)h + G'(b)\alpha(h)|h| + \beta(k) |k|$, где $G'(b)\alpha(h)|h| + \beta(k)|k| = o(h)$
+            $= G(F(a)) + G'(F(a)) \cdot F'(a)h + G'(b)\alpha(h)|h| + \beta(k) |k|$, где $G'(b)\alpha(h)|h| + \beta(k)|k| = o(h)$
+            
+            $G'(b)\alpha(h) |h| \leq \left| G'(b) \alpha(h) |h| \right| \leq C_{G'(b)} \left| \alpha(h) |h| \right| = C_{G'(b)} |\alpha(h)| |h|$ ~--- бесконечно малое
+            
+            $\left| \beta(k) \left| F'(a) h + \alpha(h) |h| \right| \right| \leq |\beta(k)| \left( \left| F'(a) h \right| + |\alpha(h)| |h| \right) = \left( |\beta(k)| \left| F'(a) \cdot \dfrac{h}{|h|} \right| + |\alpha(h)| \right) |h|$ ~--- тоже бесконечно малое.
             
     \newpage
     
@@ -3644,7 +3690,17 @@
             
         \subsection{Доказательство}
         
-            Будет написано позже
+            \begin{enumerate}
+            
+                \item Пусть $F = (f_1, f_2, \ldots, f_m)$, тогда $\lambda F = (\lambda f_1, \lambda f_2, \ldots, \lambda f_m)$
+                
+                    Рассмотрим $i$-ую строчку матрица Якоби: $((\lambda F)'(a)) = ((\lambda f_i)'_{x_1} (a), \ldots, (\lambda f_i)'_{x_m} (a))$
+                    
+                    $\lambda (a + h) f_i (a + h) - \lambda (a) f_i(a) = (\lambda (a) + \lambda'(a) h + \alpha(h) |h|)(f_i(a) + f'_i(a)h + \beta(h) |H|) - \lambda(a) f_i(a) = (\lambda'(a) h)f_i(a) + \lambda(a)(f'_i(a)h) + (\lambda'(a)h)(f'_i(a)h) + \alpha(h) |h| f_i(a) + \ldots$, всё, кроме $(\lambda'(a) h)f_i(a) + \lambda(a)(f'_i(a)h)$ бесконечно малое.
+                    
+                \item $\langle F, G \rangle'(a)h = \left(\sum\limits_{i = 1}^l f_i g_i \right)'(a)h = \sum\limits^l_{i = 1} (f_i g_i)'(a) h = \sum f'_i(a) h \cdot g_i(a) + f_i(a) g'_i(a)h$ ~--- что и требовалось
+                
+            \end{enumerate}
             
     \newpage
     
@@ -3655,5 +3711,440 @@
             Пусть $F: [a, b] \rightarrow \mathbb{R}^l$ ~--- непрерывна на $[a, b]$, дифференцируема на $[a, b]$. Тогда
             
             $\exists c \in (a, b) : \left| F(b) - F(a) \right| \leq \left| F'(c) \right| \cdot |b - a|$
+            
+        \subsection{Доказательство}
+        
+            Пусть $\varphi(t) := \langle F(b) - F(a), F(t) - F(a) \rangle$, $t \in [a, b]$
+            
+            $\varphi(a) = 0$, $\varphi(b) = |F(b) - F(a)|^2$, $\varphi'(t) = \langle F(b) - F(a), F'(t) \rangle$
+            
+            Теорема Лагранжа для $\varphi$
+            
+            $\varphi(b) - \varphi(a) = \varphi'(c)(b - a)$
+            
+            $\left| F(b) - F(a) \right|^2 = \langle F(b) - F(a), F'(c) \rangle(b - a) \leq \left| F(b) - F(a) \right| \left| F'(c) \right|(b - a)$
+            
+            Для $F(b) = F(a)$ неравенство тривиально, пусть $F(b) \neq F(a)$, тогда сократим
+            
+            $\left| F(b) - F(a) \right| \leq \left| F'(c) \right| (b - a)$
+            
+            
+    \newpage
+    
+    \section{Экстремальное свойство градиента}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f : E \subset \mathbb{R}^m \rightarrow \mathbb{R}$, а точка $a \in \Int (E)$, причём $f$ дифференцируема в точке $a$, тогда
+            
+            $f(a + h) = f(a) + \langle L, h \rangle + o(h)$,
+            
+            тогда вектор $L$ ~--- градиент $f$ в точке $a$.
+            
+            Пусть $\grad f(a) \neq 0$ и $l := \dfrac{ \mathrm{grad} \ f(a) }{ | \mathrm{grad} \ f(a) |  }$. Тогда $l$ ~--- направление наибольшего возрастания функции
+            
+            $\forall h \in \mathbb{R}^m$, $|h| = 1$ следует, что
+            
+            $-|\grad f(a)| \leq \dfrac{\partial f}{\partial h}(a) \leq |\grad f(a)|$ и при $h = \pm l$ достигается равенство (правое или левое)
+            
+        \subsection{Доказательство}
+        
+            $\dfrac{\partial f}{\partial h} (a) = \langle \grad f(a), h \rangle$ ~--- это снова КБШ.
+            
+    \newpage
+    
+    \section{Независимость частных производных от порядка дифференцирования}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f : E \subset\mathbb{R}^2 \rightarrow \mathbb{R}$, точка $(x_0, y_0) \in E$, а также существует $r > 0$, что $B((x_0, y_0), r) \subset E$, и в нём определены $f_{xy}''$ и $f_{yx}''$. Если известно, что $f_{xy}''$ и $f_{yx}''$ непрерывны в $B((x_0, y_0), r)$, то $f_{xy}''(x_0, y_0) = f_{yx}''(x_0, y_0)$
+            
+        \subsection{Доказательство}
+        
+            $\Delta^2 f(h, k) = f(x_0 + h, y_0 + h) - f(x_0 + h, y_0) - f(x_0, y_0 + k) + f(x_0, y_0)$
+            
+            Пусть $\alpha(h) := \Delta^2 f(h, k)$ при фиксированном $k$, $\alpha(0) = 0$. Тогда
+            
+            $\alpha(h) = \alpha(h) - \alpha(0) = \alpha(\overline{h}) \cdot h = (f'_x(x_0 + \overline{h}, y_0 + k) - f'_x (x_0 + \overline{h}, y_0))h = f_{xy}''(x_0 + \overline{h}, y_0 + \overline{k}) \cdot hk$.
+            
+            Пусть $\beta(k) := \Delta^2 f(h, k)$ при фиксированном $h$, аналогично
+            
+            $\beta(k) = f_{yx}''(x_0 + \widetilde{h}, y_0 + \widetilde{k}) \cdot hk$
+            
+            $f_{yx}''(x_0 + \widetilde{h}, y_0 + \widetilde{k}) = f''_{xy} (x_0 + \overline{h}, y_0 + \overline{k})$ при $(h, k) \rightarrow (0, 0)$, для любых $h, k \neq 0$
+            
+    \newpage
+    
+    \section{Полиномиальная формула}
+    
+        \subsection{Формулировка}
+        
+            $(a_1 + a_2 + \ldots + a_m)^r = \sum\limits_{j : |j| = r} \dfrac{r!}{j!} a^j$
+            
+        \subsection{Доказательство}
+        
+            По индукции:
+            
+            $\underline{r = 1}$
+            
+            $(a_1 + a_2 + \ldots + a_m)^1 = a_1 + a_2 + \ldots + a_m$
+            
+            \underline{Переход}
+            
+            Пусть верно для $r$, докажем для $r + 1$
+            
+            $(a_1 + a_2 + \ldots + a_m)^r (a_1 + a_2 + \ldots + a_m) = (a_1 + a_2 + \ldots + a_m) \sum \dfrac{r!}{j_1! j_2! \ldots j_n!} a_1^{j_1} a_2^{j_2} \ldots a_m^{j_m} = \sum \dfrac{r!}{j_1! \ldots j_m!} a_1^{j_1 + 1} a_2^{j_2} \ldots a_m^{j_m} + \sum \dfrac{r!}{j_1! \ldots j_m!} a_1^{j_1} a_2^{j_2 + 1} \ldots a_m^{j_m} + \ldots + \sum \dfrac{r!}{j_1! \ldots j_m!} a_1^{j_1} \ldots a_m^{j_m + 1} =$ 
+            
+            $= \sum\limits_{|j| = r+1 \ j_1 \geq 1} \dfrac{r! j_1}{j_1! \ldots j_m!} a_1^{j_1} \ldots a_m^{j_m} + \ldots + \sum\limits_{|j| = r + 1 \ j_m \geq 1} \dfrac{r! j_m}{j_1! j_2! \ldots j_m!} a_1^{j_1} \ldots a_m^{j_m} =$ 
+            
+            $= \sum\limits_{|j| = r + 1} \dfrac{r! (j_1 + j_2 + \ldots + j_m)}{j_1! \ldots j_m} a_1^{j_1} \ldots a_m^{j_m}$, а сумма всех $j_i$ равна $r + 1$
+            
+    \newpage
+    
+    \section{Лемма о дифференцировании ``сдвига''}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f \in \mathbb{R}^m \rightarrow \mathbb{R}$ и $f \in C^r(E)$
+            
+            $a \in E$, $h \in \mathbb{R}^m$. Пусть $\forall t \in [-1, 1]$ выражение $a + th \in E$
+            
+            $\varphi(t) := f(a + th)$, для $t \in [-1, 1]$. Тогда при $k \leq r$
+            
+            $\varphi^{(k)} (0) = \sum\limits_{|j| = k} \dfrac{k!}{j!}h^j \dfrac{\partial^k f}{\partial x^j}(a)$
+            
+        \subsection{Доказательство}
+        
+            Рассмотрим пример:
+            
+            $\underline{k = 1}$
+            
+            $\varphi'(0) = \dfrac{d}{dt} \left( f(a + th) \right) = \dfrac{\partial f}{\partial x_1} \cdot h_1 + \ldots + \dfrac{\partial f}{\partial x_m} h_m$
+            
+            $\underline{k = 2}$
+            
+            $\varphi''(0) = f''_{x_1 x_1} (a) h^2_1 + f''_{x_2 x_2} (a) h^2_2 + \ldots f''_{x_m x_m}(a) h^2_m + 2 \sum\limits_{i < j} f''_{x_i x_j} (a) h_i h_j$
+            
+            \underline{В общем случае}
+            
+            $\varphi^{(k)}(t) = \sum \sum \ldots \sum \dfrac{\partial^k f(a + th)}{\partial x_{i_1} \ldots \partial x_{i_k}} h_{i_1} \ldots h_{i_k} = \sum \dfrac{k!}{j!} h^j \cdot \dfrac{\partial^k f}{\partial x^j} (a + th)$
+            
+    \newpage
+    
+    \section{Многомерная формула Тейлора (с остатком в форме Лагранжа и Пеано)}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f : C^{r + 1} (E)$, $B(a, r) \subset E$, $x \in B(a, r)$
+            
+            \begin{enumerate}
+            
+                \item Тогда $\exists \Theta \in [0, 1]$, что $f(x) = \sum\limits_{|k| \leq r} \dfrac{f^{(k)}(a)}{k!} (x - a)^k + \sum\limits_{|k| = r + 1} \dfrac{f^{(k)}(a + \Theta (x - a))}{k!}$ ~--- остаток в форме Лагранжа
+            
+                \item Тогда $f(x + h) = \sum\limits_{|k| \leq r} \dfrac{f^{(k)}(x)}{k!} h^k + o(|h|^r)$, причём $h \rightarrow \mathbb{O}$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            Доказывается одним образом:
+            
+            $\varphi(t) := f(a + th)$, где $x = a + h$, а $h = x - a$. Тогда $f(x) = \varphi(a)$ и применим одномерную формулу Тейлора к $\varphi$
+            
+            $\varphi(1) = \varphi(0) + \varphi'(0) \cdot 1 + \ldots + \dfrac{f^{(r)}(a)}{r!}1^r + \dfrac{\varphi^{(r + 1)} (\Theta)}{(r + 1)!}1^{r + 1}$
+            
+            По лемме о дифференцировании сдвига получили то, что хотели.
+            
+    \newpage
+    
+    \section{Теорема о пространстве линейных отображений}
+    
+        \subsection{Формулировка}
+        
+            Пусть $X, Y$ ~--- линейные пространства, тогда $L(X, Y)$ ~--- множество линейных отображений из $X$ в $Y$, $\mathrm{Lin}$ ~--- множество всех линейных отображений из $\mathbb{R}^m$ в $\mathbb{R}^l$
+            
+            Пусть $A \in L(X, Y)$, тогда $\| A \| = \| A \|_{m, l} = \sup \left( |Ax|, x \in \mathbb{R}^m, |x| = 1 \right)$
+            
+            Тогда
+            
+            \begin{enumerate}
+            
+                \item $\| A \|$ ~--- норма в $\mathrm{Lin} (\mathbb{R}^m, \mathbb{R}^l)$, т.е.
+                
+                    \begin{itemize}
+                
+                        \item $\| A \| \geq 0$ и $\| A \| = 0 \Longleftrightarrow A = \mathbb{O}$
+                        
+                        \item $\forall \lambda \in \mathbb{R}$ выполняется $\| \lambda A \| = | \lambda | \| A \|$
+                        
+                        \item $\| A + B \| \leq \| A \| + \| B \|$
+                        
+                    \end{itemize}
+                
+                \item $A, B \in \mathrm{Lin}(\mathbb{R}^m, \mathbb{R}^l)$ выполняется, что $\| BA \| \leq \| B \| \| A \|$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item 
+                
+                    \begin{itemize}
+                    
+                        \item очевидно
+                        
+                        \item очевидно
+                        
+                        \item $|(A + B) x| \leq |A x| + |Bx| \leq \| A \| |x| + \| B \| |x|$
+                        
+                    \end{itemize}
+                
+                \item $|BAx| \leq \| B \| |Ax| \leq \| B \| \| A \| |x|$
+                
+            \end{enumerate}
+        
+    \newpage
+    
+    \section{Лемма об условиях, эквивалентных непрерывности линейного оператора}
+    
+        \subsection{Формулировка}
+        
+            Пусть $X$, $Y$ ~--- нормированные пространства, $A \in \mathrm{Lin}(X, Y)$. Тогда эквивалентны следующую утверждения:
+            
+            \begin{enumerate}
+            
+                \item $A$ ~--- ограничена, т.е. $\| A \| < +\infty$
+                
+                \item $A$ ~--- непрерывна в $O \in X$
+                
+                \item $A$ ~--- непрерывна всюду на $X$
+                
+                \item $A$ ~--- равномерно непрерывно, т.е.
+                
+                    $\forall \varepsilon > 0 : \exists \delta > 0 : \forall x_1, x_2 : |x_1 - x_2| < \delta \Rightarrow |Ax_1 - Ax_2| < \varepsilon$
+                    
+            \end{enumerate}
+        
+        \subsection{Доказательство}
+        
+            $4 \Rightarrow 3$ и $3 \Rightarrow 2$ очевидны
+            
+            $2 \Rightarrow 1$: возьмём $\varepsilon = 1$, тогда $\exists \delta > a : \forall x \in \overline{B(0, \delta)} : |Ax| < 1$. Тогда ясно, что $\| A \| < \dfrac{1}{\delta}$ $\left( \overline{x} = \dfrac{x}{\delta} : |A \overline{x} | < \dfrac{1}{\varepsilon} \right)$
+            
+            $1 \Rightarrow 4 : \forall \varepsilon > 0 : \exists \delta = \dfrac{\varepsilon}{\| A \|} : \forall x_1, x_2 : |x_1 - x_2|$
+            
+    \newpage
+    
+    \section{Теорема Лагранжа для отображений}
+    
+        \subsection{Формулировка}
+        
+            Пусть $F : E \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, дифференцируемо в $E$, а также $a, b \in E : [a, b] \subset E$
+            
+            Тогда $\exists c \in [a, b]$ (или $\exists \Theta \in (0, 1) : c = a + \Theta (b - a)$), что
+            
+            $|F(b) - F(a)| \leq \| F'(c) \| |b - a|$
+        
+        \subsection{Доказательство}
+        
+            $f(t) = F(a + t(b - a))$ при $t \in [0, 1]$ и $f : [0, 1] \rightarrow \mathbb{R}^l$
+            
+            $f'(t) = F'(a + t(b - a)) (b - a)$, по т. Лагранжа $|f(1) - f(0)| \leq |f'(\Theta)|$, т.е.
+            
+            $|F(b) - F(a)| \leq \| F'(c) \| |b - a|$
+            
+    \newpage
+    
+    \section{Теорема об обратимости линейного отображения, близкого к обратимому}
+    
+        \subsection{Вспомогательная лемма}
+        
+            Пусть $B \in \mathrm{Lin}(\mathbb{R}^m, \mathbb{R}^m)$ и $\exists c > 0 : \forall x : |Bx| \geq C|x|$, тогда
+                    
+            $B \in \Omega_m$ и $\| B^{-1} \| \leq \dfrac{1}{c}$
+                    
+        \subsection{Доказательство}
+        
+            $\ker{B} = 0$ ~--- эквивалентно обратимости, тогда
+            
+            $|B^{-1}y| \leq \dfrac{1}{c} |y|$ (заменим $|Bx| = |y|$ и $|x| = |B^{-1}y|$)
+            
+        \subsection{Формулировка}
+        
+            Пусть $A \in \Omega_m$, $B \in \mathrm{Lin}(\mathbb{R}^m, \mathbb{R}^l)$ и $\| A - B \| < \dfrac{1}{\| A^{-1} \|}$, $B$ ~--- близка к $A$ ($\Omega_m$ ~--- множество всех обратимых операторов в $\mathbb{R}^m$), тогда
+            
+            \begin{enumerate}
+            
+                \item $B \in \Omega_m$ (т.е. $\Omega_m$ ~--- открыто)
+                
+                \item $\| B^{-1} \| \leq \dfrac{1}{\| A^{-1} \| - \| A - B \|}$
+                
+                \item $\| A^{-1} - B^{-1} \| \leq \dfrac{\| A^{-1} \|}{\| A^{-1} \|^{-1} - \| A - B \|} \| A - B \|$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item $(1)$ и $(2)$:
+                
+                    $|Bx| = |Ax + (B - A)x| \geq |Ax| - |(B - A)x| \geq \left( \dfrac{1}{\| A^{-1} \|} - \| B - a \| \right) \cdot |x|$
+                    
+                    по условию теоремы множитель $\left( \dfrac{1}{\| A^{-1} \|} - \| B - A \|\right)$ больше нуля, значит выполняется условии вспомогательной леммы и $B$ обратим, значит выполняется и условие $(2)$
+                    
+                \item $A^{-1} - B^{-1} = A^{-1} (B - A) B^{-1}$, значит $\| A^{-1} - B^{-1} \| \leq \| A^{-1} \| \|B - A \| \| B^{-1} \|$
+                    
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Теорема о непрерывно дифференцируемых отображениях}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f : D \in \mathbb{R}^m \rightarrow \mathbb{R}^l$, $D$ ~--- открытое и и $F$ дифференцируемо на $D$, тогда эквивалентны следующие утверждения:
+            
+            \begin{enumerate}
+            
+                \item $F \in C^1(D)$ (т.е. все частные производные непрерывны)
+                
+                \item $F' : D \rightarrow \mathrm{Lin} (\mathbb{R}^m, \mathbb{R}^l)$ ~--- непрерывна, т.е.
+                
+                    $\forall x \in D : \forall \varepsilon > 0 : \exists \delta > 0 : \forall \overline{x} : | x - \overline{x} | < \delta \Rightarrow \| F'(x) - F'(\overline{x}) \| < \varepsilon$
+                    
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item $1 \Rightarrow 2$
+                
+                    $\| A \| \leq \sqrt{\sum{a^2_{ij}}}$, тогда $\| F'(x) - F'(\overline{x}) \| \leq \sqrt{\sum \left( \dfrac{\partial f_i}{\partial x_j} (x) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right)}$
+                    
+                    Пусть $\varepsilon > 0$, тогда возьмём такое $\delta$, что $\left| \dfrac{\partial f_i}{\partial x_j} (x) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right| < \dfrac{\varepsilon}{\sqrt{ml}}$
+                    
+                    Тогда $\|F'(x) - F'(\overline{x}) \| \leq \sqrt{\sum \dfrac{\varepsilon^2}{ml}} = \varepsilon$
+                    
+                \item $2 \Rightarrow 1$
+                
+                    Возьмём $h := (0, 0, \ldots, 1, \ldots, 0)$, тогда
+                    
+                    $| (F'(x) - F'(\overline{x})) h | < \| F'(x) - F'(\overline{x}) \| |h| < \varepsilon$, тогда
+                    
+                    $\sqrt{\sum \left( \dfrac{\partial f_i}{\partial x_j} (x) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right)} < \varepsilon$ при всех $k = 1..m$, значит и $\left| \dfrac{\partial f_i}{\partial x_j} (x) - \dfrac{\partial f_i}{\partial x_j} (\overline{x}) \right| < \varepsilon$
+                    
+            \end{enumerate}
+            
+    \newpage
+        
+    \section{Теорема Ферма. Необходимое условие экстремума. Теорема Ролля}
+    
+        \subsection{Теорема Ферма}
+        
+            \subsubsection{Формулировка}
+            
+                Пусть $f : D \subset \mathbb{R}^m \rightarrow \mathbb{R}^l$, $a$ ~--- точка локального эсктремума, $a \in \Int D$, $f$ ~--- дифференцируема на $D$. Тогда
+                
+                $\forall l \in \mathbb{R}^m$ и $| l | = 1$ верно, что $\dfrac{\partial f}{\partial l}{a} = 0$
+                
+            \subsubsection{Доказательство}
+            
+                $\langle l \rangle$ ~--- прямая через точку $a$ в направлении $l$
+                
+                $f \bigg|_{\langle l \rangle}$ ~--- достаточный экстремум в точке $a$, значит $\varphi(t) = f(a + tl)$ ~--- локальный экстремум при $t = 0$ и
+                
+                $\varphi'(0) = \dfrac{\partial f}{\partial l} (a) = 0$
+                
+        \subsection{Необходимое условие экстремума}
+        
+            \subsubsection{Формулировка}
+            
+                Пусть $f : D \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $D$ ~--- открытое, $a$ ~--- точка локального экстремума, $f$ ~--- дифференцируема на $D$. Тогда $f'(a)$ ~--- нулевой оператор, т.е. все частные производные $\dfrac{\partial f_i}{\partial x_i} (a) = 0$ при любом $i$
+                
+            \subsubsection{Доказательство}
+            
+                Пусть $g(t) = f(a + tl)$, тогда по теореме Ферма $g'(0) = 0$, и из этого следует, что все частные производные равны нулю.
+                
+        \subsection{Теорема Ролля}
+        
+            \subsubsection{Формулировка}
+            
+                Пусть $f : K \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $K$ ~--- компакт, $f$ дифференцируемо на $\Int K$, $f \in C(K)$ и $f \bigg|_{\partial k} \equiv \mathrm{const}$. Тогда существует такой $x_0$, что $f'(x_0) = 0$
+                
+            \subsubsection{Доказательство}
+            
+                По теореме Вейерштрасса $f$ достигает максимума и минимума на $\partial k$, точка $f = \mathrm{const}$ и $f' = 0$
+                
+                Если хотя бы один из не на $\partial k$, то тогда теорема Ферма.
+            
+    \newpage
+    
+    \section{Лемма об оценке квадратичной формы и об эквивалентных нормах}
+    
+        \subsection{Формулировка}
+            
+            \begin{enumerate}
+            
+                \item Пусть $Q(h)$ ~--- положительно определенная форма в $\mathbb{R}^m$, тогда $\exists \gamma_Q > 0$, что $\forall h \in \mathbb{R}^m : O(h) \geq \gamma_Q |h|^2$
+                
+                \item $\rho$ ~--- норма в $\mathbb{R}^m$ и $\exists c_1, c_2 > 0$, тогда $\forall x : c_1 |x| \leq \rho(x) \leq c_2 |x|$
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            \begin{enumerate}
+            
+                \item $S(0, 1)$ ~--- единичная сфера в $\mathbb{R}^m$ и пусть $\gamma_Q := \min\limits_{h \in S} Q(h)$ ~--- существует по т. Вейерштрасса и достигается, значит $\gamma_Q > 0$
+                
+                    $Q(h) = Q \left( |h| \cdot \dfrac{h}{|h|} \right) = |h|^2 \cdot Q \left( \dfrac{h}{|h|} \right) \geq \gamma_Q \cdot |h|^2$
+                    
+                \item $c_1 := \min \rho(x)$ и $c_2 := max \rho(x)$ для всех $x$ из $S(0, 1)$
+                
+                    $\rho(x) = \rho \left( |x| \dfrac{x}{|x|} \right) = |x| \cdot \rho \left( \dfrac{x}{|x|} \right) \geq c_1 |x|$, аналогично доказывается и $c_2$
+                    
+                    Осталось только доказать, что $\rho$ ~--- непрерывна
+                    
+                    $\rho(x - y) = \rho(\sum (x_i - y_i) e_i) \leq \sum \rho((x_i - y_i)e_i) \leq \sum |x_i - y_i| \rho(e_i) \leq |x - y| \cdot \sum \rho(e_i)$
+                    
+            \end{enumerate}
+            
+    \newpage
+    
+    \section{Достаточное условие экстремума}
+    
+        \subsection{Формулировка}
+        
+            Пусть $f : D \subset \mathbb{R}^m \rightarrow \mathbb{R}$, $x_0 \in \Int D$ и $f \in C^2 ( \Int D )$, $\grad f(x_0) = 0$
+            
+            $Q(h) := \partial^2f$, тогда:
+            
+            \begin{enumerate}
+            
+                \item $Q(h)$ ~--- положительно определенная, значит $x_0$ ~--- локальный минимум
+                
+                \item $Q(h)$ ~--- отрицательно определенная, значит $x_0$ ~--- локальный максимум
+                
+                \item $Q(h)$ ~--- неопределенная, значит $x_0$ ~--- не точка экстремума
+                
+                \item $Q(h)$ ~--- положительно/отрицательно определенная вырожденное, то информации недостаточно
+                
+            \end{enumerate}
+            
+        \subsection{Доказательство}
+        
+            $f(x_0 + h) - f(x_0) = 0 + \dfrac{1}{2} \partial^2 f(x_0 + \overline{h}, h) = \dfrac{1}{2} Q(h) + \dfrac{1}{2} \sum f''_{x_i, x_i} (x_0 + \Theta h) + \sum \left( f''_{x_i, x_j} (x_0 + \Theta h) - f''_{x_i, x_j} (x_0) \right)h_i h_j$ ~--- последнее слагаемое стремится к $0$ при $h \rightarrow 0$, значит при мелких $h$ сумма меньше $\dfrac{\gamma_Q}{2^2} |h|^2$ и 
+            
+            $\geq \dfrac{1}{2} \gamma_q |h|^2 - \dfrac{1}{4} \gamma_q |h|^2 = \dfrac{1}{4} \gamma_Q |h|^2$, т.е. $f(x_0 + h) > f(x_0)$, значит $x_0$ ~--- точка локального минимума
+            
+            Аналогично $f(x_0 + \Theta h) < f(x_0)$ ~--- точка локального максимума
+            
+            Пусть теперь $Q(h)$ ~--- не знакоопределён, тогда
+            
+            $2(f(x_0 + th) - f(a)) = Q(th) + \sum(f''_{x_i x_j} (a + \Theta t h) - f''_{x_i x_j}(a)) th_i th_j = t^2 Q(h) + t^2 \sum (f''_{x_i x_j} (a + \Theta t h) - f''_{x_i x_j} (a)) h_i h_j$ ~--- при $t$ это сумма бесконечна мала по модулю
             
 \end{document}
